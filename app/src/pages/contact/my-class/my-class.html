@@ -1,0 +1,49 @@
+<!--
+  Generated template for the MyclassPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>我的班级 <button item-right (click)="add()"><ion-icon name="add" small></ion-icon></button></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div class="content has-header">
+
+    <ion-row>
+      <ion-col col-4>
+        <strong class="col-demo">班级名称</strong>
+      </ion-col>
+      <ion-col col-4>
+        <strong class="col-demo">班级编号</strong>
+      </ion-col>
+      <ion-col col-4>
+        <strong class="col-demo">授课教师</strong>
+      </ion-col>
+    </ion-row>
+
+    <div class="row" *ngFor="let item of listData">
+      <div class="col">
+        <div class="col-demo" align="left">
+          <li>{{item.name}}</li>
+        </div>
+      </div>
+      <div class="col">
+        <div class="col-demo" align="left">
+          <li>{{item.id}}</li>
+        </div>
+      </div>
+      <div class="col" align="left">
+        <div class="col-demo">
+          <li>{{item.teacher}}</li>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

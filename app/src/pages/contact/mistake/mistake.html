@@ -1,0 +1,31 @@
+<!--
+  Generated template for the MistakePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>错题本</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+  <ion-item>
+    错题总数: {{yuNum + shuNum + yingNum}}
+  </ion-item>
+  <ion-item>
+    语文 : {{yuNum}} <button item-right ion-button (click)="toMistakeDetail(1)">查看详情</button>
+  </ion-item>
+  <ion-item>
+    数学 : {{shuNum}} <button item-right ion-button (click)="toMistakeDetail(2)">查看详情</button>
+  </ion-item>
+  <ion-item>
+    英语 : {{yingNum}} <button item-right ion-button (click)="toMistakeDetail(3)">查看详情</button>
+  </ion-item>
+</ion-list>
+</ion-content>

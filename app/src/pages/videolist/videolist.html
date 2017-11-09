@@ -1,0 +1,43 @@
+<!--
+  Generated template for the VideolistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>搜索列表</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+  <!--<div id="container">
+      <div class="box" *ngFor="let image of img_data" (click)="toOperationPage(image.id)">
+          <div class="box_img">
+              <img src="{{image.icon}}" alt="">
+          </div>
+          <p style="margin: 5px 0px;">{{image.cname}}</p>
+          <p style="margin: 5px 0px;">今天 10：00-11：30</p>
+          <span>{{image.description}}</span>
+          <button >播放</button>
+      </div>
+  </div>-->
+          <ion-row>
+          <ion-col col-6 *ngFor="let image of img_data">
+                 <div class="box" *ngFor="let image of img_data" (click)="toOperationPage(image.id)">
+          <div class="box_img">
+              <img src="{{image.icon}}" alt="">
+          </div>
+          <p style="margin: 5px 0px;">{{image.cname}}</p>
+          <!--<p style="margin: 5px 0px;">今天 10：00-11：30</p>-->
+          <span>{{image.description}}</span>
+          <!--<button >播放</button>-->
+      </div>
+          </ion-col>
+        </ion-row>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content loadingSpinner="circles" loadingText="正在加载...">
+      </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

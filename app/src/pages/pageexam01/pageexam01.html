@@ -1,0 +1,70 @@
+<!--
+  Generated template for the Pageexam01Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>pageexam01    <button (click)="add()"><img src="../../assets/icon/收藏.png" height="18" width="18"/></button></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <label>集合 3/4 </label>
+  </ion-item>
+
+  <ion-list inset>
+    <label ion-text *ngIf="listDetailData">
+      3、({{listDetailData[number].subjectKind}}) {{listDetailData[number].titleBody}}<br>
+      <ion-list>
+        <button (click)="nextSubject()">
+          A、{{listDetailData[number].A}}<br>
+        </button><br>
+
+        <button (click)="nextSubject()">
+          B、{{listDetailData[number].B}}<br>
+        </button><br>
+        <button (click)="nextSubject()">
+          C、{{listDetailData[number].C}}<br>
+        </button><br>
+        <button (click)="nextSubject()">
+          D、{{listDetailData[number].D}}<br>
+        </button><br>
+      </ion-list>
+
+    </label>
+  </ion-list>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+
+  <button (click)="beforeSubject()">上一题</button>   <button (click)="nextSubject()">下一题</button>
+
+</ion-content>

@@ -1,0 +1,106 @@
+<ion-header>
+  <button style="position: absolute;z-index: 12;right: 2rem;top: 1rem;padding: 1rem;border-radius: 0.5rem;" (click)="search()">搜索</button>
+  <!--<ion-navbar>
+    <ion-searchbar (click)="search()" (ionInput)="getItems($event)">
+    </ion-searchbar>
+  </ion-navbar>-->
+    <ion-navbar>
+    <ion-searchbar (ionInput)="getItems($event)">
+    </ion-searchbar>
+  </ion-navbar>
+  <ion-list *ngIf="inpustring!=''">
+  <ion-item *ngFor="let item of items" (click)="search()">
+    {{ item.cname}}
+  </ion-item>
+</ion-list>
+</ion-header>
+
+<ion-content padding class="card-background-page">
+  
+    <!-- <ion-slides #mySlider style="width:100%;height:200px">
+        <ion-slide  *ngFor="item of urlARR">
+        <img [src]="" >
+        </ion-slide>
+        </ion-slides> -->
+        <!-- <video width="320" height="240" controls>
+            <source src="http://www.runoob.com/try/demo_source/mov_bbb.mp4"  type="video/mp4">
+            您的浏览器不支持 HTML5 video 标签。
+          </video> -->
+        <ion-slides *ngIf="xplainindexData"  #ionSlides loop="true" autoplay="3000" pager (ionSlideAutoplayStop)="autoPlay()" style="width:100%;height:auto">
+            <ion-slide *ngFor="let slide of xplainindexData.content[0].children"(click)="tourl(slide.urllink)">
+               <img src="{{slide.piclink}}"/> 
+              <!--<img src="assets/icon/viod3.jpg"/>-->
+             <p></p>
+            </ion-slide>
+        
+          
+          </ion-slides>
+          <div ion-row class="imgTabs" *ngIf="xplainindexData">
+              <div ion-col (click)="recordingViod(i)" *ngFor="let item of xplainindexData.content[1].children;let i = index;">
+                  <img src="{{item.icon}}"/>
+                  <!-- <img src="assets/icon/icon02.png"/> -->
+                  <br>
+                  <strong>{{item.title}}</strong>
+              </div>
+
+          </div>
+          <h1>推荐课程</h1>
+          <div *ngIf="xplainindexData">
+            <ion-card (click)="toOperationPage(item.id)" *ngFor="let item of xplainindexData.content[2].children">
+                <!--<img src="assets/icon/viod3.jpg"/>-->
+                 <img src="{{item.icon}}"/> 
+                <!--<div class="card-title" style="color: #f00;font-weight: bolder;">{{item.subject}}</div>
+                <div class="card-subtitle"style="color: #f00;font-weight: bolder;">{{item.description}}</div>-->
+              </ion-card>
+          </div>
+   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="正在加载~" [ngClass]="{'display-none':displayValue}">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+            <!-- <ion-card (click)="toOperationPage(0)">
+                <img src="assets/icon/viod3.jpg"/>
+                <div class="card-title" style="color: #f00;font-weight: bolder;">正标题</div>
+                <div class="card-subtitle"style="color: #f00;font-weight: bolder;">副标题</div>
+              </ion-card>
+              <ion-card (click)="toOperationPage(0)">
+                  <img src="assets/icon/viod3.jpg"/>
+                  <div class="card-title" style="color: #f00;font-weight: bolder;">正标题</div>
+                  <div class="card-subtitle"style="color: #f00;font-weight: bolder;">副标题</div>
+                </ion-card>
+                <ion-card (click)="toOperationPage(0)">
+                    <img src="assets/icon/viod3.jpg"/>
+                    <div class="card-title" style="color: #f00;font-weight: bolder;">正标题</div>
+                    <div class="card-subtitle"style="color: #f00;font-weight: bolder;">副标题</div>
+                  </ion-card>
+                  <ion-card (click)="toOperationPage(0)">
+                      <img src="assets/icon/viod3.jpg"/>
+                      <div class="card-title" style="color: #f00;font-weight: bolder;">正标题</div>
+                      <div class="card-subtitle"style="color: #f00;font-weight: bolder;">副标题</div>
+                    </ion-card>
+                    <ion-card (click)="toOperationPage(0)">
+                        <img src="assets/icon/viod3.jpg"/>
+                        <div class="card-title" style="color: #f00;font-weight: bolder;">正标题</div>
+                        <div class="card-subtitle"style="color: #f00;font-weight: bolder;">副标题</div>
+                      </ion-card> -->
+            
+          <!-- <div class="imgTabs">
+            <div class="imgbox">
+                <img src="assets/icon/gouxiang.png"/>
+                <br>
+                <strong>直播课</strong>
+            </div>
+            <div class="imgbox">
+                <img src="assets/icon/gouxiang.png"/>
+                <br>
+                <strong>录播课</strong>
+            </div>
+            <div class="imgbox">
+                <img src="assets/icon/gouxiang.png"/>
+                <br>
+                <strong>考试指</strong>
+            </div>
+          </div> -->
+  <!-- <button ion-button (click)="recordingViod()">录播课</button> -->
+</ion-content>

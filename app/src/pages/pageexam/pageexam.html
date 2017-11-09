@@ -1,0 +1,140 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title style="text-align: center;">
+            <span *ngIf="navParams.data.type==1">练习-</span>
+      <span *ngIf="navParams.data.type==2">真题-</span>
+      <span *ngIf="listDetailData&&listDetailData[0].subjectKind==1">语文</span>
+      <span *ngIf="listDetailData&&listDetailData[0].subjectKind==2">数学</span>
+      <span *ngIf="listDetailData&&listDetailData[0].subjectKind==3">英语</span>
+
+      <button (click)="add()">
+        <img src="../../assets/icon/收藏.png" height="18" width="18"/>
+        剩余：{{m}}：{{s}}
+      </button>
+      
+    </ion-title>
+  </ion-navbar>
+
+
+</ion-header>
+<ion-content padding>
+  <div *ngIf="listDetailData" style="text-align: right;" ><span style="color: #4edff6;">{{currentIndex+1}}</span> /{{listDetailData.length}}</div>
+          <ion-slides #ionSlides autoplay="false"  loop="false" (ionSlideDidChange)="ionSlideDidChange()" pager style="width:100%;height:auto">
+            <ion-slide *ngFor="let item of listDetailData;let i=index">
+              <div  *ngIf="item.type==1" >
+                <!--<h1>单选题</h1>
+                题目：
+                <br>-->
+                <div style="text-align: left;">{{listDetailData[i].titleBody}}?</div>
+                 
+                 <br>
+                 <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='A'}"(click)="selectclick(i,'A')"><button>A</button> <span style="margin-left: 20px;">{{listDetailData[i].A}}</span></div>
+                 <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='B'}"(click)="selectclick(i,'B')"><button>B</button><span style="margin-left: 20px;">{{listDetailData[i].B}} </span></div>
+                 <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='C'}"(click)="selectclick(i,'C')"><button>C</button><span style="margin-left: 20px;">{{listDetailData[i].C}} </span></div>
+                 <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='D'}"(click)="selectclick(i,'D')"><button>D</button><span style="margin-left: 20px;">{{listDetailData[i].D}} </span></div>
+                 <span *ngIf="listDetailData[i].showanswer">答案：{{listDetailData[i].answer}}</span>
+                <br>
+              </div>
+              <div  *ngIf="item.type==2" >
+                <!--<h1>填空题</h1>
+                                <br>-->
+                                <div style="text-align: left;">{{listDetailData[i].titleBody}}?</div>
+                 <!--{{listDetailData[i].titleBody}}?-->
+                 <br>
+                 <ion-input style="border: solid 1px #aeaeae;height: 35px;border-radius: 10px;" color="danger" placeholder="请输入..." clearOnEdit="true" [(ngModel)]='listDetailData[i].useranswer' (ionInput)="tiankong()"></ion-input>
+                 <br>
+                 <span *ngIf="listDetailData[i].showanswer">答案：{{listDetailData[i].answer}}</span>
+              </div>
+              <div  *ngIf="item.type==3" >
+                <!--<h1>判断题</h1>
+                                <br>-->
+                                <div style="text-align: left;">{{listDetailData[i].titleBody}}?</div>
+                                <div style="margin: 10px;">
+                                      <div class="selekuang panduan" [ngClass]="{'selectclass':listDetailData[i].useranswer=='1'}"(click)="selectclick(i,'1')">
+                                      <ion-icon name="ios-checkmark-circle"></ion-icon>
+                                      <span style="margin-left: 20px;">正确</span>
+                                    </div>
+                                    <div class="selekuang panduan" [ngClass]="{'selectclass':listDetailData[i].useranswer=='0'}"(click)="selectclick(i,'0')">  
+                                      <ion-icon name="ios-close-circle"></ion-icon>
+                                      <span style="margin-left: 20px;">错误</span>
+                                    </div>
+                                </div>
+                 <br>
+                 <span *ngIf="listDetailData[i].showanswer">答案：{{listDetailData[i].answer}}</span>
+              </div>
+              <div  *ngIf="item.type==4" >
+                <!--<h1>解答题</h1>
+                                <br>-->
+                                <div style="text-align: left;">{{listDetailData[i].titleBody}}?</div>
+                 <!--{{listDetailData[i].titleBody}}?-->
+                 <br>
+                <textarea placeholder="输入文本..." style="border: solid 1px #aeaeae;height: 350px;border-radius: 10px;width: 400px;resize: none;" [(ngModel)]='listDetailData[i].useranswer'></textarea>
+                 <br>
+                 <span *ngIf="listDetailData[i].showanswer">答案：{{listDetailData[i].answer}}</span>
+              </div>
+              <button ion-button (click)="shangSubject(i)">
+                上一题
+              </button>
+              <button  ion-button (click)="nextSubject(i)">
+                下一题
+              </button>
+              <button *ngIf="navParams.data.type==2"  ion-button (click)="tijiaoSubject()">
+                提交 
+              </button>
+            </ion-slide>
+        
+          
+          </ion-slides>
+
+</ion-content>
+<div class="jieda" *ngIf="daantanchuang">
+<div>
+<!--  
+  <span class="biaoji zhengque">正确</span>,
+  <span class="biaoji cuowu">错误</span>
+  <br>
+  <br>
+  已完成：{{yiwanc}} 未完成：{{weiwanc}}-->
+    <div style="padding: 0px 25px;font-size: 18px;"><strong>真题</strong><span style="float: right;">总计:{{listDetailData.length}}题</span></div>
+    <div class="Bars" style="border: 1px solid #4edff6;"> 
+      <button class="textbutton" style="border: 1px solid #4edff6;">正确</button>
+        <div style="background:#4edff6;" [ngStyle]="zehgnquesty" > 
+        </div> 
+        <span class="counttext">{{zehgnque}}题</span>
+    </div> 
+        <div class="Bars" style="border: 1px solid #F96067;"> 
+          <button class="textbutton" style="border: 1px solid #F96067;">错误</button>
+        <div style="background:#F96067;" [ngStyle]="cuowusty"> 
+        </div> 
+        <span class="counttext">{{cuowu}}题</span>
+    </div> 
+        <div class="Bars" style="border: 1px solid #C9C9C9;"> 
+          <button class="textbutton" style="border: 1px solid #C9C9C9;">未做</button>
+        <div style="background:#C9C9C9;" [ngStyle]="weiwancsty"> 
+        </div> 
+        <span class="counttext">{{weiwanc}}题</span>
+    </div> 
+        <div class="Bars" style="border: 1px solid #999;"> 
+          <button class="textbutton" style="border: 1px solid #999;">其它</button>
+        <div style="background:#999;" [ngStyle]="qitasty"> 
+        </div>
+        <span class="counttext">{{qita}}题</span> 
+    </div> 
+        <ion-row>
+      <ion-col>
+        <ion-icon name="clock"></ion-icon>剩余时间：{{userendtime}}
+      </ion-col>
+      <ion-col>
+        <ion-icon name="calendar"></ion-icon>日期：{{datestr}}
+      </ion-col>
+    </ion-row>
+  <br>
+ 
+  </div>
+  <div style="width: 100%;height: 100%;background-color: #F9F9F9;">
+  <button *ngFor="let items of listDetailData;let j=index" (click)="tozuotijieshi(j)" [ngClass]="{'qitadaan':listDetailData[j].jieguo==4,'weijieda':listDetailData[j].jieguo==0,'yiweijieda':listDetailData[j].jieguo==1,'zhengque':listDetailData[j].jieguo==2,'cuowu':listDetailData[j].jieguo==3}">{{j+1}}</button>
+
+  </div>
+</div>

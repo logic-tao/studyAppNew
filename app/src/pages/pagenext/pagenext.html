@@ -1,0 +1,65 @@
+
+<ion-header>
+  <!--<ion-navbar>
+      <ion-title *ngIf="navParams.data.type==1">专项练习</ion-title>
+      <ion-title *ngIf="navParams.data.type==2">专项真题</ion-title>
+  </ion-navbar>-->
+    <ion-navbar>
+    <ion-searchbar (ionInput)="getItems($event)"  [(ngModel)]='inpustring' style="width: 85%;">
+    </ion-searchbar>
+  </ion-navbar>
+  <div *ngIf="inpustring!=''" style="position: fixed;z-index: 15;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.5);">
+  <ion-list>
+  <ion-item *ngFor="let item of items" (click)="itemSelectedserach(item.id)">
+    {{ item.cname}}
+  </ion-item>
+</ion-list>
+  </div>
+      <ion-icon name="backspace" (click)="close()" style="font-size: 25px;position: absolute;z-index: 15;right: 90px;top: 25px;"></ion-icon>
+
+
+         <ion-select item-right [(ngModel)]="subject" interface="popover" style="position: absolute;right: 10px;top: 0;" (ngModelChange)="version=$event; changeVersion()">
+          <ion-option value="1"  >语文</ion-option>
+          <ion-option value="2"  >数学</ion-option>
+          <ion-option value="3"  >英语</ion-option>
+        </ion-select>
+</ion-header>
+
+<ion-content  padding>
+  <div>
+
+        <!--<ion-searchbar (ionInput)="getItems($event)" [(ngModel)]='inpustring'>
+          
+    </ion-searchbar>
+  <div *ngIf="inpustring!=''" style="position: absolute;z-index: 15;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.5);">
+  <ion-list>
+    <ion-item *ngFor="let item of items" (click)="itemSelectedserach(item.id)">
+      {{ item.cname }}
+    </ion-item>
+  </ion-list>
+  </div>-->
+
+  </div>
+<!--<ion-searchbar  [formControl]="titleFilter"></ion-searchbar>-->
+
+  <ion-list inset>
+      <div ion-item *ngFor="let item of this.listData;let i=index;" (click)="itemSelected(i)">
+          <!--<span style="width: 20px;height: 20px;border-radius: 10px;background-color: #2cd3eb;position: absolute;left: 0px;"></span>-->
+          <img src="assets/icon/yuan.png"/>
+          <span style="margin-left: 20px;">{{item.cname}}</span>
+          <img *ngIf="!item.open" src="assets/icon/you.png" style="width: 25px;float: right;"/>
+          <img *ngIf="item.open" src="assets/icon/xia.png" style="width: 25px;float: right;"/>
+          <div *ngIf="item.open">
+            <div ion-item *ngFor="let itemch of item.children;let j=index;" (click)="itemSelectedchild($event,i,j)">
+              <span style="font-size: 25px;margin-right: 20px;font-weight: bold;">-</span>
+              {{itemch.cname}}</div>
+          </div>
+      </div>
+
+  </ion-list>
+</ion-content>
+
+
+
+
+

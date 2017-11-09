@@ -1,0 +1,27 @@
+page-page-new {
+  ion-slide {
+    background-color: #2ec95c;
+  }
+
+  ion-slide img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  .slide-zomm {
+    position: relative;
+  }
+
+
+
+  #goHome{
+    position: absolute;
+    bottom: 10%;
+    left:50%;
+    margin-left: -50px;
+    width: 100px;
+    height: 35px;
+    display: block;
+  }
+
+}
