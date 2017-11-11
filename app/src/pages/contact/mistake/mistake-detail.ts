@@ -19,35 +19,34 @@ import {MistakeListPage} from "./mistake-list";
 })
 export class MistakeDetailPage {
   // 接收题目
-  test: any;
+  test: Object;
+  // 接收知识点id
+  cid: any;
   // 接收知识点名字
-  subject: Object;
+  cname:string;
   //登录用户ID
-  login_id: string;
+  user: string = "5";
   //知识点id
   subject_id: string;
   //题目序号
   test_number: number;
-
-  //sss
-
+  //题目总数
+  count:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
     this.test_number = 1;
-    this.subject = navParams.get("subject");
-    this.subject_id = navParams.get("kid");
-    this.login_id = '1111';
-    //this.subject_id = '11';
+    this.cid = navParams.get("cid");
+    this.cname = navParams.get("subject");
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PagenextPage');
-    console.log(this.subject_id);
-    this.http.request('httP://101.201.238.157/index/requestMess')
+    console.log('ionViewDidLoad MistakeDetailPage');
+    this.http.request("http://101.201.238.157/index/request_wrong_test/"+this.user+"/1")
       .subscribe((res: Response) => {
         this.test = res.json();
+        console.log(this.test);
+        this.count = res.json().length;
       });
-    console.log(this.test);
 
   }
 
@@ -58,7 +57,7 @@ export class MistakeDetailPage {
 
   // 跳转到下一页 或返回知识点列表
   nextSubject(){
-    if (this.test_number < this.test.length) {
+    if (this.test_number < this.count) {
       this.test_number ++;
     }else {
       this.navCtrl.pop();
@@ -86,7 +85,6 @@ export class MistakeDetailPage {
     this.navCtrl.push(PageexamPage);
 
   }
-
 
 
 }

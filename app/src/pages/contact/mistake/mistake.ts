@@ -17,53 +17,37 @@ import {Http,Response} from "@angular/http";
 })
 export class MistakePage {
   //用户id
-  login_id:string = '1111';
+  user:string = '5';
   //接收数据
-  yuNum:object;
-  shuNum:object;
-  yingNum:object;
-
-  private subjects: Subject[] = [
-    new Subject(1,"语文",8),
-    new Subject(2,"数学",4),
-    new Subject(3,"英语",6),
-
-  ];
+  data:any;
+  //错题数
+  yuNum:string;
+  shuNum:string;
+  yingNum:string;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http) {
+
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MistakePage');
 
-    this.http.request('httP://101.201.238.157/index/request4/' + this.login_id + '/' +'1')
+    this.http.request('httP://101.201.238.157/index/request_wrong_count/' + this.user)
       .subscribe((res: Response) => {
-        this.yuNum = res.json();
-      });
-    this.http.request('httP://101.201.238.157/index/request4/' + this.login_id + '/' +'2')
-      .subscribe((res: Response) => {
-        this.shuNum = res.json();
-      });
-    this.http.request('httP://101.201.238.157/index/request4/' + this.login_id + '/' +'3')
-      .subscribe((res: Response) => {
-        this.yingNum = res.json();
+        this.yuNum = res.json()["1"];
+        this.shuNum = res.json()["2"];
+        this.yingNum = res.json()["3"];
+
       });
   }
 
-  toMistakeDetail(id:number) {
+  toMistakeDetail(id) {
     this.navCtrl.push(MistakeListPage,{
       id:id
     });
   }
 }
 
-export class Subject {
 
-  constructor(public subjectID: number,
-              public name: string,
-              public wrongNumber: number,
-              )
-     {
-  }
-}

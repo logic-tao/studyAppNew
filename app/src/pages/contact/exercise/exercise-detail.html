@@ -8,13 +8,13 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-list *ngIf="item">
+<ion-content padding  *ngIf="item">
+  <ion-list>
     <ion-item > {{item.cname}}  <span item-right>练习时间:</span></ion-item>
-    <ion-item>正确 3/4<span item-right *ngIf="time">{{time | date:'yyyy:MM:dd HH:mm:ss' }}</span></ion-item>
+    <ion-item>正确:{{correct}}/{{count}} <span item-right>{{t}}</span></ion-item>
   </ion-list>
-  <ion-row>
-    <button *ngFor="let test of tests" ion-button large round [color]="test.right ? '':'danger'"
-            (click)="itemSelected(item,test.id)">{{test.id}}</button>
-  </ion-row>
+
+    <button *ngFor="let test of data;let i = index" ion-button outline round  [color]="(test.answer == an) ? '':'danger'"
+            (click)="itemSelected(item.id,i + 1,item.cname)">{{i + 1}}</button>
+
 </ion-content>

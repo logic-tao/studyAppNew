@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Http,Response} from "@angular/http";
 import {ExerciseDetailPage} from "./exercise-detail";
-import {CoreProvider} from "../../../providers/core/core";
 
 /**
  * Generated class for the ExercisePage page.
@@ -22,9 +21,10 @@ export class ExercisePage {
   listData: any;
   // 课程
   subject: string ="1";
-  subjectNum: string="1";
+  // 用户
+  user: string = "5";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private  http: Http, private coreService: CoreProvider,
+  constructor(public navCtrl: NavController, public navParams: NavParams,private  http: Http,
               public app: App) {
   }
 
@@ -32,40 +32,42 @@ export class ExercisePage {
     console.log('ionViewDidLoad ExercisePage');
 
     //进入页面请求知识点
-    this.http.request(this.coreService.baseUrl + "examList/?cid=" + this.subject + "&type=1")
+    this.http.request("http://101.201.238.157/index/request_record_list/"+this.user+"/" + this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
       });
 
   }
+
+
 
   // itemSelected(item){
   //   this.navCtrl.push(ExerciseDetailPage,{subject:item});
   // }
 
   //请求不同科目的知识点
-  change(value:string) {
-    this.subject = value;
-    this.http.request(this.coreService.baseUrl + "examList/?cid=" + this.subject + "&type=1")
+  segmentChanged() {
+    //console.log(event.value);
+    this.http.request("http://101.201.238.157/index/request_record_list/"+this.user+"/" + this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
-        console.log(this.listData);
       });
   }
+
 
 
   itemSelectedchild(event,j,itemch){
     event.stopPropagation();
     //this.app.getRootNav().push('PageexamPage',{type:0,id:1});
-    this.navCtrl.push(ExerciseDetailPage,{subject:itemch});
+    this.navCtrl.push(ExerciseDetailPage,{subject:itemch,cid:itemch.id});
     console.log(j)
   }
 
   itemSelected(j,item){
     console.log(this.listData[j])
-    if(this.listData[j].children.length==0){
+    if(this.listData[j].sub_knowledege.length==0){
       //this.app.getRootNav().push('PageexamPage',{type:0,id:this.listData[j].id});
-      this.navCtrl.push(ExerciseDetailPage,{subject:item});
+      this.navCtrl.push(ExerciseDetailPage,{subject:item,cid:item.id});
     }else{
       for (var i = 0; i < this.listData.length; i++) {
         if(i==j){
@@ -82,22 +84,22 @@ export class ExercisePage {
   }
 
 
-  Selected(subject){
-    this.subjectNum = subject;
-    this.http.request('http://101.201.238.157/index.php/demo/index/examList?cid='+this.subjectNum+'&type=1')
-      .subscribe((res: Response) => {
-
-        console.log(res.url);
-        //console.log(res.json().data);
-        this.listData = res.json();
-        for (var i = 0; i < this.listData.length; i++) {
-          this.listData[i].open=false
-          this.listData[i].arr=[3,4,5]
-        }
-      });
-
-
-  }
+  // Selected(subject){
+  //   this.subjectNum = subject;
+  //   this.http.request('http://101.201.238.157/index.php/demo/index/examList?cid='+this.subjectNum+'&type=1')
+  //     .subscribe((res: Response) => {
+  //
+  //       console.log(res.url);
+  //       //console.log(res.json().data);
+  //       this.listData = res.json();
+  //       for (var i = 0; i < this.listData.length; i++) {
+  //         this.listData[i].open=false
+  //         this.listData[i].arr=[3,4,5]
+  //       }
+  //     });
+  //
+  //
+  // }
 
 
 

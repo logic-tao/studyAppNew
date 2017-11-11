@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {Http,Response} from "@angular/http";
+import {RightDetailPage} from "./right-detail";
 
 /**
  * Generated class for the ExerciseDetailPage page.
@@ -16,38 +17,58 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ExerciseDetailPage {
 
-  color: string = '';
-
-  private tests: Test[] = [
-    new Test("1",true,1),
-    new Test("2",true,2),
-    new Test("3",false,3),
-    new Test("4",true,4),
-
-  ]
+  //subjectID
   item: Object;
-  time: Date = new Date();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  //接收数据
+  data: Object;
+  //知识点id
+  cid: string;
+  //用户
+  user:string = "5";
+
+  //测试答案
+  an:string = "B";
+  //题目总数
+  count: any;
+  //做题时间
+  t:string;
+  //正确数量
+  correct: number = 0;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http) {
     this.item = navParams.get("subject");
+
+    this.cid = this.navParams.get("cid");
   }
 
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ExerciseDetailPage');
+
+
+    this.http.request("http://101.201.238.157/index/request_record_test/"+this.user+"/" + this.cid)
+      .subscribe((res: Response) => {
+        this.data = res.json();
+        this.count = res.json().length;
+
+        //获取做题时间
+        this.t = this.data[0].uptime;
+
+        //获取正确题目数
+        for (var a of res.json()){
+          if (a.answer == this.an) {
+            this.correct = this.correct + 1;
+          }
+        }
+      });
+
   }
 
-  itemSelected(item,id) {
-   // this.navCtrl.push(MistakeDetailPage,{subject:item,testID:id});
+  itemSelected(item,id,cname) {
+    this.navCtrl.push(RightDetailPage,{cid:item,test_number:id,cname:cname});
   }
 
 }
 
-export class Test {
-  constructor(public name:string,
-              public right:boolean,
-              public id:number
-              ){
 
-  }
-}

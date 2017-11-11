@@ -25,12 +25,13 @@
         英语
     </ion-segment-button>
   </ion-segment>
-
-  <ion-list>
+  <ion-card>
+  <ion-list inset>
     <p  *ngFor="let item of listData">
       <button ion-item *ngIf="item.cid==subject">
         {{item.cname}}
       </button>
     </p>
   </ion-list>
+  </ion-card>
 </ion-content>

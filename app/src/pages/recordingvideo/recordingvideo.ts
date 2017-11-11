@@ -39,9 +39,9 @@ export class RecordingvideoPage {
       res => {
         if(res.code==200){
           this.vidoaarrData=res.content.lessions
-          // for (var i = 0; i < this.vidoaarrData.length; i++) {
-          //   this.vidoaarrData[i].icon=BASEURLIMG+this.vidoaarrData[i].icon
-          // }
+          for (var i = 0; i < this.vidoaarrData.length; i++) {
+            this.vidoaarrData[i].icon=BASEURLIMG+this.vidoaarrData[i].icon
+          }
           
         }
         console.log(res)

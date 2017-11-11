@@ -45,18 +45,18 @@ export class LoginSliderPage {
     this.slider.slideTo(2);
   }
   usersendsms(){
-    
+
         let servedata={mobile:this.mobile}
           // mobile	是	string	手机号
       this.appService.usersendsms(servedata).then(
           res => {
             this.code='123456'
             // this.navCtrl.setRoot(TabsPage);
-            // this.app.getRootNav().push(TabsPage); 
+            // this.app.getRootNav().push(TabsPage);
             // this.appComponent.presentToast('注册成功!');
             // this.goToLogin()
             // this.slides.startAutoplay();
-            // this.appComponent.presentToast('登录成功!');  
+            // this.appComponent.presentToast('登录成功!');
           },
           error=>{
             this.appComponent.presentToast('登录失败!');
@@ -70,13 +70,14 @@ export class LoginSliderPage {
           res => {
             this.codeback='123456'
             // this.navCtrl.setRoot(TabsPage);
-            // this.app.getRootNav().push(TabsPage); 
+            // this.app.getRootNav().push(TabsPage);
             // this.appComponent.presentToast('注册成功!');
             // this.goToLogin()
-            // this.slides.startAutoplay();  
+            // this.slides.startAutoplay();
           },
           error=>{
             this.appComponent.presentToast('登录失败!');
+
           }
       )
   }
@@ -88,8 +89,8 @@ export class LoginSliderPage {
     this.innerSlider.slidePrev();
   }
   login() {
-    // this.app.getRootNav().push(TabsPage); 
-    // this.app.getRootNav().push(TabsPage); 
+    // this.app.getRootNav().push(TabsPage);
+    // this.app.getRootNav().push(TabsPage);
     let servedata={mobile:this.mobilelogin,password:this.passwordlogin}
           // mobile	是	string	手机号
       // password	是	string	密码
@@ -98,11 +99,11 @@ export class LoginSliderPage {
         if(res.code==200){
           res.content.userinfo.tokenId=res.content.tokenId
           this.appComponent.userinfo=res.content.userinfo
-          this.appComponent.presentToast('登录成功!'); 
-          this.app.getRootNav().push(TabsPage); 
+          this.appComponent.presentToast('登录成功!');
+          this.app.getRootNav().push(TabsPage);
         }else{
           this.appComponent.presentToast(res.message);
-        } 
+        }
       },
       error=>{
         this.appComponent.presentToast('登录失败!');
@@ -122,7 +123,7 @@ export class LoginSliderPage {
       res => {
         this.appComponent.presentToast('注册成功!');
         this.goToLogin()
-        // this.slides.startAutoplay();  
+        // this.slides.startAutoplay();
       },
       error=>{
         // alert('错误')
@@ -145,8 +146,8 @@ signupback(){
       res => {
         // this.appComponent.presentToast('设置成功!');
         // this.goToLogin()
-        this.app.getRootNav().push(TabsPage); 
-        // this.slides.startAutoplay();  
+        this.app.getRootNav().push(TabsPage);
+        // this.slides.startAutoplay();
       },
       error=>{
         // alert('错误')

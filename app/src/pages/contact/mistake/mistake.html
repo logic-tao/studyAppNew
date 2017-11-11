@@ -14,18 +14,20 @@
 
 
 <ion-content padding>
-<ion-list>
+  <ion-card>
+<ion-list inset>
   <ion-item>
-    错题总数: {{yuNum + shuNum + yingNum}}
+    错题总数: <span item-right> {{yuNum + shuNum + yingNum}}</span><button item-right ion-button (click)="toMistakeDetail('1')">详情</button>
   </ion-item>
   <ion-item>
-    语文 : {{yuNum}} <button item-right ion-button (click)="toMistakeDetail(1)">查看详情</button>
+    语文 : <span item-right>{{yuNum}}</span> <button item-right ion-button (click)="toMistakeDetail('1')">详情</button>
   </ion-item>
   <ion-item>
-    数学 : {{shuNum}} <button item-right ion-button (click)="toMistakeDetail(2)">查看详情</button>
+    数学 : <span item-right>{{shuNum}}</span> <button item-right ion-button (click)="toMistakeDetail('2')">详情</button>
   </ion-item>
   <ion-item>
-    英语 : {{yingNum}} <button item-right ion-button (click)="toMistakeDetail(3)">查看详情</button>
+    英语 : <span item-right>{{yingNum}}</span> <button item-right ion-button (click)="toMistakeDetail('3')">详情</button>
   </ion-item>
 </ion-list>
+  </ion-card>
 </ion-content>

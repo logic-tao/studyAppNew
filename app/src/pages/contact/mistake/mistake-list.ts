@@ -17,34 +17,56 @@ import {MistakeDetailPage} from "./mistake-detail";
 })
 export class MistakeListPage {
   // 接收数据
-  mistakeData: Object;
+  listData: any;
   // 科目
-  subject: number;
+  subject: string;
   //登录用户ID
-  login_id: string;
+  user: string = "5";
+
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
     this.subject = navParams.get("id");
-    this.login_id = "1111";
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MistakelistPage');
-    // 网络请求
-    //http://js onplaceholder.typicode.com/photos
 
-
-    this.http.request('httP://101.201.238.157/index/request2/' + this.login_id)
+    this.http.request("http://101.201.238.157/index/request_record_list/" + this.user + "/" + this.subject)
       .subscribe((res: Response) => {
-        this.mistakeData = res.json();
+        this.listData = res.json();
+        console.log(this.listData);
       });
   }
 
-  itemSelected(item,kid){
-    console.log(kid);
-    this.navCtrl.push(MistakeDetailPage,{type:0,id:1});
+
+  itemSelectedchild(event, j, itemch) {
+    event.stopPropagation();
+    //this.app.getRootNav().push('PageexamPage',{type:0,id:1});
+    this.navCtrl.push(MistakeDetailPage, {subject: itemch.cname, cid: itemch.id});
+    console.log(j)
   }
 
+  itemSelected(j, item) {
+    console.log(this.listData[j])
+    if (this.listData[j].sub_knowledege.length == 0) {
+      //this.app.getRootNav().push('PageexamPage',{type:0,id:this.listData[j].id});
+      this.navCtrl.push(MistakeDetailPage, {subject: item.cname, cid: item.id});
+    } else {
+      for (var i = 0; i < this.listData.length; i++) {
+        if (i == j) {
+          if (this.listData[i].open) {
+            this.listData[i].open = false
+          } else {
+            this.listData[i].open = true
+          }
+        } else {
+          this.listData[i].open = false
+        }
+      }
+    }
 
+
+  }
 }

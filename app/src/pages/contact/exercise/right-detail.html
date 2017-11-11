@@ -21,43 +21,62 @@
 <ion-content padding>
 
   <ion-item>
-    <label>{{subject}} {{test_number}}/4 </label>
+    <label>{{cname}} {{test_number}}/{{count}} </label>
   </ion-item>
 
-  <ion-list inset>
-    <label ion-text *ngIf="test">
-
-      {{test_number}}、({{test[test_number - 1].subjectKind}}) {{test[test_number - 1].titleBody}}<br>
+  <ion-list inset *ngIf="test">
+    <!--选择题-->
+    <label ion-text *ngIf="test[test_number - 1].type == 1">
+      （选择题){{test[test_number - 1].titleBody}}<br>
+      <br>
       <ion-list>
-        <button ion-button round small (click)="nextPage()">
-          A、{{test[test_number - 1].A}}<br>
-        </button><br>
+        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'A') ? 'secondary':'light'">
+          <span style="color: black">A.{{test[test_number - 1].A}}</span>
+        </button>
 
-        <button ion-button round small (click)="nextPage()">
-          B、{{test[test_number - 1].B}}<br>
-        </button><br>
-        <button  ion-button round small (click)="nextPage()">
-          C、{{test[test_number - 1].C}}<br>
-        </button><br>
-        <button ion-button="" round small (click)="nextPage()">
-          D、{{test[test_number - 1].D}}<br>
-        </button><br>
+        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'B') ? 'secondary':'light'">
+          <span style="color: black">B.{{test[test_number - 1].B}}</span>
+        </button>
+        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'C') ? 'secondary':'light'">
+          <span style="color: black">C.{{test[test_number - 1].C}}</span>
+        </button>
+        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'D') ? 'secondary':'light'">
+          <span style="color: black">D.{{test[test_number - 1].D}}</span>
+        </button>
       </ion-list>
-
-
-
+    </label>
+    <!--填空题-->
+    <label ion-text *ngIf="test[test_number - 1].type == 2">
+      （填空题){{test[test_number - 1].titleBody}}<br>
+      <br>
+      输入答案：<input ion-inupt style="border: solid 1px #aeaeae;height: 35px;border-radius: 10px;" color="danger" placeholder="请输入..." clearOnEdit="true">
+    </label>
+    <!--判断题-->
+    <label ion-text *ngIf="test[test_number - 1].type == 3">
+      （判断题){{test[test_number - 1].titleBody}}<br>
+      <br>
+      <button ion-button="" round small outline block>
+        正确
+      </button>
+      <button ion-button="" round small outline block>
+        错误
+      </button>
+    </label>
+    <!--解答题-->
+    <label ion-text *ngIf="test[test_number - 1].type == 4">
+      （解答题） {{test[test_number - 1].titleBody}}<br>
+      <br>
+      输入答案：<ion-textarea style="border: solid 1px #aeaeae;height: 350px;border-radius: 10px;"></ion-textarea>
     </label>
   </ion-list>
   <br>
   <br>
   <br>
   <br>
-  <br>
-  <br>
-  <br>
+  <!--答案解析-->
   <ion-list no-lines>
     <ion-item *ngIf="test">
-      正确答案: {{test[test_number - 1].answer}} <span item-right>你的答案: B (错误)</span>
+      正确答案: {{test[test_number - 1].answer}} <span item-right>你的答案: </span>
     </ion-item>
     <ion-item *ngIf="test">
       解析:{{test[test_number - 1].answer}}
@@ -67,6 +86,7 @@
       <button ion-button item-right (click)="nextSubject()">下一题</button>
     </ion-item>
   </ion-list>
+
 
 
 
