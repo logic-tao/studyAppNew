@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Http,Response} from "@angular/http";
+import {HomeworkTestPage} from "./homework-test";
 
 /**
  * Generated class for the HomeworkPage page.
@@ -20,17 +21,22 @@ export class HomeworkPage {
   listData: Object;
   // 课程
   subject: string ="1";
+  user: string = localStorage.getItem("user");
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private  http: Http,public app:App) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomeworkPage');
 
-    this.http.request('http://101.201.238.157')
+    this.http.request('http://101.201.238.157/index/request_homework_list/'+ this.user+"/"+this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
       });
+  }
+
+  tohomework(hid,name){
+    this.app.getRootNav().push(HomeworkTestPage,{"hid":hid,"subject":name});
   }
 
 

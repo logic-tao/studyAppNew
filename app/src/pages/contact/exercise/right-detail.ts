@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Http,Response} from "@angular/http";
 import {PagedetailPage} from "../../pagedetail/pagedetail";
 import {PageexamPage} from "../../pageexam/pageexam";
@@ -32,7 +32,7 @@ export class RightDetailPage {
   //题目总数
   count:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private  http: Http,public app :App) {
     this.test_number = this.navParams.get("test_number");
     this.cid = navParams.get("cid");
     this.cname = navParams.get("cname");
@@ -50,7 +50,7 @@ export class RightDetailPage {
   }
 
   itemSelected(){
-    this.navCtrl.push(PagedetailPage);
+    this.app.getRootNav().push(PagedetailPage);
 
   }
 
@@ -59,7 +59,7 @@ export class RightDetailPage {
     if (this.test_number < this.count) {
       this.test_number ++;
     }else {
-      this.navCtrl.pop();
+      this.app.getRootNav().pop();
     }
 
   }
@@ -81,7 +81,7 @@ export class RightDetailPage {
 
   //跳转到下一个页面
   nextPage(){
-    this.navCtrl.push(PageexamPage);
+    this.app.getRootNav().push(PageexamPage);
 
   }
 

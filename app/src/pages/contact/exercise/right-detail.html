@@ -10,7 +10,7 @@
 
     <ion-row>
       <ion-col col-10></ion-col>
-      <button (click)="add()"><img src="../../assets/icon/收藏.png" height="18" width="18"/></button></ion-row>
+      <button (click)="add()"><img src="../../assets/icon/shoucang.png" height="18" width="18"/></button></ion-row>
 
 
   </ion-navbar>
@@ -76,7 +76,7 @@
   <!--答案解析-->
   <ion-list no-lines>
     <ion-item *ngIf="test">
-      正确答案: {{test[test_number - 1].answer}} <span item-right>你的答案: </span>
+      正确答案: {{test[test_number - 1].answer}} <span item-right>你的答案: {{test[test_number - 1].uanswer}}</span>
     </ion-item>
     <ion-item *ngIf="test">
       解析:{{test[test_number - 1].answer}}

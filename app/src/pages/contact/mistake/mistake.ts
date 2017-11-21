@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {MistakeListPage} from "./mistake-list";
 import {Http,Response} from "@angular/http";
 
@@ -17,7 +17,7 @@ import {Http,Response} from "@angular/http";
 })
 export class MistakePage {
   //用户id
-  user:string = '5';
+  user: string = localStorage.getItem("user");
   //接收数据
   data:any;
   //错题数
@@ -26,7 +26,7 @@ export class MistakePage {
   yingNum:string;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http,public app:App) {
 
 
   }
@@ -44,7 +44,7 @@ export class MistakePage {
   }
 
   toMistakeDetail(id) {
-    this.navCtrl.push(MistakeListPage,{
+    this.app.getRootNav().push(MistakeListPage,{
       id:id
     });
   }

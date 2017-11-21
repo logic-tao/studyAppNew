@@ -10,7 +10,7 @@
 
     <ion-row>
       <ion-col col-10></ion-col>
-      <button (click)="add()"><img src="../../assets/icon/收藏.png" height="18" width="18"/></button></ion-row>
+      <button (click)="add()"><img src="../../assets/icon/shoucang.png" height="18" width="18"/></button></ion-row>
 
 
   </ion-navbar>
@@ -30,18 +30,22 @@
       （选择题){{test[test_number - 1].titleBody}}<br>
       <br>
       <ion-list>
-        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'A') ? 'secondary':''">
-          A.{{test[test_number - 1].A}}
+        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'A') ? 'secondary':
+        (test[test_number - 1].answer_record == 'A') ? 'danger':'light'">
+          <span style="color: black">A.{{test[test_number - 1].A}}</span>
         </button>
 
-        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'B') ? 'secondary':''">
-          B.{{test[test_number - 1].B}}
+        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'B') ? 'secondary':
+        (test[test_number - 1].answer_record == 'B') ? 'danger':'light'">
+          <span style="color: black">B.{{test[test_number - 1].B}}</span>
         </button>
-        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'C') ? 'secondary':''">
-          C.{{test[test_number - 1].C}}
+        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'C') ? 'secondary':
+        (test[test_number - 1].answer_record == 'C') ? 'danger':'light'">
+          <span style="color: black">C.{{test[test_number - 1].C}}</span>
         </button>
-        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'D') ? 'secondary':''">
-          D.{{test[test_number - 1].D}}
+        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'D') ? 'secondary':
+        (test[test_number - 1].answer_record == 'D') ? 'danger':'light'">
+          <span style="color: black">D.{{test[test_number - 1].D}}</span>
         </button>
       </ion-list>
     </label>
@@ -76,7 +80,7 @@
   <!--答案解析-->
   <ion-list no-lines>
     <ion-item *ngIf="test">
-      正确答案: {{test[test_number - 1].answer}} <span item-right>你的答案: </span>
+      正确答案: {{test[test_number - 1].answer}} <span item-right>你的答案: {{test[test_number - 1].answer_record}} </span>
     </ion-item>
     <ion-item *ngIf="test">
       解析:{{test[test_number - 1].answer}}

@@ -58,6 +58,25 @@ export class AppService {
        .then(this.extractData)
      .catch(this.handleError);
  }
+    indexguide(data): Promise<any> {//考试指南
+    // sid	否	string	非必填，录播课id
+    // name	是	string	录播课名称关键字
+    return this.http
+     .post(BASEURL+'/index/guide', JSON.stringify(data),options)
+     .toPromise()
+       .then(this.extractData)
+     .catch(this.handleError);
+ }
+     indexindex(data): Promise<any> {//考试指南详情
+    // sid	否	string	非必填，录播课id
+    // name	是	string	录播课名称关键字
+    return this.http
+     .post(BASEURL+'/index/index', JSON.stringify(data),options)
+     .toPromise()
+       .then(this.extractData)
+     .catch(this.handleError);
+ }
+ 
    //reset-pwd
       userresetpwd(data): Promise<any> {//用户注册
     // mobile	是	string	手机号码

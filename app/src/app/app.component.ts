@@ -13,7 +13,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 })
 export class MyApp  {
 
-  rootPage:any = 'PageNewPage';
+  // rootPage:any = 'PageNewPage';
+  rootPage:any = 'LoginSliderPage';
   userinfo:any
 
 

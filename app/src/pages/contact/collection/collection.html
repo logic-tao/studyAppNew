@@ -14,18 +14,22 @@
 
 
 <ion-content padding>
-  <ion-list>
-    <ion-item>
-      收藏总数: 18
-    </ion-item>
-    <ion-item>
-      语文: 8 <button item-right ion-button (click)="toCollectionDetail()">查看详情</button>
-    </ion-item>
-    <ion-item>
-      数学: 4 <button item-right ion-button (click)="toCollectionDetail()">查看详情</button>
-    </ion-item>
-    <ion-item>
-      英语: 6 <button item-right ion-button (click)="toCollectionDetail()">查看详情</button>
-    </ion-item>
-  </ion-list>
+
+    <ion-card>
+      <ion-list inset>
+        <ion-item>
+          收藏总数: <span item-right> {{yuNum + shuNum + yingNum}}</span><button item-right ion-button (click)="toMistakeDetail('1')">详情</button>
+        </ion-item>
+        <ion-item>
+          语文 : <span item-right>{{yuNum}}</span> <button item-right ion-button (click)="toCollectionDetail('1')">详情</button>
+        </ion-item>
+        <ion-item>
+          数学 : <span item-right>{{shuNum}}</span> <button item-right ion-button (click)="toCollectionDetail('2')">详情</button>
+        </ion-item>
+        <ion-item>
+          英语 : <span item-right>{{yingNum}}</span> <button item-right ion-button (click)="toCollectionDetail('3')">详情</button>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
 </ion-content>

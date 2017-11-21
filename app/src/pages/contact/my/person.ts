@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ActionSheetController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-import {FileChooser, FilePath, Camera, Transfer} from "ionic-native";
+// import {FileChooser, FilePath, Camera, Transfer} from "ionic-native";
 import {Http,Response} from "@angular/http";
 
 /**
@@ -111,64 +111,64 @@ export class PersonPage {
   //读取相册文件夹
 
   getPhoto(){
-    FileChooser.open()
-      .then(uri =>{
-          FilePath.resolveNativePath(uri)
-            .then(filePath => {
-              this.imageURL = filePath;
-              this.photoUrl = filePath;
-              this.upload(this.imageURL)
-            });
-        }
-      )
-      .catch(e => console.log(e));
+    // FileChooser.open()
+    //   .then(uri =>{
+    //       FilePath.resolveNativePath(uri)
+    //         .then(filePath => {
+    //           this.imageURL = filePath;
+    //           this.photoUrl = filePath;
+    //           this.upload(this.imageURL)
+    //         });
+    //     }
+    //   )
+    //   .catch(e => console.log(e));
   }
 
 
   //拍照
   takePhoto() {
-    Camera.getPicture().then((imageData) => {
-      this.imageURL = imageData;
-      this.photoUrl = imageData;
-      this.upload(this.imageURL)
-    }, (err) => {
-      console.log(err);
-    });
+    // Camera.getPicture().then((imageData) => {
+    //   this.imageURL = imageData;
+    //   this.photoUrl = imageData;
+    //   this.upload(this.imageURL)
+    // }, (err) => {
+    //   console.log(err);
+    // });
   }
   //上传
   upload(imgUrl :any){
-    let loader = this.loadingCtrl.create({
-      content: "正在上传头像...",
-    });
-    loader.present();
-      var ft = new Transfer();
-      var options = {
-        fileKey: 'file',
-        fileName: this.phone+'_head.jpg',
-        params:{operatiune:'uploadpoza'}
-      }
-      ft.upload(imgUrl,encodeURI(this.config.server +"/uploadFile/upload"),options)
-        .then((data) => {
-          if(data.response){
-            var response=JSON.parse(data.response)
-            if(response.rtn){
-              loader.dismiss();
-              alert("头像设置完成");
-            }else{
-              loader.dismiss();
-              alert("头像设置失败，请重新登录");
-            }
-          }else{
-            loader.dismiss();
-            alert("头像设置失败，请重新登录");
-          }
-          var rtnString=JSON.stringify(data);
+    // let loader = this.loadingCtrl.create({
+    //   content: "正在上传头像...",
+    // });
+    // loader.present();
+    //   var ft = new Transfer();
+    //   var options = {
+    //     fileKey: 'file',
+    //     fileName: this.phone+'_head.jpg',
+    //     params:{operatiune:'uploadpoza'}
+    //   }
+    //   ft.upload(imgUrl,encodeURI(this.config.server +"/uploadFile/upload"),options)
+    //     .then((data) => {
+    //       if(data.response){
+    //         var response=JSON.parse(data.response)
+    //         if(response.rtn){
+    //           loader.dismiss();
+    //           alert("头像设置完成");
+    //         }else{
+    //           loader.dismiss();
+    //           alert("头像设置失败，请重新登录");
+    //         }
+    //       }else{
+    //         loader.dismiss();
+    //         alert("头像设置失败，请重新登录");
+    //       }
+    //       var rtnString=JSON.stringify(data);
 
 
-        }, (err) => {
-          loader.dismiss();
-          alert("头像设置失败，请重新登录");
-        })
+    //     }, (err) => {
+    //       loader.dismiss();
+    //       alert("头像设置失败，请重新登录");
+    //     })
     }
 
 }

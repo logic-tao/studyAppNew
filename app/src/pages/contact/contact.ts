@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {App, NavController, NavParams} from 'ionic-angular';
 import {PersonPage} from "./my/person";
 import {ExercisePage} from "./exercise/exercise";
 import {MistakePage} from "./mistake/mistake";
 import {HomeworkPage} from "./homework/homework";
-import {VideosPage} from "./videos/videos";
 import {CollectionPage} from "./collection/collection";
 import {MyclassPage} from "./my-class/my-class";
 import {MydataPage} from "./mydata/mydata";
 import {Http,Response} from "@angular/http";
 import {SettingPage} from "./setting/setting";
+import {VideorecordPage} from "./videos/videorecord";
+import {MyApp} from "../../app/app.component";
 
 
 @Component({
@@ -18,61 +19,61 @@ import {SettingPage} from "./setting/setting";
 })
 export class ContactPage {
 
-  //用户id
-  login_id :string;
+  //用户
+  name :string;
   //listData
   listData : Object;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private  http: Http,public appComponent:MyApp,public app:App) {
     //this.login_id = localStorage.getItem("Login_id");
-    this.login_id = "1111";
+
+    //存储登录用户id
+    localStorage.setItem("user",this.appComponent.userinfo.id);
+    this.name = this.appComponent.userinfo.realname;
   }
 
 
   ionViewDidLoad() {
-    console.log(this.login_id);
     console.log('ionViewDidLoad RegisterPage');
-    this.http.request('httP://101.201.238.157/index/request1/' + this.login_id)
-      .subscribe((res: Response) => {
-        this.listData = res.json();
-      });
+    console.log(this.appComponent.userinfo);
+
   }
 
   //跳转到我
   toPerson() {
-    this.navCtrl.push(PersonPage);
+    this.app.getRootNav().push('PersonPage');
   }
   //跳转到练习记录
   toExercise() {
-    this.navCtrl.push(ExercisePage);
+    this.app.getRootNav().push('ExercisePage');
   }
   //跳转到错题本
   toMistake() {
-    this.navCtrl.push(MistakePage);
+    this.app.getRootNav().push('MistakePage');
   }
   //跳转到我的作业
   toHomeWork() {
-    this.navCtrl.push(HomeworkPage);
+    this.app.getRootNav().push('HomeworkPage');
   }
   //跳转我的精讲
   toVideos() {
-    this.navCtrl.push(VideosPage);
+    this.app.getRootNav().push('VideorecordPage');
   }
   //跳转我的收藏
   toMycollection() {
-    this.navCtrl.push(CollectionPage);
+    this.app.getRootNav().push('CollectionPage');
   }
   //跳转到我的班级
   toMyclass() {
-    this.navCtrl.push(MyclassPage);
+    this.app.getRootNav().push('MyclassPage');
   }
   //跳转我的资料
   todata() {
-    this.navCtrl.push(MydataPage);
+    this.app.getRootNav().push('MydataPage');
   }
   //跳转到设置
   toSetting() {
-    this.navCtrl.push(SettingPage);
+    this.app.getRootNav().push('SettingPage');
   }
 
 }

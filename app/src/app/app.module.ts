@@ -21,23 +21,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {HttpModule} from '@angular/http';
 import {ReactiveFormsModule} from "@angular/forms";
-import {ExercisePage} from "../pages/contact/exercise/exercise";
-import {ExerciseDetailPage} from "../pages/contact/exercise/exercise-detail";
-import {RightDetailPage} from "../pages/contact/exercise/right-detail";
-import {CollectionPage} from "../pages/contact/collection/collection";
-import {CollectionListPage} from "../pages/contact/collection/collection-list";
-import {HomeworkPage} from "../pages/contact/homework/homework";
-import {MistakeDetailPage} from "../pages/contact/mistake/mistake-detail";
-import {MistakePage} from "../pages/contact/mistake/mistake";
-import {MistakeListPage} from "../pages/contact/mistake/mistake-list";
-import {PersonPage} from "../pages/contact/my/person";
-import {ApplyClassPage} from "../pages/contact/my-class/apply-class";
-import {MyclassPage} from "../pages/contact/my-class/my-class";
-import {MydataPage} from "../pages/contact/mydata/mydata";
-import {MydatadetailPage} from "../pages/contact/mydata/mydatadetail";
-import {SettingPage} from "../pages/contact/setting/setting";
-import {TestPage} from "../pages/contact/test/test";
-import {VideosPage} from "../pages/contact/videos/videos";
 // import { VideoPlayer } from '@ionic-native/video-player';
 
 
@@ -50,23 +33,6 @@ import {VideosPage} from "../pages/contact/videos/videos";
     HomePage,
     InteractPage,
     TabsPage,
-    ExercisePage,
-    ExerciseDetailPage,
-    RightDetailPage,
-    CollectionPage,
-    CollectionListPage,
-    HomeworkPage,
-    MistakeDetailPage,
-    MistakePage,
-    MistakeListPage,
-    PersonPage,
-    ApplyClassPage,
-    MyclassPage,
-    MydataPage,
-    MydatadetailPage,
-    SettingPage,
-    TestPage,
-    VideosPage,
   ],
   imports: [
     BrowserModule,
@@ -82,23 +48,6 @@ import {VideosPage} from "../pages/contact/videos/videos";
     HomePage,
     InteractPage,
     TabsPage,
-    ExercisePage,
-    ExerciseDetailPage,
-    RightDetailPage,
-    CollectionPage,
-    CollectionListPage,
-    HomeworkPage,
-    MistakeDetailPage,
-    MistakePage,
-    MistakeListPage,
-    PersonPage,
-    ApplyClassPage,
-    MyclassPage,
-    MydataPage,
-    MydatadetailPage,
-    SettingPage,
-    TestPage,
-    VideosPage,
   ],
   providers: [
     StatusBar,

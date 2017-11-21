@@ -10,6 +10,7 @@ declare var cordova;
 })
 export class AboutPage {
   @ViewChild('ionSlides') slides;
+  pagecontent:any=''
   urlARR:any=[
     'assets/icon/viod1.jpg',
   'assets/icon/viod2.jpg',
@@ -59,13 +60,24 @@ gousoucho(){
     // }
   }
   search(){
+    
     this.app.getRootNav().push('VideolistPage',{inpustring:this.inpustring});
   }
-  tourl(url){
-    if(window['cordova']){
-cordova.InAppBrowser.open(url, '_blank', 'location=yes')
+  clocse(){
+    this.pagecontent=''
+  }
+  tourl(i){
+    let itemdata=this.xplainindexData.content[0].children[i]
+    let url=itemdata.piclink
+    
+    if(url){
+      if(window['cordova']){
+        cordova.InAppBrowser.open(url, '_blank', 'location=yes')
+            }else{
+              window.open(url, '_blank', 'location=yes');
+            }
     }else{
-      window.open(url, '_blank', 'location=yes');
+      this.pagecontent=itemdata.content
     }
 
   }
@@ -109,8 +121,14 @@ cordova.InAppBrowser.open(url, '_blank', 'location=yes')
 recordingViod(num){
   // this.navCtrl.push(RecordingvideoPage);
   // this.navCtrl.push('RecordingvideoPage')
+  if(num==0){
+    this.app.getRootNav().push('OndemandPage'); 
+  }
   if(num==1){
     this.app.getRootNav().push('RecordingvideoPage'); 
+  }
+  if(num==2){
+    this.app.getRootNav().push('ExaminationPage'); 
   }
 }
 // ngOnInit(){//页面加载完成后自己调用

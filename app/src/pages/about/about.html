@@ -14,9 +14,13 @@
   </ion-item>
 </ion-list>
 </ion-header>
-
+<div style="position: fixed;z-index: 15;width: 100%;height: 100%;text-align: center;background-color: #fff;padding: 15px;" *ngIf="pagecontent!=''">
+  <div  [innerHTML]="pagecontent"></div>
+  <div style="position: absolute;text-align: center;bottom: 20%;width: 100%;"><button ion-button (click)="clocse()">关闭</button></div>
+<!-- <button ion-button (click)="recordingViod()">录播课</button> -->
+</div>
 <ion-content padding class="card-background-page">
-  
+
     <!-- <ion-slides #mySlider style="width:100%;height:200px">
         <ion-slide  *ngFor="item of urlARR">
         <img [src]="" >
@@ -27,7 +31,7 @@
             您的浏览器不支持 HTML5 video 标签。
           </video> -->
         <ion-slides *ngIf="xplainindexData"  #ionSlides loop="true" autoplay="3000" pager (ionSlideAutoplayStop)="autoPlay()" style="width:100%;height:auto">
-            <ion-slide *ngFor="let slide of xplainindexData.content[0].children"(click)="tourl(slide.urllink)">
+            <ion-slide *ngFor="let slide of xplainindexData.content[0].children;let j = index;"(click)="tourl(j)">
                <img src="{{slide.piclink}}"/> 
               <!--<img src="assets/icon/viod3.jpg"/>-->
              <p></p>

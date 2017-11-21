@@ -1,9 +1,11 @@
 import { Component,ViewChild,ChangeDetectorRef} from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ActionSheetController} from 'ionic-angular';
 import { Http, Response } from '@angular/http';
-import {PagedetailPage} from  '../pagedetail/pagedetail'
+// import {PagedetailPage} from  '../pagedetail/pagedetail'
 import { MyApp} from '../../app/app.component';
-import {ExerciseDetailPage} from "../contact/exercise/exercise-detail";
+import {CameraOptions } from '@ionic-native/camera';
+// import {ExerciseDetailPage} from "../contact/exercise/exercise-detail";
+// import { Camera, CameraOptions } from '@ionic-native/camera';
 /**
  * Generated class for the PageexamPage page.
  *
@@ -19,7 +21,7 @@ declare let Swiper:any;
 export class PageexamPage {
   @ViewChild('ionSlides') slides;
   // @ViewChild(Slides) slides: Slides;
-  listDetailData : any;
+  listDetailData : any=[];
 mySwiper:any
 timer:any
 alltrimebgin:number=180
@@ -40,6 +42,7 @@ cuowusty:any
 userendtime:any
 daantanchuang:boolean=false
 currentIndex:any=0
+base64Image:any
   add(){
     //将题添加到后台数ll据库中 sfds
     // alert("收藏成功");
@@ -55,6 +58,49 @@ currentIndex:any=0
     // this.http.request('http://sapi.bainid.com/demo/index/collect').subscribe();
 
   }
+  getimg(){
+    let actionSheet = this.actionSheetCtrl.create({
+      title: '图片上传',
+      buttons: [
+        {
+          text: '拍照上传',
+          role: 'takePhoto',
+          handler: () => {
+            console.log('takePhoto');
+            this.paizhao()
+            // this.getPhoto();
+          }
+        },
+        {
+          text: '相册上传',
+          handler: () => {
+            console.log('Album');
+            // this.takePhoto();
+          }
+        },
+      ]
+    });
+
+    actionSheet.present();
+  }
+  paizhao(){
+    // const options: CameraOptions = {
+    //   quality: 100,
+    //   destinationType: this.camera.DestinationType.DATA_URL,
+    //   encodingType: this.camera.EncodingType.JPEG,
+    //   mediaType: this.camera.MediaType.PICTURE
+    // }
+    
+    // this.camera.getPicture(options).then((imageData) => {
+    //  // imageData is either a base64 encoded string or a file URI
+    //  // If it's base64:
+    //  console.log('getPicture')
+    //  console.log(imageData)
+    //  this.base64Image = 'data:image/jpeg;base64,' + imageData;
+    // }, (err) => {
+    //  // Handle error
+    // });
+  }
     ngOnDestroy(){
   if(this.timer){
   clearInterval(this.timer);
@@ -62,6 +108,10 @@ currentIndex:any=0
 }
   countviodtime(){
     this.timer = setInterval(()=>{
+      if(this.timer&&this.listDetailData.length==0){
+        clearInterval(this.timer);
+        }
+      console.log(this.listDetailData)
       if(this.alltrime>0){
         this.alltrime-=1
       }else{
@@ -128,10 +178,17 @@ this.s=this.alltrime%60
       this.listDetailData[i].jieguo=3
     }
   }
-
-  constructor(public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
+//public camera: Camera,
+  constructor(public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
   
 }
+getPhoto(){
+
+}
+takePhoto(){
+
+}
+
   tiankong(i){
     if(this.listDetailData[i].useranswer==''){
       this.listDetailData[i].jieguo=0

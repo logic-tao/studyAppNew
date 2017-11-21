@@ -15,7 +15,7 @@
   <!--<div id="container">
       <div class="box" *ngFor="let image of img_data" (click)="toOperationPage(image.id)">
           <div class="box_img">
-              <img src="{{image.icon}}" alt="">
+              <img src="{{image.icon}}" alt="">img_data.length
           </div>
           <p style="margin: 5px 0px;">{{image.cname}}</p>
           <p style="margin: 5px 0px;">今天 10：00-11：30</p>
@@ -25,17 +25,20 @@
   </div>-->
           <ion-row>
           <ion-col col-6 *ngFor="let image of img_data">
-                 <div class="box" *ngFor="let image of img_data" (click)="toOperationPage(image.id)">
-          <div class="box_img">
-              <img src="{{image.icon}}" alt="">
-          </div>
-          <p style="margin: 5px 0px;">{{image.cname}}</p>
-          <!--<p style="margin: 5px 0px;">今天 10：00-11：30</p>-->
-          <span>{{image.description}}</span>
-          <!--<button >播放</button>-->
-      </div>
+                 <div class="box" (click)="toOperationPage(image.id)">
+                    <div class="box_img">
+                        <img src="{{image.icon}}" alt="">
+                    </div>
+                    <p style="margin: 5px 0px;">{{image.cname}}</p>
+                    <!--<p style="margin: 5px 0px;">今天 10：00-11：30</p>-->
+                    <!--<span>{{image.description}}</span>
+                    <br>-->
+        观看人数：<strong>{{image.view}}</strong>
+                    <!--<button >播放</button>-->
+                </div>
           </ion-col>
         </ion-row>
+        <strong *ngIf="img_data.length">页面无数据</strong>
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
       <ion-infinite-scroll-content loadingSpinner="circles" loadingText="正在加载...">
       </ion-infinite-scroll-content>

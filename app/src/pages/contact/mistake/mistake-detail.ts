@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Http,Response} from "@angular/http";
 import {PageexamPage} from "../../pageexam/pageexam";
 import {PagedetailPage} from "../../pagedetail/pagedetail";
@@ -25,7 +25,7 @@ export class MistakeDetailPage {
   // 接收知识点名字
   cname:string;
   //登录用户ID
-  user: string = "5";
+  user: string = localStorage.getItem("user");
   //知识点id
   subject_id: string;
   //题目序号
@@ -33,7 +33,7 @@ export class MistakeDetailPage {
   //题目总数
   count:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private  http: Http,public app: App) {
     this.test_number = 1;
     this.cid = navParams.get("cid");
     this.cname = navParams.get("subject");
@@ -41,7 +41,8 @@ export class MistakeDetailPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MistakeDetailPage');
-    this.http.request("http://101.201.238.157/index/request_wrong_test/"+this.user+"/1")
+    console.log(this.cid);
+    this.http.request("http://101.201.238.157/index/request_wrong_test/"+this.user+"/" + this.cid)
       .subscribe((res: Response) => {
         this.test = res.json();
         console.log(this.test);
@@ -51,7 +52,7 @@ export class MistakeDetailPage {
   }
 
   itemSelected(){
-    this.navCtrl.push(PagedetailPage);
+    this.app.getRootNav().push(PagedetailPage);
 
   }
 
@@ -60,7 +61,7 @@ export class MistakeDetailPage {
     if (this.test_number < this.count) {
       this.test_number ++;
     }else {
-      this.navCtrl.pop();
+      this.app.getRootNav().pop();
     }
 
   }
@@ -82,7 +83,7 @@ export class MistakeDetailPage {
 
   //跳转到下一个页面
   nextPage(){
-    this.navCtrl.push(PageexamPage);
+    this.app.getRootNav().push(PageexamPage);
 
   }
 

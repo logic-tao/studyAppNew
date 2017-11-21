@@ -3,10 +3,7 @@ import { Component, ViewChild,Inject} from '@angular/core';
 import { AlertController, App, LoadingController, NavController, Slides, IonicPage } from 'ionic-angular';
 import {TabsPage} from "../tabs/tabs";
 import { MyApp} from '../../app/app.component';
-@IonicPage({
-  name: 'LoginSliderPage',
-  segment: 'LoginSliderPage'
-})
+@IonicPage()
 @Component({
   selector: 'page-login-slider',
   templateUrl: 'login-slider.html',

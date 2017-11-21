@@ -40,6 +40,7 @@ export class OperationPage {
   currentIndex:any=0
   zhegnquedaan:boolean=false
   oveer:boolean=false
+  pinglunAr:any=[]
   textdt:any=[
     {timu:"1+1=?",xuanze:[4,6,2,5],daan:2},
     {timu:"1*4=?",xuanze:[4,8,2,4],daan:4},
@@ -144,6 +145,43 @@ selectclick(i,answer?:any){
 ionSlideDidChange(){
   this.currentIndex = this.slides.getActiveIndex();
  console.log('Current index is', this.currentIndex);
+ 
+}
+tapelessioncomments(){
+      let servedata={id:this.navParams.data.num}
+    this.appService.tapelessioncomments(servedata).then(
+      res => {
+        // alert('正确')
+        console.log('=======tapelessioncomments========')
+        console.log(res)
+        if(res.code==200){
+          this.pinglunAr=res.content
+          for (var i = 0; i < this.pinglunAr.length; i++) {
+            this.pinglunAr[i].score=parseInt(this.pinglunAr[i].score)
+          }
+          this.pinglunAr.sort(this.comparisonFunction('score'))
+          // this.shipinglianxi=res.content
+          // for (var i = 0; i < this.shipinglianxi.length; i++) {
+          //   this.shipinglianxi[i].showanswer=false
+          //   this.shipinglianxi[i].useranswer=''
+          //   this.shipinglianxi[i].jieguo=0//0 未解答 1已解答 2 正确 3 错误 
+          //   if(this.shipinglianxi[i].type=='1'){
+          //     this.shipinglianxi[i].content=eval('(' +this.shipinglianxi[i].content+ ')')
+          //   }
+            
+          // }
+          // console.log('tapelessiontapetest')//type 1,选择题，2.填空题 3.问答题 4.判断题
+          // console.log(res)
+        }else{
+
+        }
+
+      },
+      error=>{
+        // alert('错误')
+        console.log(error)
+      }
+  )
 }
 tapelessiontapetest(){//试题
     // let servedata={id:this.shipingxiangqing.lession.curl}
@@ -153,6 +191,7 @@ tapelessiontapetest(){//试题
         // alert('正确')
         if(res.code==200){
           this.shipinglianxi=res.content
+
           for (var i = 0; i < this.shipinglianxi.length; i++) {
             this.shipinglianxi[i].showanswer=false
             this.shipinglianxi[i].useranswer=''
@@ -235,8 +274,40 @@ tapelessionpushcomment(){
        )
 }
   ionViewDidLoad() {
+    this.myVideo.nativeElement.defaultPlaybackRate=1
     console.log('ionViewDidLoad OperationPage');
+    this.myVideo.nativeElement.onseeked=()=>{
+      // alert('df')
+      // if(this.myVideo.nativeElement.currentTime!=20){
+      //     this.myVideo.nativeElement.currentTime=20
+      // }
+      console.log('onseeked'+this.myVideo.nativeElement.currentTime)
+      let retudata=this.panduanpoingshow(this.myVideo.nativeElement.currentTime)
+      if(retudata.isshow){
+        this.stopViod(retudata.num)
+      }
+      // this.myVideo.nativeElement.pause()
+      
+      // this.myVideo.nativeElement.load()
+      // this.myVideo.nativeElement.play()
+    }
 
+  }
+  panduanpoingshow(time){
+    let retrundate={isshow:false,time:0,num:0}
+          for (var k = 0; k < this.shipingxiangqing.points.length; k++) {
+            // this.shipinglianxi.points[k].isshow=false
+            let timenum =parseInt(this.shipingxiangqing.points[k].postime)
+            if(!retrundate.isshow){
+                if(!this.shipingxiangqing.points[k].isshow){
+                  if(time>=timenum){
+                  retrundate={isshow:true,time:timenum,num:k}
+                  this.myVideo.nativeElement.currentTime=timenum+1;
+                  }
+                }
+            }
+          }
+          return retrundate;
   }
   countviodtime(){
     this.timer = setInterval(()=>{
@@ -254,7 +325,7 @@ tapelessionpushcomment(){
         console.log(this.zuotinum)
         if(parseInt(this.myVideo.nativeElement.currentTime)==this.shipingxiangqing.points[this.pointsCount].postime){
           if(this.countime==3){
-            this.stopViod()
+            this.stopViod(this.pointsCount)
             clearInterval(this.timer);
           }
         }
@@ -271,11 +342,15 @@ tapelessionpushcomment(){
         // alert('正确')
         if(res.code==200){
           this.shipingxiangqing=res.content
+                    for (var k = 0; k < this.shipingxiangqing.points.length; k++) {
+            this.shipingxiangqing.points[k].isshow=false
+          }
           if(this.shipingxiangqing.lession.curl==''){
             this.appComponent.presentToast('无视频curl!');
           }else{
             this.indexplayvideourl()
             this.tapelessiontapetest()
+            this.tapelessioncomments()
           }
           
           this.tapelessionpointexam(this.shipingxiangqing.points[0].id)
@@ -291,16 +366,35 @@ tapelessionpushcomment(){
   )
     
   }
+  
   ngOnDestroy(){
   if(this.timer){
   clearInterval(this.timer);
   }
   }
-
-  stopViod(){
+  comparisonFunction(propertyName){    
+    return function(obj1, obj2){
+      var val1 = obj1[propertyName];   
+      var val2 = obj2[propertyName];  
+      if (val1 > val2){     
+        return -1;  
+      } else 
+      if (val1 < val2) {   
+        return 1;      
+      } 
+      else {    
+        return 0;    
+      }      
+    };
+  }
+  stopViod(num){
+    this.shipingxiangqing.points[num].isshow=true
   this.myVideo.nativeElement.pause()
   this.beginzuoti=true
-  }
+}
+asldfjl(){
+  alert('dd')
+}
   playViod(){
     this.zuotinum=0
     this.countime=0

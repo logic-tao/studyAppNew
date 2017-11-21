@@ -22,7 +22,7 @@ export class ExercisePage {
   // 课程
   subject: string ="1";
   // 用户
-  user: string = "5";
+  user: string = localStorage.getItem("user");
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private  http: Http,
               public app: App) {
@@ -59,7 +59,7 @@ export class ExercisePage {
   itemSelectedchild(event,j,itemch){
     event.stopPropagation();
     //this.app.getRootNav().push('PageexamPage',{type:0,id:1});
-    this.navCtrl.push(ExerciseDetailPage,{subject:itemch,cid:itemch.id});
+    this.app.getRootNav().push(ExerciseDetailPage,{subject:itemch,cid:itemch.id});
     console.log(j)
   }
 
@@ -67,7 +67,7 @@ export class ExercisePage {
     console.log(this.listData[j])
     if(this.listData[j].sub_knowledege.length==0){
       //this.app.getRootNav().push('PageexamPage',{type:0,id:this.listData[j].id});
-      this.navCtrl.push(ExerciseDetailPage,{subject:item,cid:item.id});
+      this.app.getRootNav().push(ExerciseDetailPage,{subject:item,cid:item.id});
     }else{
       for (var i = 0; i < this.listData.length; i++) {
         if(i==j){
