@@ -76,7 +76,7 @@ export class AppService {
        .then(this.extractData)
      .catch(this.handleError);
  }
- 
+
    //reset-pwd
       userresetpwd(data): Promise<any> {//用户注册
     // mobile	是	string	手机号码
@@ -98,7 +98,7 @@ export class AppService {
        .then(this.extractData)
      .catch(this.handleError);
  }
- usermodifypwd(data): Promise<any> {//重置密码 
+ usermodifypwd(data): Promise<any> {//重置密码
   // tokenId	否	string	tokenId
   return this.http
    .post(BASEURL+'/user/modify-pwd', JSON.stringify(data),options)
@@ -208,4 +208,49 @@ export class AppService {
      .then(this.extractData)
      .catch(this.handleError);
 }
+
+  homeworkanswer(data): Promise<any>  { //作业答案提交
+
+    let headers = new Headers({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
+    let options = new RequestOptions({
+      headers: headers
+    });
+
+    return new Promise((resolve, reject) => {
+      this.http.post("http://101.201.238.157/demo/index/post_homework",JSON.stringify(data) , options )
+        .map(res => res.json())
+        .subscribe(data => resolve(data), err => reject(err))
+    })
+
+
+  }
+  changeInfo(data): Promise<any>  { //修该信息
+
+    let headers = new Headers({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
+    let options = new RequestOptions({
+      headers: headers
+    });
+
+    return new Promise((resolve, reject) => {
+      this.http.post("http://101.201.238.157/demo/index/post_user_info",JSON.stringify(data) , options )
+        .map(res => res.json())
+        .subscribe(data => resolve(data), err => reject(err))
+    })
+
+
+  }
+
+  myViewTaped(data): Promise<any> {//看过的录播课视频列表
+    // num	是	integer	数量
+    // page	否 integer	第几页,默认是1
+    return this.http
+      .post(BASEURL+'/my/view-taped', JSON.stringify(data),options)
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
 }

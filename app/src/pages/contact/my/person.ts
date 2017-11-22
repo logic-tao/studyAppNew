@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import {ActionSheetController, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {ActionSheetController, App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
-// import {FileChooser, FilePath, Camera, Transfer} from "ionic-native";
+import {Camera,CameraOptions } from '@ionic-native/camera';
 import {Http,Response} from "@angular/http";
+import {FileTransferObject, FileUploadOptions} from "@ionic-native/file-transfer";
+import {PersonModifyPage} from "./person-modify";
 
 /**
  * Generated class for the PersonPage page.
@@ -29,17 +31,38 @@ export class PersonPage {
   listData: Object;
   //登录用户ID
   login_id: string;
+  user: string = localStorage.getItem("user");
+  gender:string = "男";
+  age:any;
+  name:string = '';
+  school: string = "";
+  birthday: string ='';
+  nickname:string ='';
+  email:string='';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,
-              public actionSheetCtrl: ActionSheetController,private  http: Http) {
+              public actionSheetCtrl: ActionSheetController,private  http: Http,public app:App) {
     this.login_id = '1111';
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad  PersonPage');
-    this.http.request('httP://101.201.238.157/index/request1/' + this.login_id)
+    this.http.request('httP://101.201.238.157/index/request1/' + this.user)
       .subscribe((res: Response) => {
         this.listData = res.json();
+        this.name = res.json()[0].name;
+        this.birthday = res.json()[0].birthday;
+        this.nickname = res.json()[0].nickname;
+        this.email = res.json()[0].email;
+        this.school = res.json()[0].school;
+        var date = new Date();
+        var year = date.getFullYear();
+
+        this.age = year - parseInt(this.birthday.substring(0,4));
+        if(res.json()[0].gender == 2){
+            this.gender = "女"
+        }
+        console.log(this.listData)
       });
   }
 
@@ -85,90 +108,76 @@ export class PersonPage {
   //更换头像
   changeAvatar() {
     let actionSheet = this.actionSheetCtrl.create({
-      title: '修改头像',
+      title: '图片上传',
       buttons: [
         {
           text: '拍照上传',
           role: 'takePhoto',
           handler: () => {
             console.log('takePhoto');
-            this.getPhoto();
+            this.paizhao()
+            // this.getPhoto();
           }
         },
         {
           text: '相册上传',
           handler: () => {
             console.log('Album');
-            this.takePhoto();
+            // this.takePhoto();
           }
         },
       ]
     });
 
     actionSheet.present();
+
+    //读取相册文件夹
+
   }
 
-  //读取相册文件夹
-
-  getPhoto(){
-    // FileChooser.open()
-    //   .then(uri =>{
-    //       FilePath.resolveNativePath(uri)
-    //         .then(filePath => {
-    //           this.imageURL = filePath;
-    //           this.photoUrl = filePath;
-    //           this.upload(this.imageURL)
-    //         });
-    //     }
-    //   )
-    //   .catch(e => console.log(e));
-  }
-
-
-  //拍照
-  takePhoto() {
-    // Camera.getPicture().then((imageData) => {
-    //   this.imageURL = imageData;
-    //   this.photoUrl = imageData;
-    //   this.upload(this.imageURL)
-    // }, (err) => {
-    //   console.log(err);
-    // });
-  }
-  //上传
-  upload(imgUrl :any){
-    // let loader = this.loadingCtrl.create({
-    //   content: "正在上传头像...",
-    // });
-    // loader.present();
-    //   var ft = new Transfer();
-    //   var options = {
-    //     fileKey: 'file',
-    //     fileName: this.phone+'_head.jpg',
-    //     params:{operatiune:'uploadpoza'}
-    //   }
-    //   ft.upload(imgUrl,encodeURI(this.config.server +"/uploadFile/upload"),options)
-    //     .then((data) => {
-    //       if(data.response){
-    //         var response=JSON.parse(data.response)
-    //         if(response.rtn){
-    //           loader.dismiss();
-    //           alert("头像设置完成");
-    //         }else{
-    //           loader.dismiss();
-    //           alert("头像设置失败，请重新登录");
-    //         }
-    //       }else{
-    //         loader.dismiss();
-    //         alert("头像设置失败，请重新登录");
-    //       }
-    //       var rtnString=JSON.stringify(data);
-
-
-    //     }, (err) => {
-    //       loader.dismiss();
-    //       alert("头像设置失败，请重新登录");
-    //     })
+  paizhao(){
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      // destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
     }
+
+    this.camera.getPicture(options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64:
+      console.log('getPicture')
+      console.log(imageData)
+      this.upload(imageData)
+      //  this.base64Image = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+      // Handle error
+    });
+  }
+
+  upload(fileurl) {
+    console.log('upload:'+fileurl)
+    const fileTransfer: FileTransferObject = this.transfer.create();
+    let options: FileUploadOptions = {
+      fileKey: 'upload',
+      fileName: 'name.jpg',
+      headers: {}
+    }
+
+    fileTransfer.upload(fileurl, encodeURI('http://101.201.238.157/index.php/demo/index/uploadavatar/' + this.user), options)
+      .then((data) => {
+        // success
+        console.log('success')
+        console.log(data)
+      }, (err) => {
+        console.log('err')
+        console.log(err)
+      })
+  }
+
+  toModify() {
+    this.app.getRootNav().push(PersonModifyPage);
+  }
 
 }
