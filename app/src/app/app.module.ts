@@ -44,6 +44,7 @@ import {VideosPage} from "../pages/contact/videos/videos";
 import {VideorecordPage} from "../pages/contact/videos/videorecord";
 import {CollectionTestPage} from "../pages/contact/collection/collection-test";
 import {HomeworkTestPage} from "../pages/contact/homework/homework-test";
+import {PersonModifyPage} from "../pages/contact/my/person-modify";
 // import { VideoPlayer } from '@ionic-native/video-player';
 
 
@@ -75,7 +76,8 @@ import {HomeworkTestPage} from "../pages/contact/homework/homework-test";
     VideosPage,
     VideorecordPage,
     CollectionTestPage,
-    HomeworkTestPage
+    HomeworkTestPage,
+    PersonModifyPage
   ],
   imports: [
     BrowserModule,
@@ -110,7 +112,8 @@ import {HomeworkTestPage} from "../pages/contact/homework/homework-test";
     VideosPage,
     VideorecordPage,
     CollectionTestPage,
-    HomeworkTestPage
+    HomeworkTestPage,
+    PersonModifyPage
   ],
   providers: [
     Camera,

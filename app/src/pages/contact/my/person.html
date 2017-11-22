@@ -14,13 +14,14 @@
 
 
 <ion-content padding>
-<ion-list *ngIf="listData">
+<ion-list>
   <ion-item  (click)="changeAvatar()">头像<img item-right  src="http://placehold.it/80x80"> </ion-item>
-  <ion-item>姓名 <span item-right>{{listData[0].name}}</span></ion-item>
-  <ion-item  (click)="changeNick()">昵称 <span item-right>{{listData[0].nickname}}</span></ion-item>
-  <ion-item>学校 <span item-right>{{listData[0].school}}</span></ion-item>
-  <ion-item>性别 <span item-right>{{listData[0].sex}}</span></ion-item>
-  <ion-item>年龄 <span item-right>{{listData[0].age}}</span></ion-item>
-
+  <ion-item>姓名 <span item-right>{{name}}</span></ion-item>
+  <ion-item  (click)="changeNick()">昵称 <span item-right>{{nickname}}</span></ion-item>
+  <ion-item>学校 <span item-right>{{school}}</span></ion-item>
+  <ion-item>性别 <span item-right>{{gender}}</span></ion-item>
+  <ion-item>年龄 <span item-right>{{age}}</span></ion-item>
+  <ion-item>邮箱 <span item-right>{{email}}</span></ion-item>
 </ion-list>
+  <button ion-button block (click)="toModify()">修改信息</button>
 </ion-content>

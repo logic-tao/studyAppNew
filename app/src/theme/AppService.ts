@@ -226,6 +226,23 @@ export class AppService {
 
 
   }
+  changeInfo(data): Promise<any>  { //修该信息
+
+    let headers = new Headers({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
+    let options = new RequestOptions({
+      headers: headers
+    });
+
+    return new Promise((resolve, reject) => {
+      this.http.post("http://101.201.238.157/demo/index/post_user_info",JSON.stringify(data) , options )
+        .map(res => res.json())
+        .subscribe(data => resolve(data), err => reject(err))
+    })
+
+
+  }
 
   myViewTaped(data): Promise<any> {//看过的录播课视频列表
     // num	是	integer	数量

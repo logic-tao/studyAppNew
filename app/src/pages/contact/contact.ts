@@ -20,10 +20,12 @@ import {MyApp} from "../../app/app.component";
 export class ContactPage {
 
   //用户
-  name :string;
+  name :string='';
   //listData
   listData : Object;
+  school:string='';
 
+  user:string = localStorage.getItem("user");
   constructor(public navCtrl: NavController, public navParams: NavParams, private  http: Http,public appComponent:MyApp,public app:App) {
     //this.login_id = localStorage.getItem("Login_id");
 
@@ -35,8 +37,15 @@ export class ContactPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
-    console.log(this.appComponent.userinfo);
+    this.http.request('httP://101.201.238.157/index/request1/' + this.user)
+      .subscribe((res: Response) => {
+        this.listData = res.json();
+        this.name = res.json()[0].name;
 
+        this.school = res.json()[0].school;
+
+        console.log(this.listData)
+      });
   }
 
   //跳转到我
