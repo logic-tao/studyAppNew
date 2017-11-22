@@ -89,8 +89,8 @@ latenum:any=0
   paizhao(){
     const options: CameraOptions = {
       quality: 100,
-      // destinationType: this.camera.DestinationType.FILE_URI,
-      destinationType: this.camera.DestinationType.DATA_URL,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      // destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
     }
@@ -100,8 +100,8 @@ latenum:any=0
      // If it's base64:
      console.log('getPicture')
      console.log(imageData)
-    //  this.upload(imageData)
-     this.base64Image = 'data:image/jpeg;base64,' + imageData;
+     this.upload(imageData)
+    //  this.base64Image = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
      // Handle error
     });
@@ -265,7 +265,7 @@ upload(fileurl) {
      headers: {}
   }
 
-  fileTransfer.upload(fileurl, 'http://101.201.238.157/index.php/demo/index/uploadFile', options)
+  fileTransfer.upload(fileurl, encodeURI('http://101.201.238.157/index.php/demo/index/uploadFile'), options)
    .then((data) => {
      // success
      console.log('success')
