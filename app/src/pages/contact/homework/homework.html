@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-  <ion-segment [(ngModel)]="subject" color="primary">
+  <ion-segment [(ngModel)]="subject" color="primary" (ionChange)="segmentChanged()">
     <ion-segment-button value="1">
       语文
     </ion-segment-button>
@@ -22,7 +22,7 @@
       数学
     </ion-segment-button>
     <ion-segment-button value="3">
-        英语
+      英语
     </ion-segment-button>
   </ion-segment>
   <ion-card>

@@ -28,7 +28,16 @@ export class HomeworkPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomeworkPage');
+    console.log()
+    this.http.request('http://101.201.238.157/index/request_homework_list/'+ this.user+"/"+this.subject)
+      .subscribe((res: Response) => {
+        this.listData = res.json();
+        console.log(this.listData)
+      });
+  }
 
+  //请求不同科目的知识点
+  segmentChanged() {
     this.http.request('http://101.201.238.157/index/request_homework_list/'+ this.user+"/"+this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
