@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2880041d-8ca9-4626-8e18-9372eb8c7932" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/app/app.module.ts" afterPath="$PROJECT_DIR$/app/src/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/contact.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/contact.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/exercise/right-detail.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/exercise/right-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/homework/homework.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/homework/homework.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/homework/homework.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/homework/homework.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/mistake/mistake-detail.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/mistake/mistake-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/my-class/my-class.module.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/my-class/my-class.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/my/person.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/my/person.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/theme/AppService.ts" afterPath="$PROJECT_DIR$/app/src/theme/AppService.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/contact.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/contact.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,14 +17,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AppService.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AppService.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/theme/AppService.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
+            <state relative-caret-position="471">
               <caret line="237" column="3" lean-forward="false" selection-start-line="237" selection-start-column="3" selection-end-line="237" selection-end-column="3" />
               <folding>
                 <element signature="e#0#58#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contact.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/pages/contact/contact.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="40" column="90" lean-forward="true" selection-start-line="40" selection-start-column="90" selection-end-line="40" selection-end-column="90" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -59,6 +61,7 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/app/src/theme/AppService.ts" />
+        <option value="$PROJECT_DIR$/app/src/pages/contact/contact.html" />
       </list>
     </option>
   </component>
@@ -121,6 +124,40 @@
               <item name="studyAppNew" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="studyAppNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="studyAppNew" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="icon" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="studyAppNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="studyAppNew" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="icon" type="462c0819:PsiDirectoryNode" />
+              <item name="icon" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="studyAppNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="studyAppNew" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="icon" type="462c0819:PsiDirectoryNode" />
+              <item name="icon" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="studyAppNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="studyAppNew" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -158,6 +195,11 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/assets/icon" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -180,12 +222,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1511333126582</updated>
-      <workItem from="1511333127788" duration="426000" />
+      <workItem from="1511333127788" duration="1910000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="426000" />
+    <option name="totallyTimeSpent" value="1910000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="162" y="28" width="1632" height="1027" extended-state="0" />
@@ -243,11 +285,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/theme/AppService.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
+        <state relative-caret-position="471">
           <caret line="237" column="3" lean-forward="false" selection-start-line="237" selection-start-column="3" selection-end-line="237" selection-end-column="3" />
           <folding>
             <element signature="e#0#58#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/pages/contact/contact.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="40" column="90" lean-forward="true" selection-start-line="40" selection-start-column="90" selection-end-line="40" selection-end-column="90" />
+          <folding />
         </state>
       </provider>
     </entry>
