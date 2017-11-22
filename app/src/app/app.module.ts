@@ -21,6 +21,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {HttpModule} from '@angular/http';
 import {ReactiveFormsModule} from "@angular/forms";
+import { Camera } from '@ionic-native/camera';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 // import { VideoPlayer } from '@ionic-native/video-player';
 
 
@@ -50,6 +53,10 @@ import {ReactiveFormsModule} from "@angular/forms";
     TabsPage,
   ],
   providers: [
+    Camera,
+    FileTransfer,
+    File,
+    FileTransferObject,
     StatusBar,
     SplashScreen,
     HttpModule,

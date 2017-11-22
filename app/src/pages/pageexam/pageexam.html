@@ -11,7 +11,8 @@
   
         <button (click)="add()">
           <img src="../../assets/icon/shoucang.png" height="18" width="18"/>
-          剩余：{{m}}：{{s}}
+          <span *ngIf="navParams.data.type==2">剩余：{{m}}：{{s}}</span>
+          
         </button>
         
       </ion-title>
@@ -70,7 +71,7 @@
                                   <div style="text-align: left;">{{listDetailData[i].titleBody}}?</div>
                    <!--{{listDetailData[i].titleBody}}?-->
                    <br>
-                  <textarea placeholder="输入文本..." style="border: solid 1px #aeaeae;height: 350px;border-radius: 10px;width: 100%;resize: none;" [(ngModel)]='listDetailData[i].useranswer'></textarea>
+                  <textarea placeholder="输入文本..." style="border-width: 0;height: 200px;border: solid 1px #aeaeae;height: 350px;border-radius: 10px;width: 100%;resize: none;" [(ngModel)]='listDetailData[i].useranswer'></textarea>
                    <br>
                    <span *ngIf="listDetailData[i].showanswer">答案：{{listDetailData[i].answer}}</span>
                    <img *ngIf="base64Image" src="{{base64Image}}">
@@ -78,10 +79,10 @@
                 <button ion-button  *ngIf="item.type==4" (click)="getimg()">
                   图片
                 </button>
-                <button ion-button (click)="shangSubject(i)">
+                <button *ngIf="currentIndex!=0" ion-button (click)="shangSubject(i)">
                   上一题
                 </button>
-                <button  ion-button (click)="nextSubject(i)">
+                <button *ngIf="currentIndex!=latenum"  ion-button (click)="nextSubject(i)">
                   下一题
                 </button>
                 <button *ngIf="navParams.data.type==2"  ion-button (click)="tijiaoSubject()">

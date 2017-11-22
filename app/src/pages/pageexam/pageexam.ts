@@ -3,7 +3,9 @@ import { IonicPage, NavController, NavParams,ActionSheetController} from 'ionic-
 import { Http, Response } from '@angular/http';
 // import {PagedetailPage} from  '../pagedetail/pagedetail'
 import { MyApp} from '../../app/app.component';
-import {CameraOptions } from '@ionic-native/camera';
+import {Camera,CameraOptions } from '@ionic-native/camera';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 // import {ExerciseDetailPage} from "../contact/exercise/exercise-detail";
 // import { Camera, CameraOptions } from '@ionic-native/camera';
 /**
@@ -43,6 +45,7 @@ userendtime:any
 daantanchuang:boolean=false
 currentIndex:any=0
 base64Image:any
+latenum:any=0
   add(){
     //将题添加到后台数ll据库中 sfds
     // alert("收藏成功");
@@ -84,22 +87,24 @@ base64Image:any
     actionSheet.present();
   }
   paizhao(){
-    // const options: CameraOptions = {
-    //   quality: 100,
-    //   destinationType: this.camera.DestinationType.DATA_URL,
-    //   encodingType: this.camera.EncodingType.JPEG,
-    //   mediaType: this.camera.MediaType.PICTURE
-    // }
+    const options: CameraOptions = {
+      quality: 100,
+      // destinationType: this.camera.DestinationType.FILE_URI,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
     
-    // this.camera.getPicture(options).then((imageData) => {
-    //  // imageData is either a base64 encoded string or a file URI
-    //  // If it's base64:
-    //  console.log('getPicture')
-    //  console.log(imageData)
-    //  this.base64Image = 'data:image/jpeg;base64,' + imageData;
-    // }, (err) => {
-    //  // Handle error
-    // });
+    this.camera.getPicture(options).then((imageData) => {
+     // imageData is either a base64 encoded string or a file URI
+     // If it's base64:
+     console.log('getPicture')
+     console.log(imageData)
+    //  this.upload(imageData)
+     this.base64Image = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+     // Handle error
+    });
   }
     ngOnDestroy(){
   if(this.timer){
@@ -179,9 +184,11 @@ this.s=this.alltrime%60
     }
   }
 //public camera: Camera,
-  constructor(public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
+  constructor(private transfer: FileTransfer, private file: File,public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
   
 }
+
+
 getPhoto(){
 
 }
@@ -226,6 +233,7 @@ getpagedata(id){
                       console.log(res)
                       this.countviodtime()
                       this.listDetailData = res.json();
+                      this.latenum=this.listDetailData.length-1
                       console.log(this.listDetailData)
                       for (var i = 0; i < this.listDetailData.length; i++) {
                         this.listDetailData[i].showanswer=false
@@ -240,12 +248,32 @@ getpagetextdata(id){
       this.http.request('http://101.201.238.157/index.php/demo/index/getDpecialList?id='+id)
       .subscribe((res: Response) => {
         this.listDetailData = res.json();
+        this.latenum=this.listDetailData.length-1
         for (var i = 0; i < this.listDetailData.length; i++) {
           this.listDetailData[i].showanswer=false
           this.listDetailData[i].useranswer=''
           this.listDetailData[i].jieguo=0//0 未解答 1已解答 2 正确 3 错误 
         }
       });
+}
+upload(fileurl) {
+  console.log('upload:'+fileurl)
+  const fileTransfer: FileTransferObject = this.transfer.create();
+  let options: FileUploadOptions = {
+     fileKey: 'upload',
+     fileName: 'name.jpg',
+     headers: {}
+  }
+
+  fileTransfer.upload(fileurl, 'http://101.201.238.157/index.php/demo/index/uploadFile', options)
+   .then((data) => {
+     // success
+     console.log('success')
+     console.log(data)
+   }, (err) => {
+    console.log('err')
+    console.log(err)
+   })
 }
   ionViewDidLoad() {
     console.log('ionViewDidLoad PagenextPage');
