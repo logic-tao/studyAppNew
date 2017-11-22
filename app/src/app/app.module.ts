@@ -24,6 +24,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { Camera } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
+import { ImagePicker } from '@ionic-native/image-picker';
 // import { VideoPlayer } from '@ionic-native/video-player';
 
 
@@ -56,6 +57,7 @@ import { File } from '@ionic-native/file';
     Camera,
     FileTransfer,
     File,
+    ImagePicker,
     FileTransferObject,
     StatusBar,
     SplashScreen,

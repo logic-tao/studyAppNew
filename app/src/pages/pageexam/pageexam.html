@@ -28,20 +28,21 @@
                   <!--<h1>单选题</h1>
                   题目：
                   <br>-->
-                  <div style="text-align: left;">{{listDetailData[i].titleBody}}?</div>
+                  <div style="text-align: left;" [innerHTML]="listDetailData[i].titleBody"></div>
                    
                    <br>
-                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='A'}"(click)="selectclick(i,'A')"><button>A</button> <span style="margin-left: 20px;">{{listDetailData[i].A}}</span></div>
-                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='B'}"(click)="selectclick(i,'B')"><button>B</button><span style="margin-left: 20px;">{{listDetailData[i].B}} </span></div>
-                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='C'}"(click)="selectclick(i,'C')"><button>C</button><span style="margin-left: 20px;">{{listDetailData[i].C}} </span></div>
-                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='D'}"(click)="selectclick(i,'D')"><button>D</button><span style="margin-left: 20px;">{{listDetailData[i].D}} </span></div>
+                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='A'}"(click)="selectclick(i,'A')"><button>A</button><div [innerHTML]="listDetailData[i].A" class="selecdiv"></div></div>
+                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='B'}"(click)="selectclick(i,'B')"><button>B</button><div [innerHTML]="listDetailData[i].B" class="selecdiv"></div></div>
+                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='C'}"(click)="selectclick(i,'C')"><button>C</button><div [innerHTML]="listDetailData[i].C" class="selecdiv"></div></div>
+                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='D'}"(click)="selectclick(i,'D')"><button>D</button><div [innerHTML]="listDetailData[i].D" class="selecdiv"></div></div>
+                   
                    <span *ngIf="listDetailData[i].showanswer">答案：{{listDetailData[i].answer}}</span>
                   <br>
                 </div>
                 <div  *ngIf="item.type==2" >
                   <!--<h1>填空题</h1>
                                   <br>-->
-                                  <div style="text-align: left;">{{listDetailData[i].titleBody}}?</div>
+                                  <div style="text-align: left;" [innerHTML]="listDetailData[i].titleBody"></div>
                    <!--{{listDetailData[i].titleBody}}?-->
                    <br>
                    <ion-input style="border: solid 1px #aeaeae;height: 35px;border-radius: 10px;" color="danger" placeholder="请输入..." clearOnEdit="true" [(ngModel)]='listDetailData[i].useranswer' (ionInput)="tiankong()"></ion-input>
@@ -51,7 +52,7 @@
                 <div  *ngIf="item.type==3" >
                   <!--<h1>判断题</h1>
                                   <br>-->
-                                  <div style="text-align: left;">{{listDetailData[i].titleBody}}?</div>
+                                  <div style="text-align: left;" [innerHTML]="listDetailData[i].titleBody"></div>
                                   <div style="margin: 10px;">
                                         <div class="selekuang panduan" [ngClass]="{'selectclass':listDetailData[i].useranswer=='1'}"(click)="selectclick(i,'1')">
                                         <ion-icon name="ios-checkmark-circle"></ion-icon>
@@ -68,7 +69,7 @@
                 <div  *ngIf="item.type==4" >
                   <!--<h1>解答题</h1>
                                   <br>-->
-                                  <div style="text-align: left;">{{listDetailData[i].titleBody}}?</div>
+                                  <div style="text-align: left;" [innerHTML]="listDetailData[i].titleBody"></div>
                    <!--{{listDetailData[i].titleBody}}?-->
                    <br>
                   <textarea placeholder="输入文本..." style="border-width: 0;height: 200px;border: solid 1px #aeaeae;height: 350px;border-radius: 10px;width: 100%;resize: none;" [(ngModel)]='listDetailData[i].useranswer'></textarea>

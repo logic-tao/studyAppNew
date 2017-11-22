@@ -6,6 +6,7 @@ import { MyApp} from '../../app/app.component';
 import {Camera,CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
+import { ImagePicker } from '@ionic-native/image-picker';
 // import {ExerciseDetailPage} from "../contact/exercise/exercise-detail";
 // import { Camera, CameraOptions } from '@ionic-native/camera';
 /**
@@ -70,7 +71,7 @@ latenum:any=0
           role: 'takePhoto',
           handler: () => {
             console.log('takePhoto');
-            this.paizhao()
+            this.getPicture()
             // this.getPhoto();
           }
         },
@@ -78,6 +79,7 @@ latenum:any=0
           text: '相册上传',
           handler: () => {
             console.log('Album');
+            this.getPictures()
             // this.takePhoto();
           }
         },
@@ -86,7 +88,16 @@ latenum:any=0
 
     actionSheet.present();
   }
-  paizhao(){
+  getPictures(){
+    let options={maximumImagesCount:1,number:0}
+    this.imagePicker.getPictures(options).then((results) => {
+      for (var i = 0; i < results.length; i++) {
+          console.log('Image URI: ' + results[i]);
+          this.upload(results[i])
+      }
+    }, (err) => { });
+  }
+  getPicture(){
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
@@ -184,7 +195,7 @@ this.s=this.alltrime%60
     }
   }
 //public camera: Camera,
-  constructor(private transfer: FileTransfer, private file: File,public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
+  constructor(private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
   
 }
 
@@ -256,37 +267,40 @@ getpagetextdata(id){
         }
       });
 }
-upload(fileurl) {
-  console.log('upload:'+fileurl)
-  const fileTransfer: FileTransferObject = this.transfer.create();
-  let options: FileUploadOptions = {
-     fileKey: 'upload',
-     fileName: 'name.jpg',
-     headers: {}
-  }
+  upload(fileurl) {
+    console.log('upload:'+fileurl)
+    const fileTransfer: FileTransferObject = this.transfer.create();
+    let options: FileUploadOptions = {
+      fileKey: 'upload',
+      fileName: 'name.jpg',
+      headers: {}
+    }
 
-  fileTransfer.upload(fileurl, encodeURI('http://101.201.238.157/index.php/demo/index/uploadFile'), options)
-   .then((data) => {
-     // success
-     console.log('success')
-     console.log(data)
-   }, (err) => {
-    console.log('err')
-    console.log(err)
-   })
-}
+    fileTransfer.upload(fileurl, encodeURI('http://101.201.238.157/index.php/demo/index/uploadFile'), options)
+    .then((data) => {
+      // success
+      console.log('success')
+      // var dss  =  data.json();
+      data.response=JSON.parse(data.response)
+      console.log(data)
+      if(data.response['code']=200){
+        this.base64Image = data.response['data']['img_url'];
+        console.log('base64Image:'+this.base64Image)
+        this.cd.detectChanges();
+      }
+    }, (err) => {
+      console.log('err')
+      console.log(err)
+    })
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad PagenextPage');
     console.log(this.navParams.data)
     if(this.navParams.data.type==1){ //1专题练习 2试卷
       this.getpagetextdata(this.navParams.data.id)
-      
     }else{
       this.getpagedata(this.navParams.data.id)
     }
-
-
-
       //     this.http.request('http://sapi.bainid.com/index/requestMess')
       // .subscribe((res: Response) => {
       //   this.listDetailData = res.json();
