@@ -25,27 +25,6 @@ import { Camera } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { ImagePicker } from '@ionic-native/image-picker';
-import {PersonModifyPage} from "../pages/contact/my/person-modify";
-import {HomeworkTestPage} from "../pages/contact/homework/homework-test";
-import {CollectionTestPage} from "../pages/contact/collection/collection-test";
-import {VideorecordPage} from "../pages/contact/videos/videorecord";
-import {VideosPage} from "../pages/contact/videos/videos";
-import {TestPage} from "../pages/contact/test/test";
-import {SettingPage} from "../pages/contact/setting/setting";
-import {MydatadetailPage} from "../pages/contact/mydata/mydatadetail";
-import {MydataPage} from "../pages/contact/mydata/mydata";
-import {MyclassPage} from "../pages/contact/my-class/my-class";
-import {ApplyClassPage} from "../pages/contact/my-class/apply-class";
-import {PersonPage} from "../pages/contact/my/person";
-import {MistakeListPage} from "../pages/contact/mistake/mistake-list";
-import {MistakePage} from "../pages/contact/mistake/mistake";
-import {MistakeDetailPage} from "../pages/contact/mistake/mistake-detail";
-import {HomeworkPage} from "../pages/contact/homework/homework";
-import {CollectionListPage} from "../pages/contact/collection/collection-list";
-import {CollectionPage} from "../pages/contact/collection/collection";
-import {RightDetailPage} from "../pages/contact/exercise/right-detail";
-import {ExerciseDetailPage} from "../pages/contact/exercise/exercise-detail";
-import {ExercisePage} from "../pages/contact/exercise/exercise";
 // import { VideoPlayer } from '@ionic-native/video-player';
 
 
@@ -58,27 +37,6 @@ import {ExercisePage} from "../pages/contact/exercise/exercise";
     HomePage,
     InteractPage,
     TabsPage,
-    ExercisePage,
-    ExerciseDetailPage,
-    RightDetailPage,
-    CollectionPage,
-    CollectionListPage,
-    HomeworkPage,
-    MistakeDetailPage,
-    MistakePage,
-    MistakeListPage,
-    PersonPage,
-    ApplyClassPage,
-    MyclassPage,
-    MydataPage,
-    MydatadetailPage,
-    SettingPage,
-    TestPage,
-    VideosPage,
-    VideorecordPage,
-    CollectionTestPage,
-    HomeworkTestPage,
-    PersonModifyPage
   ],
   imports: [
     BrowserModule,
@@ -94,27 +52,6 @@ import {ExercisePage} from "../pages/contact/exercise/exercise";
     HomePage,
     InteractPage,
     TabsPage,
-    ExercisePage,
-    ExerciseDetailPage,
-    RightDetailPage,
-    CollectionPage,
-    CollectionListPage,
-    HomeworkPage,
-    MistakeDetailPage,
-    MistakePage,
-    MistakeListPage,
-    PersonPage,
-    ApplyClassPage,
-    MyclassPage,
-    MydataPage,
-    MydatadetailPage,
-    SettingPage,
-    TestPage,
-    VideosPage,
-    VideorecordPage,
-    CollectionTestPage,
-    HomeworkTestPage,
-    PersonModifyPage
   ],
   providers: [
     Camera,
