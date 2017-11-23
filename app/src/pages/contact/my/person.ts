@@ -122,6 +122,7 @@ export class PersonPage {
         {
           text: '相册上传',
           handler: () => {
+            this.getPictures()
             console.log('Album');
             // this.takePhoto();
           }
@@ -133,6 +134,15 @@ export class PersonPage {
 
     //读取相册文件夹
 
+  }
+  getPictures(){
+    let options={maximumImagesCount:1,number:0}
+    this.imagePicker.getPictures(options).then((results) => {
+      for (var i = 0; i < results.length; i++) {
+        console.log('Image URI: ' + results[i]);
+        this.upload(results[i])
+      }
+    }, (err) => { });
   }
 
   paizhao(){
