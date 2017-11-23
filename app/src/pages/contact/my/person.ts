@@ -137,11 +137,13 @@ export class PersonPage {
 
   paizhao(){
     const options: CameraOptions = {
-      quality: 100,
+      quality: 50,
       destinationType: this.camera.DestinationType.FILE_URI,
       // destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      allowEdit:true
+
     }
 
     this.camera.getPicture(options).then((imageData) => {
@@ -165,7 +167,7 @@ export class PersonPage {
       headers: {}
     }
 
-    fileTransfer.upload(fileurl, encodeURI('http://101.201.238.157/index.php/demo/index/uploadavatar/' + this.user), options)
+    fileTransfer.upload(fileurl, encodeURI('http://101.201.238.157/index.php/demo/index/uploadavatar/'), options)
       .then((data) => {
         // success
         console.log('success')
