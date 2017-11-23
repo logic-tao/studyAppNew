@@ -76,9 +76,14 @@
                    <br>
                    <span *ngIf="listDetailData[i].showanswer">答案：{{listDetailData[i].answer}}</span>
                    <img *ngIf="base64Image" src="{{base64Image}}">
+                   
                 </div>
+                <div *ngFor="let items of voidlis;let j=index" (click)="palay(j)">语音文件</div>
                 <button ion-button  *ngIf="item.type==4" (click)="getimg()">
                   图片
+                </button>
+                <button ion-button  *ngIf="item.type==4" (click)="geiviod()">
+                  语音
                 </button>
                 <button *ngIf="currentIndex!=0" ion-button (click)="shangSubject(i)">
                   上一题

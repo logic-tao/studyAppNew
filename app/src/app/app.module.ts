@@ -25,6 +25,7 @@ import { Camera } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { ImagePicker } from '@ionic-native/image-picker';
+import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 // import { VideoPlayer } from '@ionic-native/video-player';
 
 
@@ -54,6 +55,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
     TabsPage,
   ],
   providers: [
+    MediaCapture,
     Camera,
     FileTransfer,
     File,

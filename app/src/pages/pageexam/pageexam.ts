@@ -7,6 +7,7 @@ import {Camera,CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { ImagePicker } from '@ionic-native/image-picker';
+import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 // import {ExerciseDetailPage} from "../contact/exercise/exercise-detail";
 // import { Camera, CameraOptions } from '@ionic-native/camera';
 /**
@@ -16,6 +17,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
  * on Ionic pages and navigation.
  */
 declare let Swiper:any;
+declare let navigator:any;
 @IonicPage()
 @Component({
   selector: 'page-pageexam',
@@ -47,6 +49,7 @@ daantanchuang:boolean=false
 currentIndex:any=0
 base64Image:any
 latenum:any=0
+voidlis:any=[]
   add(){
     //将题添加到后台数ll据库中 sfds
     // alert("收藏成功");
@@ -61,6 +64,42 @@ latenum:any=0
             });
     // this.http.request('http://sapi.bainid.com/demo/index/collect').subscribe();
 
+  }
+  palay(i){
+    this.appComponent.presentToast(this.voidlis[i].localURL); 
+    }
+  geiviod(){
+    // let options: CaptureImageOptions = { limit: 3 };
+    // this.mediaCapture.captureImage(options)
+    //   .then(
+    //     (data: MediaFile[]) => console.log(data),
+    //     (err: CaptureError) => console.error(err)
+    //   );
+      // capture callback
+var captureSuccess = function(mediaFiles) {
+  console.log('mediaFiles')
+  console.log(mediaFiles)
+  var i, path, len;
+  this.voidlis=mediaFiles;
+  for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+      path = mediaFiles[i].fullPath;
+      // do something interesting with the file
+  }
+};
+
+// capture error callback
+var captureError = function(error) {
+  navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+};
+
+// start audio capture
+navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:2});
+  }
+  voidint(){
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        console.log(navigator.device.capture);
+    }
   }
   getimg(){
     let actionSheet = this.actionSheetCtrl.create({
@@ -195,8 +234,8 @@ this.s=this.alltrime%60
     }
   }
 //public camera: Camera,
-  constructor(private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
-  
+  constructor(private mediaCapture: MediaCapture,private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
+  this.voidint()
 }
 
 
