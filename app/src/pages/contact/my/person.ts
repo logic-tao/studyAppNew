@@ -122,6 +122,7 @@ export class PersonPage {
         {
           text: '相册上传',
           handler: () => {
+            this.getPictures()
             console.log('Album');
             // this.takePhoto();
           }
@@ -134,14 +135,25 @@ export class PersonPage {
     //读取相册文件夹
 
   }
+  getPictures(){
+    let options={maximumImagesCount:1,number:0}
+    this.imagePicker.getPictures(options).then((results) => {
+      for (var i = 0; i < results.length; i++) {
+        console.log('Image URI: ' + results[i]);
+        this.upload(results[i])
+      }
+    }, (err) => { });
+  }
 
   paizhao(){
     const options: CameraOptions = {
-      quality: 100,
+      quality: 50,
       destinationType: this.camera.DestinationType.FILE_URI,
       // destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
+      mediaType: this.camera.MediaType.PICTURE,
+      allowEdit:true
+
     }
 
     this.camera.getPicture(options).then((imageData) => {
@@ -165,7 +177,7 @@ export class PersonPage {
       headers: {}
     }
 
-    fileTransfer.upload(fileurl, encodeURI('http://101.201.238.157/index.php/demo/index/uploadavatar/' + this.user), options)
+    fileTransfer.upload(fileurl, encodeURI('http://101.201.238.157/index.php/demo/index/uploadavatar/'), options)
       .then((data) => {
         // success
         console.log('success')
