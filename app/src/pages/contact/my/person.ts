@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ActionSheetController, App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import {Camera,CameraOptions } from '@ionic-native/camera';
@@ -45,12 +45,16 @@ export class PersonPage {
     this.login_id = '1111';
   }
 
+  @Input() src: string = "http://placehold.it/80x80/"
   ionViewDidLoad() {
     console.log('ionViewDidLoad  PersonPage');
     this.http.request('httP://101.201.238.157/index/request1/' + this.user)
       .subscribe((res: Response) => {
         this.listData = res.json();
         if (this.listData != null) {
+          if ("avatar" in res.json()[0] && res.json()[0].avatar != "") {
+            this.src = res.json()[0].avatar;
+          }
           if ("name" in res.json()[0]) {
             this.name = res.json()[0].name;
           }
