@@ -146,6 +146,7 @@ export class HomeworkTestPage {
 
   // 跳转到下一页 或返回知识点列表
   nextSubject(type,titleid){
+
     if (type == 1) {
       this.toAnswer[titleid] = this.seAnswer;
     } else if (type == 2) {

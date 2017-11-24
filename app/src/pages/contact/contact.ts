@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {App, NavController, NavParams} from 'ionic-angular';
 import {PersonPage} from "./my/person";
 import {ExercisePage} from "./exercise/exercise";
@@ -11,6 +11,7 @@ import {Http,Response} from "@angular/http";
 import {SettingPage} from "./setting/setting";
 import {VideorecordPage} from "./videos/videorecord";
 import {MyApp} from "../../app/app.component";
+
 
 
 @Component({
@@ -34,17 +35,41 @@ export class ContactPage {
     this.name = this.appComponent.userinfo.realname;
   }
 
+  @Input() src: string = "http://placehold.it/80x80/"
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
     this.http.request('httP://101.201.238.157/index/request1/' + this.user)
       .subscribe((res: Response) => {
         this.listData = res.json();
-        this.name = res.json()[0].name;
 
-        this.school = res.json()[0].school;
-
+        if (this.listData != null) {
+          if ("avatar" in res.json()[0] && res.json()[0].avatar != "") {
+            this.src = res.json()[0].avatar;
+          }
+          if ("name" in res.json()[0]) {
+            this.name = res.json()[0].name;
+          }
+          if ("school" in res.json()[0]) {
+            this.school = res.json()[0].school;
+          }
+        }
         console.log(this.listData)
+      });
+  }
+  ionViewWillLeave() {
+    console.log('ionViewDidLoad RegisterPage');
+    this.http.request('httP://101.201.238.157/index/request1/' + this.user)
+      .subscribe((res: Response) => {
+        this.listData = res.json();
+        if (this.listData != null) {
+          if ("name" in res.json()[0]) {
+            this.name = res.json()[0].name;
+          }
+          if ("school" in res.json()[0]) {
+            this.school = res.json()[0].school;
+          }
+        }
       });
   }
 

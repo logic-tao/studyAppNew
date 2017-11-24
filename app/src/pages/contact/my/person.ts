@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ActionSheetController, App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import {Camera,CameraOptions } from '@ionic-native/camera';
@@ -45,24 +45,41 @@ export class PersonPage {
     this.login_id = '1111';
   }
 
+  @Input() src: string = "http://placehold.it/80x80/"
   ionViewDidLoad() {
     console.log('ionViewDidLoad  PersonPage');
     this.http.request('httP://101.201.238.157/index/request1/' + this.user)
       .subscribe((res: Response) => {
         this.listData = res.json();
-        this.name = res.json()[0].name;
-        this.birthday = res.json()[0].birthday;
-        this.nickname = res.json()[0].nickname;
-        this.email = res.json()[0].email;
-        this.school = res.json()[0].school;
-        var date = new Date();
-        var year = date.getFullYear();
-
-        this.age = year - parseInt(this.birthday.substring(0,4));
-        if(res.json()[0].gender == 2){
-            this.gender = "女"
+        if (this.listData != null) {
+          if ("avatar" in res.json()[0] && res.json()[0].avatar != "") {
+            this.src = res.json()[0].avatar;
+          }
+          if ("name" in res.json()[0]) {
+            this.name = res.json()[0].name;
+          }
+          if ("school" in res.json()[0]) {
+            this.school = res.json()[0].school;
+          }
+          if ("birthday" in res.json()[0]) {
+            this.birthday = res.json()[0].birthday;
+            var date = new Date();
+            var year = date.getFullYear();
+            this.age = year - parseInt(this.birthday.substring(0, 4));
+            if ("email" in res.json()[0]) {
+              this.email = res.json()[0].email;
+            }
+            if ("nickname" in res.json()[0]) {
+              this.nickname = res.json()[0].nickname;
+            }
+            if ("gender" in res.json()[0]) {
+              if (res.json()[0].gender == 2) {
+                this.gender = "女"
+              }
+            }
+          }
+          console.log(this.listData)
         }
-        console.log(this.listData)
       });
   }
 
@@ -122,7 +139,6 @@ export class PersonPage {
         {
           text: '相册上传',
           handler: () => {
-            this.getPictures()
             console.log('Album');
             // this.takePhoto();
           }
@@ -134,15 +150,6 @@ export class PersonPage {
 
     //读取相册文件夹
 
-  }
-  getPictures(){
-    let options={maximumImagesCount:1,number:0}
-    this.imagePicker.getPictures(options).then((results) => {
-      for (var i = 0; i < results.length; i++) {
-        console.log('Image URI: ' + results[i]);
-        this.upload(results[i])
-      }
-    }, (err) => { });
   }
 
   paizhao(){

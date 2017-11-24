@@ -11,13 +11,13 @@
     <button ion-item  class="person" (click)="toPerson()">
       <ion-row>
         <ion-col item-clear>
-          <img  class="item-thumbnail-left" style="border-radius:200px" src="http://placehold.it/100x100">
+          <img  class="item-thumbnail-left" style="border-radius:200px;width: 100px;height: 100px;" src="{{src}}">
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col col-offset-35>
             <h4 class="item" style="font-family: Arial;font-size: 15px; align-content: center ; color: white;" align-items-center>{{name}}</h4>
-            <p class="item" style="font-family: Arial;font-size: 18px;align-self: center; color: white;" align-items-center>华东师范大学</p>
+            <p class="item" style="font-family: Arial;font-size: 18px;align-self: center; color: white;" align-items-center>{{school}}</p>
         </ion-col>
       </ion-row>
     </button>

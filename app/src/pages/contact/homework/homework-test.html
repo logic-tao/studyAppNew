@@ -21,33 +21,37 @@
   <ion-list inset *ngIf="test">
     <!--选择题-->
     <label ion-text *ngIf="test[test_number - 1].type == 1">
-      （选择题){{test[test_number - 1].titleBody}}<br>
+      <span>（选择题)</span><span [innerHtml]="test[test_number - 1].titleBody"></span><br>
       <br>
       <ion-list>
         <button ion-button round small outline block [color]="selectCoA? 'secondary':'light'" (click)="choseanswer('A')">
-          <span style="color: black">A.{{test[test_number - 1].A}}</span>
+          <span style="color: black">A.</span>
+          <div style="color: black" [innerHtml]="test[test_number - 1].A"></div>
         </button>
 
         <button ion-button round small outline block [color]="selectCoB? 'secondary':'light'" (click)="choseanswer('B')">
-          <span style="color: black">B.{{test[test_number - 1].B}}</span>
+          <span style="color: black">B.</span>
+          <div style="color: black" [innerHtml]="test[test_number - 1].B"></div>
         </button>
         <button ion-button round small outline block [color]="selectCoC? 'secondary':'light'" (click)="choseanswer('C')">
-          <span style="color: black">C.{{test[test_number - 1].C}}</span>
+          <span style="color: black">C.</span>
+          <div style="color: black" [innerHtml]="test[test_number - 1].C"></div>
         </button>
         <button ion-button round small outline block [color]="selectCoD? 'secondary':'light'" (click)="choseanswer('D')">
-          <span style="color: black">D.{{test[test_number - 1].D}}</span>
+          <span item-left style="color: black">D.</span>
+          <span style="color: black" [innerHtml]="test[test_number - 1].D"></span>
         </button>
       </ion-list>
     </label>
     <!--填空题-->
     <label ion-text *ngIf="test[test_number - 1].type == 2">
-      （填空题){{test[test_number - 1].titleBody}}<br>
+      （填空题)<div [innerHtml]="test[test_number - 1].titleBody"></div><br>
       <br>
       输入答案：<input ion-inupt style="border: solid 1px #aeaeae;height: 35px;border-radius: 10px;" [(ngModel)]="tiankong" color="danger" placeholder="请输入..." clearOnEdit="true">
     </label>
     <!--判断题-->
     <label ion-text *ngIf="test[test_number - 1].type == 3">
-      （判断题){{test[test_number - 1].titleBody}}<br>
+      （判断题)<div [innerHtml]="test[test_number - 1].titleBody"></div><br>
       <br>
       <button ion-button round small outline block [color]="pCoT? 'secondary':'light'" (click)="pAn('1')">
         <span style="color: black">正确</span>
@@ -58,7 +62,7 @@
     </label>
     <!--解答题-->
     <label ion-text *ngIf="test[test_number - 1].type == 4">
-      （解答题） {{test[test_number - 1].titleBody}}<br>
+      （解答题）<div [innerHtml]="test[test_number - 1].titleBody"></div><br>
       <br>
       输入答案：<ion-textarea style="border: solid 1px #aeaeae;height: 350px;border-radius: 10px;" [(ngModel)]="jieda"></ion-textarea>
     </label>
