@@ -44,13 +44,13 @@ export class ContactPage {
         this.listData = res.json();
 
         if (this.listData != null) {
-          if ("avatar" in res.json()[0] && res.json()[0].avatar != "") {
+          if (this.listData[0]['avatar']!=undefined&&this.listData[0].avatar != "") {
             this.src = res.json()[0].avatar;
           }
-          if ("name" in res.json()[0]) {
+          if (res.json()[0]['name']!=undefined) {
             this.name = res.json()[0].name;
           }
-          if ("school" in res.json()[0]) {
+          if (res.json()[0]['school']!=undefined) {
             this.school = res.json()[0].school;
           }
         }
@@ -63,10 +63,10 @@ export class ContactPage {
       .subscribe((res: Response) => {
         this.listData = res.json();
         if (this.listData != null) {
-          if ("name" in res.json()[0]) {
+          if (res.json()[0]['name']!=undefined) {
             this.name = res.json()[0].name;
           }
-          if ("school" in res.json()[0]) {
+          if (res.json()[0]['school']!=undefined) {
             this.school = res.json()[0].school;
           }
         }
@@ -75,39 +75,39 @@ export class ContactPage {
 
   //跳转到我
   toPerson() {
-    this.app.getRootNav().push(PersonPage);
+    this.app.getRootNav().push('PersonPage');
   }
   //跳转到练习记录
   toExercise() {
-    this.app.getRootNav().push(ExercisePage);
+    this.app.getRootNav().push('ExercisePage');
   }
   //跳转到错题本
   toMistake() {
-    this.app.getRootNav().push(MistakePage);
+    this.app.getRootNav().push('MistakePage');
   }
   //跳转到我的作业
   toHomeWork() {
-    this.app.getRootNav().push(HomeworkPage);
+    this.app.getRootNav().push('HomeworkPage');
   }
   //跳转我的精讲
   toVideos() {
-    this.app.getRootNav().push(VideorecordPage);
+    this.app.getRootNav().push('VideorecordPage');
   }
   //跳转我的收藏
   toMycollection() {
-    this.app.getRootNav().push(CollectionPage);
+    this.app.getRootNav().push('CollectionPage');
   }
   //跳转到我的班级
   toMyclass() {
-    this.app.getRootNav().push(MyclassPage);
+    this.app.getRootNav().push('MyclassPage');
   }
   //跳转我的资料
   todata() {
-    this.app.getRootNav().push(MydataPage);
+    this.app.getRootNav().push('MydataPage');
   }
   //跳转到设置
   toSetting() {
-    this.app.getRootNav().push(SettingPage);
+    this.app.getRootNav().push('SettingPage');
   }
 
 }
