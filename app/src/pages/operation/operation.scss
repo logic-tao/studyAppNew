@@ -104,6 +104,32 @@ border-radius: 15px;
     display: inline-block;
 }
 }
+.righticon{
+    line-height: 40px;
+    text-align: center;
+    color: #306ed0;
+    font-weight: bold;
+    .ionictop{
+        margin: 5px;
+        background-color: rgba(146, 143, 143, 0.37);
+        margin: 5px;
+        ion-icon{
+            font-size: 20px;
+            margin-right: 10px;
+            color: #fd7624;
+        }
+    }
+    .ionicbotton{
+        ion-icon{
+            margin: 5px;
+            font-size: 20px;
+            margin-right: 10px;
+            color: #262aec;
+        }
+        background-color: rgba(81, 126, 140, 0.47);
+            margin: 5px;
+    }
+}
 .selectclass.selekuang{
     border: solid 1px #4edff6;
     color: #4edff6;

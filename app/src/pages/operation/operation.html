@@ -181,8 +181,11 @@
           <p>{{items.detail}}</p>
           <p>{{items.created_at}}</p>
         </ion-col>
-        <ion-col col-3>
-          <strong>{{items.score}}/分</strong>
+        <ion-col col-3 class="righticon">
+          <!-- <strong>{{items.score}}/分</strong> -->
+          
+          <div class="ionictop"><ion-icon name="arrow-dropup"></ion-icon>213</div>
+          <div class="ionicbotton"><ion-icon name="arrow-dropdown"></ion-icon>3333</div>
         </ion-col>
       </ion-row>
   </ion-list>
@@ -203,7 +206,7 @@
     <span class="biaoji cuowu">错误</span>
     <br>
     <br>
-    已完成：{{yiwanc}} 未完成：{{weiwanc}}</div>
+    已完成：{{yiwanc}} 未完成：{{weiwanc}}通关率：{{tongguanlv}}</div>
     <button *ngFor="let items of shipinglianxi;let j=index" (click)="tozuotijieshi(j)" [ngClass]="{'weijieda':shipinglianxi[j].jieguo==0,'yiweijieda':shipinglianxi[j].jieguo==1,'zhengque':shipinglianxi[j].jieguo==2,'cuowu':shipinglianxi[j].jieguo==3}">{{j+1}}</button>
   </div>
       <div class="zuoti" *ngIf="beginzuoti">

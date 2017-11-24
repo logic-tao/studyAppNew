@@ -34,6 +34,7 @@ export class OperationPage {
   shipingxiangqing:any
   shipingshuju:any
   shipinglianxi:any
+  tongguanlv:any
   yiwanc:any
   weiwanc:any
   daantanchuang:boolean=false
@@ -87,15 +88,21 @@ shangSubject(){
 tijiaoSubject(){
   this.yiwanc=0
   this.weiwanc=0
+  let zhegnque=0;
 //     yiwanc:any
 // weiwanc:any
           for (var i = 0; i < this.shipinglianxi.length; i++) {
             if(this.shipinglianxi[i].useranswer==''){
               this.weiwanc=this.weiwanc+1
+              
             }else{
 this.yiwanc=this.yiwanc+1
+if(this.shipinglianxi[i].useranswer==this.shipinglianxi[i].answer){
+  zhegnque=zhegnque+1
+}
             }
       }
+      this.tongguanlv=zhegnque/this.shipinglianxi.length
   this.daantanchuang=true
 
 }
