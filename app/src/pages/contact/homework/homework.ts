@@ -45,7 +45,7 @@ export class HomeworkPage {
   }
 
   tohomework(hid,name){
-    this.app.getRootNav().push(HomeworkTestPage,{"hid":hid,"subject":name});
+    this.app.getRootNav().push('HomeworkTestPage',{"hid":hid,"subject":name});
   }
 
 

@@ -36,7 +36,7 @@ export class MyclassPage {
   }
 
   add(){
-    this.app.getRootNav().push(ApplyClassPage);
+    this.app.getRootNav().push('ApplyClassPage');
   }
 }
 export class Data {

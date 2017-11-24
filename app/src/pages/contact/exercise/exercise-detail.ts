@@ -67,7 +67,7 @@ export class ExerciseDetailPage {
   }
 
   itemSelected(item,id,cname) {
-    this.app.getRootNav().push(RightDetailPage,{cid:item,test_number:id,cname:cname});
+    this.app.getRootNav().push('RightDetailPage',{cid:item,test_number:id,cname:cname});
   }
 
 }

@@ -52,7 +52,7 @@ export class MistakeDetailPage {
   }
 
   itemSelected(){
-    this.app.getRootNav().push(PagedetailPage);
+    this.app.getRootNav().push('PagedetailPage');
 
   }
 
@@ -83,7 +83,7 @@ export class MistakeDetailPage {
 
   //跳转到下一个页面
   nextPage(){
-    this.app.getRootNav().push(PageexamPage);
+    this.app.getRootNav().push('PageexamPage');
 
   }
 

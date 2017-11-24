@@ -24,6 +24,6 @@ export class MydataPage {
   }
 
   toMyDataDetail(){
-    this.navCtrl.push(MydatadetailPage);
+    this.navCtrl.push('MydatadetailPage');
   }
 }
