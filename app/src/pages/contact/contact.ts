@@ -40,11 +40,31 @@ export class ContactPage {
     this.http.request('httP://101.201.238.157/index/request1/' + this.user)
       .subscribe((res: Response) => {
         this.listData = res.json();
-        this.name = res.json()[0].name;
 
-        this.school = res.json()[0].school;
-
+        if (this.listData != null) {
+          if ("name" in res.json()[0]) {
+            this.name = res.json()[0].name;
+          }
+          if ("school" in res.json()[0]) {
+            this.school = res.json()[0].school;
+          }
+        }
         console.log(this.listData)
+      });
+  }
+  ionViewWillLeave() {
+    console.log('ionViewDidLoad RegisterPage');
+    this.http.request('httP://101.201.238.157/index/request1/' + this.user)
+      .subscribe((res: Response) => {
+        this.listData = res.json();
+        if (this.listData != null) {
+          if ("name" in res.json()[0]) {
+            this.name = res.json()[0].name;
+          }
+          if ("school" in res.json()[0]) {
+            this.school = res.json()[0].school;
+          }
+        }
       });
   }
 

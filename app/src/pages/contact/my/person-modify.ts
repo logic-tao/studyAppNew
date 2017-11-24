@@ -31,14 +31,29 @@ export class PersonModifyPage {
     console.log('ionViewDidLoad PersonModifyPage');
     this.http.request('httP://101.201.238.157/index/request1/' + this.user)
       .subscribe((res: Response) => {
-        this.name = res.json()[0].name;
-        this.birthday = res.json()[0].birthday;
-        this.nickname = res.json()[0].nickname;
-        this.email = res.json()[0].email;
-        this.school = res.json()[0].school;
-        if(res.json()[0].gender == 2){
-          this.gender = "2"
+        if (res.json() != null) {
+          if ("name" in res.json()[0]) {
+            this.name = res.json()[0].name;
+          }
+          if ("school" in res.json()[0]) {
+            this.school = res.json()[0].school;
+          }
+          if ("birthday" in res.json()[0]) {
+            this.birthday = res.json()[0].birthday;
+            if ("email" in res.json()[0]) {
+              this.email = res.json()[0].email;
+            }
+            if ("nickname" in res.json()[0]) {
+              this.nickname = res.json()[0].nickname;
+            }
+            if ("gender" in res.json()[0]) {
+              if(res.json()[0].gender == 2){
+                this.gender = "2"
+              }
+            }
+          }
         }
+
 
       });
   }
