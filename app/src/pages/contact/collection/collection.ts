@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {CollectionListPage} from "./collection-list";
 import {Response,Http} from "@angular/http";
-import {CollectionTestPage} from "./collection-test";
+
 
 /**
  * Generated class for the MycollectionPage page.
@@ -39,6 +39,6 @@ export class CollectionPage {
   }
 
   toCollectionDetail(kid) {
-    this.app.getRootNav().push(CollectionListPage,{"kid":kid});
+    this.app.getRootNav().push('CollectionListPage',{"kid":kid});
   }
 }

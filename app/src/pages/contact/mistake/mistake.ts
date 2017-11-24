@@ -44,7 +44,7 @@ export class MistakePage {
   }
 
   toMistakeDetail(id) {
-    this.app.getRootNav().push(MistakeListPage,{
+    this.app.getRootNav().push('MistakeListPage',{
       id:id
     });
   }

@@ -44,7 +44,7 @@ export class MistakeListPage {
   itemSelectedchild(event, j, itemch) {
     event.stopPropagation();
     //this.app.getRootNav().push('PageexamPage',{type:0,id:1});
-    this.app.getRootNav().push(MistakeDetailPage, {subject: itemch.cname, cid: itemch.id});
+    this.app.getRootNav().push('MistakeDetailPage', {subject: itemch.cname, cid: itemch.id});
     console.log(j)
   }
 
@@ -52,7 +52,7 @@ export class MistakeListPage {
     console.log(this.listData[j])
     if (this.listData[j].sub_knowledege.length == 0) {
       //this.app.getRootNav().push('PageexamPage',{type:0,id:this.listData[j].id});
-      this.app.getRootNav().push(MistakeDetailPage, {subject: item.cname, cid: item.id});
+      this.app.getRootNav().push('MistakeDetailPage', {subject: item.cname, cid: item.id});
     } else {
       for (var i = 0; i < this.listData.length; i++) {
         if (i == j) {

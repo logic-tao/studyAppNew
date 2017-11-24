@@ -52,27 +52,27 @@ export class PersonPage {
       .subscribe((res: Response) => {
         this.listData = res.json();
         if (this.listData != null) {
-          if ("avatar" in res.json()[0] && res.json()[0].avatar != "") {
+          if (this.listData[0]['avatar']!=undefined&&this.listData[0].avatar != "") {
             this.src = res.json()[0].avatar;
           }
-          if ("name" in res.json()[0]) {
+          if (res.json()[0]['name']!=undefined) {
             this.name = res.json()[0].name;
           }
-          if ("school" in res.json()[0]) {
+          if (res.json()[0]['school']!=undefined) {
             this.school = res.json()[0].school;
           }
-          if ("birthday" in res.json()[0]) {
+          if (res.json()[0]['birthday']!=undefined) {
             this.birthday = res.json()[0].birthday;
             var date = new Date();
             var year = date.getFullYear();
             this.age = year - parseInt(this.birthday.substring(0, 4));
-            if ("email" in res.json()[0]) {
+            if (res.json()[0]['email']!=undefined) {
               this.email = res.json()[0].email;
             }
-            if ("nickname" in res.json()[0]) {
+            if (res.json()[0]['nickname']!=undefined) {
               this.nickname = res.json()[0].nickname;
             }
-            if ("gender" in res.json()[0]) {
+            if (res.json()[0]['gender']!=undefined) {
               if (res.json()[0].gender == 2) {
                 this.gender = "女"
               }
@@ -196,7 +196,7 @@ export class PersonPage {
   }
 
   toModify() {
-    this.app.getRootNav().push(PersonModifyPage);
+    this.app.getRootNav().push('PersonModifyPage');
   }
 
 }

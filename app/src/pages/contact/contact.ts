@@ -63,6 +63,9 @@ export class ContactPage {
       .subscribe((res: Response) => {
         this.listData = res.json();
         if (this.listData != null) {
+          if (this.listData[0]['avatar']!=undefined&&this.listData[0].avatar != "") {
+            this.src = res.json()[0].avatar;
+          }
           if (res.json()[0]['name']!=undefined) {
             this.name = res.json()[0].name;
           }
