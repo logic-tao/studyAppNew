@@ -158,6 +158,8 @@ tapelessioncomments(){
           this.pinglunAr=res.content
           for (var i = 0; i < this.pinglunAr.length; i++) {
             this.pinglunAr[i].score=parseInt(this.pinglunAr[i].score)
+            let newd=parseInt(this.pinglunAr[i].created_at)
+            this.pinglunAr[i].created_at=new Date(newd).getFullYear()+'/'+new Date(newd).getMonth()+'/'+new Date(newd).getDate()
           }
           this.pinglunAr.sort(this.comparisonFunction('score'))
           // this.shipinglianxi=res.content
