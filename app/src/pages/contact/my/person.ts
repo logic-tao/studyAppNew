@@ -195,7 +195,7 @@ export class PersonPage {
       headers: {}
     }
 
-    fileTransfer.upload(fileurl, encodeURI('http://101.201.238.157/index.php/demo/index/uploadavatar/'), options)
+    fileTransfer.upload(fileurl, encodeURI('http://101.201.238.157/index.php/demo/index/uploadavatar/' + this.user), options)
       .then((data) => {
         // success
         console.log('success')
