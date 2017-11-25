@@ -3,7 +3,8 @@ import {ActionSheetController, App, IonicPage, NavController, NavParams} from 'i
 import { AlertController } from 'ionic-angular';
 import {Camera,CameraOptions } from '@ionic-native/camera';
 import {Http,Response} from "@angular/http";
-import {FileTransferObject, FileUploadOptions} from "@ionic-native/file-transfer";
+import { ImagePicker } from '@ionic-native/image-picker';
+import { FileTransfer,FileTransferObject, FileUploadOptions} from "@ionic-native/file-transfer";
 import {PersonModifyPage} from "./person-modify";
 
 /**
@@ -41,7 +42,7 @@ export class PersonPage {
   email:string='';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,
-              public actionSheetCtrl: ActionSheetController,private  http: Http,public app:App) {
+              public actionSheetCtrl: ActionSheetController,private  http: Http,public app:App,private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera) {
     this.login_id = '1111';
   }
 
@@ -139,6 +140,7 @@ export class PersonPage {
         {
           text: '相册上传',
           handler: () => {
+            this.getPictures();
             console.log('Album');
             // this.takePhoto();
           }
@@ -150,6 +152,15 @@ export class PersonPage {
 
     //读取相册文件夹
 
+  }
+  getPictures(){
+    let options={maximumImagesCount:1,number:0}
+    this.imagePicker.getPictures(options).then((results) => {
+      for (var i = 0; i < results.length; i++) {
+        console.log('Image URI: ' + results[i]);
+        this.upload(results[i])
+      }
+    }, (err) => { });
   }
 
   paizhao(){
@@ -184,7 +195,7 @@ export class PersonPage {
       headers: {}
     }
 
-    fileTransfer.upload(fileurl, encodeURI('http://101.201.238.157/index.php/demo/index/uploadavatar/'), options)
+    fileTransfer.upload(fileurl, encodeURI('http://101.201.238.157/index.php/demo/index/uploadavatar/' + this.user), options)
       .then((data) => {
         // success
         console.log('success')
