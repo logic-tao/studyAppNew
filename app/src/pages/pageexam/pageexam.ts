@@ -49,7 +49,7 @@ daantanchuang:boolean=false
 currentIndex:any=0
 base64Image:any
 latenum:any=0
-voidlis:any=[]
+voidlis:any
   add(){
     //将题添加到后台数ll据库中 sfds
     // alert("收藏成功");
@@ -76,19 +76,18 @@ voidlis:any=[]
     //     (err: CaptureError) => console.error(err)
     //   );
       // capture callback
-var captureSuccess = function(mediaFiles) {
-  console.log('mediaFiles')
+var captureSuccess = (mediaFiles)=>{
+  console.log('captureSuccess')
   console.log(mediaFiles)
-  var i, path, len;
   this.voidlis=mediaFiles;
-  for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-      path = mediaFiles[i].fullPath;
-      // do something interesting with the file
+  for (var i = 0; i < this.voidlis.length; i++) {
+    console.log('mediaFiles')
+    console.log(this.voidlis[i])
   }
 };
 
 // capture error callback
-var captureError = function(error) {
+var captureError = (error) =>{
   navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
 };
 
