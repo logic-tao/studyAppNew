@@ -184,8 +184,13 @@
         <ion-col col-3 class="righticon">
           <!-- <strong>{{items.score}}/分</strong> -->
           
-          <div class="ionictop"><ion-icon name="arrow-dropup"></ion-icon>213</div>
-          <div class="ionicbotton"><ion-icon name="arrow-dropdown"></ion-icon>3333</div>
+          <div class="ionictop" (click)="pinglun(j,1)">
+            <img src="assets/icon/zan.png"/>
+            213</div>
+          <div class="ionicbotton" (click)="pinglun(j,2)">
+            <!-- <ion-icon name="arrow-dropdown"></ion-icon> -->
+            <img src="assets/icon/cai.png"/>
+            333</div>
         </ion-col>
       </ion-row>
   </ion-list>

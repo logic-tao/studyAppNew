@@ -76,6 +76,13 @@ export class AppService {
        .then(this.extractData)
      .catch(this.handleError);
  }
+ tapelessionsteportop(data): Promise<any> {//学生对评论进行赞或踩
+  return this.http
+   .post(BASEURL+'/tape-lession/step-or-top', JSON.stringify(data),options)
+   .toPromise()
+     .then(this.extractData)
+   .catch(this.handleError);
+}
 
    //reset-pwd
       userresetpwd(data): Promise<any> {//用户注册

@@ -111,6 +111,21 @@ tozuotijieshi(j){
   this.daantanchuang=false
   this.shipinglianxi[j].showanswer=true
 }
+pinglun(i,status){
+  let servedata={id:this.pinglunAr[i].id,status:status}
+  this.appService.tapelessionsteportop(servedata).then(
+  res => {
+    console.log('tapelessionsteportop')
+    console.log(res)
+    this.tapelessioncomments()
+  },
+  error=>{
+    // alert('错误')
+    console.log('tapelessionsteportop========err')
+    console.log(error)
+  }
+)
+}
 nextSubject(i){
   if(this.shipinglianxi[i].useranswer===''){
 this.appComponent.presentToast('请输入答案!'); 
