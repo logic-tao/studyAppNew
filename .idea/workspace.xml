@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2880041d-8ca9-4626-8e18-9372eb8c7932" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/my/person.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/my/person.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -19,64 +20,12 @@
       <file leaf-file-name="person.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/pages/contact/my/person.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="197" column="112" lean-forward="false" selection-start-line="197" selection-start-column="112" selection-end-line="197" selection-end-column="112" />
+            <state relative-caret-position="180">
+              <caret line="45" column="60" lean-forward="false" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
-                <marker date="1511592616206" expanded="true" signature="7:8" ph="..." />
+                <marker date="1511706677238" expanded="true" signature="7:8" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="my-class.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/pages/contact/my-class/my-class.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="38" column="47" lean-forward="false" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="apply-class.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/pages/contact/my-class/apply-class.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="apply-class.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/pages/contact/my-class/apply-class.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="apply-class.module.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/pages/contact/my-class/apply-class.module.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="my-class.module.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/pages/contact/my-class/my-class.module.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -84,33 +33,13 @@
       <file leaf-file-name="pageexam.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/pages/pageexam/pageexam.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1464">
-              <caret line="137" column="3" lean-forward="true" selection-start-line="129" selection-start-column="1" selection-end-line="137" selection-end-column="3" />
+            <state relative-caret-position="105">
+              <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="42" />
               <folding>
                 <element signature="e#0#69#0" expanded="true" />
-                <element signature="e#268#315#0" expanded="true" />
-                <marker date="1511490823718" expanded="true" signature="6978:6980" ph="{...}" />
+                <marker date="1511706509071" expanded="true" signature="2714:2910" ph="{...}" />
+                <marker date="1511706509071" expanded="true" signature="6916:6918" ph="{...}" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package-lock.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/package-lock.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="23" column="35" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -351,12 +280,12 @@
       <option name="presentableId" value="Default" />
       <updated>1511333126582</updated>
       <workItem from="1511333127788" duration="6941000" />
-      <workItem from="1511490742937" duration="7817000" />
+      <workItem from="1511490742937" duration="8241000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14590000" />
+    <option name="totallyTimeSpent" value="15014000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="23" width="1632" height="1027" extended-state="0" />
@@ -392,14 +321,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/pipes/pipes.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
@@ -434,8 +355,8 @@
           <caret line="98" column="3" lean-forward="false" selection-start-line="98" selection-start-column="3" selection-end-line="98" selection-end-column="3" />
           <folding>
             <element signature="e#0#69#0" expanded="true" />
-            <element signature="e#268#315#0" expanded="true" />
-            <marker date="1511490823718" expanded="true" signature="6978:6980" ph="{...}" />
+            <marker date="1511706509071" expanded="true" signature="2714:2910" ph="{...}" />
+            <marker date="1511706509071" expanded="true" signature="6916:6918" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -446,7 +367,7 @@
           <caret line="143" column="3" lean-forward="false" selection-start-line="143" selection-start-column="3" selection-end-line="143" selection-end-column="3" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
-            <marker date="1511592616206" expanded="true" signature="7:8" ph="..." />
+            <marker date="1511706677238" expanded="true" signature="7:8" ph="..." />
           </folding>
         </state>
       </provider>
@@ -805,18 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/pages/pageexam/pageexam.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1464">
-          <caret line="137" column="3" lean-forward="true" selection-start-line="129" selection-start-column="1" selection-end-line="137" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#69#0" expanded="true" />
-            <element signature="e#268#315#0" expanded="true" />
-            <marker date="1511490823718" expanded="true" signature="6978:6980" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/contact/my-class/my-class.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="313">
@@ -859,13 +768,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/pages/operation/operation.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4864">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/pages/pageexam/pageexam.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#69#0" expanded="true" />
+            <marker date="1511706509071" expanded="true" signature="2714:2910" ph="{...}" />
+            <marker date="1511706509071" expanded="true" signature="6916:6918" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/contact/my/person.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="197" column="112" lean-forward="false" selection-start-line="197" selection-start-column="112" selection-end-line="197" selection-end-column="112" />
+        <state relative-caret-position="180">
+          <caret line="45" column="60" lean-forward="false" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
-            <marker date="1511592616206" expanded="true" signature="7:8" ph="..." />
+            <marker date="1511706677238" expanded="true" signature="7:8" ph="..." />
           </folding>
         </state>
       </provider>

@@ -6,6 +6,7 @@ import {Http,Response} from "@angular/http";
 import { ImagePicker } from '@ionic-native/image-picker';
 import { FileTransfer,FileTransferObject, FileUploadOptions} from "@ionic-native/file-transfer";
 import {PersonModifyPage} from "./person-modify";
+import { File } from '@ionic-native/file';
 
 /**
  * Generated class for the PersonPage page.
