@@ -8,6 +8,7 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 import { File } from '@ionic-native/file';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
+import { Media, MediaObject } from '@ionic-native/media';
 // import {ExerciseDetailPage} from "../contact/exercise/exercise-detail";
 // import { Camera, CameraOptions } from '@ionic-native/camera';
 /**
@@ -66,7 +67,19 @@ voidlis:any
 
   }
   palay(i){
-    this.appComponent.presentToast(this.voidlis[i].localURL); 
+    // this.appComponent.presentToast(this.voidlis[i].localURL); 
+    const file: MediaObject = this.media.create(this.voidlis[i].localURL);
+    
+    // to listen to plugin events:
+    
+    file.onStatusUpdate.subscribe(status => console.log(status)); // fires when file status changes
+    
+    file.onSuccess.subscribe(() => console.log('Action is successful'));
+    
+    file.onError.subscribe(error => console.log('Error!', error));
+    
+    // play the file
+    file.play();
     }
   geiviod(){
     // let options: CaptureImageOptions = { limit: 3 };
@@ -233,7 +246,7 @@ this.s=this.alltrime%60
     }
   }
 //public camera: Camera,
-  constructor(private mediaCapture: MediaCapture,private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
+  constructor(private media: Media,private mediaCapture: MediaCapture,private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
   this.voidint()
 }
 

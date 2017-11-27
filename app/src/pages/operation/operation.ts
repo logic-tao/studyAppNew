@@ -112,7 +112,7 @@ tozuotijieshi(j){
   this.shipinglianxi[j].showanswer=true
 }
 pinglun(i,status){
-  let servedata={id:this.pinglunAr[i].id,status:status}
+  let servedata={id:this.pinglunAr[i].id,status:status,tokenId: this.appComponent.userinfo.tokenId}
   this.appService.tapelessionsteportop(servedata).then(
   res => {
     console.log('tapelessionsteportop')

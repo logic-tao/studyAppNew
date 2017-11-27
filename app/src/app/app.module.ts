@@ -26,6 +26,7 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 import { File } from '@ionic-native/file';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
+import { Media, MediaObject } from '@ionic-native/media';
 // import { VideoPlayer } from '@ionic-native/video-player';
 
 
@@ -59,6 +60,7 @@ import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ion
     Camera,
     FileTransfer,
     File,
+    Media,
     ImagePicker,
     FileTransferObject,
     StatusBar,
