@@ -44,6 +44,7 @@ cuowu:any
 weiwancsty:any
 zehgnquesty:any
 qitasty:any
+defeng:any=0
 cuowusty:any
 userendtime:any
 daantanchuang:boolean=false
@@ -51,6 +52,7 @@ currentIndex:any=0
 base64Image:any
 latenum:any=0
 voidlis:any
+lisfil:MediaObject
   add(){
     //将题添加到后台数ll据库中 sfds
     // alert("收藏成功");
@@ -81,6 +83,35 @@ voidlis:any
     // play the file
     file.play();
     }
+    mypaly(){
+      const file: MediaObject = this.media.create('file3.mp3');
+      
+      // to listen to plugin events:
+      
+      file.onStatusUpdate.subscribe(status => console.log(status)); // fires when file status changes
+      
+      file.onSuccess.subscribe(() => console.log('Action is successful'));
+      
+      file.onError.subscribe(error => console.log('Error!', error));
+      
+      // play the file
+      file.play();
+    }
+    begin(){
+      this.lisfil= this.media.create('file3.mp3');
+      this.lisfil.onStatusUpdate.subscribe(status => {
+        console.log('=======begin==========')
+        console.log(status)
+      }); // fires when file status changes
+      
+      this.lisfil.onSuccess.subscribe(() => console.log('Action is successful'));
+      
+      this.lisfil.onError.subscribe(error => console.log('Error!', error));
+      this.lisfil.startRecord();
+    }
+    endlis(){
+      this.lisfil.stopRecord();
+    }
   geiviod(){
     // let options: CaptureImageOptions = { limit: 3 };
     // this.mediaCapture.captureImage(options)
@@ -105,7 +136,7 @@ var captureError = (error) =>{
 };
 
 // start audio capture
-navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:2});
+navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:1});
   }
   voidint(){
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -306,6 +337,9 @@ getpagedata(id){
                        this.cd.detectChanges();//刷新数据
             });
 }
+fanhui(){
+  this.navCtrl.pop();
+}
 getpagetextdata(id){
       this.http.request('http://101.201.238.157/index.php/demo/index/getDpecialList?id='+id)
       .subscribe((res: Response) => {
@@ -370,9 +404,10 @@ getpagetextdata(id){
                 this.weiwanc=this.weiwanc+1
               }else{
                 this.yiwanc=this.yiwanc+1
-                  if(this.listDetailData[i].type==1||this.listDetailData[i].type==3){
+                  if(this.listDetailData[i].type==1||this.listDetailData[i].type==3){//1单选题2填空题3判断题4解答题
                     if(this.listDetailData[i].useranswer==this.listDetailData[i].answer){
                       this.zehgnque=this.zehgnque+1
+                      this.defeng= this.listDetailData[i].score+this.defeng
                     }else{
                       this.cuowu=this.cuowu+1
                     }
@@ -392,6 +427,7 @@ let sengyutime =this.alltrimebgin-this.alltrime
     let m=Math.floor(sengyutime/60)
 let s=sengyutime%60
 this.userendtime='0'+m+":"+s
+
   }
   widthstyl(num){
     let sty ={width:Math.round(num/this.listDetailData.length*100)+'%'}

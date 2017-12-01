@@ -47,11 +47,11 @@
                 </ion-col>
                 <ion-col col-10>
                   
-                  <ion-icon name="star" class="xinxin" (click)="dafen(1)" [ngClass]="{'xuanzhong': selescore>=1}"></ion-icon>
+                  <!-- <ion-icon name="star" class="xinxin" (click)="dafen(1)" [ngClass]="{'xuanzhong': selescore>=1}"></ion-icon>
                   <ion-icon name="star" class="xinxin" (click)="dafen(2)" [ngClass]="{'xuanzhong': selescore>=2}"></ion-icon>
                   <ion-icon name="star" class="xinxin" (click)="dafen(3)" [ngClass]="{'xuanzhong': selescore>=3}"></ion-icon>
                   <ion-icon name="star" class="xinxin" (click)="dafen(4)" [ngClass]="{'xuanzhong': selescore>=4}"></ion-icon>
-                  <ion-icon name="star" class="xinxin" (click)="dafen(5)" [ngClass]="{'xuanzhong': selescore>=5}"></ion-icon>
+                  <ion-icon name="star" class="xinxin" (click)="dafen(5)" [ngClass]="{'xuanzhong': selescore>=5}"></ion-icon> -->
                     <!--<div class="icon xinxin star" (click)="dafen(1)" [ngClass]="{'xuanzhong': selescore>=1}"></div>
                     <div class="icon xinxin star" (click)="dafen(2)" [ngClass]="{'xuanzhong': selescore>=2}"></div>
                     <div class="icon xinxin star" (click)="dafen(3)" [ngClass]="{'xuanzhong': selescore>=3}"></div>
@@ -186,11 +186,11 @@
           
           <div class="ionictop" (click)="pinglun(j,1)">
             <img src="assets/icon/zan.png"/>
-            213</div>
+            {{items.top}}</div>
           <div class="ionicbotton" (click)="pinglun(j,2)">
             <!-- <ion-icon name="arrow-dropdown"></ion-icon> -->
             <img src="assets/icon/cai.png"/>
-            333</div>
+            {{items.step}}</div>
         </ion-col>
       </ion-row>
   </ion-list>

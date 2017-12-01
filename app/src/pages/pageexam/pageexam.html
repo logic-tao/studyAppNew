@@ -10,7 +10,7 @@
         <span *ngIf="listDetailData.length>0&&listDetailData[0].subjectKind==3">英语</span>
   
         <button (click)="add()">
-          <img src="../../assets/icon/shoucang.png" height="18" width="18"/>
+          <img src="assets/icon/shoucang.png" height="18" width="18"/>
           <span *ngIf="navParams.data.type==2">剩余：{{m}}：{{s}}</span>
           
         </button>
@@ -85,11 +85,23 @@
                 <button ion-button  *ngIf="item.type==4" (click)="geiviod()">
                   语音
                 </button>
+                <!-- <button ion-button  *ngIf="item.type==4" (click)="begin()">
+                  开始
+                </button>
+                <button ion-button  *ngIf="item.type==4" (click)="endlis()">
+                  结束
+                </button>
+                <button ion-button  *ngIf="item.type==4" (click)="mypaly()">
+                  播放
+                </button> -->
                 <button *ngIf="currentIndex!=0" ion-button (click)="shangSubject(i)">
                   上一题
                 </button>
                 <button *ngIf="currentIndex!=latenum"  ion-button (click)="nextSubject(i)">
                   下一题
+                </button>
+                <button *ngIf="currentIndex==latenum&&navParams.data.type==1"  ion-button (click)="fanhui()">
+                返回列表
                 </button>
                 <button *ngIf="navParams.data.type==2"  ion-button (click)="tijiaoSubject()">
                   提交 
@@ -141,6 +153,7 @@
           <ion-icon name="calendar"></ion-icon>日期：{{datestr}}
         </ion-col>
       </ion-row>
+       <p>得分：{{defeng}}</p>
     <br>
    
     </div>

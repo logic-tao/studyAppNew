@@ -112,7 +112,8 @@ tozuotijieshi(j){
   this.shipinglianxi[j].showanswer=true
 }
 pinglun(i,status){
-  let servedata={id:this.pinglunAr[i].id,status:status,tokenId: this.appComponent.userinfo.tokenId}
+  let servedata={id:this.pinglunAr[i].id,status:status,tokenId:this.appComponent.userinfo.tokenId}
+  console.log(servedata)
   this.appService.tapelessionsteportop(servedata).then(
   res => {
     console.log('tapelessionsteportop')
@@ -153,6 +154,19 @@ indexplayvideourl(){
       }
   )
 }
+compare(propertyName) {
+  return function(object1, object2) {
+    var value1 = object1[propertyName];
+    var value2 = object2[propertyName];
+    if (value2 > value1) {
+      return 1;
+    } else if (value2 < value1) {
+      return -1;
+    } else {
+      return 0;
+    }
+  }
+}
 selectclick(i,answer?:any){
   
       this.shipinglianxi[i].useranswer=answer
@@ -182,8 +196,10 @@ tapelessioncomments(){
             this.pinglunAr[i].score=parseInt(this.pinglunAr[i].score)
             let newd=parseInt(this.pinglunAr[i].created_at)
             this.pinglunAr[i].created_at=new Date(newd).getFullYear()+'/'+new Date(newd).getMonth()+'/'+new Date(newd).getDate()
+            if(this.pinglunAr[i].step==null){this.pinglunAr[i].step=0}else{this.pinglunAr[i].step=parseInt(this.pinglunAr[i].step)}
+            if(this.pinglunAr[i].top==null){this.pinglunAr[i].top=0}else{this.pinglunAr[i].top=parseInt(this.pinglunAr[i].top)}
           }
-          this.pinglunAr.sort(this.comparisonFunction('score'))
+          this.pinglunAr.sort(this.comparisonFunction('top'))
           // this.shipinglianxi=res.content
           // for (var i = 0; i < this.shipinglianxi.length; i++) {
           //   this.shipinglianxi[i].showanswer=false
@@ -334,6 +350,7 @@ tapelessionpushcomment(){
           return retrundate;
   }
   countviodtime(){
+    if(!this.shipingshuju.PlayInfoList){return}
     this.timer = setInterval(()=>{
       // this.playnowtime=parseInt(this.myVideo.nativeElement.currentTime)
       // if(this.playnowtime!=0&&this.playnowtime%30==0){
