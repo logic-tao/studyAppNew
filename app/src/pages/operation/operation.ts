@@ -2,6 +2,7 @@ import { Component,ViewChild,Inject} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MyApp} from '../../app/app.component';
 import { BASEURLIMG} from '../../theme/theme.config';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 // import { VideoPlayer ,VideoOptions} from '@ionic-native/video-player';
 /**
  * Generated class for the OperationPage page.
@@ -50,7 +51,7 @@ export class OperationPage {
     ]
     zuotinum:number=0
   // videoOpts : VideoOptions ;
-  constructor(public appComponent:MyApp,@Inject('appService') private appService,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private screenOrientation: ScreenOrientation,public appComponent:MyApp,@Inject('appService') private appService,public navCtrl: NavController, public navParams: NavParams) {
     let num = navParams.get('num');
     
     // this.selectnum=num;
@@ -68,6 +69,9 @@ export class OperationPage {
     // }
 
   }
+  jiesuoclick(){
+    this.screenOrientation.unlock();
+  }
   dafen(num){
     this.selescore=num
   }
@@ -84,6 +88,28 @@ daanclick(select){
 }
 shangSubject(){
   this.slides.slidePrev()
+}
+shuclick(){
+  console.log('=============shuclick==========');
+  this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+}
+
+pingmuclick(){
+  console.log('=============pingmuclick==========');
+  console.log(this.screenOrientation.ORIENTATIONS); // logs the current orientation, example: 'landscape'
+  
+  // set to landscape
+  this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+  
+  // allow user rotate
+  // this.screenOrientation.unlock();
+  
+  // detect orientation changes
+  this.screenOrientation.onChange().subscribe(
+     () => {
+         console.log("Orientation Changed");
+     }
+  );
 }
 tijiaoSubject(){
   this.yiwanc=0
@@ -313,6 +339,33 @@ tapelessionpushcomment(){
            }
        )
 }
+onfullscreenchange(){
+  console.log('===========onfullscreenchange===fun=====')
+  this.myVideo.nativeElement.onfullscreenchange=()=>{
+    console.log('===========onfullscreenchange========')
+    this.pingmuclick()
+  }
+}
+onwebkitfullscreenchange(){
+  console.log('===========onwebkitfullscreenchange===fun=====')
+  this.myVideo.nativeElement.onwebkitfullscreenchange=()=>{
+    console.log('===========onwebkitfullscreenchange========')
+    this.myVideo.isfullscreenchange=!this.myVideo.isfullscreenchange;
+    
+    if(this.myVideo.isfullscreenchange){
+      this.pingmuclick()
+    }else{
+      this.shuclick()
+    }
+  }
+}
+onwebkitfullscreenerror(){
+  console.log('===========onwebkitfullscreenerror===fun=====')
+  this.myVideo.nativeElement.onwebkitfullscreenerror=()=>{
+    console.log('===========onwebkitfullscreenerror========')
+    this.pingmuclick()
+  }
+}
   ionViewDidLoad() {
     this.myVideo.nativeElement.defaultPlaybackRate=1
     console.log('ionViewDidLoad OperationPage');
@@ -331,7 +384,18 @@ tapelessionpushcomment(){
       // this.myVideo.nativeElement.load()
       // this.myVideo.nativeElement.play()
     }
+    console.log('this.myVideo.nativeElement')
+    console.log(this.myVideo)
+    this.onfullscreenchange()
+    this.onwebkitfullscreenchange()
+    this.myVideo.isfullscreenchange=false;
+    // this.onwebkitfullscreenerror()
 
+
+  }
+  kavoid(){
+    var dd = this.myVideo
+    console.log(dd)
   }
   panduanpoingshow(time){
     let retrundate={isshow:false,time:0,num:0}

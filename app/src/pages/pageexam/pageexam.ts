@@ -84,7 +84,7 @@ lisfil:MediaObject
     file.play();
     }
     mypaly(){
-      const file: MediaObject = this.media.create('file3.mp3');
+      const file: MediaObject = this.media.create('my_file.m4a');
       
       // to listen to plugin events:
       
@@ -98,13 +98,18 @@ lisfil:MediaObject
       file.play();
     }
     begin(){
-      this.lisfil= this.media.create('file3.mp3');
+
+      this.lisfil= this.media.create('my_file.m4a');
       this.lisfil.onStatusUpdate.subscribe(status => {
         console.log('=======begin==========')
         console.log(status)
       }); // fires when file status changes
       
-      this.lisfil.onSuccess.subscribe(() => console.log('Action is successful'));
+      this.lisfil.onSuccess.subscribe(() => {
+        console.log('Action is successful')
+        let filurl='my_file.m4a'
+        this.upload(filurl)
+      });
       
       this.lisfil.onError.subscribe(error => console.log('Error!', error));
       this.lisfil.startRecord();
@@ -285,6 +290,7 @@ this.s=this.alltrime%60
 getPhoto(){
 
 }
+
 takePhoto(){
 
 }

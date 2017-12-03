@@ -27,6 +27,7 @@ import { File } from '@ionic-native/file';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 import { Media, MediaObject } from '@ionic-native/media';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 // import { VideoPlayer } from '@ionic-native/video-player';
 
 
@@ -56,6 +57,7 @@ import { Media, MediaObject } from '@ionic-native/media';
     TabsPage,
   ],
   providers: [
+    ScreenOrientation,
     MediaCapture,
     Camera,
     FileTransfer,
