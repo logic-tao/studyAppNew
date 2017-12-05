@@ -52,7 +52,39 @@ currentIndex:any=0
 base64Image:any
 latenum:any=0
 voidlis:any
+lengcount:any
 lisfil:MediaObject
+constructor(private media: Media,private mediaCapture: MediaCapture,private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
+  this.voidint()
+}
+ionViewWillEnter(){
+  console.log("ionViewWillEnter=页面准备进来时触发=做题");
+  console.log(this.appComponent.pagenextarr)
+  console.log(this.navParams.data)
+  if(this.navParams.data.type==1){ //1专题练习 2试卷
+    // this.appComponent.pagenextarr={listData:this.listData,num:j}
+    this.getpagetextdata(this.appComponent.pagenextarr.listData[this.appComponent.pagenextarr.num].id)
+  }else{
+    this.getpagedata(this.navParams.data.id)
+  }
+}
+ionViewDidEnter(){//页面还没进入时触发的函
+    console.log("ionViewDidEnter=页面已经渲染完成时触发=做题");
+}
+ionViewWillLeave(){
+  console.log("ionViewWillLeave=页面准备离开时触发=做题");
+}
+ionViewDidLeave(){
+  console.log("ionViewWillLeave=页面已经离开时触发=做题");
+}
+ionViewDidLoad() {
+  console.log('ionViewDidLoad PagenextPage');
+
+}
+netxtext(){
+  this.currentIndex=0
+  this.getpagetextdata(this.appComponent.pagenextarr.listData[this.appComponent.pagenextarr.num].id)
+}
   add(){
     //将题添加到后台数ll据库中 sfds
     // alert("收藏成功");
@@ -282,9 +314,7 @@ this.s=this.alltrime%60
     }
   }
 //public camera: Camera,
-  constructor(private media: Media,private mediaCapture: MediaCapture,private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
-  this.voidint()
-}
+
 
 
 getPhoto(){
@@ -349,7 +379,17 @@ fanhui(){
 getpagetextdata(id){
       this.http.request('http://101.201.238.157/index.php/demo/index/getDpecialList?id='+id)
       .subscribe((res: Response) => {
+        // this.appComponent.pagenextarr={listData:this.listData,num:j}
+        let lastnou=this.appComponent.pagenextarr.num+1
+        if(this.appComponent.pagenextarr.length==lastnou){
+          this.appComponent.pagenextarr.num=0
+        }else{
+          this.appComponent.pagenextarr.num+=1;
+        }
         this.listDetailData = res.json();
+        if(this.listDetailData.length>4){
+          this.listDetailData=this.listDetailData.slice(0,4)
+        }
         this.latenum=this.listDetailData.length-1
         for (var i = 0; i < this.listDetailData.length; i++) {
           this.listDetailData[i].showanswer=false
@@ -384,19 +424,7 @@ getpagetextdata(id){
       console.log(err)
     })
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PagenextPage');
-    console.log(this.navParams.data)
-    if(this.navParams.data.type==1){ //1专题练习 2试卷
-      this.getpagetextdata(this.navParams.data.id)
-    }else{
-      this.getpagedata(this.navParams.data.id)
-    }
-      //     this.http.request('http://sapi.bainid.com/index/requestMess')
-      // .subscribe((res: Response) => {
-      //   this.listDetailData = res.json();
-      // });
-  }
+
   tijiaoSubject(){
     this.yiwanc=0
     this.weiwanc=0

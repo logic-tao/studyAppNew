@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,App} from 'ionic-angular';
 import {PagedetailPage} from '../pagedetail/pagedetail';
 import { Http, Response } from '@angular/http';
 import {FormControl} from "@angular/forms";
+import {MyApp} from "../../app/app.component";
 import 'rxjs/Rx'
 @IonicPage()
 @Component({
@@ -58,7 +59,7 @@ close(){
   }
 
 
-  constructor(public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
+  constructor(public appComponent:MyApp,public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
 
          this.titleFilter.valueChanges
            .debounceTime(500)
@@ -114,6 +115,9 @@ this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:id})
 }
 
   itemSelected(j){
+    console.log('============itemSelected============')
+    this.appComponent.pagenextarr={listData:this.listData,num:j}
+    console.log(this.appComponent.pagenextarr)
     console.log(this.listData[j])
     if(this.listData[j].children.length==0){
       this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:this.listData[j].id});

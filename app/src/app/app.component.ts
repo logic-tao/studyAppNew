@@ -16,7 +16,7 @@ export class MyApp  {
   // rootPage:any = 'PageNewPage';
   rootPage:any = 'LoginSliderPage';
   userinfo:any
-
+  pagenextarr:any
 
   //类似回调函数
   constructor(private toastCtrl: ToastController,public loadingCtrl: LoadingController,
