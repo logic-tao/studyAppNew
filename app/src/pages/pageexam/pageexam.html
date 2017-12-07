@@ -106,6 +106,9 @@
                 <button *ngIf="currentIndex==latenum&&navParams.data.type==1"  ion-button (click)="fanhui()">
                 返回列表
                 </button>
+                <button *ngIf="navParams.data.type==1&&currentIndex==latenum&&nolista"  ion-button (click)="netxtext()">
+                  下一轮练习
+                </button>
                 <button *ngIf="navParams.data.type==2"  ion-button (click)="tijiaoSubject()">
                   提交 
                 </button>
@@ -114,9 +117,7 @@
             
             </ion-slides>
             <p *ngIf="listDetailData.length==0">无数据</p>
-            <button *ngIf="navParams.data.type==1&&currentIndex==latenum||listDetailData.length==0"  ion-button (click)="netxtext()">
-              下一轮练习
-            </button>
+
             <!-- <button ion-button (click)="shuaxing()">
               沙墟
             </button> -->

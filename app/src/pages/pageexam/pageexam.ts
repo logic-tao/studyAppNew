@@ -55,6 +55,9 @@ latenum:any=0
 voidlis:any
 lengcount:any
 lisfil:MediaObject
+countlianxiARR:any=[]
+page:any=0;
+nolista:any=false
 constructor(private media: Media,private mediaCapture: MediaCapture,private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
   this.voidint()
 }
@@ -83,9 +86,10 @@ ionViewDidLoad() {
 
 }
 netxtext(){
-  this.listDetailData=[]
-  this.currentIndex=0
-  this.getpagetextdata(this.appComponent.pagenextarr.listData[this.appComponent.pagenextarr.num].id)
+  this.jiequ(this.page)
+  // this.listDetailData=[]
+  // this.currentIndex=0
+  // this.getpagetextdata(this.appComponent.pagenextarr.listData[this.appComponent.pagenextarr.num].id)
 }
 SlidingDirection(sdfs){
   console.log(sdfs);
@@ -393,20 +397,43 @@ getpagetextdata(id){
         }else{
           this.appComponent.pagenextarr.num+=1;
         }
-        this.listDetailData = res.json();
-        if(this.listDetailData.length>4){
-          this.listDetailData=this.listDetailData.slice(0,4)
+        // this.listDetailData = res.json();
+        this.countlianxiARR=res.json();
+
+        
+        for (var i = 0; i < this.countlianxiARR.length; i++) {
+          this.countlianxiARR[i].showanswer=false
+          this.countlianxiARR[i].useranswer=''
+          this.countlianxiARR[i].jieguo=0//0 未解答 1已解答 2 正确 3 错误 
         }
-        this.latenum=this.listDetailData.length-1
-        for (var i = 0; i < this.listDetailData.length; i++) {
-          this.listDetailData[i].showanswer=false
-          this.listDetailData[i].useranswer=''
-          this.listDetailData[i].jieguo=0//0 未解答 1已解答 2 正确 3 错误 
+        if(this.countlianxiARR.length>4){
+          this.jiequ(this.page)
+          // this.nolista=true;
+        }else{
+          this.listDetailData=this.countlianxiARR
+          this.latenum=this.listDetailData.length-1
         }
-        this.slides.update()
-        this.slides.slideTo(0,0)
+        
         console.log(this.listDetailData)
       });
+}
+jiequ(num){
+let stat=num*4
+let end=num*4+4
+if(this.countlianxiARR.length<end){
+  end=this.countlianxiARR.length
+}
+let slicedat=this.countlianxiARR.slice(stat,end)
+if(slicedat.length<4){
+  this.nolista=false;
+}else{
+  this.page=this.page+1;
+  this.listDetailData=slicedat;
+  this.latenum=this.listDetailData.length-1
+  this.nolista=true;
+}  
+  this.slides.update()
+  this.slides.slideTo(0,0)
 }
 shuaxing(){
   this.slides.update()
