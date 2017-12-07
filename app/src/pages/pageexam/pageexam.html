@@ -85,15 +85,18 @@
                 <button ion-button  *ngIf="item.type==4" (click)="geiviod()">
                   语音
                 </button>
-                <button ion-button  *ngIf="item.type==4" (click)="begin()">
+                <!-- <button ion-button  *ngIf="item.type==4" (click)="begin()">
                   开始
                 </button>
                 <button ion-button  *ngIf="item.type==4" (click)="endlis()">
                   结束
-                </button>
-                <button ion-button  *ngIf="item.type==4" (click)="mypaly()">
+                </button> -->
+                <!-- <button ion-button  *ngIf="item.type==4" [sign]="num" (SlidingDirection)="SlidingDirection($event)">
+                  长按录音
+                </button> -->
+                <!-- <button ion-button  *ngIf="item.type==4" (click)="mypaly()">
                   播放
-                </button>
+                </button> -->
                 <button *ngIf="currentIndex!=0" ion-button (click)="shangSubject(i)">
                   上一题
                 </button>
@@ -106,14 +109,17 @@
                 <button *ngIf="navParams.data.type==2"  ion-button (click)="tijiaoSubject()">
                   提交 
                 </button>
-                <!-- <button *ngIf="navParams.data.type==1&&currentIndex==latenum"  ion-button (click)="netxtext()">
-                  下一轮练习
-                </button> -->
               </ion-slide>
           
             
             </ion-slides>
-  
+            <p *ngIf="listDetailData.length==0">无数据</p>
+            <button *ngIf="navParams.data.type==1&&currentIndex==latenum||listDetailData.length==0"  ion-button (click)="netxtext()">
+              下一轮练习
+            </button>
+            <!-- <button ion-button (click)="shuaxing()">
+              沙墟
+            </button> -->
   </ion-content>
   <div class="jieda" *ngIf="daantanchuang">
   <div>

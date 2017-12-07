@@ -221,7 +221,7 @@ tapelessioncomments(){
           for (var i = 0; i < this.pinglunAr.length; i++) {
             this.pinglunAr[i].score=parseInt(this.pinglunAr[i].score)
             let newd=parseInt(this.pinglunAr[i].created_at)*1000
-            this.pinglunAr[i].created_at=new Date(newd).getFullYear()+'/'+new Date(newd).getMonth()+'/'+new Date(newd).getDate()
+            this.pinglunAr[i].created_at=new Date(newd).getFullYear()+'/'+(new Date(newd).getMonth()+1)+'/'+new Date(newd).getDate()
             if(this.pinglunAr[i].step==null){this.pinglunAr[i].step=0}else{this.pinglunAr[i].step=parseInt(this.pinglunAr[i].step)}
             if(this.pinglunAr[i].top==null){this.pinglunAr[i].top=0}else{this.pinglunAr[i].top=parseInt(this.pinglunAr[i].top)}
           }

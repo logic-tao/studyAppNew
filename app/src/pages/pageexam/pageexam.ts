@@ -34,6 +34,7 @@ alltrimebgin:number=180
 alltrime:number=180
 datestr:any='555'
 m:number
+num:any
 s:number
 selectNum:any
 yiwanc:any
@@ -82,8 +83,12 @@ ionViewDidLoad() {
 
 }
 netxtext(){
+  this.listDetailData=[]
   this.currentIndex=0
   this.getpagetextdata(this.appComponent.pagenextarr.listData[this.appComponent.pagenextarr.num].id)
+}
+SlidingDirection(sdfs){
+  console.log(sdfs);
 }
   add(){
     //将题添加到后台数ll据库中 sfds
@@ -340,6 +345,7 @@ takePhoto(){
     }
   }
 getpagedata(id){
+  console.log('getpagedata')
   this.datestr=new Date().toLocaleDateString()
 //       this.http.request('httP://101.201.238.157/index/requestMess')
 //       .subscribe((res: Response) => {
@@ -377,6 +383,7 @@ fanhui(){
   this.navCtrl.pop();
 }
 getpagetextdata(id){
+  console.log('getpagetextdata')
       this.http.request('http://101.201.238.157/index.php/demo/index/getDpecialList?id='+id)
       .subscribe((res: Response) => {
         // this.appComponent.pagenextarr={listData:this.listData,num:j}
@@ -396,7 +403,14 @@ getpagetextdata(id){
           this.listDetailData[i].useranswer=''
           this.listDetailData[i].jieguo=0//0 未解答 1已解答 2 正确 3 错误 
         }
+        this.slides.update()
+        this.slides.slideTo(0,0)
+        console.log(this.listDetailData)
       });
+}
+shuaxing(){
+  this.slides.update()
+  this.slides.slideTo(0,0)
 }
   upload(fileurl) {
     console.log('upload:'+fileurl)
