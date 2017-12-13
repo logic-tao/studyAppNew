@@ -79,7 +79,8 @@ export class PersonModifyPage {
       error=>{
         // alert('错误')
         console.log(error)
-      }
+      },
+      this.navCtrl.pop()
     )
 
 
