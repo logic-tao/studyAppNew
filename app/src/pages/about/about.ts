@@ -187,9 +187,14 @@ doInfinite(infiniteScroll){
                   this.pagenum=this.pagenum+1;
                  this.xplainindexData.content[2].children=this.xplainindexData.content[2].children.concat(res.content.lessions)
                   infiniteScroll.complete();
+                  console.log('患有')
+              }else{
+                console.log('没有')
+                infiniteScroll.enable(false)
               }
 
               console.log(res)
+              infiniteScroll.complete();
             },
             error=>{
               // alert('错误')

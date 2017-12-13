@@ -29,7 +29,7 @@ import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ion
 import { Media, MediaObject } from '@ionic-native/media';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 // import { VideoPlayer } from '@ionic-native/video-player';
-
+import {touchDirective} from '../theme//touch.directive';
 
 
 @NgModule({
@@ -40,6 +40,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     HomePage,
     InteractPage,
     TabsPage,
+    touchDirective,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +58,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     TabsPage,
   ],
   providers: [
+    touchDirective,
     ScreenOrientation,
     MediaCapture,
     Camera,
