@@ -21,7 +21,7 @@ export class MistakeListPage {
   // 科目
   subject: string;
   //登录用户ID
-  user: string = "5";
+  user: string = localStorage.getItem("user");
 
 
 

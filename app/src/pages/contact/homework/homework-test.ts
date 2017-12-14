@@ -146,6 +146,12 @@ export class HomeworkTestPage {
 
   // 跳转到下一页 或返回知识点列表
   nextSubject(type,titleid){
+    this.selectCoA = false;
+    this.selectCoB = false;
+    this.selectCoC = false;
+    this.selectCoD = false;
+    this.pCoT = false;
+    this.pCoF = false;
 
     if (type == 1) {
       this.toAnswer[titleid] = this.seAnswer;
