@@ -256,17 +256,33 @@ tapelessiontapetest(){//试题
       res => {
         // alert('正确')
         if(res.code==200){
-          this.shipinglianxi=res.content
+          
 
-          for (var i = 0; i < this.shipinglianxi.length; i++) {
-            this.shipinglianxi[i].showanswer=false
-            this.shipinglianxi[i].useranswer=''
-            this.shipinglianxi[i].jieguo=0//0 未解答 1已解答 2 正确 3 错误 
-            if(this.shipinglianxi[i].type=='1'){
-              this.shipinglianxi[i].content=eval('(' +this.shipinglianxi[i].content+ ')')
+          for (var i = 0; i < res.content.length; i++) {
+            res.content[i].showanswer=false
+            res.content[i].useranswer=''
+            res.content[i].jieguo=0//0 未解答 1已解答 2 正确 3 错误 
+            if(res.content[i].type=='1'){
+              res.content[i].content=eval('(' +res.content[i].content+ ')')
+            }
+            if(res.content[i].content.A.indexOf("/upload")>0){
+              res.content[i].content.A=res.content[i].content.A.replace(/\/upload/g, 'http://101.132.70.102/upload')
+            }
+            if(res.content[i].content.B.indexOf("/upload")>0){
+              res.content[i].content.B=res.content[i].content.B.replace(/\/upload/g, 'http://101.132.70.102/upload')
+            }
+            if(res.content[i].content.C.indexOf("/upload")>0){
+              res.content[i].content.C=res.content[i].content.C.replace(/\/upload/g, 'http://101.132.70.102/upload')
+            }
+            if(res.content[i].content.D.indexOf("/upload")>0){
+              res.content[i].content.D=res.content[i].content.D.replace(/\/upload/g, 'http://101.132.70.102/upload')
+            }  
+            if(res.content[i].title.indexOf("/upload")>0){
+              res.content[i].title=res.content[i].title.replace(/\/upload/g, 'http://101.132.70.102/upload')
             }
             
           }
+          this.shipinglianxi=res.content
           console.log('tapelessiontapetest')//type 1,选择题，2.填空题 3.问答题 4.判断题
           console.log(res)
         }else{
@@ -298,14 +314,32 @@ tapelessionpointexam(id){
               console.log('tapelessionpointexam')
               
               if(res.code==200){
-                this.pointexamData=res.content
-                this.pointexamDataendTag=this.pointexamData.length-1
-                for (var i = 0; i < this.pointexamData.length; i++) {
-                  this.pointexamData[i].content=eval('(' +this.pointexamData[i].content+ ')')
-                  this.pointexamData[i].useranswer=''
+                
+                this.pointexamDataendTag=res.content.length-1
+                for (var i = 0; i < res.content.length; i++) {
+                  res.content[i].content=eval('(' +res.content[i].content+ ')')
+                  res.content[i].useranswer=''
+
+                  if(res.content[i].content.A.indexOf("/upload")>0){
+                    res.content[i].content.A=res.content[i].content.A.replace(/\/upload/g, 'http://101.132.70.102/upload')
+                  }
+                  if(res.content[i].content.B.indexOf("/upload")>0){
+                    res.content[i].content.B=res.content[i].content.B.replace(/\/upload/g, 'http://101.132.70.102/upload')
+                  }
+                  if(res.content[i].content.C.indexOf("/upload")>0){
+                    res.content[i].content.C=res.content[i].content.C.replace(/\/upload/g, 'http://101.132.70.102/upload')
+                  }
+                  if(res.content[i].content.D.indexOf("/upload")>0){
+                    res.content[i].content.D=res.content[i].content.D.replace(/\/upload/g, 'http://101.132.70.102/upload')
+                  }  
+                  if(res.content[i].title.indexOf("/upload")>0){
+                    res.content[i].title=res.content[i].title.replace(/\/upload/g, 'http://101.132.70.102/upload')
+                  }
                 }
               }
-              console.log(this.pointexamData)
+              
+              console.log(res.content)
+              this.pointexamData=res.content
               console.log(res)
             },
             error=>{
@@ -446,6 +480,9 @@ onwebkitfullscreenerror(){
       res => {
         // alert('正确')
         if(res.code==200){
+          if(res.content.lession&&res.content.lession.summary.indexOf("/upload")>0){
+            res.content.lession.summary=res.content.lession.summary.replace(/\/upload/g, 'http://101.132.70.102/upload')
+          }
           this.shipingxiangqing=res.content
                     for (var k = 0; k < this.shipingxiangqing.points.length; k++) {
             this.shipingxiangqing.points[k].isshow=false

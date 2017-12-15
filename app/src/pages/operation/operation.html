@@ -84,7 +84,10 @@
           </div>
           <div *ngSwitchCase="'1'">
             <!-- <p>知识小结：</p> -->
-            <p>{{shipingxiangqing.lession.summary}}</p>
+            <!-- <p>{{shipingxiangqing.lession.summary}}</p> -->
+            <div [innerHTML]="shipingxiangqing.lession.summary">
+
+            </div>
           </div>
           <div *ngSwitchCase="'2'">
             <!-- <p>同步练习:</p> -->
@@ -125,7 +128,9 @@
                      <div class="selekuang" [ngClass]="{'selectclass':shipinglianxi[i].useranswer=='B'}"(click)="selectclick(i,'B')"><button>B</button>{{shipinglianxi[i].content.B}}</div>
                      <div class="selekuang" [ngClass]="{'selectclass':shipinglianxi[i].useranswer=='C'}"(click)="selectclick(i,'C')" ><button>C</button>{{shipinglianxi[i].content.C}}</div>
                      <div class="selekuang" [ngClass]="{'selectclass':shipinglianxi[i].useranswer=='D'}"(click)="selectclick(i,'D')" ><button>D</button>{{shipinglianxi[i].content.D}}</div>-->
-                     <span *ngIf="shipinglianxi[i].showanswer">答案：{{shipinglianxi[i].answer}}</span>
+                     <!-- <span *ngIf="shipinglianxi[i].showanswer">答案：{{shipinglianxi[i].answer}}</span> -->
+                     <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;">答案:</div>
+                     <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;" [innerHTML]="shipinglianxi[i].answer"></div>
                     <br>
                   </div>
                   <div *ngIf="item.type==2">
@@ -135,7 +140,9 @@
                      <br>
                      输入答案：<ion-input style="border: solid 1px #aeaeae;height: 35px;border-radius: 10px;" color="danger" placeholder="请输入..." clearOnEdit="true" [(ngModel)]='shipinglianxi[i].useranswer' (ionInput)="tiankong()"></ion-input>
                      <br>
-                     <span *ngIf="shipinglianxi[i].showanswer">答案：{{shipinglianxi[i].answer}}</span>
+                     <!-- <span *ngIf="shipinglianxi[i].showanswer">答案：{{shipinglianxi[i].answer}}</span> -->
+                     <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;">答案:</div>
+                     <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;" [innerHTML]="shipinglianxi[i].answer"></div>
                   </div>
                   <div  *ngIf="item.type==4">
                     <h1>判断题</h1>
@@ -150,7 +157,9 @@
                         错误
                       </div>
                      <br>
-                     <span *ngIf="shipinglianxi[i].showanswer">答案：{{shipinglianxi[i].answer}}</span>
+                     <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;">答案:</div>
+                     <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;" [innerHTML]="shipinglianxi[i].answer"></div>
+                     <!-- <span *ngIf="shipinglianxi[i].showanswer">答案：{{shipinglianxi[i].answer}}</span> -->
                   </div>
                   <div *ngIf="item.type==3">
                     <h1>解答题</h1>
@@ -161,7 +170,9 @@
                      <textarea style="border: solid 1px #aeaeae;height: 350px;border-radius: 10px;" [(ngModel)]="shipinglianxi[i].useranswer"></textarea>
                      <!-- <textarea style="border: solid 1px #aeaeae;height: 350px;border-radius: 10px;" [(ngModel)]='shipinglianxi[i].useranswer' (ionInput)="jieda(i)"></extarea> -->
                      <br>
-                     <span *ngIf="shipinglianxi[i].showanswer">答案：{{shipinglianxi[i].answer}}</span>
+                     <!-- <span *ngIf="shipinglianxi[i].showanswer">答案：{{shipinglianxi[i].answer}}</span> -->
+                     <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;">答案:</div>
+                     <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;" [innerHTML]="shipinglianxi[i].answer"></div>
                   </div>
                   <!--<button ion-button (click)="shangSubject(i)">
                     上一题
@@ -233,19 +244,23 @@
                   <ion-row >
                     <ion-col col-6 (click)="daanclick('A')">
                       <button  class="yuanquan" [ngClass]="{'selectclass': pointexamData[zuotinum].useranswer=='A'}">A</button>
-                       <span>{{pointexamData[zuotinum].content.A}}</span>
+                      <div [innerHTML]="pointexamData[zuotinum].content.A"></div>
+                       <!-- <span>{{pointexamData[zuotinum].content.A}}</span> -->
                     </ion-col>
                     <ion-col col-6 (click)="daanclick('B')">
-                      <button  class="yuanquan" [ngClass]="{'selectclass': pointexamData[zuotinum].useranswer=='B'}">B</button>                      
-                      <span>{{pointexamData[zuotinum].content.B}}</span>
+                      <button  class="yuanquan" [ngClass]="{'selectclass': pointexamData[zuotinum].useranswer=='B'}">B</button>   
+                      <div [innerHTML]="pointexamData[zuotinum].content.B"></div>                   
+                      <!-- <span>{{pointexamData[zuotinum].content.B}}</span> -->
                     </ion-col>
                     <ion-col col-6 (click)="daanclick('C')" *ngIf='pointexamData[zuotinum].content.C'>
                       <button  class="yuanquan" [ngClass]="{'selectclass': pointexamData[zuotinum].useranswer=='C'}">C</button>
-                      <span>{{pointexamData[zuotinum].content.C}}</span>
+                      <div [innerHTML]="pointexamData[zuotinum].content.C"></div>
+                      <!-- <span>{{pointexamData[zuotinum].content.C}}</span> -->
                     </ion-col>
                     <ion-col col-6 (click)="daanclick('D')" *ngIf='pointexamData[zuotinum].content.D'>
                       <button  class="yuanquan" [ngClass]="{'selectclass': pointexamData[zuotinum].useranswer=='D'}">D</button>
-                      <span>{{pointexamData[zuotinum].content.D}}</span>
+                   <div [innerHTML]="pointexamData[zuotinum].content.D"></div>
+                      <!-- <span>{{pointexamData[zuotinum].content.D}}</span> -->
                     </ion-col>
                   </ion-row>
         </div>

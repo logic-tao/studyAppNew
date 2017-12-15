@@ -53,8 +53,8 @@
             <ion-card (click)="toOperationPage(item.id)" *ngFor="let item of xplainindexData.content[2].children">
                 <!--<img src="assets/icon/viod3.jpg"/>-->
                  <img src="{{item.icon}}"/> 
-                <!--<div class="card-title" style="color: #f00;font-weight: bolder;">{{item.subject}}</div>
-                <div class="card-subtitle"style="color: #f00;font-weight: bolder;">{{item.description}}</div>-->
+                <!--<div class="card-title" style="color: #f00;font-weight: bolder;">{{item.subject}}</div>-->
+                <div class="card-subtitle">{{item.description}}</div>
               </ion-card>
           </div>
    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
