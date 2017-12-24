@@ -128,14 +128,22 @@ export class AppService {
         .then(this.extractData)
         .catch(this.handleError);
   }
-    tapelessiondetail(data): Promise<any> {//录播课详情
+  tapelessionanswers(data): Promise<any> {//记录分数
       // id	是	int	课程id
        return this.http
-        .post(BASEURL+'/tape-lession/detail', JSON.stringify(data),options)
+        .post(BASEURL+'/tape-lession/answers', JSON.stringify(data),options)
         .toPromise()
         .then(this.extractData)
         .catch(this.handleError);
   }
+  tapelessiondetail(data): Promise<any> {//录播课详情
+    // id	是	int	课程id
+     return this.http
+      .post(BASEURL+'/tape-lession/detail', JSON.stringify(data),options)
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+}
   subjectindex(): Promise<any> {//科目列表
        return this.http
         .post(BASEURL+'/subject/index', JSON.stringify({}),options)
@@ -187,6 +195,14 @@ export class AppService {
         .then(this.extractData)
         .catch(this.handleError);
   }
+  tapelessioncorrectrate(data): Promise<any> {//获取课后测验的正确答案与错误答案的数量列表
+    //lid	是	integer	录播课id
+           return this.http
+            .post(BASEURL+'/tape-lession/correct-rate', JSON.stringify(data),options)
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+      }
     explainrecommendtaped(data): Promise<any> {//下拉更新数据
 //       page	否	int	第几页 默认1
 // num	否	int	每页显示多少个,默认20

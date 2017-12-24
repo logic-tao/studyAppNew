@@ -13,7 +13,6 @@
 </ion-header>
 
 <ion-content padding>
-  <hr/>
       <ion-segment [(ngModel)]="selectnum">
       <ion-segment-button value="0">
         视频学习
@@ -230,6 +229,10 @@
     <br>
     已完成：{{yiwanc}} 未完成：{{weiwanc}}通关率：{{tongguanlv}}</div>
     <button *ngFor="let items of shipinglianxi;let j=index" (click)="tozuotijieshi(j)" [ngClass]="{'weijieda':shipinglianxi[j].jieguo==0,'yiweijieda':shipinglianxi[j].jieguo==1,'zhengque':shipinglianxi[j].jieguo==2,'cuowu':shipinglianxi[j].jieguo==3}">{{j+1}}</button>
+    <div padding-vertical>
+      <canvas #chartBar height="200"></canvas>
+    </div>
+    <br/>
   </div>
       <div class="zuoti" *ngIf="beginzuoti">
         <div class="title" >

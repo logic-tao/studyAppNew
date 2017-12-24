@@ -1,8 +1,9 @@
-import { Component,ViewChild,Inject} from '@angular/core';
+import { Component,ViewChild,Inject,ElementRef} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MyApp} from '../../app/app.component';
 import { BASEURLIMG} from '../../theme/theme.config';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import Chart from 'chart.js'; // 导入chart.js
 // import { VideoPlayer ,VideoOptions} from '@ionic-native/video-player';
 /**
  * Generated class for the OperationPage page.
@@ -20,6 +21,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
   templateUrl: 'operation.html',
 })
 export class OperationPage {
+  @ViewChild('chartBar') chartBar: ElementRef;
+  options:Object;
   @ViewChild('ionSlides') slides;
   private timer;
   @ViewChild("myVideo") myVideo: any;
@@ -43,6 +46,7 @@ export class OperationPage {
   zhegnquedaan:boolean=false
   oveer:boolean=false
   pinglunAr:any=[]
+  chirData:any={}
   textdt:any=[
     {timu:"1+1=?",xuanze:[4,6,2,5],daan:2},
     {timu:"1*4=?",xuanze:[4,8,2,4],daan:4},
@@ -67,7 +71,69 @@ export class OperationPage {
     //     console.log(err);
     //    });
     // }
+    this.options = {
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+      },
+      title: {
+        text: 'Browser market shares at a specific website, 2014'
+      },
+      tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+          }
+        }
+      },
+      series: [{
+        name: 'Brands',
+        data: [
+          { name: 'Microsoft Internet Explorer', y: 56.33 },
+          { name: 'Chrome', y: 24.03 },
+          { name: 'Firefox', y: 10.38 },
+          { name: 'Safari', y: 4.77 },
+          { name: 'Opera', y: 0.91 },
+          { name: 'Proprietary or Undetectable', y: 0.2 }
+        ]
+      }]
+    }
 
+  }
+  ionViewDidEnter(){
+
+  }
+  showChart(){
+    // this.chirData={xdata:xdata,ydata:ydata,backgroundColor:backgroundColor,borderColor:borderColor}
+    Chart.Bar(this.chartBar.nativeElement.getContext("2d"), {
+      data: {
+        labels: this.chirData.xdata,//横-题目序号
+        datasets: [{
+          label: '练习统计表',
+          data: this.chirData.ydata,//数值
+          backgroundColor:this.chirData.backgroundColor,
+          borderColor: this.chirData.borderColor,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
   }
   jiesuoclick(){
     this.screenOrientation.unlock();
@@ -117,10 +183,12 @@ tijiaoSubject(){
   let zhegnque=0;
 //     yiwanc:any
 // weiwanc:any
+let servedata=[]
           for (var i = 0; i < this.shipinglianxi.length; i++) {
+            servedata.push({id:this.shipinglianxi[i].id,answer:this.shipinglianxi[i].useranswer})
             if(this.shipinglianxi[i].useranswer==''){
               this.weiwanc=this.weiwanc+1
-              
+              servedata[i].answer='A'
             }else{
 this.yiwanc=this.yiwanc+1
 if(this.shipinglianxi[i].useranswer==this.shipinglianxi[i].answer){
@@ -130,6 +198,25 @@ if(this.shipinglianxi[i].useranswer==this.shipinglianxi[i].answer){
       }
       this.tongguanlv=zhegnque/this.shipinglianxi.length
   this.daantanchuang=true
+
+
+  console.log(servedata)
+  this.appService.tapelessionanswers({answers:servedata}).then(
+  res => {
+    console.log('tapelessionanswers')
+    console.log(res)
+    // this.tapelessioncomments()
+  },
+  error=>{
+    // alert('错误')
+    console.log('tapelessionanswers========err')
+    console.log(error)
+  }
+)
+      setTimeout(()=>{
+        this.showChart()
+    },1000);
+  
 
 }
 tozuotijieshi(j){
@@ -208,6 +295,74 @@ ionSlideDidChange(){
   this.currentIndex = this.slides.getActiveIndex();
  console.log('Current index is', this.currentIndex);
  
+}
+getRandom(){
+  let max=5;
+  let min=0;
+  var r = Math.random() * (max - min);
+  var re = Math.round(r + min);
+  re = Math.max(Math.min(re, max), min)
+   
+  return re;
+}
+tapelessioncorrectrate(){//统计表数据
+  let servedata={lid:this.navParams.data.num}
+  this.appService.tapelessioncorrectrate(servedata).then(
+    res => {
+      // alert('正确')
+      console.log('=======tapelessioncorrectrate========')
+      console.log(res)
+      let xdata=[]
+      let ydata=[]
+      let backgroundColor=[]
+      let borderColor=[]
+          let backgroundColorArr=[
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ];
+          let borderColorArr= [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ];
+          let setnum=0;
+          let xstring='';
+          let count=0;
+          let ycount=0;
+      if(res.code==200){
+        for (var i = 0; i < res.content.length; i++) {
+          setnum=this.getRandom()
+          xstring='第'+(i+1)+'题'
+          count=parseInt(res.content[i].correct)+parseInt(res.content[i].error)
+          xdata.push(xstring)
+          if(count==0){
+            ydata.push(0)
+          }else{
+            ycount=parseInt(res.content[i].correct)/count*100
+            ydata.push(ycount)
+          }
+          // ydata.push(parseInt(res.content[i].id))
+          backgroundColor.push(backgroundColorArr[setnum])
+          borderColor.push(borderColorArr[setnum])
+        }
+        this.chirData={xdata:xdata,ydata:ydata,backgroundColor:backgroundColor,borderColor:borderColor}
+      }else{
+
+      }
+
+    },
+    error=>{
+      // alert('错误')
+      console.log(error)
+    }
+)
 }
 tapelessioncomments(){
       let servedata={id:this.navParams.data.num}
@@ -493,6 +648,7 @@ onwebkitfullscreenerror(){
             this.indexplayvideourl()
             this.tapelessiontapetest()
             this.tapelessioncomments()
+            this.tapelessioncorrectrate()
           }
           
           this.tapelessionpointexam(this.shipingxiangqing.points[0].id)

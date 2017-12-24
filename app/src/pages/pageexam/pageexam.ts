@@ -67,7 +67,14 @@ ionViewWillEnter(){
   console.log(this.navParams.data)
   if(this.navParams.data.type==1){ //1专题练习 2试卷
     // this.appComponent.pagenextarr={listData:this.listData,num:j}
-    this.getpagetextdata(this.appComponent.pagenextarr.listData[this.appComponent.pagenextarr.num].id)
+    let getpagedata=this.appComponent.pagenextarr
+    if(getpagedata.childnum!==null){
+      
+      this.getpagetextdata(getpagedata.listData[getpagedata.num].children[getpagedata.childnum].id)
+    }else{
+      this.getpagetextdata(this.appComponent.pagenextarr.listData[this.appComponent.pagenextarr.num].id)
+    }
+    
   }else{
     this.getpagedata(this.navParams.data.id)
   }

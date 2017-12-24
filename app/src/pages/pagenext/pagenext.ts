@@ -106,6 +106,7 @@ this.items =[]
 
 
 itemSelectedchild(event,i,j){
+  this.appComponent.pagenextarr.childnum=j
   event.stopPropagation();
   this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:this.listData[i].children[j].id});
   console.log(j)
@@ -116,7 +117,7 @@ this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:id})
 
   itemSelected(j){
     console.log('============itemSelected============')
-    this.appComponent.pagenextarr={listData:this.listData,num:j}
+    this.appComponent.pagenextarr={listData:this.listData,num:j,childnum:null}
     console.log(this.appComponent.pagenextarr)
     console.log(this.listData[j])
     if(this.listData[j].children.length==0){
