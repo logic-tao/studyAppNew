@@ -1,5 +1,5 @@
-import { Component,Inject} from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Input, Component,Inject,ViewChild} from '@angular/core';
+import { IonicPage, NavController, NavParams,Slides} from 'ionic-angular';
 import { BASEURLIMG} from '../../theme/theme.config';
 import { MyApp} from '../../app/app.component';
 /**
@@ -15,6 +15,13 @@ import { MyApp} from '../../app/app.component';
   templateUrl: 'recordingvideo.html',
 })
 export class RecordingvideoPage {
+  @ViewChild("myslide") myslides: Slides;
+  @Input("pageNumber") pageNumber: number = 3;
+  pageIndex: number = 0;
+  pageContent: string;
+  mySlideOptions;  
+  selectedIndex: number = 2;  
+  slides: string[] = ["测试1", "测试2", "测试3"];
 //  segmentsArray = ['segmentOne','segmentTwo','segmentThree'];
   segmentModel: any=0;
   gender:any
@@ -32,7 +39,36 @@ export class RecordingvideoPage {
   constructor(public appComponent:MyApp,@Inject('appService') private appService,public navCtrl: NavController, public navParams: NavParams) {
     this.getpageData()
   }
-
+  ionViewDidEnter(){
+    // let slidNum=this.selectedIndex+1
+    this.myslides.slideTo(this.selectedIndex,1);
+    //     setTimeout(()=>{
+    //   this.myslides.slideTo(5, 500);
+    //
+  }
+  onSlideClick(index) {
+    this.pageIndex = index;
+  }
+  ngOnInit() {  
+    this.mySlideOptions = {  
+      loop: false,  
+      autoplay: false,  
+      initialSlide: 0,  
+      pager: false,  
+      slidesPerView: this.pageNumber,  
+      paginationHide: true,  
+      paginationClickable: true  
+    };  
+  }  
+  
+  onClick(index) {  
+    console.log('ioonClickonClickonClickonClickonClickge');
+    this.selectedIndex = index;  
+    // this.slideClick.emit(index);  
+  }  
+  // setPageContent() {
+  //   this.pageContent = this.pageSlides[this.pageIndex];
+  // }
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecordingvideoPage');
   }
@@ -109,6 +145,8 @@ export class RecordingvideoPage {
 
 }
 selecttab(i){
+  let indenum=i+1
+  this.myslides.slideTo(i,1);
 this.selectnum=i
 this.segmentModel=this.topData[i].id
 this.tapelessionindex()

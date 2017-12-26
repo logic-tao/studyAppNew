@@ -31,7 +31,6 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 // import { VideoPlayer } from '@ionic-native/video-player';
 import {touchDirective} from '../theme//touch.directive';
 import {ChartModule} from "angular2-highcharts";
-
 @NgModule({
   declarations: [
     MyApp,

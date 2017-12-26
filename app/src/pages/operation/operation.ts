@@ -128,10 +128,17 @@ export class OperationPage {
         scales: {
           yAxes: [{
             ticks: {
-              beginAtZero: true
-            }
+              // Include a dollar sign in the ticks
+              callback: function(value, index, values) {
+                  return value+'%';
+              }
+          }
           }]
-        }
+        },
+        title: {
+          display: true,
+          text: '每道题准确率统计'
+      }
       }
     });
   }

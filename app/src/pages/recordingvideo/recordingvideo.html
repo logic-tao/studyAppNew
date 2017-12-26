@@ -5,11 +5,19 @@
     </ion-title>
   </ion-navbar>
     <ion-toolbar no-border-top>
-    <ion-segment [(ngModel)]="segmentModel" *ngIf="topData">
+    <!-- <ion-segment [(ngModel)]="segmentModel" *ngIf="topData">
       <ion-segment-button value="{{item.id}}" *ngFor="let item of topData;let i=index;" (click)="selecttab(i)">
         {{item.subject_name}}
       </ion-segment-button>
-    </ion-segment>
+    </ion-segment> -->
+
+    <ion-slides #myslide class="slide-title" [slidesPerView]="pageNumber" [pager]="false">  
+      <ion-slide *ngFor="let item of topData; let i = index;">  
+        <div (click)="selecttab(i);">  
+          <span class="slide-title-unit" [ngClass]="{'slide-title-active': selectnum == i}"> {{item.subject_name}}</span>  
+        </div>  
+      </ion-slide>  
+    </ion-slides>
   </ion-toolbar>
                   <!-- <ion-row >
                     <ion-col col-6>
@@ -44,6 +52,8 @@
 
 
 </ion-header>
+<!-- <my-slide (slideClick)="onSlideClick($event)" [slides]="pageSlides" [pageNumber]="7"></my-slide> -->
+
 
 <ion-content (swipe)="swipeEvent($event)" style="margin-top: 25px;">
 
