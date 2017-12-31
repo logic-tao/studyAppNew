@@ -109,7 +109,7 @@ SlidingDirection(sdfs){
     +'&kid='+'1'
     +'&titleId='+this.listDetailData[this.currentIndex].titleId
   ).subscribe((res: Response) => {
-      
+        this.listDetailData[this.currentIndex].shoucang=true
       this.appComponent.presentToast('收藏成功!'); 
               console.log(res);
             });
@@ -277,7 +277,11 @@ this.s=this.alltrime%60
     // this.navCtrl.pop(PagedetailPage);
   }
   ionSlideDidChange(){
-     this.currentIndex = this.slides.getActiveIndex();
+    let num =this.slides.getActiveIndex();
+    if(num<this.listDetailData.length){
+      this.currentIndex = this.slides.getActiveIndex();
+    }
+     
     console.log('Current index is', this.currentIndex);
     // slideNext(speed, runCallbacks)
     // slidePrev(speed, runCallbacks)
@@ -382,6 +386,7 @@ getpagedata(id){
                       this.latenum=this.listDetailData.length-1
                       console.log(this.listDetailData)
                       for (var i = 0; i < this.listDetailData.length; i++) {
+                        this.listDetailData[i].shoucang=false
                         this.listDetailData[i].showanswer=false
                         this.listDetailData[i].useranswer=''
                         this.listDetailData[i].jieguo=0//0 未解答 1已解答 2 正确 3 错误 
@@ -419,6 +424,9 @@ getpagetextdata(id){
         }else{
           this.listDetailData=this.countlianxiARR
           this.latenum=this.listDetailData.length-1
+          for (var i = 0; i < this.listDetailData.length; i++) {
+            this.listDetailData[i].shoucang=false
+          }
         }
         
         console.log(this.listDetailData)
@@ -487,6 +495,7 @@ shuaxing(){
               }else{
                 this.yiwanc=this.yiwanc+1
                   if(this.listDetailData[i].type==1||this.listDetailData[i].type==3){//1单选题2填空题3判断题4解答题
+
                     if(this.listDetailData[i].useranswer==this.listDetailData[i].answer){
                       this.zehgnque=this.zehgnque+1
                       this.defeng= this.listDetailData[i].score+this.defeng

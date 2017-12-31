@@ -1,4 +1,4 @@
-import {AfterViewChecked, Component, Input, OnChanges, OnInit} from '@angular/core';
+import {AfterViewChecked, Component, Input, OnChanges, OnInit,Inject} from '@angular/core';
 import { IonicPage, NavController, NavParams,App} from 'ionic-angular';
 import {PagedetailPage} from '../pagedetail/pagedetail';
 import { Http, Response } from '@angular/http';
@@ -23,14 +23,37 @@ export class PagenextPage implements  OnInit,OnChanges{
   copeyitems:any[];
   inpustring:any=''
   // 科目
+  subjectindexData:any=[]
   subject: string ="1";
   subjectNum: string="1";
   type : string;
 
-
+  constructor(@Inject('appService') private appService,public appComponent:MyApp,public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
+          this.subjectindex()
+             this.titleFilter.valueChanges
+               .debounceTime(500)
+               .subscribe(value=>this.keyword=value);
+             this.type = this.subject;
+             this.initializeItems();
+             
+      }
   ngOnInit(){
     console.log(this.type);
 
+  }
+  subjectindex(){
+    this.appService.subjectindex().then(
+      res => {
+        if(res.code==200){
+          this.subjectindexData=res.content
+        }
+        
+      },
+      error=>{
+        // alert('错误')
+        console.log(error)
+      }
+  )
   }
 close(){
   this.inpustring=''
@@ -56,16 +79,6 @@ close(){
   ngOnChanges(){
 
 
-  }
-
-
-  constructor(public appComponent:MyApp,public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
-
-         this.titleFilter.valueChanges
-           .debounceTime(500)
-           .subscribe(value=>this.keyword=value);
-         this.type = this.subject;
-         this.initializeItems();
   }
 
   deepCoyp(source) { 

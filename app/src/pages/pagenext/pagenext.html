@@ -19,9 +19,7 @@
 
 
          <ion-select item-right [(ngModel)]="subject" interface="popover" style="position: absolute;right: 10px;top: 0;" (ngModelChange)="version=$event; changeVersion()">
-          <ion-option value="1"  >语文</ion-option>
-          <ion-option value="2"  >数学</ion-option>
-          <ion-option value="3"  >英语</ion-option>
+          <ion-option value="{{item.id}}" *ngFor="let item of subjectindexData;let i=index;">{{item.subject_name}}</ion-option>
         </ion-select>
 </ion-header>
 
