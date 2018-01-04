@@ -80,7 +80,7 @@ export class PersonModifyPage {
         // alert('错误')
         console.log(error)
       },
-      this.navCtrl.pop()
+
     )
 
 

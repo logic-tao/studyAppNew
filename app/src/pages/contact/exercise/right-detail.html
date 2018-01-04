@@ -30,22 +30,26 @@
       （选择题)<span [innerHtml]="test[test_number - 1].titleBody"></span><br>
       <br>
       <ion-list>
-        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'A') ? 'secondary':'light'">
+        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'A') ? 'secondary':
+        (test[test_number - 1].uanswer == 'A') ? 'danger':'light'">
           <span style="color: black">A.</span>
           <div style="color: black" [innerHtml]="test[test_number - 1].A"></div>
         </button>
 
-        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'B') ? 'secondary':'light'">
-          <span style="color: black">B.</span>
+        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'B') ? 'secondary':
+        (test[test_number - 1].uanswer == 'B') ? 'danger':'light'">
+          <span style="color: black">.</span>
           <div style="color: black" [innerHtml]="test[test_number - 1].B"></div>
         </button>
-        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'C') ? 'secondary':'light'">
+        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'C') ? 'secondary':
+        (test[test_number - 1].uanswer == 'C') ? 'danger':'light'">
           <span style="color: black">C.</span>
           <div style="color: black" [innerHtml]="test[test_number - 1].C"></div>
         </button>
-        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'D') ? 'secondary':'light'">
-          <span item-left style="color: black">D.</span>
-          <span style="color: black" [innerHtml]="test[test_number - 1].D"></span>
+        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'D') ? 'secondary':
+        (test[test_number - 1].uanswer == 'D') ? 'danger':'light'">
+          <span style="color: black">D.</span>
+          <div style="color: black" [innerHtml]="test[test_number - 1].D"></div>
         </button>
       </ion-list>
     </label>
