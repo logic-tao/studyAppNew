@@ -79,6 +79,14 @@ ionViewWillEnter(){
     this.getpagedata(this.navParams.data.id)
   }
 }
+backclck(){
+  if(this.currentIndex==0){
+    this.navCtrl.pop();
+  }else{
+    let num =this.currentIndex-1;
+    this.shangSubject()
+  }
+}
 ionViewDidEnter(){//页面还没进入时触发的函
     console.log("ionViewDidEnter=页面已经渲染完成时触发=做题");
 }
@@ -111,6 +119,20 @@ SlidingDirection(sdfs){
   ).subscribe((res: Response) => {
         this.listDetailData[this.currentIndex].shoucang=true
       this.appComponent.presentToast('收藏成功!'); 
+              console.log(res);
+            });
+    // this.http.request('http://sapi.bainid.com/demo/index/collect').subscribe();
+
+  }
+  cleanadd(){
+    //取消收藏
+    // alert("取消收藏成功");
+    this.http.request('http://101.201.238.157/index.php/demo/index/qxCollect?'
+    +'&uid='+this.appComponent.userinfo.id
+    +'&titleId='+this.listDetailData[this.currentIndex].titleId
+  ).subscribe((res: Response) => {
+        this.listDetailData[this.currentIndex].shoucang=false
+      this.appComponent.presentToast('取消收藏成功!'); 
               console.log(res);
             });
     // this.http.request('http://sapi.bainid.com/demo/index/collect').subscribe();

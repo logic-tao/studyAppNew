@@ -1,7 +1,8 @@
 
 <ion-header>
   
-    <ion-navbar>
+    <ion-navbar hideBackButton="true">
+        <ion-icon name="arrow-back" style="font-size: 30px;padding: 5px 15px;float: left;margin-left: 1rem;"(click)="backclck()"></ion-icon> 
       <ion-title style="text-align: center;">
 
         <span *ngIf="listDetailData.length>0&&listDetailData[0].subjectKind==1">语文</span>
@@ -13,7 +14,7 @@
           <span *ngIf="navParams.data.type==2">剩余：{{m}}：{{s}}</span>
           
         <!-- </button> -->
-        <img *ngIf="listDetailData.length>0&&listDetailData[currentIndex].shoucang" src="assets/icon/shoucang.png" height="18" width="18" style="    float: right;">
+        <img *ngIf="listDetailData.length>0&&listDetailData[currentIndex].shoucang" src="assets/icon/shoucang.png" height="18" width="18" style="    float: right;" (click)="cleanadd()">
         <img *ngIf="listDetailData.length>0&&!listDetailData[currentIndex].shoucang" src="assets/icon/weishoucang.png" height="18" width="18" style="    float: right;" (click)="add()">
       </ion-title>
     </ion-navbar>
@@ -45,10 +46,15 @@
                    <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='D'}"(click)="selectclick(i,'D')"><button>D</button><div [innerHTML]="listDetailData[i].D" class="selecdiv"></div></div>
                    
                    <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
-                     <span>解析：</span>
-                     <br>
-                     <span >{{listDetailData[i].answer}}</span>
-                    </div>
+                      <span>答案：</span>
+                      <br>
+                    <span>{{listDetailData[i].answer}}</span>
+                   </div>
+                   <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
+                      <span>解析：</span>
+                      <br>
+                    <span>{{listDetailData[i].analysis}}</span>
+                   </div>
                    
                   <br>
                 </div>
@@ -60,9 +66,14 @@
                    <br>
                    <ion-input style="border: solid 1px #aeaeae;height: 35px;border-radius: 10px;" color="danger" placeholder="请输入..." clearOnEdit="true" [(ngModel)]='listDetailData[i].useranswer' (ionInput)="tiankong()"></ion-input>
                    <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
-                      <span>解析：</span>
+                      <span>答案：</span>
                       <br>
                     <span>{{listDetailData[i].answer}}</span>
+                   </div>
+                   <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
+                      <span>解析：</span>
+                      <br>
+                    <span>{{listDetailData[i].analysis}}</span>
                    </div>
                    
                 </div>
@@ -80,11 +91,16 @@
                                         <span style="margin-left: 20px;">错误</span>
                                       </div>
                                   </div>
-                  <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
-                     <span>解析：</span>
-                     <br>
-                    <span >{{listDetailData[i].answer}}</span>
-                  </div>
+                                  <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
+                                      <span>答案：</span>
+                                      <br>
+                                    <span>{{listDetailData[i].answer}}</span>
+                                   </div>
+                                   <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
+                                      <span>解析：</span>
+                                      <br>
+                                    <span>{{listDetailData[i].analysis}}</span>
+                                   </div>
                    
                 </div>
                 <div  *ngIf="item.type==4" >
@@ -94,10 +110,15 @@
                    <!--{{listDetailData[i].titleBody}}?-->
                    <br>
                   <textarea placeholder="输入文本..." style="border-width: 0;height: 200px;border: solid 1px #aeaeae;border-radius: 10px;width: 100%;resize: none;" [(ngModel)]='listDetailData[i].useranswer'></textarea>
+                  <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
+                      <span>答案：</span>
+                      <br>
+                    <span>{{listDetailData[i].answer}}</span>
+                   </div>
                    <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
                       <span>解析：</span>
                       <br>
-                    <span>{{listDetailData[i].answer}}</span>
+                    <span>{{listDetailData[i].analysis}}</span>
                    </div>
                    
                    <img *ngIf="base64Image" src="{{base64Image}}">

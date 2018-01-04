@@ -120,6 +120,7 @@ this.items =[]
 
 itemSelectedchild(event,i,j){
   this.appComponent.pagenextarr.childnum=j
+  this.appComponent.pagenextarr.num=i
   event.stopPropagation();
   this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:this.listData[i].children[j].id});
   console.log(j)
