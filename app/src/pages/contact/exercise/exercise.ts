@@ -20,7 +20,7 @@ export class ExercisePage {
   // 接收数据
   listData: any;
   // 课程
-  subject: string ="1";
+  subject: string ="2";
   // 用户
   user: string = localStorage.getItem("user");
 

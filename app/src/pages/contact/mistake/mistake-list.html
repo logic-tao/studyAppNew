@@ -22,7 +22,8 @@
       <img *ngIf="!item.open" src="assets/icon/you.png" style="width: 25px;float: right;"/>
       <img *ngIf="item.open" src="assets/icon/xia.png" style="width: 25px;float: right;"/>
       <div *ngIf="item.open">
-        <div ion-item *ngFor="let itemch of item.sub_knowledege;let j=index;" (click)="itemSelectedchild($event,j,itemch)">{{itemch.cname}}</div>
+        <div ion-item *ngFor="let itemch of item.sub_knowledege;let j=index;" (click)="itemSelectedchild($event,j,itemch)">
+          <span style="font-size: 25px;margin-right: 20px;font-weight: bold;">-</span>{{itemch.cname}}</div>
       </div>
     </ion-item>
   </ion-card>
