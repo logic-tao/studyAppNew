@@ -33,6 +33,7 @@ export class ContactPage {
     //存储登录用户id
     localStorage.setItem("user",this.appComponent.userinfo.id);
     this.name = this.appComponent.userinfo.realname;
+
   }
 
   @Input() src: string = "http://placehold.it/80x80/"

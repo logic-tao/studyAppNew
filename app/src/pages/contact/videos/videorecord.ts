@@ -1,5 +1,5 @@
-import {Component, Inject} from '@angular/core';
-import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {Component, Inject, ViewChild} from '@angular/core';
+import {App, IonicPage, NavController, NavParams, Slides} from 'ionic-angular';
 import {BASEURLIMG} from "../../../theme/theme.config";
 import {MyApp} from "../../../app/app.component";
 
@@ -16,15 +16,36 @@ import {MyApp} from "../../../app/app.component";
   templateUrl: 'videorecord.html',
 })
 export class VideorecordPage {
+  @ViewChild("myslide") myslides: Slides;
 
   //  segmentsArray = ['segmentOne','segmentTwo','segmentThree'];
   segmentModel: any;
   gender:string='f'
+  subjectindexData:any=[]
+  selectedIndex: number = 2;
   topData:any;
   selectnum:number=0
   vidoaarrData:any
+  subject :any = 2;
   constructor(@Inject('appService') private appService,public navCtrl: NavController, public navParams: NavParams,public appComponent:MyApp) {
     this.getpageData()
+    this.subjectindex()
+  }
+
+  subjectindex(){
+    this.appService.subjectindex().then(
+      res => {
+        if(res.code==200){
+          this.subjectindexData=res.content
+          console.log(this.subjectindexData)
+        }
+
+      },
+      error=>{
+        // alert('错误')
+        console.log(error)
+      }
+    )
   }
 
   ionViewDidLoad() {
@@ -46,6 +67,7 @@ export class VideorecordPage {
           for (var i = 0; i < this.vidoaarrData.length; i++) {
             this.vidoaarrData[i].icon=BASEURLIMG+this.vidoaarrData[i].icon
           }
+          console.log(this.vidoaarrData)
 
         }
 
@@ -74,6 +96,8 @@ export class VideorecordPage {
 
   }
   selecttab(i){
+    let indenum=i+1
+    this.myslides.slideTo(i,1);
     this.selectnum=i
     this.segmentModel=this.topData[i].id
     this.tapelessionindex()

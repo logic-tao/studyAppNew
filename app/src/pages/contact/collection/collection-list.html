@@ -28,7 +28,7 @@
   <!--</ion-segment>-->
 
 
-  <ion-card>
+  <ion-list>
     <ion-item ion-item *ngFor="let item of this.listData;let i=index;" (click)="itemSelected(i,item)">
       <!--<span style="width: 20px;height: 20px;border-radius: 10px;background-color: #2cd3eb;position: absolute;left: 0px;"></span>-->
       <img src="assets/icon/yuan.png" style="width: 15px;float: left;padding-top: 4px"/>
@@ -39,5 +39,5 @@
         <div ion-item *ngFor="let itemch of item.sub_knowledege;let j=index;" (click)="itemSelectedchild($event,j,itemch)">{{itemch.cname}}</div>
       </div>
     </ion-item>
-  </ion-card>
+  </ion-list>
 </ion-content>

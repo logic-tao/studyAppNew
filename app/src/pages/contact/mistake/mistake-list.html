@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-  <ion-card>
+  <ion-list>
     <ion-item ion-item *ngFor="let item of this.listData;let i=index;" (click)="itemSelected(i,item)">
       <!--<span style="width: 20px;height: 20px;border-radius: 10px;background-color: #2cd3eb;position: absolute;left: 0px;"></span>-->
       <img src="assets/icon/yuan.png" style="width: 15px;float: left;padding-top: 4px"/>
@@ -26,6 +26,6 @@
           <span style="font-size: 25px;margin-right: 20px;font-weight: bold;">-</span>{{itemch.cname}}</div>
       </div>
     </ion-item>
-  </ion-card>
+  </ion-list>
 
 </ion-content>

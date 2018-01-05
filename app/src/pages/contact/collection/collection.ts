@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {CollectionListPage} from "./collection-list";
 import {Response,Http} from "@angular/http";
@@ -20,20 +20,43 @@ export class CollectionPage {
 
   user:string = localStorage.getItem("user");
   //收藏题数
-  yuNum:string;
-  shuNum:string;
-  yingNum:string;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public app:App,public http: Http) {
+  shoucang: any = 0;
+  subjectindexData:any=[]
 
+  constructor(@Inject('appService') private appService,public navCtrl: NavController, public navParams: NavParams,public app:App,public http: Http) {
+    this.subjectindex()
+  }
+
+  subjectindex(){
+    this.appService.subjectindex().then(
+      res => {
+        if(res.code==200){
+          this.subjectindexData=res.content
+          console.log(this.subjectindexData)
+        }
+
+      },
+      error=>{
+        // alert('错误')
+        console.log(error)
+      }
+    )
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad collectionPage');
     this.http.request('httP://101.201.238.157/index/sj_function1/' + this.user)
       .subscribe((res: Response) => {
-        this.yuNum = res.json()["1"];
-        this.shuNum = res.json()["2"];
-        this.yingNum = res.json()["3"];
+        for(var i = 0; i < this.subjectindexData.length; i++){
+          if(res.json()[this.subjectindexData[i].id]!= undefined) {
+            this.shoucang += res.json()[this.subjectindexData[i].id]
+            this.subjectindexData[i].shoucang = res.json()[this.subjectindexData[i].id]
+          }else {
+            this.subjectindexData[i].shoucang = 0
+          }
+
+        }
+        console.log(this.subjectindexData)
 
       });
   }

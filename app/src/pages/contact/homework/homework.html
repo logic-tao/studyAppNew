@@ -8,28 +8,20 @@
 
   <ion-navbar>
     <ion-title>我的作业</ion-title>
+    <ion-select item-right [(ngModel)]="subject" interface="popover" style="position: absolute;right: 10px;top: 0;" (ionChange)="segmentChanged()">
+      <ion-option value="{{item.id}}" *ngFor="let item of subjectindexData;let i=index;">{{item.subject_name}}</ion-option>
+    </ion-select>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-segment [(ngModel)]="subject" color="primary" (ionChange)="segmentChanged()">
-    <ion-segment-button value="1">
-      语文
-    </ion-segment-button>
-    <ion-segment-button value="2">
-      数学
-    </ion-segment-button>
-    <ion-segment-button value="3">
-      英语
-    </ion-segment-button>
-  </ion-segment>
-  <ion-card>
+  <ion-list style="padding: 5%">
     <ion-item *ngFor="let item of listData" (click)="tohomework(item.id,item.name)">
         <img src="assets/icon/yuan.png" style="width: 15px;float: left;padding-top: 4px"/>
       <span style="margin-left: 20px;">{{item.name}}</span>
       <img *ngIf="!item.open" src="assets/icon/you.png" style="width: 25px;float: right;"/>
     </ion-item>
-  </ion-card>
+  </ion-list>
 </ion-content>

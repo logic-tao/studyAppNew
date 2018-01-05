@@ -1,6 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Response,Http} from "@angular/http";
+import {MyApp} from "../../../app/app.component";
 
 /**
  * Generated class for the PersonModifyPage page.
@@ -24,7 +25,8 @@ export class PersonModifyPage {
   school: string = "";
   nickname: string = "";
   message:any = {};
-  constructor(@Inject('appService') private appService,public navCtrl: NavController, public navParams: NavParams,private  http: Http) {
+  mobile:any;
+  constructor(@Inject('appService') private appService,public navCtrl: NavController, public navParams: NavParams,private  http: Http,public appComponent:MyApp,) {
   }
 
   ionViewDidLoad() {
@@ -53,7 +55,7 @@ export class PersonModifyPage {
             }
           }
         }
-
+        this.mobile = this.appComponent.userinfo.mobile;
 
       });
   }

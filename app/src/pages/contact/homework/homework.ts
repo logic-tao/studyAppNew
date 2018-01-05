@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Http,Response} from "@angular/http";
 import {HomeworkTestPage} from "./homework-test";
@@ -20,10 +20,29 @@ export class HomeworkPage {
   // 接收数据
   listData: Object;
   // 课程
-  subject: string ="1";
+  subject: string ="2";
+  subjectindexData:any=[]
   user: string = localStorage.getItem("user");
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private  http: Http,public app:App) {
+  constructor(@Inject('appService') private appService,
+              public navCtrl: NavController, public navParams: NavParams, private  http: Http,public app:App) {
+    this.subjectindex()
+  }
+
+  subjectindex(){
+    this.appService.subjectindex().then(
+      res => {
+        if(res.code==200){
+          this.subjectindexData=res.content
+          console.log(this.subjectindexData)
+        }
+
+      },
+      error=>{
+        // alert('错误')
+        console.log(error)
+      }
+    )
   }
 
   ionViewDidLoad() {

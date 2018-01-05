@@ -8,31 +8,17 @@
 
   <ion-navbar>
     <ion-title>我的练习</ion-title>
+
     <ion-select item-right [(ngModel)]="subject" interface="popover" style="position: absolute;right: 10px;top: 0;" (ionChange)="segmentChanged()">
-      <ion-option value="1"  >语文</ion-option>
-      <ion-option value="2"  >数学</ion-option>
-      <ion-option value="3"  >英语</ion-option>
+      <ion-option value="{{item.id}}" *ngFor="let item of subjectindexData;let i=index;">{{item.subject_name}}</ion-option>
     </ion-select>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <!--<ion-segment [(ngModel)]="subject" color="primary" (ionChange)="segmentChanged()">-->
-  <!--<ion-segment-button value="1">-->
-    <!--语文-->
-  <!--</ion-segment-button>-->
-  <!--<ion-segment-button value="2">-->
-    <!--数学-->
-  <!--</ion-segment-button>-->
-  <!--<ion-segment-button value="3">-->
-    <!--英语-->
-  <!--</ion-segment-button>-->
-  <!--</ion-segment>-->
-
-
-  <ion-card>
+<ion-content padding style="background-color: rgba(153, 153, 153, 0.5882352941176471); padding: 40px;">
+  <ion-list>
     <ion-item ion-item *ngFor="let item of this.listData;let i=index;" (click)="itemSelected(i,item)">
       <!--<span style="width: 20px;height: 20px;border-radius: 10px;background-color: #2cd3eb;position: absolute;left: 0px;"></span>-->
       <img src="assets/icon/yuan.png" style="width: 15px;float: left;padding-top: 4px"/>
@@ -45,5 +31,5 @@
           <span style="font-size: 25px;margin-right: 20px;font-weight: bold;">-</span>{{itemch.cname}}</div>
       </div>
     </ion-item>
-  </ion-card>
+  </ion-list>
 </ion-content>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {MistakeListPage} from "./mistake-list";
 import {Http,Response} from "@angular/http";
@@ -21,14 +21,28 @@ export class MistakePage {
   //接收数据
   data:any;
   //错题数
-  yuNum:string;
-  shuNum:string;
-  yingNum:string;
+  cuoti:any =0
+  subjectindexData:any=[]
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http: Http,public app:App) {
+  constructor(@Inject('appService') private appService,public navCtrl: NavController, public navParams: NavParams,public http: Http,public app:App) {
+    this.subjectindex()
+  }
 
+  subjectindex(){
+    this.appService.subjectindex().then(
+      res => {
+        if(res.code==200){
+          this.subjectindexData=res.content
+          console.log(this.subjectindexData)
+        }
 
+      },
+      error=>{
+        // alert('错误')
+        console.log(error)
+      }
+    )
   }
 
   ionViewDidLoad() {
@@ -36,9 +50,16 @@ export class MistakePage {
 
     this.http.request('httP://101.201.238.157/index/request_wrong_count/' + this.user)
       .subscribe((res: Response) => {
-        this.yuNum = res.json()["1"];
-        this.shuNum = res.json()["2"];
-        this.yingNum = res.json()["3"];
+        for(var i = 0; i < this.subjectindexData.length; i++){
+          if(res.json()[this.subjectindexData[i].id]!= undefined) {
+            this.cuoti += res.json()[this.subjectindexData[i].id]
+            this.subjectindexData[i].cuoti = res.json()[this.subjectindexData[i].id]
+          }else {
+            this.subjectindexData[i].cuoti = 0
+          }
+
+        }
+        console.log(this.subjectindexData)
 
       });
   }

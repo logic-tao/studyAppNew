@@ -18,16 +18,10 @@
     <ion-card>
       <ion-list>
         <ion-item>
-          收藏总数: <span item-right> {{yuNum + shuNum + yingNum}}</span>
+          收藏总数: <span item-right> {{shoucang}}</span>
         </ion-item>
-        <ion-item>
-          语文 : <span item-right>{{yuNum}}</span> <button item-right ion-button (click)="toCollectionDetail('1')">详情</button>
-        </ion-item>
-        <ion-item>
-          数学 : <span item-right>{{shuNum}}</span> <button item-right ion-button (click)="toCollectionDetail('2')">详情</button>
-        </ion-item>
-        <ion-item>
-          英语 : <span item-right>{{yingNum}}</span> <button item-right ion-button (click)="toCollectionDetail('3')">详情</button>
+        <ion-item *ngFor="let item of subjectindexData;let i=index;">
+          {{item.subject_name}} <span item-right>{{item.shoucang}}</span> <button item-right ion-button (click)="toCollectionDetail(item.id)">详情</button>
         </ion-item>
       </ion-list>
     </ion-card>

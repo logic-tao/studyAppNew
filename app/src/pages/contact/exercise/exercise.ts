@@ -1,7 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {App, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {Http,Response} from "@angular/http";
 import {ExerciseDetailPage} from "./exercise-detail";
+import {FormControl} from "@angular/forms";
+import {MyApp} from "../../../app/app.component";
 
 /**
  * Generated class for the ExercisePage page.
@@ -21,11 +23,21 @@ export class ExercisePage {
   listData: any;
   // 课程
   subject: string ="2";
+  subjectindexData:any=[]
   // 用户
   user: string = localStorage.getItem("user");
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private  http: Http,
-              public app: App) {
+  private  titleFilter:FormControl = new  FormControl();
+  private  keyword:string;
+  type : string;
+
+  constructor(@Inject('appService') private appService,public appComponent:MyApp,public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
+      this.subjectindex()
+        // this.titleFilter.valueChanges
+        // .debounceTime(500)
+        // .subscribe(value=>this.keyword=value);
+        // this.type = this.subject;
+        //this.initializeItems();
   }
 
   ionViewDidLoad() {
@@ -39,13 +51,6 @@ export class ExercisePage {
 
   }
 
-
-
-  // itemSelected(item){
-  //   this.navCtrl.push(ExerciseDetailPage,{subject:item});
-  // }
-
-  //请求不同科目的知识点
   segmentChanged() {
     //console.log(event.value);
     this.http.request("http://101.201.238.157/index/request_record_list/"+this.user+"/" + this.subject)
@@ -53,6 +58,26 @@ export class ExercisePage {
         this.listData = res.json();
       });
   }
+
+  subjectindex(){
+    this.appService.subjectindex().then(
+      res => {
+        if(res.code==200){
+          this.subjectindexData=res.content
+          console.log(this.subjectindexData)
+        }
+
+      },
+      error=>{
+        // alert('错误')
+        console.log(error)
+      }
+    )
+  }
+  // changeVersion(){
+  //   console.log(this.subject)
+  //   this.Selected(this.subject)
+  // }
 
 
 

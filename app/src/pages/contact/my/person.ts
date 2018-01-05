@@ -7,6 +7,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
 import { FileTransfer,FileTransferObject, FileUploadOptions} from "@ionic-native/file-transfer";
 import {PersonModifyPage} from "./person-modify";
 import { File } from '@ionic-native/file';
+import {MyApp} from "../../../app/app.component";
 
 /**
  * Generated class for the PersonPage page.
@@ -41,8 +42,9 @@ export class PersonPage {
   birthday: string ='';
   nickname:string ='';
   email:string='';
+  mobile: any='';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,
+  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,public appComponent:MyApp,
               public actionSheetCtrl: ActionSheetController,private  http: Http,public app:App,private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera) {
     this.login_id = '1111';
   }
@@ -80,6 +82,7 @@ export class PersonPage {
               }
             }
           }
+          this.mobile = this.appComponent.userinfo.mobile;
           console.log(this.listData)
         }
       });

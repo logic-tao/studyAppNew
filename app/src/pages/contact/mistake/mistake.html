@@ -17,16 +17,10 @@
   <ion-card>
 <ion-list inset>
   <ion-item>
-    错题总数: <span item-right> {{yuNum + shuNum + yingNum}}</span>
+    错题总数: <span item-right> {{cuoti}}</span>
   </ion-item>
-  <ion-item>
-    语文 : <span item-right>{{yuNum}}</span> <button item-right ion-button (click)="toMistakeDetail('1')">详情</button>
-  </ion-item>
-  <ion-item>
-    数学 : <span item-right>{{shuNum}}</span> <button item-right ion-button (click)="toMistakeDetail('2')">详情</button>
-  </ion-item>
-  <ion-item>
-    英语 : <span item-right>{{yingNum}}</span> <button item-right ion-button (click)="toMistakeDetail('3')">详情</button>
+  <ion-item *ngFor="let item of subjectindexData;let i=index;">
+    {{item.subject_name}} <span item-right>{{item.cuoti}}</span> <button item-right ion-button (click)="toMistakeDetail(item.id)">详情</button>
   </ion-item>
 </ion-list>
   </ion-card>
