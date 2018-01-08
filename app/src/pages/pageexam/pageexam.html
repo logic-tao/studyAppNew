@@ -14,14 +14,19 @@
           <span *ngIf="navParams.data.type==2">剩余：{{m}}：{{s}}</span>
           
         <!-- </button> -->
-        <img *ngIf="listDetailData.length>0&&listDetailData[currentIndex].shoucang" src="assets/icon/shoucang.png" height="18" width="18" style="    float: right;" (click)="cleanadd()">
-        <img *ngIf="listDetailData.length>0&&!listDetailData[currentIndex].shoucang" src="assets/icon/weishoucang.png" height="18" width="18" style="    float: right;" (click)="add()">
+        <img *ngIf="!daantanchuang&&listDetailData.length>0&&listDetailData[currentIndex].shoucang" src="assets/icon/shoucang.png" height="18" width="18" style="    float: right;" (click)="cleanadd()">
+        <img *ngIf="!daantanchuang&&listDetailData.length>0&&!listDetailData[currentIndex].shoucang" src="assets/icon/weishoucang.png" height="18" width="18" style="    float: right;" (click)="add()">
       </ion-title>
     </ion-navbar>
   
   
   </ion-header>
   <ion-content padding >
+    <p>
+        <span *ngIf="navParams.data.type==1" style="float: left;">练习</span>
+        <span *ngIf="navParams.data.type==2" style="float: left;">真题</span>
+        <span style="color: #2373cf;float: right; margin-top: -25px;">{{currentIndex+1}}/{{listDetailData.length}}</span>
+    </p>
     <!-- <div *ngIf="listDetailData.length>0" style="text-align: right;" >
       <span style="color: #2373cf;">{{currentIndex+1}}/{{listDetailData.length}}</span> 
     </div> -->
@@ -32,10 +37,9 @@
                   题目：
                   <br>-->
                   <div style="    text-align: center;">
-                      <span *ngIf="navParams.data.type==1" style="float: left;">练习</span>
-                      <span *ngIf="navParams.data.type==2" style="float: left;">真题</span>
+
                       <div [innerHTML]="listDetailData[i].titleBody"></div>
-                      <span style="color: #2373cf;float: right; margin-top: -25px;">{{currentIndex+1}}/{{listDetailData.length}}</span> 
+                       
                   </div>
                   
                    
@@ -158,8 +162,11 @@
                   <button *ngIf="navParams.data.type==1&&currentIndex==latenum&&nolista"  ion-button (click)="netxtext()">
                     下一轮练习
                   </button>
-                  <button *ngIf="navParams.data.type==2"  ion-button (click)="tijiaoSubject()">
+                  <button *ngIf="navParams.data.type==2&&!issubitbutton"  ion-button (click)="tijiaoSubject()">
                     提交 
+                  </button>
+                   <button *ngIf="issubitbutton"  ion-button (click)="jieguoSubject()">
+                    显示结果 
                   </button>
                 </div>
 

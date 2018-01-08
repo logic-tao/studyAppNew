@@ -28,7 +28,8 @@ export class OperationPage {
   @ViewChild("myVideo") myVideo: any;
   beginzuoti:boolean=false
   selectnum:any='0';
-  selescore:number=0
+  selescore:number=0;
+  dsdsf:any="<video id='video1'><video src='http://www.w3school.com.cn/i/movie.ogg' controls='controls'></video>"
   pingjianeirong:any=''
   pointexamData:any
   pointsCount:number=0

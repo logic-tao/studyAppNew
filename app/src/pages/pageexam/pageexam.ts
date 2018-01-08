@@ -30,6 +30,7 @@ export class PageexamPage {
   listDetailData : any=[];
 mySwiper:any
 timer:any
+issubitbutton:any=false
 alltrimebgin:number=180
 alltrime:number=180
 datestr:any='555'
@@ -114,7 +115,7 @@ SlidingDirection(sdfs){
     // alert("收藏成功");
     this.http.request('http://101.201.238.157/index/collect?'
     +'&uid='+this.appComponent.userinfo.id
-    +'&kid='+'1'
+    +'&kid='+this.listDetailData[0].subjectKind
     +'&titleId='+this.listDetailData[this.currentIndex].titleId
   ).subscribe((res: Response) => {
         this.listDetailData[this.currentIndex].shoucang=true
@@ -132,7 +133,7 @@ SlidingDirection(sdfs){
     +'&titleId='+this.listDetailData[this.currentIndex].titleId
   ).subscribe((res: Response) => {
         this.listDetailData[this.currentIndex].shoucang=false
-      this.appComponent.presentToast('取消收藏成功!'); 
+      this.appComponent.presentToast('取消成功!'); 
               console.log(res);
             });
     // this.http.request('http://sapi.bainid.com/demo/index/collect').subscribe();
@@ -502,8 +503,11 @@ shuaxing(){
       console.log(err)
     })
   }
-
+jieguoSubject(){
+  this.daantanchuang=true
+}
   tijiaoSubject(){
+    this.issubitbutton=true
     this.yiwanc=0
     this.weiwanc=0
         this.zehgnque=0
