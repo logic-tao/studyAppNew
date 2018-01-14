@@ -1,9 +1,9 @@
 <ion-header>
+  <button style="position: absolute;z-index: 12;right: 8rem;top: 1rem;padding: 1rem;border-radius: 0.5rem;" (click)="search()">搜索</button>
   <ion-navbar>
-    <ion-title>
-      我的精讲
-    </ion-title>
-    <ion-select item-right [(ngModel)]="subject" interface="popover" style="position: absolute;right: 10px;top: 0;">
+    <ion-searchbar style="width: 80%" (ionInput)="getItems($event)">
+    </ion-searchbar>
+    <ion-select item-right [(ngModel)]="subject" interface="popover" style="position: absolute;right: 10px;top: 6px;">
       <ion-option value="{{item.id}}" *ngFor="let item of subjectindexData;let i=index;">{{item.subject_name}}</ion-option>
     </ion-select>
   </ion-navbar>

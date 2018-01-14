@@ -18,15 +18,17 @@ import {HomeworkTestPage} from "./homework-test";
 export class HomeworkPage {
 
   // 接收数据
-  listData: Object;
+  listData: any;
   // 课程
   subject: string ="2";
   subjectindexData:any=[]
   user: string = localStorage.getItem("user");
 
+
   constructor(@Inject('appService') private appService,
               public navCtrl: NavController, public navParams: NavParams, private  http: Http,public app:App) {
     this.subjectindex()
+
   }
 
   subjectindex(){
@@ -51,6 +53,14 @@ export class HomeworkPage {
     this.http.request('http://101.201.238.157/index/request_homework_list/'+ this.user+"/"+this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
+        for (var i=0; i < this.listData.length;i++){
+          console.log(localStorage.getItem(this.listData[i]['name']))
+          if (localStorage.getItem(this.listData[i]['name']) !=null) {
+            this.listData[i]['isUpdate'] = true
+          }else {
+            this.listData[i]['isUpdate'] = false
+          }
+        }
         console.log(this.listData)
       });
   }
@@ -60,6 +70,13 @@ export class HomeworkPage {
     this.http.request('http://101.201.238.157/index/request_homework_list/'+ this.user+"/"+this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
+        for (var i=0; i < this.listData.length;i++){
+          if (localStorage.getItem(this.listData[i]['name']) !=null) {
+            this.listData[i]['isUpdate'] = true
+          }else {
+            this.listData[i]['isUpdate'] = false
+          }
+        }
       });
   }
 
