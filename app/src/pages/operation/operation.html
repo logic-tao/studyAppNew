@@ -64,6 +64,7 @@
             </ion-row>
             <div style="text-align: center;">
               <button (click)="tapelessionpushcomment()" ion-button style="width: 100px;">提交</button>
+              
               <!-- <button (click)="pingmuclick()" ion-button style="width: 100px;">横屏幕</button>
               <button (click)="shuclick()" ion-button style="width: 100px;">竖屏幕</button>
               <button (click)="jiesuoclick()" ion-button style="width: 100px;">解锁屏幕</button>
@@ -179,9 +180,10 @@
                   <button  ion-button (click)="nextSubject(i)">
                     下一题
                   </button>-->
-                 <button ion-button (click)="tijiaoSubject()">
+                 <button *ngIf="!subjecjieguo" ion-button (click)="tijiaoSubject()">
                     提交 
                   </button>
+                  <button *ngIf="subjecjieguo" (click)="showpop()" ion-button >显示</button>
                 </ion-slide>
               </ion-slides>
           </div>
@@ -227,8 +229,13 @@
     <span class="biaoji cuowu">错误</span>
     <br>
     <br>
-    已完成：{{yiwanc}} 未完成：{{weiwanc}}通关率：{{tongguanlv}}</div>
-    <button *ngFor="let items of shipinglianxi;let j=index" (click)="tozuotijieshi(j)" [ngClass]="{'weijieda':shipinglianxi[j].jieguo==0,'yiweijieda':shipinglianxi[j].jieguo==1,'zhengque':shipinglianxi[j].jieguo==2,'cuowu':shipinglianxi[j].jieguo==3}">{{j+1}}</button>
+    已完成：{{yiwanc}} 未完成：{{weiwanc}}</div>
+    <!-- <button *ngFor="let items of shipinglianxi;let j=index" (click)="tozuotijieshi(j)" [ngClass]="{'weijieda':shipinglianxi[j].jieguo==0,'yiweijieda':shipinglianxi[j].jieguo==1,'zhengque':shipinglianxi[j].jieguo==2,'cuowu':shipinglianxi[j].jieguo==3}">{{j+1}}</button> -->
+    <ion-row>
+      <ion-col col-3 *ngFor="let items of shipinglianxi;let j=index" (click)="tozuotijieshi(j)">
+        <button [ngClass]="{'weijieda':shipinglianxi[j].jieguo==0,'yiweijieda':shipinglianxi[j].jieguo==1,'zhengque':shipinglianxi[j].jieguo==2,'cuowu':shipinglianxi[j].jieguo==3}">{{j+1}}</button>
+      </ion-col>
+    </ion-row>
     <div padding-vertical>
       <canvas #chartBar height="200"></canvas>
     </div>

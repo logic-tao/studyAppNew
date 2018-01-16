@@ -13,9 +13,9 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding style="background-color: rgba(153, 153, 153, 0.5882352941176471); padding: 40px;">
     <ion-list *ngIf="pagecontent==''">
-      <ion-item *ngFor="let item of serveData;let i=index;" (click)="indexindex(i)">
+      <ion-item *ngFor="let item of serveData;let i=index;" (click)="indexindex(i)" style="margin-bottom: 25px;border-radius: 5px;">
         <ion-thumbnail item-left>
           <img src="{{item.icon}}">
         </ion-thumbnail>
@@ -25,8 +25,8 @@
         观看人数：<span>{{item.view}}</span>/人-->
       </ion-item>
     </ion-list>
-    <div style="position: relative;width: 100%;height: 100%;text-align: center;">
-        <div *ngIf="pagecontent!=''" [innerHTML]="pagecontent"></div>
+    <div *ngIf="pagecontent!=''" style="position: relative;width: 100%;height: 95%;text-align: center;background-color: #FFF;">
+        <div [innerHTML]="pagecontent"></div>
         <div style="position: absolute;text-align: center;bottom: 30px;width: 100%;"><button ion-button (click)="clocse()">关闭</button></div>
       <!-- <button ion-button (click)="recordingViod()">录播课</button> -->
     </div>

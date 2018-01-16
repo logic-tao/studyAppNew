@@ -14,7 +14,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 export class MyApp  {
 
   // rootPage:any = 'PageNewPage';
-  rootPage:any = 'LoginSliderPage';
+  // rootPage:any = 'LoginSliderPage';
+  rootPage:any
   userinfo:any
   pagenextarr:any
 
@@ -22,6 +23,12 @@ export class MyApp  {
   constructor(private toastCtrl: ToastController,public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen)
 {
+  if(localStorage.getItem("obelog")=='true'){
+      this.rootPage='LoginSliderPage'
+      }else{
+        this.rootPage='PageNewPage'
+        localStorage.setItem("obelog",'true');
+      }
   platform.ready().then(() => {
     // Okay, so the platform is ready and our plugins are available.
     // Here you can do any higher level native things you might need.

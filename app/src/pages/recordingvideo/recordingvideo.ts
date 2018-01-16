@@ -178,12 +178,18 @@ onSelectChange(selectedValue: any) {
     console.log(this.vidoaarrData.knowledege[this.selecNUM])
     
     // this.appComponent.presentToast(this.vidoaarrData.knowledege[this.selecNUM].cname);
-    this.charidARR=this.vidoaarrData.knowledege[this.selecNUM].children
-    if(this.charidARR.length==0){
-      this.tapelessionindexsid(this.vidoaarrData.knowledege[this.selecNUM].id)
+    if(this.vidoaarrData.knowledege.length>0){
+      this.charidARR=this.vidoaarrData.knowledege[this.selecNUM].children
+      if(this.charidARR.length==0){
+        this.tapelessionindexsid(this.vidoaarrData.knowledege[this.selecNUM].id)
+      }else{
+        this.tapelessionindexsid(this.charidARR[0].id)
+      }
     }else{
-      this.tapelessionindexsid(this.charidARR[0].id)
+      this.charidARR=[]
+      this.vidoaarrData={}
     }
+
   }
   onSelectChangeChair(selectedValue: any) {
     console.log('Selected', selectedValue);
