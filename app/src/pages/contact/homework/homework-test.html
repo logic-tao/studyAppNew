@@ -24,20 +24,20 @@
       <span>（选择题)</span><span [innerHtml]="test[test_number - 1].titleBody"></span><br>
       <br>
       <ion-list>
-        <button ion-button round small outline block [color]="selectCoA? 'secondary':'light'" (click)="choseanswer('A')">
+        <button ion-button round small outline block [color]="(selectCoA || toAnswer[test[test_number - 1].titleId] == 'A') ? 'secondary':'light'" (click)="choseanswer('A',test[test_number - 1].titleId)">
           <span style="color: black">A.</span>
           <div style="color: black" [innerHtml]="test[test_number - 1].A"></div>
         </button>
 
-        <button ion-button round small outline block [color]="selectCoB? 'secondary':'light'" (click)="choseanswer('B')">
+        <button ion-button round small outline block [color]="(selectCoB || toAnswer[test[test_number - 1].titleId] == 'B') ? 'secondary':'light'" (click)="choseanswer('B')">
           <span style="color: black">B.</span>
           <div style="color: black" [innerHtml]="test[test_number - 1].B"></div>
         </button>
-        <button ion-button round small outline block [color]="selectCoC? 'secondary':'light'" (click)="choseanswer('C')">
+        <button ion-button round small outline block [color]="(selectCoC || toAnswer[test[test_number - 1].titleId] == 'C') ? 'secondary':'light'" (click)="choseanswer('C')">
           <span style="color: black">C.</span>
           <div style="color: black" [innerHtml]="test[test_number - 1].C"></div>
         </button>
-        <button ion-button round small outline block [color]="selectCoD? 'secondary':'light'" (click)="choseanswer('D')">
+        <button ion-button round small outline block [color]="(selectCoD || toAnswer[test[test_number - 1].titleId] == 'D') ? 'secondary':'light'" (click)="choseanswer('D')">
           <span item-left style="color: black">D.</span>
           <span style="color: black" [innerHtml]="test[test_number - 1].D"></span>
         </button>
@@ -47,16 +47,16 @@
     <label ion-text *ngIf="test[test_number - 1].type == 2">
       （填空题)<div [innerHtml]="test[test_number - 1].titleBody"></div><br>
       <br>
-      输入答案：<input ion-inupt style="border: solid 1px #aeaeae;height: 35px;border-radius: 10px;" [(ngModel)]="tiankong" color="danger" placeholder="请输入..." clearOnEdit="true">
+      输入答案：<input ion-inupt style="border: solid 1px #aeaeae;height: 35px;border-radius: 10px;" [(ngModel)]="tiankong" color="danger" placeholder='{{toAnswer[test[test_number - 1].titleId]}}' clearOnEdit="true">
     </label>
     <!--判断题-->
     <label ion-text *ngIf="test[test_number - 1].type == 3">
       （判断题)<div [innerHtml]="test[test_number - 1].titleBody"></div><br>
       <br>
-      <button ion-button round small outline block [color]="pCoT? 'secondary':'light'" (click)="pAn('1')">
+      <button ion-button round small outline block [color]="(pCoT || toAnswer[test[test_number - 1].titleId] == '1') ? 'secondary':'light'" (click)="pAn('1')">
         <span style="color: black">正确</span>
       </button>
-      <button ion-button round small outline block [color]="pCoF? 'secondary':'light'" (click)="pAn('0')">
+      <button ion-button round small outline block [color]="(pCoF || toAnswer[test[test_number - 1].titleId] == '0') ? 'secondary':'light'" (click)="pAn('0')">
         <span style="color: black">错误</span>
       </button>
     </label>
@@ -64,7 +64,7 @@
     <label ion-text *ngIf="test[test_number - 1].type == 4">
       （解答题）<div [innerHtml]="test[test_number - 1].titleBody"></div><br>
       <br>
-      输入答案：<ion-textarea style="border: solid 1px #aeaeae;height: 350px;border-radius: 10px;" [(ngModel)]="jieda"></ion-textarea>
+      输入答案：<ion-textarea style="border: solid 1px #aeaeae;height: 350px;border-radius: 10px;" [(ngModel)]="jieda">{{toAnswer[test[test_number - 1].titleId]}}</ion-textarea>
     </label>
   </ion-list>
   <br>
@@ -74,7 +74,7 @@
 
   <ion-list no-lines style="position: absolute; margin-bottom: 10%;margin-right: 10%">
     <ion-item>
-      <button ion-button item-right (click)="leftSubject()">上一题</button>
+      <button ion-button item-right (click)="leftSubject(test[test_number - 1].type,test[test_number - 1].titleId)">上一题</button>
       <button ion-button item-right (click)="nextSubject(test[test_number - 1].type,test[test_number - 1].titleId)">{{button}}</button>
     </ion-item>
   </ion-list>

@@ -58,6 +58,16 @@ export class AppService {
        .then(this.extractData)
      .catch(this.handleError);
  }
+  mysearchlession(data): Promise<any> {//个人中心搜索录播课课程
+    // sid	否	string	非必填，录播课id
+    // name	是	string	录播课名称关键字
+    //tokenID 用户信息
+    return this.http
+      .post(BASEURL+'/my/explain', JSON.stringify(data),options)
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
     indexguide(data): Promise<any> {//考试指南
     // sid	否	string	非必填，录播课id
     // name	是	string	录播课名称关键字

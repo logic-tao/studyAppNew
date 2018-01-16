@@ -27,7 +27,10 @@ export class VideorecordPage {
   selectnum:number=0
   vidoaarrData:any
   subject :any = 2;
-  constructor(@Inject('appService') private appService,public navCtrl: NavController, public navParams: NavParams,public appComponent:MyApp) {
+  items:any
+  //搜索框输入
+  inpustring:any
+  constructor(@Inject('appService') private appService,public app: App,public navCtrl: NavController, public navParams: NavParams,public appComponent:MyApp) {
     this.getpageData()
     this.subjectindex()
   }
@@ -80,6 +83,26 @@ export class VideorecordPage {
       }
     )
   }
+  getItems(ev: any) {
+    // Reset items back to all of the items
+    // this.initializeItems();
+    this.inpustring=ev.target.value
+    // this.searchlession(ev.target.value)
+
+    // // set val to the value of the searchbar
+    // let val = ev.target.value;
+    // this.inpustring=val
+    // // if the value is an empty string don't filter the items
+    // if (val && val.trim() != '') {
+    //   this.items = this.items.filter((item) => {
+    //     return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+    //   })
+    // }
+  }
+  search(){
+
+    this.app.getRootNav().push('VideosPage',{inpustring:this.inpustring,sid:this.subject});
+  }
   swipeEvent(event){
 //   //向左滑
 // if(event.direction==2){
@@ -123,6 +146,8 @@ export class VideorecordPage {
       }
     )
   }
+
+
   onSelectChange(selectedValue: any) {
     console.log('Selected', selectedValue);
   }
