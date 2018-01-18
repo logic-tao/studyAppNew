@@ -2,6 +2,11 @@ page-pagenext {
 .searchbar-has-value.searchbar-has-focus .searchbar-clear-icon {
   display: none;
 }
+.searchbar{
+  .searchbar-input{
+    border-radius: 15px;
+  }
+}
 }
 
 
