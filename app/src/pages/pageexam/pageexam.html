@@ -14,8 +14,8 @@
           <span *ngIf="navParams.data.type==2">剩余：{{m}}：{{s}}</span>
           
         <!-- </button> -->
-        <img *ngIf="!daantanchuang&&listDetailData.length>0&&listDetailData[currentIndex].shoucang" src="assets/icon/shoucang.png" height="18" width="18" style="    float: right;" (click)="cleanadd()">
-        <img *ngIf="!daantanchuang&&listDetailData.length>0&&!listDetailData[currentIndex].shoucang" src="assets/icon/weishoucang.png" height="18" width="18" style="    float: right;" (click)="add()">
+        <img *ngIf="!daantanchuang&&listDetailData.length>0&&listDetailData[currentIndex].is_collect=='1'" src="assets/icon/shoucang.png" height="18" width="18" style="    float: right;" (click)="cleanadd()">
+        <img *ngIf="!daantanchuang&&listDetailData.length>0&&listDetailData[currentIndex].is_collect=='0'" src="assets/icon/weishoucang.png" height="18" width="18" style="    float: right;" (click)="add()">
       </ion-title>
     </ion-navbar>
   
@@ -225,7 +225,7 @@
     <br>
    
     </div>
-    <div style="width: 100%;height: 100%;background-color: #F9F9F9;">
+    <div style="width: 100%;height: 100%;background-color: #F9F9F9;overflow: auto;">
     <button style="color: #fff;" *ngFor="let items of listDetailData;let j=index" (click)="tozuotijieshi(j)" [ngClass]="{'qitadaan':listDetailData[j].jieguo==4,'weijieda':listDetailData[j].jieguo==0,'yiweijieda':listDetailData[j].jieguo==1,'zhengque':listDetailData[j].jieguo==2,'cuowu':listDetailData[j].jieguo==3}">{{j+1}}</button>
   
     </div>

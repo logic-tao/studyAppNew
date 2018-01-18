@@ -32,6 +32,7 @@ export class OperationPage {
   dsdsf:any="<video id='video1'><video src='http://www.w3school.com.cn/i/movie.ogg' controls='controls'></video>"
   pingjianeirong:any=''
   pointexamData:any
+  subjecjieguo:any=false
   pointsCount:number=0
   pointexamDataendTag:number=0
   playnowtime:any;
@@ -185,7 +186,11 @@ pingmuclick(){
      }
   );
 }
+showpop(){
+  this.daantanchuang=true
+}
 tijiaoSubject(){
+  this.subjecjieguo=true
   this.yiwanc=0
   this.weiwanc=0
   let zhegnque=0;
@@ -289,7 +294,7 @@ compare(propertyName) {
   }
 }
 selectclick(i,answer?:any){
-  
+      if(this.subjecjieguo){return}
       this.shipinglianxi[i].useranswer=answer
   
       // this.shipinglianxi[i].showanswer=true
@@ -354,6 +359,7 @@ tapelessioncorrectrate(){//统计表数据
             ydata.push(0)
           }else{
             ycount=parseInt(res.content[i].correct)/count*100
+            ycount=Math.round(ycount)
             ydata.push(ycount)
           }
           // ydata.push(parseInt(res.content[i].id))
@@ -511,6 +517,7 @@ tapelessionpointexam(id){
             }
         )
 }
+
 tapelessionpushcomment(){
 //       cid	是	int	录播课id
 // detail	是	string	评论内容

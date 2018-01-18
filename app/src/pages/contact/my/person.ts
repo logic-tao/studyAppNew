@@ -32,8 +32,7 @@ export class PersonPage {
 
   //接收数据
   listData: Object;
-  //登录用户ID
-  login_id: string;
+  //登录用户
   user: string = localStorage.getItem("user");
   gender:string = "男";
   age:any;
@@ -46,7 +45,6 @@ export class PersonPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,public appComponent:MyApp,
               public actionSheetCtrl: ActionSheetController,private  http: Http,public app:App,private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera) {
-    this.login_id = '1111';
   }
 
   @Input() src: string = "http://placehold.it/80x80/"
@@ -199,8 +197,43 @@ export class PersonPage {
       headers: {}
     }
 
+
     fileTransfer.upload(fileurl, encodeURI('http://101.201.238.157/index.php/demo/index/uploadavatar/' + this.user), options)
       .then((data) => {
+        this.http.request('httP://101.201.238.157/index/request1/' + this.user)
+          .subscribe((res: Response) => {
+            this.listData = res.json();
+            if (this.listData != null) {
+              if (this.listData[0]['avatar']!=undefined&&this.listData[0].avatar != "") {
+                this.src = res.json()[0].avatar;
+              }
+              if (res.json()[0]['name']!=undefined) {
+                this.name = res.json()[0].name;
+              }
+              if (res.json()[0]['school']!=undefined) {
+                this.school = res.json()[0].school;
+              }
+              if (res.json()[0]['birthday']!=undefined) {
+                this.birthday = res.json()[0].birthday;
+                var date = new Date();
+                var year = date.getFullYear();
+                this.age = year - parseInt(this.birthday.substring(0, 4));
+                if (res.json()[0]['email']!=undefined) {
+                  this.email = res.json()[0].email;
+                }
+                if (res.json()[0]['nickname']!=undefined) {
+                  this.nickname = res.json()[0].nickname;
+                }
+                if (res.json()[0]['gender']!=undefined) {
+                  if (res.json()[0].gender == 2) {
+                    this.gender = "女"
+                  }
+                }
+              }
+              this.mobile = this.appComponent.userinfo.mobile;
+              console.log(this.listData)
+            }
+          });
         // success
         console.log('success')
         console.log(data)

@@ -118,7 +118,8 @@ SlidingDirection(sdfs){
     +'&kid='+this.listDetailData[0].subjectKind
     +'&titleId='+this.listDetailData[this.currentIndex].titleId
   ).subscribe((res: Response) => {
-        this.listDetailData[this.currentIndex].shoucang=true
+        // this.listDetailData[this.currentIndex].shoucang=true
+        this.listDetailData[this.currentIndex].is_collect='1'
       this.appComponent.presentToast('收藏成功!'); 
               console.log(res);
             });
@@ -132,7 +133,8 @@ SlidingDirection(sdfs){
     +'&uid='+this.appComponent.userinfo.id
     +'&titleId='+this.listDetailData[this.currentIndex].titleId
   ).subscribe((res: Response) => {
-        this.listDetailData[this.currentIndex].shoucang=false
+        // this.listDetailData[this.currentIndex].shoucang=false
+        this.listDetailData[this.currentIndex].is_collect='0'
       this.appComponent.presentToast('取消成功!'); 
               console.log(res);
             });
@@ -342,7 +344,7 @@ this.s=this.alltrime%60
       });
   }
   selectclick(i,answer?:any){
-
+    if(this.issubitbutton){return}
     this.listDetailData[i].useranswer=answer
 
     if(
@@ -400,16 +402,18 @@ getpagedata(id){
 //         }
 //       });
             this.http.request('http://101.201.238.157/index.php/demo/index/getDpecialList?id='+id)
-            .subscribe((res: Response) => {
+            .subscribe((res: any) => {
                       this.m=Math.floor(this.alltrime/60)
                       this.s=this.alltrime%60;
                       console.log(res)
                       this.countviodtime()
-                      this.listDetailData = res.json();
+                      // this.listDetailData = res.json();
+                      var obj2=eval("("+res._body+")")
+                      this.listDetailData=obj2.data
                       this.latenum=this.listDetailData.length-1
                       console.log(this.listDetailData)
                       for (var i = 0; i < this.listDetailData.length; i++) {
-                        this.listDetailData[i].shoucang=false
+                        // this.listDetailData[i].is_collect='1'
                         this.listDetailData[i].showanswer=false
                         this.listDetailData[i].useranswer=''
                         this.listDetailData[i].jieguo=0//0 未解答 1已解答 2 正确 3 错误 
@@ -424,7 +428,7 @@ fanhui(){
 getpagetextdata(id){
   console.log('getpagetextdata')
       this.http.request('http://101.201.238.157/index.php/demo/index/getDpecialList?id='+id)
-      .subscribe((res: Response) => {
+      .subscribe((res:any) => {
         // this.appComponent.pagenextarr={listData:this.listData,num:j}
         let lastnou=this.appComponent.pagenextarr.num+1
         if(this.appComponent.pagenextarr.length==lastnou){
@@ -433,8 +437,9 @@ getpagetextdata(id){
           this.appComponent.pagenextarr.num+=1;
         }
         // this.listDetailData = res.json();
-        this.countlianxiARR=res.json();
-
+        // this.countlianxiARR=res.json();
+        var obj2=eval("("+res._body+")")
+        this.countlianxiARR=obj2.data
         
         for (var i = 0; i < this.countlianxiARR.length; i++) {
           this.countlianxiARR[i].showanswer=false
@@ -448,7 +453,8 @@ getpagetextdata(id){
           this.listDetailData=this.countlianxiARR
           this.latenum=this.listDetailData.length-1
           for (var i = 0; i < this.listDetailData.length; i++) {
-            this.listDetailData[i].shoucang=false
+            // this.listDetailData[i].shoucang=false
+            // this.listDetailData[i].is_collect='1'
           }
         }
         

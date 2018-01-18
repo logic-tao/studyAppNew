@@ -3,6 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="2880041d-8ca9-4626-8e18-9372eb8c7932" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/exercise/exercise-detail.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/exercise/exercise-detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/homework/homework-test.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/homework/homework-test.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/homework/homework-test.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/homework/homework-test.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/homework/homework.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/homework/homework.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/homework/homework.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/homework/homework.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/my/person.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/my/person.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/videos/videorecord.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/videos/videorecord.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/videos/videorecord.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/videos/videorecord.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/videos/videos.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/videos/videos.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/videos/videos.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/videos/videos.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/theme/AppService.ts" afterPath="$PROJECT_DIR$/app/src/theme/AppService.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,9 +32,11 @@
       <file leaf-file-name="person-modify.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/pages/contact/my/person-modify.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="1005">
+              <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+              <folding>
+                <marker date="1515050541584" expanded="true" signature="1871:1880" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -29,9 +44,12 @@
       <file leaf-file-name="exercise.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="48" column="2" lean-forward="true" selection-start-line="48" selection-start-column="2" selection-end-line="54" selection-end-column="3" />
-              <folding />
+            <state relative-caret-position="870">
+              <caret line="63" column="2" lean-forward="false" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="6" />
+              <folding>
+                <marker date="1515921804600" expanded="false" signature="7:17" ph="..." />
+                <marker date="1515921804600" expanded="true" signature="2265:2275" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -39,8 +57,8 @@
       <file leaf-file-name="exercise.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="146" lean-forward="false" selection-start-line="10" selection-start-column="116" selection-end-line="10" selection-end-column="146" />
+            <state relative-caret-position="165">
+              <caret line="11" column="146" lean-forward="false" selection-start-line="11" selection-start-column="146" selection-end-line="11" selection-end-column="146" />
               <folding />
             </state>
           </provider>
@@ -49,19 +67,33 @@
       <file leaf-file-name="mistake.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/pages/contact/mistake/mistake.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+            <state relative-caret-position="330">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding>
+                <marker date="1515138074886" expanded="false" signature="7:8" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="collection.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/pages/contact/collection/collection.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="collection.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/pages/contact/collection/collection.html">
+      <file leaf-file-name="AppService.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/theme/AppService.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
-              <folding />
+            <state relative-caret-position="444">
+              <caret line="69" column="3" lean-forward="false" selection-start-line="69" selection-start-column="3" selection-end-line="69" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,7 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/theme/AppService.ts" />
         <option value="$PROJECT_DIR$/app/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/app/src/pages/contact/contact.ts" />
         <option value="$PROJECT_DIR$/app/src/pages/contact/collection/collection.ts" />
@@ -97,6 +128,8 @@
         <option value="$PROJECT_DIR$/app/src/pages/contact/contact.html" />
         <option value="$PROJECT_DIR$/app/src/pages/contact/my/person.ts" />
         <option value="$PROJECT_DIR$/app/src/pages/contact/my/person-modify.ts" />
+        <option value="$PROJECT_DIR$/app/src/pages/contact/collection/collection.html" />
+        <option value="$PROJECT_DIR$/app/src/theme/AppService.ts" />
       </list>
     </option>
   </component>
@@ -127,8 +160,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -291,10 +322,19 @@
               <item name="providers" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="studyAppNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="studyAppNew" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="theme" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -338,12 +378,16 @@
       <workItem from="1513316964732" duration="543000" />
       <workItem from="1513843788096" duration="243000" />
       <workItem from="1513846366841" duration="550000" />
-      <workItem from="1515033081640" duration="4395000" />
+      <workItem from="1515033081640" duration="5034000" />
+      <workItem from="1515643432899" duration="132000" />
+      <workItem from="1515898379420" duration="60000" />
+      <workItem from="1515923581354" duration="317000" />
+      <workItem from="1515923912286" duration="15000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25651000" />
+    <option name="totallyTimeSpent" value="26814000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="42" y="23" width="1638" height="1027" extended-state="0" />
@@ -352,12 +396,12 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24737167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32939914" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -378,13 +422,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/pages/pagedetail/pagedetail.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/pageexam/pageexam.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -676,7 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2850">
           <caret line="198" column="95" lean-forward="false" selection-start-line="198" selection-start-column="95" selection-end-line="198" selection-end-column="95" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -703,41 +739,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/contact/my/person-modify.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1005">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding>
+            <marker date="1515050541584" expanded="true" signature="1871:1880" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="48" column="2" lean-forward="true" selection-start-line="48" selection-start-column="2" selection-end-line="54" selection-end-column="3" />
-          <folding />
+        <state relative-caret-position="870">
+          <caret line="63" column="2" lean-forward="false" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="6" />
+          <folding>
+            <marker date="1515921804600" expanded="false" signature="7:17" ph="..." />
+            <marker date="1515921804600" expanded="true" signature="2265:2275" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="146" lean-forward="false" selection-start-line="10" selection-start-column="116" selection-end-line="10" selection-end-column="146" />
+        <state relative-caret-position="165">
+          <caret line="11" column="146" lean-forward="false" selection-start-line="11" selection-start-column="146" selection-end-line="11" selection-end-column="146" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/contact/mistake/mistake.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-          <folding />
+        <state relative-caret-position="330">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <marker date="1515138074886" expanded="false" signature="7:8" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/contact/collection/collection.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="18" lean-forward="true" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        <state relative-caret-position="360">
+          <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/theme/AppService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="69" column="3" lean-forward="false" selection-start-line="69" selection-start-column="3" selection-end-line="69" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
