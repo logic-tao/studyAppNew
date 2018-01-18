@@ -77,7 +77,8 @@ ionViewWillEnter(){
     }
     
   }else{
-    this.getpagedata(this.navParams.data.id)
+    // this.getpagedata(this.navParams.data.id)
+    this.indextestpaper(this.appComponent.pagenextarr.listData[this.appComponent.pagenextarr.num].cname)
   }
 }
 backclck(){
@@ -99,6 +100,24 @@ ionViewDidLeave(){
 }
 ionViewDidLoad() {
   console.log('ionViewDidLoad PagenextPage');
+
+}
+indextestpaper(cname){
+  //将题添加到后台数ll据库中 sfds
+  // alert("收藏成功");
+  this.http.request('http://101.201.238.157/index.php/demo/index/test_paper?'
+  +'&cname='+cname
+).subscribe((res: any) => {
+  var obj2=eval("("+res._body+")")
+  if(obj2.code==200){
+    console.log(res.data);
+    this.alltrimebgin=obj2.data*60;
+    this.alltrime=obj2.data*60;
+  }
+            console.log(res);
+            this.getpagedata(this.navParams.data.id)
+          });
+  // this.http.request('http://sapi.bainid.com/demo/index/collect').subscribe();
 
 }
 netxtext(){
