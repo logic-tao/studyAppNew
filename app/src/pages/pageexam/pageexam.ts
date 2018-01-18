@@ -401,7 +401,7 @@ getpagedata(id){
 //           this.listDetailData[i].jieguo=0//0 未解答 1已解答 2 正确 3 错误 
 //         }
 //       });
-            this.http.request('http://101.201.238.157/index.php/demo/index/getDpecialList?id='+id)
+            this.http.request('http://101.201.238.157/index.php/demo/index/getDpecialList?id='+id+'&uid='+this.appComponent.userinfo.id)
             .subscribe((res: any) => {
                       this.m=Math.floor(this.alltrime/60)
                       this.s=this.alltrime%60;
@@ -427,7 +427,7 @@ fanhui(){
 }
 getpagetextdata(id){
   console.log('getpagetextdata')
-      this.http.request('http://101.201.238.157/index.php/demo/index/getDpecialList?id='+id)
+      this.http.request('http://101.201.238.157/index.php/demo/index/getDpecialList?id='+id+'&uid='+this.appComponent.userinfo.id)
       .subscribe((res:any) => {
         // this.appComponent.pagenextarr={listData:this.listData,num:j}
         let lastnou=this.appComponent.pagenextarr.num+1
