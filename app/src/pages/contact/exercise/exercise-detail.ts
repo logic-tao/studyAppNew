@@ -47,7 +47,7 @@ export class ExerciseDetailPage {
     console.log('ionViewDidLoad ExerciseDetailPage');
 
 
-    this.http.request("http://101.201.238.157/index/request_record_test/"+this.user+"/" + this.cid)
+    this.http.request("http://222.73.69.146:8088/index/request_record_test/"+this.user+"/" + this.cid)
       .subscribe((res: Response) => {
         this.data = res.json();
         this.count = res.json().length;

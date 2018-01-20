@@ -77,7 +77,7 @@ export class HomeworkTestPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MistakeDetailPage');
-    this.http.request("http://101.201.238.157/index/request_homework_test/"+ this.hid)
+    this.http.request("http://222.73.69.146:8088/index/request_homework_test/"+ this.hid)
       .subscribe((res: Response) => {
         this.test = res.json();
         console.log(this.test);
@@ -237,7 +237,7 @@ export class HomeworkTestPage {
   add(){
     //将题添加到后台数ll据库中 sfds
     alert("收藏成功");
-    this.http.request('http://101.201.238.157/demo/index/collect').subscribe();
+    this.http.request('http://222.73.69.146:8088/demo/index/collect').subscribe();
 
   }
 

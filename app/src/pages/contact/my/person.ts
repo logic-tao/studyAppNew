@@ -50,7 +50,7 @@ export class PersonPage {
   @Input() src: string = "http://placehold.it/80x80/"
   ionViewDidLoad() {
     console.log('ionViewDidLoad  PersonPage');
-    this.http.request('httP://101.201.238.157/index/request1/' + this.user)
+    this.http.request('httP://222.73.69.146:8088/index/request1/' + this.user)
       .subscribe((res: Response) => {
         this.listData = res.json();
         if (this.listData != null) {
@@ -198,9 +198,9 @@ export class PersonPage {
     }
 
 
-    fileTransfer.upload(fileurl, encodeURI('http://101.201.238.157/index.php/demo/index/uploadavatar/' + this.user), options)
+    fileTransfer.upload(fileurl, encodeURI('http://222.73.69.146:8088/index.php/demo/index/uploadavatar/' + this.user), options)
       .then((data) => {
-        this.http.request('httP://101.201.238.157/index/request1/' + this.user)
+        this.http.request('httP://222.73.69.146:8088/index/request1/' + this.user)
           .subscribe((res: Response) => {
             this.listData = res.json();
             if (this.listData != null) {

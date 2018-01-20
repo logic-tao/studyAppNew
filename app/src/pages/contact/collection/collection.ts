@@ -45,7 +45,7 @@ export class CollectionPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad collectionPage');
-    this.http.request('httP://101.201.238.157/index/sj_function1/' + this.user)
+    this.http.request('httP://222.73.69.146:8088/index/sj_function1/' + this.user)
       .subscribe((res: Response) => {
         for(var i = 0; i < this.subjectindexData.length; i++){
           if(res.json()[this.subjectindexData[i].id]!= undefined) {

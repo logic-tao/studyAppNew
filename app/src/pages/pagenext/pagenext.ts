@@ -96,8 +96,8 @@ close(){
     //htt  p://js onplaceholder.typicode.com/photos
     console.log(this.type);
 
-    console.log("http://101.201.238.157/index.php/demo/index/examList?cid=" + this.subject +"&type="+this.navParams.data.type);
-    this.http.request('http://101.201.238.157/index.php/demo/index/examList?cid='+this.subject+'&type='+this.navParams.data.type)
+    console.log("http://222.73.69.146:8088/index.php/demo/index/examList?cid=" + this.subject +"&type="+this.navParams.data.type);
+    this.http.request('http://222.73.69.146:8088/index.php/demo/index/examList?cid='+this.subject+'&type='+this.navParams.data.type)
       .subscribe((res: Response) => {
 this.items =[]
       console.log(res.url);
@@ -159,7 +159,7 @@ changeVersion(){
 }
   Selected(subject){
     this.subjectNum = subject;
-    this.http.request('http://101.201.238.157/index.php/demo/index/examList?cid='+this.subjectNum+'&type='+this.navParams.data.type)
+    this.http.request('http://222.73.69.146:8088/index.php/demo/index/examList?cid='+this.subjectNum+'&type='+this.navParams.data.type)
       .subscribe((res: Response) => {
 
         console.log(res.url);
