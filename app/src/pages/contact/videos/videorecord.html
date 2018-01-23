@@ -23,17 +23,36 @@
   <!--</ion-select>-->
 </ion-header>
 
-<ion-content (swipe)="swipeEvent($event)">
+<!--<ion-content (swipe)="swipeEvent($event)">-->
 
-  <div [ngSwitch]="segmentModel">
-    <ion-list *ngSwitchCase="'1'">
+  <!--<div [ngSwitch]="segmentModel">-->
+    <!--<ion-list *ngSwitchCase="'1'">-->
+      <!--<ng-container *ngFor="let item of vidoaarrData;let i=index;">-->
+      <!--<ion-item (click)="toOperationPage(item.id)" *ngIf="subject == item.sid">-->
+        <!--<ion-thumbnail item-left>-->
+          <!--<img src="{{item.icon}}">-->
+        <!--</ion-thumbnail>-->
+        <!--<span>{{item.cname}}</span><br>-->
+        <!--<span>{{item.description}}</span>-->
+      <!--</ion-item>-->
+      <!--</ng-container>-->
+    <!--</ion-list>-->
+  <!--</div>-->
+<!--</ion-content>-->
+
+<ion-content (swipe)="swipeEvent($event)" style="margin-top: 25px;background-color: rgba(153, 153, 153, 0.5882352941176471); padding: 40px;">
+
+  <div>
+    <ion-list>
       <ng-container *ngFor="let item of vidoaarrData;let i=index;">
-      <ion-item (click)="toOperationPage(item.id)" *ngIf="subject == item.sid">
+      <ion-item (click)="toOperationPage(item.id)" *ngIf="subject == item.sid" style="border-radius: 5px;">
         <ion-thumbnail item-left>
           <img src="{{item.icon}}">
         </ion-thumbnail>
         <span>{{item.cname}}</span><br>
         <span>{{item.description}}</span>
+        <br>
+        热度：<span>{{item.view}}</span>
       </ion-item>
       </ng-container>
     </ion-list>

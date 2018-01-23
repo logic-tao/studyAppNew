@@ -5,6 +5,7 @@ import {PagedetailPage} from "../../pagedetail/pagedetail";
 import {Response, Http, RequestOptions} from "@angular/http";
 import {BASEURLIMG} from "../../../theme/theme.config";
 
+
 /**
  * Generated class for the HomeworkTestPage page.
  *
@@ -65,19 +66,24 @@ export class HomeworkTestPage {
   //是否提交过
   isUpdate:any
   //本地答案
-  localAnswer :any
+  localAnswer :any = []
+  local:any
 
   constructor(@Inject('appService') private appService,public navCtrl: NavController, public navParams: NavParams, private  http: Http,public app: App) {
     this.test_number = 1;
     this.hid = navParams.get("hid");
     this.cname = navParams.get("subject");
-    this.localAnswer = localStorage.getItem(this.cname)
+    this.local = localStorage.getItem(this.cname)
+    if (this.local != null){
+    this.localAnswer = this.local.split(",");
+    }
     this.isUpdate = localStorage.getItem(this.cname)
+    console.log(this.localAnswer)
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MistakeDetailPage');
-    this.http.request("http://222.73.69.146:8088/index/request_homework_test/"+ this.hid)
+    this.http.request("http://222.73.69.146:8088/index.php/index/request_homework_test/"+ this.hid)
       .subscribe((res: Response) => {
         this.test = res.json();
         console.log(this.test);
@@ -94,36 +100,37 @@ export class HomeworkTestPage {
   }
 
   ionViewWillLeave() {
+    for (var key in this.toAnswer) {
+      this.tArr.push(key);
+      this.aArr.push(this.toAnswer[key]);
 
+    }
+    localStorage.setItem(this.cname, this.aArr);
     if (this.isUpdate == null){
       console.log("离开页面，提交数据");
-    for (var key in this.toAnswer) {
-        this.tArr.push(key);
-        this.aArr.push(this.toAnswer[key]);
-    }
-    this.pData['tid'] = this.tArr;
-    this.pData['ans'] = this.aArr;
-    this.pData['count'] = this.count;
-    this.appService.homeworkanswer(this.pData).then(
-      res => {
-        if(res.code==200){
-          console.log("提交成功");
-          localStorage.setItem(this.cname,this.toAnswer)
-          console.log(localStorage.getItem(this.cname))
-        }
-        console.log(res)
+      this.pData['tid'] = this.tArr;
+      this.pData['ans'] = this.aArr;
+      this.pData['count'] = this.count;
+      this.appService.homeworkanswer(this.pData).then(
+        res => {
+          if(res.code==200){
+            console.log("提交成功");
+          }
+          console.log(res)
 
-      },
-      error=>{
-        // alert('错误')
-        console.log(error)
-      }
-    )
+        },
+        error=>{
+          // alert('错误')
+          console.log(error)
+        }
+      )
     }
 
   }
 
-  choseanswer(answer){
+  choseanswer(answer,tittleId){
+    this.localAnswer[this.test_number - 1] = ''
+    this.toAnswer[tittleId] = ''
     this.selectCoA = false;
     this.selectCoB = false;
     this.selectCoC = false;
@@ -145,7 +152,9 @@ export class HomeworkTestPage {
     this.seAnswer = answer;
   }
 
-  pAn(an){
+  pAn(an,tittleId){
+    this.localAnswer[this.test_number - 1] = ''
+    this.toAnswer[tittleId] = ''
     this.pCoT = false;
     this.pCoF = false;
 
@@ -169,20 +178,43 @@ export class HomeworkTestPage {
     this.selectCoD = false;
     this.pCoT = false;
     this.pCoF = false;
-    if(this.isUpdate == null) {
-      if (type == 1 && (this.seAnswer != '')) {
-        this.toAnswer[titleid] = this.seAnswer;
-        this.seAnswer = ''
-      } else if (type == 2 && (this.tiankong != '')) {
-        this.toAnswer[titleid] = this.tiankong;
-        this.tiankong = ''
-      } else if (type == 3 && (this.pAnswer != '')) {
-        this.toAnswer[titleid] = this.pAnswer;
-        this.pAnswer = ''
-      } else if (type == 4 && (this.jieda != '')) {
-        this.toAnswer[titleid] = this.jieda;
-        this.jieda = ''
+
+    if (this.localAnswer[this.test_number-1] != ''){
+      console.log(type+this.tiankong)
+      if (type == 1 || 3){
+        this.toAnswer[titleid] = this.localAnswer[this.test_number-1];
       }
+      if (type == 2){
+        if (this.tiankong == null) {
+          this.toAnswer[titleid] = this.localAnswer[this.test_number-1];
+        }else {
+          console.log("更新填空")
+          this.toAnswer[titleid] = this.tiankong;
+          this.tiankong = ''
+        }
+      }
+      if (type == 2){
+        if (this.jieda == null) {
+          this.toAnswer[titleid] = this.localAnswer[this.test_number-1];
+        }else {
+          console.log("更新解答")
+          this.toAnswer[titleid] = this.jieda;
+          this.jieda = ''
+        }
+      }
+    }else if (type == 1) {
+      this.toAnswer[titleid] = this.seAnswer;
+      this.seAnswer = ''
+    }else if (type == 2) {
+      console.log("填空")
+      this.toAnswer[titleid] = this.tiankong;
+      this.tiankong = ''
+    }else if (type == 3) {
+      this.toAnswer[titleid] = this.pAnswer;
+      this.pAnswer = ''
+    }else if (type == 4) {
+      this.toAnswer[titleid] = this.jieda;
+      this.jieda = ''
     }
     if (this.test_number == this.count - 1) {
       this.button = "提交";
@@ -201,6 +233,100 @@ export class HomeworkTestPage {
 
   }
 
+  swipeEvnet(event,type,titleid) {
+    //向左滑下一题
+    if (event.direction == 2) {
+      this.selectCoA = false;
+      this.selectCoB = false;
+      this.selectCoC = false;
+      this.selectCoD = false;
+      this.pCoT = false;
+      this.pCoF = false;
+
+      if (this.localAnswer[this.test_number-1] != ''){
+        console.log(type+this.tiankong)
+        if (type == 1 || 3){
+          this.toAnswer[titleid] = this.localAnswer[this.test_number-1];
+        }
+        if (type == 2){
+          if (this.tiankong == null) {
+            this.toAnswer[titleid] = this.localAnswer[this.test_number-1];
+          }else {
+            console.log("更新填空")
+            this.toAnswer[titleid] = this.tiankong;
+            this.tiankong = ''
+          }
+        }
+        if (type == 2){
+          if (this.jieda == null) {
+            this.toAnswer[titleid] = this.localAnswer[this.test_number-1];
+          }else {
+            console.log("更新解答")
+            this.toAnswer[titleid] = this.jieda;
+            this.jieda = ''
+          }
+        }
+      }else if (type == 1) {
+        this.toAnswer[titleid] = this.seAnswer;
+        this.seAnswer = ''
+      }else if (type == 2) {
+        console.log("填空")
+        this.toAnswer[titleid] = this.tiankong;
+        this.tiankong = ''
+      }else if (type == 3) {
+        this.toAnswer[titleid] = this.pAnswer;
+        this.pAnswer = ''
+      }else if (type == 4) {
+        this.toAnswer[titleid] = this.jieda;
+        this.jieda = ''
+      }
+      if (this.test_number == this.count - 1) {
+        this.button = "提交";
+      }
+      if (this.isUpdate != null && this.test_number == this.count - 1){
+        this.button = '返回'
+      }
+      if (this.test_number < this.count) {
+        this.test_number ++;
+
+
+      } else {
+        this.navCtrl.pop();
+      }
+    }
+    //向右滑上一题
+    if(event.direction==4) {
+      console.log(this.test_number)
+      this.selectCoA = false;
+      this.selectCoB = false;
+      this.selectCoC = false;
+      this.selectCoD = false;
+      this.pCoT = false;
+      this.pCoF = false;
+      if (this.test_number == this.count) {
+        this.button = "下一题";
+      }
+      if (this.test_number == this.count) {
+        if (type == 1) {
+          this.toAnswer[titleid] = this.seAnswer;
+          this.seAnswer = ''
+        } else if (type == 2) {
+          this.toAnswer[titleid] = this.tiankong;
+        } else if (type == 3) {
+          this.toAnswer[titleid] = this.pAnswer;
+        } else if (type == 4) {
+          this.toAnswer[titleid] = this.jieda;
+        }
+      }
+
+      if (this.test_number == 1) {
+
+      }else {
+        this.test_number --;
+      }
+    }
+  }
+
   //跳转到上一题
   leftSubject(type,titleid) {
     console.log(this.test_number)
@@ -213,34 +339,25 @@ export class HomeworkTestPage {
     if (this.test_number == this.count) {
       this.button = "下一题";
     }
-    if (this.isUpdate == null){
-      if (this.test_number == this.count) {
-        if (type == 1 && (this.seAnswer!= '')) {
-          this.toAnswer[titleid] = this.seAnswer;
-          this.seAnswer = ''
-        } else if (type == 2) {
-          this.toAnswer[titleid] = this.tiankong;
-        } else if (type == 3) {
-          this.toAnswer[titleid] = this.pAnswer;
-        } else if (type == 4) {
-          this.toAnswer[titleid] = this.jieda;
-        }
+    if (this.test_number == this.count) {
+      if (type == 1) {
+        this.toAnswer[titleid] = this.seAnswer;
+        this.seAnswer = ''
+      } else if (type == 2) {
+        this.toAnswer[titleid] = this.tiankong;
+      } else if (type == 3) {
+        this.toAnswer[titleid] = this.pAnswer;
+      } else if (type == 4) {
+        this.toAnswer[titleid] = this.jieda;
       }
     }
+
     if (this.test_number == 1) {
 
     }else {
       this.test_number --;
     }
   }
-
-  add(){
-    //将题添加到后台数ll据库中 sfds
-    alert("收藏成功");
-    this.http.request('http://222.73.69.146:8088/demo/index/collect').subscribe();
-
-  }
-
   //跳转到下一个页面
   nextPage(){
     this.app.getRootNav().push('PageexamPage');

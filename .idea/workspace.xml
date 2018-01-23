@@ -3,18 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2880041d-8ca9-4626-8e18-9372eb8c7932" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/exercise/exercise-detail.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/exercise/exercise-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/homework/homework-test.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/homework/homework-test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/homework/homework-test.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/homework/homework-test.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/homework/homework.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/homework/homework.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/homework/homework.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/homework/homework.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/my/person.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/my/person.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/videos/videorecord.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/videos/videorecord.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/videos/videorecord.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/videos/videorecord.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/videos/videos.html" afterPath="$PROJECT_DIR$/app/src/pages/contact/videos/videos.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/pages/contact/videos/videos.ts" afterPath="$PROJECT_DIR$/app/src/pages/contact/videos/videos.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/theme/AppService.ts" afterPath="$PROJECT_DIR$/app/src/theme/AppService.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -29,68 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="person-modify.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/pages/contact/my/person-modify.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-              <folding>
-                <marker date="1515050541584" expanded="true" signature="1871:1880" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="exercise.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="63" column="2" lean-forward="false" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="6" />
-              <folding>
-                <marker date="1515921804600" expanded="false" signature="7:17" ph="..." />
-                <marker date="1515921804600" expanded="true" signature="2265:2275" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="exercise.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="146" lean-forward="false" selection-start-line="11" selection-start-column="146" selection-end-line="11" selection-end-column="146" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mistake.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/pages/contact/mistake/mistake.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding>
-                <marker date="1515138074886" expanded="false" signature="7:8" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="collection.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/pages/contact/collection/collection.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AppService.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/theme/AppService.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="69" column="3" lean-forward="false" selection-start-line="69" selection-start-column="3" selection-end-line="69" selection-end-column="3" />
+            <state relative-caret-position="246">
+              <caret line="254" column="68" lean-forward="false" selection-start-line="254" selection-start-column="68" selection-end-line="254" selection-end-column="68" />
               <folding>
                 <element signature="e#0#58#0" expanded="true" />
               </folding>
@@ -99,6 +30,11 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>demo/index</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -111,7 +47,6 @@
         <option value="$PROJECT_DIR$/app/src/pages/contact/collection/collection.ts" />
         <option value="$PROJECT_DIR$/app/src/pages/contact/collection/collection-list.ts" />
         <option value="$PROJECT_DIR$/app/src/pages/contact/collection/collection-test.ts" />
-        <option value="$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.ts" />
         <option value="$PROJECT_DIR$/app/src/pages/contact/exercise/exercise-detail.ts" />
         <option value="$PROJECT_DIR$/app/src/pages/contact/exercise/right-detail.ts" />
         <option value="$PROJECT_DIR$/app/src/pages/contact/homework/homework.ts" />
@@ -129,6 +64,7 @@
         <option value="$PROJECT_DIR$/app/src/pages/contact/my/person.ts" />
         <option value="$PROJECT_DIR$/app/src/pages/contact/my/person-modify.ts" />
         <option value="$PROJECT_DIR$/app/src/pages/contact/collection/collection.html" />
+        <option value="$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.ts" />
         <option value="$PROJECT_DIR$/app/src/theme/AppService.ts" />
       </list>
     </option>
@@ -139,7 +75,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="42" />
     <option name="y" value="23" />
     <option name="width" value="1638" />
@@ -206,50 +142,6 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="studyAppNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="studyAppNew" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-              <item name="collection" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="studyAppNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="studyAppNew" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-              <item name="exercise" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="studyAppNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="studyAppNew" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-              <item name="mistake" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="studyAppNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="studyAppNew" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="contact" type="462c0819:PsiDirectoryNode" />
-              <item name="my" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="studyAppNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="studyAppNew" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="operation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -258,7 +150,7 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="pagedetail" type="462c0819:PsiDirectoryNode" />
+              <item name="pageexam" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="studyAppNew" type="b2602c69:ProjectViewProjectNode" />
@@ -266,7 +158,7 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="pageexam" type="462c0819:PsiDirectoryNode" />
+              <item name="pagenext" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="studyAppNew" type="b2602c69:ProjectViewProjectNode" />
@@ -382,15 +274,20 @@
       <workItem from="1515643432899" duration="132000" />
       <workItem from="1515898379420" duration="60000" />
       <workItem from="1515923581354" duration="317000" />
-      <workItem from="1515923912286" duration="15000" />
+      <workItem from="1515923912286" duration="521000" />
+      <workItem from="1516259628132" duration="21000" />
+      <workItem from="1516263418695" duration="1270000" />
+      <workItem from="1516605125002" duration="30000" />
+      <workItem from="1516682073182" duration="237000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26814000" />
+    <option name="totallyTimeSpent" value="28878000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="42" y="23" width="1638" height="1027" extended-state="0" />
+    <frame x="42" y="23" width="1638" height="1027" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24737167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -422,20 +319,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/pages/pageexam/pageexam.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/app/app.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/practice/practice.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -632,13 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/pages/pageexam/pageexam.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/contact/mistake/mistake-detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -737,32 +613,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/pages/contact/my/person-modify.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <marker date="1515050541584" expanded="true" signature="1871:1880" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="63" column="2" lean-forward="false" selection-start-line="97" selection-start-column="4" selection-end-line="97" selection-end-column="6" />
-          <folding>
-            <marker date="1515921804600" expanded="false" signature="7:17" ph="..." />
-            <marker date="1515921804600" expanded="true" signature="2265:2275" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="146" lean-forward="false" selection-start-line="11" selection-start-column="146" selection-end-line="11" selection-end-column="146" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -770,9 +624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <marker date="1515138074886" expanded="false" signature="7:8" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -780,14 +631,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="18" lean-forward="false" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/pages/pagedetail/pagedetail.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/pages/pageexam/pageexam.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1322">
+          <caret line="7" column="42" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/pages/pagenext/pagenext.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1252">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/pages/contact/exercise/exercise.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="48" column="105" lean-forward="true" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="105" />
+          <folding>
+            <marker date="1516537150358" expanded="false" signature="7:17" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/pages/contact/my/person-modify.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding>
+            <marker date="1516537150366" expanded="true" signature="1874:1883" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/theme/AppService.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="69" column="3" lean-forward="false" selection-start-line="69" selection-start-column="3" selection-end-line="69" selection-end-column="3" />
+        <state relative-caret-position="246">
+          <caret line="254" column="68" lean-forward="false" selection-start-line="254" selection-start-column="68" selection-end-line="254" selection-end-column="68" />
           <folding>
             <element signature="e#0#58#0" expanded="true" />
           </folding>

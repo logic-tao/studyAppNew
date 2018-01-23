@@ -22,6 +22,7 @@ export class ExercisePage {
   // 接收数据
   listData: any;
   listD1:any = [];
+  D1len:any;
   listD2:any = [];
   // 课程
   subject: string ="2";
@@ -46,7 +47,7 @@ export class ExercisePage {
     console.log('ionViewDidLoad ExercisePage');
     let part = this;
     //进入页面请求知识点
-    this.http.request("http://222.73.69.146:8088/index/request_record_list/"+this.user+"/" + this.subject)
+    this.http.request("http://222.73.69.146:8088/index.php/index/request_record_list/"+this.user+"/" + this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
         this.listData.forEach(function (e) {
@@ -57,16 +58,21 @@ export class ExercisePage {
           }
         });
         console.log(this.listD1)
+        this.D1len = this.listD1.length;
+        console.log(this.D1len)
       });
+
 
   }
 
   segmentChanged() {
     //console.log(event.value);
     let part = this;
-    this.http.request("http://222.73.69.146:8088/index/request_record_list/"+this.user+"/" + this.subject)
+    this.http.request("http://222.73.69.146:8088/index.php/index/request_record_list/"+this.user+"/" + this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
+        part.listD1 = []
+        part.listD2 = []
         this.listData.forEach(function (e) {
           if(e.type == '1'){
             part.listD1.push(e);
@@ -74,7 +80,10 @@ export class ExercisePage {
             part.listD2.push(e);
           }
         });
+        this.D1len = this.listD1.length;
+        console.log(this.D1len)
       });
+
   }
 
   subjectindex(){
@@ -129,7 +138,7 @@ export class ExercisePage {
 
   // Selected(subject){
   //   this.subjectNum = subject;
-  //   this.http.request('http://222.73.69.146:8088/index.php/demo/index/examList?cid='+this.subjectNum+'&type=1')
+  //   this.http.request('http://101.201.238.157/index.php/demo/index/examList?cid='+this.subjectNum+'&type=1')
   //     .subscribe((res: Response) => {
   //
   //       console.log(res.url);
