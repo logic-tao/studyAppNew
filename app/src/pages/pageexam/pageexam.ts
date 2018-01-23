@@ -31,8 +31,8 @@ export class PageexamPage {
 mySwiper:any
 timer:any
 issubitbutton:any=false
-alltrimebgin:number=180
-alltrime:number=180
+alltrimebgin:number=1800
+alltrime:number=1800
 datestr:any='555'
 m:number
 num:any
@@ -111,8 +111,8 @@ indextestpaper(cname){
   var obj2=eval("("+res._body+")")
   if(obj2.code==200){
     console.log(res.data);
-    this.alltrimebgin=obj2.data*60;
-    this.alltrime=obj2.data*60;
+    // this.alltrimebgin=obj2.data*60;
+    // this.alltrime=obj2.data*60;
   }
             console.log(res);
             this.getpagedata(this.navParams.data.id)
