@@ -15,10 +15,10 @@
   </ion-item>
 </ion-list>
   </div>
-      <ion-icon name="backspace" (click)="close()" style="font-size: 25px;position: absolute;z-index: 15;right: 90px;top: 25px;"></ion-icon>
+      <ion-icon name="backspace" (click)="close()" style="font-size: 25px;position: absolute;z-index: 15;right: 90px;top: 18px;"></ion-icon>
 
 
-         <ion-select item-right [(ngModel)]="subject" interface="popover" style="position: absolute;right: 10px;top: 0;" (ngModelChange)="version=$event; changeVersion()">
+         <ion-select item-right [(ngModel)]="subject" interface="popover" style="position: absolute;top: 6px;right: 2px;" (ngModelChange)="version=$event; changeVersion()">
           <ion-option value="{{item.id}}" *ngFor="let item of subjectindexData;let i=index;">{{item.subject_name}}</ion-option>
         </ion-select>
 </ion-header>
