@@ -1,4 +1,4 @@
-<ion-content class="transparent-header" [ngStyle]="{'background-image': 'url(' + backgroundImage +')'}">
+<ion-content class="transparent-header" style="background-color: #31C1FE;">
   <!--<ion-header>
     <ion-navbar>
     </ion-navbar>
@@ -6,7 +6,7 @@
   <ion-slides #slider class="content-slider" direction="vertical">
     <ion-slide class="swiper-no-swiping">
       <div padding>
-        <img class="logo" src="assets/icon/logo-pr.png" />
+        <!-- <img class="logo" src="assets/icon/logo-pr.png" /> -->
         <ion-slides class="text-slider" autoplay="2000">
           <ion-slide>
             <h3> Really nice stuff </h3>
@@ -35,16 +35,27 @@
       <ion-slides #innerSlider class="content-slider">
         <ion-slide class="swiper-no-swiping">
           <div style="padding: 20% 32px 32px 32px">
+              <img src="assets/icon/shouji.png" style="    left: 5px;
+              position: absolute;
+              width: 30px;
+              top: 8rem;">
             <ion-item>
               <ion-label floating>手机号</ion-label>
+              
               <ion-input type="text" [(ngModel)]='mobilelogin'></ion-input>
             </ion-item>
+            <img src="assets/icon/mima.png" style="    left: 5px;
+            position: absolute;
+            width: 30px;
+            top: 14rem;">
             <ion-item>
+              
               <ion-label floating>密码</ion-label>
+              
               <ion-input type="password" [(ngModel)]='passwordlogin'></ion-input>
             </ion-item>
+            <button ion-button clear (click)="slideNext()" color="light" class="forgot-button">忘记密码</button>            
             <button ion-button block round (click)="login()" color="light" class="login-button">登录</button>
-            <button ion-button clear (click)="slideNext()" color="light" class="forgot-button">忘记密码</button>
           </div>
           <button ion-button clear (click)="goToSignup()" class="slide-button position-bottom">注册<ion-icon name="arrow-down"></ion-icon></button>
         </ion-slide>

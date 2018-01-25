@@ -447,7 +447,7 @@ tapelessiontapetest(){//试题
               res.content[i].content.D=res.content[i].content.D.replace(/\/upload/g, 'http://101.132.70.102/upload')
             }  
             if(res.content[i].title.indexOf("/upload")>0){
-              res.content[i].title=res.content[i].title.replace(/\/upload/g, 'http://101.132.70.102/upload')
+              res.content[i].title=res.content[i].title
             }
             
           }
