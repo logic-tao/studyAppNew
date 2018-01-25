@@ -31,7 +31,7 @@ export class PersonModifyPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PersonModifyPage');
-    this.http.request('httP://222.73.69.146:8088/index/request1/' + this.user)
+    this.http.request('http://222.73.69.146:8088/index.php/index/request1/' + this.user)
       .subscribe((res: Response) => {
         if (res.json() != null) {
           if ("name" in res.json()[0]) {

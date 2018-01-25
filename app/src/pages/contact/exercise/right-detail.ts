@@ -40,7 +40,7 @@ export class RightDetailPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PagenextPage');
-    this.http.request("http://222.73.69.146:8088/index/request_record_test/"+this.user+"/" +this.cid)
+    this.http.request("http://222.73.69.146:8088/index.php/index/request_record_test/"+this.user+"/" +this.cid)
       .subscribe((res: Response) => {
         this.test = res.json();
         console.log(this.test);
@@ -70,13 +70,6 @@ export class RightDetailPage {
     }else {
       this.test_number --;
     }
-  }
-
-  add(){
-    //将题添加到后台数ll据库中 sfds
-    alert("收藏成功");
-    this.http.request('http://222.73.69.146:8088/demo/index/collect').subscribe();
-
   }
 
   //跳转到下一个页面
