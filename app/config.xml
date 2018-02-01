@@ -93,5 +93,6 @@
     <plugin name="cordova-plugin-screen-orientation" spec="2.0.2" />
     <plugin name="cordova-plugin-file-transfer" spec="1.6.3" />
     <plugin name="cordova-plugin-nativestorage" spec="2.2.2" />
+    <plugin name="com.synconset.imagepicker" spec="~2.1.8" />
     <engine name="android" spec="6.1.2" />
 </widget>

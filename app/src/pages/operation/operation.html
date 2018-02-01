@@ -39,12 +39,7 @@
             <h2 *ngIf='shipingxiangqing'>{{shipingxiangqing.lession.description}}</h2>
              <!--<ion-icon name="star"></ion-icon>-->
             <ion-row >
-                <ion-col col-2 style="padding-top: 30px;">
-                    <!-- <span>评分</span>
-                    <br> -->
-                    <span>评价</span>
-                </ion-col>
-                <ion-col col-10>
+                <ion-col col-12>
                   
                   <!-- <ion-icon name="star" class="xinxin" (click)="dafen(1)" [ngClass]="{'xuanzhong': selescore>=1}"></ion-icon>
                   <ion-icon name="star" class="xinxin" (click)="dafen(2)" [ngClass]="{'xuanzhong': selescore>=2}"></ion-icon>
@@ -58,9 +53,10 @@
                     <div class="icon xinxin star" (click)="dafen(5)"  [ngClass]="{'xuanzhong': selescore>=5}"></div>-->
                     <!-- <img src="assets/icon/wujiaoxin.png"/> -->
                     <br>
-                    <textarea style="border: solid 1px #18D62F;height: 100px;" [(ngModel)]="pingjianeirong"></textarea>
+                    <textarea style="border: solid 1px #18D62F;height: 100px;resize:none" [(ngModel)]="pingjianeirong" rows="10" cols="35" placeholder="评价："></textarea>
                     <!-- <ion-textarea style="border: solid 1px #18D62F;height: 100px;"></ion-textarea> -->
                 </ion-col>
+                
             </ion-row>
             <div style="text-align: center;">
               <button (click)="tapelessionpushcomment()" ion-button style="width: 100px;">提交</button>

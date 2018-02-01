@@ -132,7 +132,7 @@ SlidingDirection(sdfs){
   add(){
     //将题添加到后台数ll据库中 sfds
     // alert("收藏成功");
-    this.http.request('http://222.73.69.146:8088/index/collect?'
+    this.http.request('http://222.73.69.146:8088/index.php/index/collect?'
     +'&uid='+this.appComponent.userinfo.id
     +'&kid='+this.listDetailData[0].subjectKind
     +'&titleId='+this.listDetailData[this.currentIndex].titleId
