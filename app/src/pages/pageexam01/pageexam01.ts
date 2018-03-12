@@ -34,7 +34,7 @@ export class Pageexam01Page {
   add(){
 
     alert("收藏成功");
-     this.http.request('http://222.73.69.146:8088/demo/index/collect').subscribe();
+     this.http.request('http://47.100.203.126:81/demo/index/collect').subscribe();
     //  this.http.request('http://sapi.bainid.com/demo/index/collect').subscribe();
   }
 
@@ -44,7 +44,7 @@ export class Pageexam01Page {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PagenextPage');
 
-    this.http.request('http://222.73.69.146:8088/index/requestMess')
+    this.http.request('http://47.100.203.126:81/index/requestMess')
 
       .subscribe((res: Response) => {
         this.listDetailData = res.json();

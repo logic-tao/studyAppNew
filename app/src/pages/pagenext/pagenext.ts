@@ -42,10 +42,13 @@ export class PagenextPage implements  OnInit,OnChanges{
 
   }
   subjectindex(){
+    console.log('dddd');
     this.appService.subjectindex().then(
       res => {
         if(res.code==200){
           this.subjectindexData=res.content
+          // this.subject=this.subjectindexData[0].id;
+          this.Selected(this.subjectindexData[0].id);
         }
         
       },
@@ -91,28 +94,28 @@ close(){
     return result; 
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PagenextPage');
-    // 网络请求
-    //htt  p://js onplaceholder.typicode.com/photos
-    console.log(this.type);
+//     console.log('ionViewDidLoad PagenextPage');
+//     // 网络请求
+//     //htt  p://js onplaceholder.typicode.com/photos
+//     console.log(this.type);
 
-    console.log("http://222.73.69.146:8088/index.php/demo/index/examList?cid=" + this.subject +"&type="+this.navParams.data.type);
-    this.http.request('http://222.73.69.146:8088/index.php/demo/index/examList?cid='+this.subject+'&type='+this.navParams.data.type)
-      .subscribe((res: Response) => {
-this.items =[]
-      console.log(res.url);
-      //console.log(res.json().data);
-        this.listData = res.json();
-        for (var i = 0; i < this.listData.length; i++) {
-          this.listData[i].open=false
-          this.listData[i].arr=[3,4,5]
-                              this.items.push({cname:this.listData[i].cname,id:this.listData[i].id})
-                              for (var j = 0; j < this.listData[i].children.length; j++) {
-            this.items.push({cname:this.listData[i].children[j].cname,id:this.listData[i].children[j].id})
-          }
-        }
-        this.copeyitems=this.deepCoyp(this.items)
-      });
+//     console.log("http://47.100.203.126:81/index.php/demo/index/examList?cid=" + this.subject +"&type="+this.navParams.data.type);
+//     this.http.request('http://47.100.203.126:81/index.php/demo/index/examList?cid='+this.subject+'&type='+this.navParams.data.type)
+//       .subscribe((res: Response) => {
+// this.items =[]
+//       console.log(res.url);
+//       //console.log(res.json().data);
+//         this.listData = res.json();
+//         for (var i = 0; i < this.listData.length; i++) {
+//           this.listData[i].open=false
+//           this.listData[i].arr=[3,4,5]
+//                               this.items.push({cname:this.listData[i].cname,id:this.listData[i].id})
+//                               for (var j = 0; j < this.listData[i].children.length; j++) {
+//             this.items.push({cname:this.listData[i].children[j].cname,id:this.listData[i].children[j].id})
+//           }
+//         }
+//         this.copeyitems=this.deepCoyp(this.items)
+//       });
   }
   
 
@@ -159,7 +162,8 @@ changeVersion(){
 }
   Selected(subject){
     this.subjectNum = subject;
-    this.http.request('http://222.73.69.146:8088/index.php/demo/index/examList?cid='+this.subjectNum+'&type='+this.navParams.data.type)
+    this.subject=subject;
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/examList?cid='+this.subjectNum+'&type='+this.navParams.data.type)
       .subscribe((res: Response) => {
 
         console.log(res.url);

@@ -43,7 +43,7 @@ export class PagedetailPage {
   add(){
     //将题添加到后台数ll据库中 sfds
     alert("收藏成功");
-    this.http.request('http://222.73.69.146:8088/demo/index/collect?kid=1001&uid=111').subscribe();
+    this.http.request('http://47.100.203.126:81/demo/index/collect?kid=1001&uid=111').subscribe();
     // this.http.request('http://sapi.bainid.com/demo/index/collect?kid=1001&uid=111').subscribe();
 
   }
@@ -94,7 +94,7 @@ export class PagedetailPage {
     console.log('ionViewDidLoad PagenextPage');
 
     this.http.request('' +
-      'httP://222.73.69.146:8088/index/requestMess')
+      'httP://47.100.203.126:81/index/requestMess')
       .subscribe((res: Response) => {
         this.listDetailData = res.json();
       });

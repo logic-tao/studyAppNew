@@ -31,7 +31,7 @@ addMore(){
   ionViewDidLoad() {
     console.log('ionViewDidLoad PagenextPage');
 
-    this.http.request('httP://222.73.69.146:8088/index/requestMess')
+    this.http.request('httP://47.100.203.126:81/index/requestMess')
       .subscribe((res: Response) => {
         this.listDetailData = res.json();
       });
