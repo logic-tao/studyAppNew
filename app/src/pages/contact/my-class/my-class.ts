@@ -29,7 +29,7 @@ export class MyclassPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyclassPage');
-    this.http.request('http://222.73.69.146:8088/index.php/index/request_class/'+this.user)
+    this.http.request('http://47.100.203.126:81/index.php/index/request_class/'+this.user)
       .subscribe((res: Response) => {
         this.listData = res.json();
       });

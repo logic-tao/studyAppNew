@@ -105,14 +105,14 @@ ionViewDidLoad() {
 indextestpaper(cname){
   //将题添加到后台数ll据库中 sfds
   // alert("收藏成功");
-  this.http.request('http://222.73.69.146:8088/index.php/demo/index/test_paper?'
+  this.http.request('http://47.100.203.126:81/index.php/demo/index/test_paper?'
   +'&cname='+cname
 ).subscribe((res: any) => {
   var obj2=eval("("+res._body+")")
   if(obj2.code==200){
     console.log(res.data);
     // this.alltrimebgin=obj2.data*60;
-    // this.alltrime=obj2.data*60;
+    this.alltrime=obj2.data*60;
   }
             console.log(res);
             this.getpagedata(this.navParams.data.id)
@@ -132,7 +132,7 @@ SlidingDirection(sdfs){
   add(){
     //将题添加到后台数ll据库中 sfds
     // alert("收藏成功");
-    this.http.request('http://222.73.69.146:8088/index.php/index/collect?'
+    this.http.request('http://47.100.203.126:81/index.php/index/collect?'
     +'&uid='+this.appComponent.userinfo.id
     +'&kid='+this.listDetailData[0].subjectKind
     +'&titleId='+this.listDetailData[this.currentIndex].titleId
@@ -148,7 +148,7 @@ SlidingDirection(sdfs){
   cleanadd(){
     //取消收藏
     // alert("取消收藏成功");
-    this.http.request('http://222.73.69.146:8088/index.php/demo/index/qxCollect?'
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/qxCollect?'
     +'&uid='+this.appComponent.userinfo.id
     +'&titleId='+this.listDetailData[this.currentIndex].titleId
   ).subscribe((res: Response) => {
@@ -348,7 +348,7 @@ this.s=this.alltrime%60
   }
   cunchushuj(i){
     // https://www.kancloud.cn/zsb38252/subject/423944
-    this.http.request('http://222.73.69.146:8088/index.php/demo/index/text_message_log?'
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/text_message_log?'
     +'type='+this.listDetailData[i].type
     +'&tid='+this.listDetailData[i].titleId
     +'&uid='+this.appComponent.userinfo.id
@@ -406,7 +406,7 @@ takePhoto(){
 getpagedata(id){
   console.log('getpagedata')
   this.datestr=new Date().toLocaleDateString()
-//       this.http.request('httP://222.73.69.146:8088/index/requestMess')
+//       this.http.request('httP://47.100.203.126:81/index/requestMess')
 //       .subscribe((res: Response) => {
 //         this.m=Math.floor(this.alltrime/60)
 // this.s=this.alltrime%60
@@ -420,7 +420,7 @@ getpagedata(id){
 //           this.listDetailData[i].jieguo=0//0 未解答 1已解答 2 正确 3 错误 
 //         }
 //       });
-            this.http.request('http://222.73.69.146:8088/index.php/demo/index/getDpecialList?id='+id+'&uid='+this.appComponent.userinfo.id)
+            this.http.request('http://47.100.203.126:81/index.php/demo/index/getDpecialList?id='+id+'&uid='+this.appComponent.userinfo.id)
             .subscribe((res: any) => {
                       this.m=Math.floor(this.alltrime/60)
                       this.s=this.alltrime%60;
@@ -446,7 +446,7 @@ fanhui(){
 }
 getpagetextdata(id){
   console.log('getpagetextdata')
-      this.http.request('http://222.73.69.146:8088/index.php/demo/index/getDpecialList?id='+id+'&uid='+this.appComponent.userinfo.id)
+      this.http.request('http://47.100.203.126:81/index.php/demo/index/getDpecialList?id='+id+'&uid='+this.appComponent.userinfo.id)
       .subscribe((res:any) => {
         // this.appComponent.pagenextarr={listData:this.listData,num:j}
         let lastnou=this.appComponent.pagenextarr.num+1
@@ -511,7 +511,7 @@ shuaxing(){
       headers: {}
     }
 
-    fileTransfer.upload(fileurl, encodeURI('http://222.73.69.146:8088/index.php/demo/index/uploadFile'), options)
+    fileTransfer.upload(fileurl, encodeURI('http://47.100.203.126:81/index.php/demo/index/uploadFile'), options)
     .then((data) => {
       // success
       console.log('success')

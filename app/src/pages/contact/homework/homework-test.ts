@@ -83,7 +83,7 @@ export class HomeworkTestPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MistakeDetailPage');
-    this.http.request("http://222.73.69.146:8088/index.php/index/request_homework_test/"+ this.hid)
+    this.http.request("http://47.100.203.126:81/index.php/index/request_homework_test/"+ this.hid)
       .subscribe((res: Response) => {
         this.test = res.json();
         console.log(this.test);

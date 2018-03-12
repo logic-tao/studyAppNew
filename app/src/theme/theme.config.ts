@@ -5,5 +5,5 @@ export const BASEURLIMG = 'http://101.132.70.102';
 
 //export const BASEURL = 'http://api.skullfang.online';
 // export const BASEURL = 'http://www.api.skullfang.cn';
-// export const BASEURL = 'http://222.73.69.146:8088';
+// export const BASEURL = 'http://47.100.203.126:81';
 export const TOREBASEURL = 'https://jsonplaceholder.typicode.com';

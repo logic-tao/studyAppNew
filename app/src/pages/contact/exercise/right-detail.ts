@@ -40,7 +40,7 @@ export class RightDetailPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PagenextPage');
-    this.http.request("http://222.73.69.146:8088/index.php/index/request_record_test/"+this.user+"/" +this.cid)
+    this.http.request("http://47.100.203.126:81/index.php/index/request_record_test/"+this.user+"/" +this.cid)
       .subscribe((res: Response) => {
         this.test = res.json();
         console.log(this.test);
