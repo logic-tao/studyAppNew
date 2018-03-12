@@ -1,11 +1,11 @@
 <ion-header>
-  <button style="position: absolute;z-index: 12;right: 2rem;top: 1rem;padding: 1rem;border-radius: 0.5rem;" (click)="search()">搜索</button>
+  <button style="position: absolute;z-index: 12;right: 2rem;top: 1rem;padding: 1rem;border-radius: 3.5rem;" (click)="search()">搜索</button>
   <!--<ion-navbar>
     <ion-searchbar (click)="search()" (ionInput)="getItems($event)">
     </ion-searchbar>
   </ion-navbar>-->
     <ion-navbar>
-    <ion-searchbar (ionInput)="getItems($event)">
+    <ion-searchbar (ionInput)="getItems($event)" placeholder="搜索老师/课程">
     </ion-searchbar>
   </ion-navbar>
   <ion-list *ngIf="inpustring!=''">
@@ -48,7 +48,10 @@
               </div>
 
           </div>
-          <h1 style="text-align: center;font-weight: bolder;">课程推荐</h1>
+          <div style="text-align: center;font-weight: bolder;padding-top: 10px;">
+            <strong>课程推荐</strong>
+          </div>
+          
           <div *ngIf="xplainindexData">
             <ion-card (click)="toOperationPage(item.id)" *ngFor="let item of xplainindexData.content[2].children">
                 <!--<img src="assets/icon/viod3.jpg"/>-->

@@ -5,9 +5,7 @@
         <ion-icon name="arrow-back" style="font-size: 30px;padding: 5px 15px;float: left;margin-left: 1rem;"(click)="backclck()"></ion-icon> 
       <ion-title style="text-align: center;">
 
-        <span *ngIf="listDetailData.length>0&&listDetailData[0].subjectKind==1">语文</span>
-        <span *ngIf="listDetailData.length>0&&listDetailData[0].subjectKind==2">数学</span>
-        <span *ngIf="listDetailData.length>0&&listDetailData[0].subjectKind==3">英语</span>
+        <span >{{navParams.data.subjectstitle}}</span>
   
         <!-- <button (click)="add()"> -->
           
@@ -44,7 +42,8 @@
                   题目：
                   <br>-->
                   <!--<div style="text-align: center;">-->
-
+                   
+                    <span style="float: left;"> {{currentIndex+1}}、</span>
                       <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
                        
                   <!--</div>-->

@@ -2,6 +2,9 @@ page-about {
 .imgTabs{
     text-align: center;
 }
+.swiper-container-horizontal > .swiper-pagination-bullets{
+ bottom: 0px; 
+}
 .card-background-page {
     
       ion-card {

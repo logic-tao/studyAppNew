@@ -24,7 +24,7 @@
       </div>
   </div>-->
           <ion-row>
-          <ion-col col-6 *ngFor="let image of img_data">
+          <ion-col col-6 *ngFor="let image of img_data" id="container">
                  <div class="box" (click)="toOperationPage(image.id)">
                     <div class="box_img">
                         <img src="{{image.icon}}" alt="">
@@ -40,7 +40,7 @@
         </ion-row>
         <strong *ngIf="img_data.length">页面无数据</strong>
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-      <ion-infinite-scroll-content loadingSpinner="circles" loadingText="正在加载...">
-      </ion-infinite-scroll-content>
+      <!-- <ion-infinite-scroll-content loadingSpinner="circles" loadingText="正在加载...">
+      </ion-infinite-scroll-content> -->
   </ion-infinite-scroll>
 </ion-content>

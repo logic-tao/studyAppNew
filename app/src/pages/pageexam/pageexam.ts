@@ -58,6 +58,7 @@ lengcount:any
 lisfil:MediaObject
 countlianxiARR:any=[]
 page:any=0;
+subjectstitle:any
 nolista:any=false
 constructor(private media: Media,private mediaCapture: MediaCapture,private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
   this.voidint()
@@ -112,7 +113,7 @@ indextestpaper(cname){
   if(obj2.code==200){
     console.log(res.data);
     // this.alltrimebgin=obj2.data*60;
-    // this.alltrime=obj2.data*60;
+    this.alltrime=obj2.data*60;
   }
             console.log(res);
             this.getpagedata(this.navParams.data.id)
