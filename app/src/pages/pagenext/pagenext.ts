@@ -27,7 +27,7 @@ export class PagenextPage implements  OnInit,OnChanges{
   subject: string ="1";
   subjectNum: string="1";
   type : string;
-
+  subjectstitle:string
   constructor(@Inject('appService') private appService,public appComponent:MyApp,public app: App,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
           this.subjectindex()
              this.titleFilter.valueChanges
@@ -48,6 +48,7 @@ export class PagenextPage implements  OnInit,OnChanges{
         if(res.code==200){
           this.subjectindexData=res.content
           // this.subject=this.subjectindexData[0].id;
+          this.subjectstitle=this.subjectindexData[0].subject_name;
           this.Selected(this.subjectindexData[0].id);
         }
         
@@ -125,11 +126,11 @@ itemSelectedchild(event,i,j){
   this.appComponent.pagenextarr.childnum=j
   this.appComponent.pagenextarr.num=i
   event.stopPropagation();
-  this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:this.listData[i].children[j].id});
+  this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:this.listData[i].children[j].id,subjectstitle:this.subjectstitle});
   console.log(j)
 }
 itemSelectedserach(id){
-this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:id});
+this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:id,subjectstitle:this.subjectstitle});
 }
 
   itemSelected(j){
@@ -138,7 +139,7 @@ this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:id})
     console.log(this.appComponent.pagenextarr)
     console.log(this.listData[j])
     if(this.listData[j].children.length==0){
-      this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:this.listData[j].id});
+      this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:this.listData[j].id,subjectstitle:this.subjectstitle});
     }else{
       
            for (var i = 0; i < this.listData.length; i++) {
@@ -157,12 +158,19 @@ this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:id})
   }
 
 changeVersion(){
+  for(var j = 0; j < this.subjectindexData.length; ++j){
+    if(this.subjectindexData[j].id==this.subject){
+      this.subjectstitle=this.subjectindexData[j].subject_name;
+    }
+  }
   console.log(this.subject)
+   
   this.Selected(this.subject)
 }
   Selected(subject){
     this.subjectNum = subject;
     this.subject=subject;
+    
     this.http.request('http://47.100.203.126:81/index.php/demo/index/examList?cid='+this.subjectNum+'&type='+this.navParams.data.type)
       .subscribe((res: Response) => {
 
