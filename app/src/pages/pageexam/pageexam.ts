@@ -36,6 +36,7 @@ alltrime:number=1800
 datestr:any='555'
 m:number
 num:any
+cname:any
 s:number
 selectNum:any
 yiwanc:any
@@ -429,6 +430,7 @@ getpagedata(id){
                       this.countviodtime()
                       // this.listDetailData = res.json();
                       var obj2=eval("("+res._body+")")
+                      this.cname=obj2.cname;
                       this.listDetailData=obj2.data
                       this.latenum=this.listDetailData.length-1
                       console.log(this.listDetailData)
@@ -460,7 +462,7 @@ getpagetextdata(id){
         // this.countlianxiARR=res.json();
         var obj2=eval("("+res._body+")")
         this.countlianxiARR=obj2.data
-        
+        this.cname=obj2.cname;
         for (var i = 0; i < this.countlianxiARR.length; i++) {
           this.countlianxiARR[i].showanswer=false
           this.countlianxiARR[i].useranswer=''
