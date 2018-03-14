@@ -6,29 +6,31 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>考试指南</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>考试指南</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding style="background-color: #F6F5F5; padding: 40px;">
     <ion-list *ngIf="pagecontent==''">
-      <ion-item *ngFor="let item of serveData;let i=index;" (click)="indexindex(i)" style="margin-bottom: 25px;border-radius: 5px;">
-        <ion-thumbnail item-left>
-          <img src="{{item.icon}}">
-        </ion-thumbnail>
-        <span>{{item.title}}</span><br>
-        <!--<span>{{item.description}}</span>-->
-        <!--<br>
+        <ion-item *ngFor="let item of serveData;let i=index;" (click)="indexindex(i)" style="margin-bottom: 25px;border-radius: 5px;">
+            <ion-thumbnail item-left>
+                <img src="{{item.icon}}">
+            </ion-thumbnail>
+            <img src="assets/icon/jiaobiao.png" style="height:30px; width: 30px; position: absolute;bottom:calc(100% - 30px) ;right: 0px;">
+            <span>{{item.title}}</span><br>
+
+            <!--<span>{{item.description}}</span>-->
+            <!--<br>
         观看人数：<span>{{item.view}}</span>/人-->
-      </ion-item>
+        </ion-item>
     </ion-list>
     <div *ngIf="pagecontent!=''" style="position: relative;width: 100%;height: 95%;text-align: center;background-color: #FFF;">
         <div [innerHTML]="pagecontent"></div>
         <div style="position: absolute;text-align: center;bottom: 30px;width: 100%;"><button ion-button (click)="clocse()">关闭</button></div>
-      <!-- <button ion-button (click)="recordingViod()">录播课</button> -->
+        <!-- <button ion-button (click)="recordingViod()">录播课</button> -->
     </div>
-    
+
 </ion-content>
