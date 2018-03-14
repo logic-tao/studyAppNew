@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/theming/
 // 用来设置全局变量的CSS
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,10 +13,14 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-.cssClass{
-    .toast-message{
-    background-color:#333;
-    color: #fff;
-    border-radius: 10px;
+.tab1 {
+    background: no-repeat url('assets/icon/icon/content/精讲.png');
+}
+
+.cssClass {
+    .toast-message {
+        background-color: #333;
+        color: #fff;
+        border-radius: 10px;
     }
 }
