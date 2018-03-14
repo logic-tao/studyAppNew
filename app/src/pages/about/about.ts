@@ -163,18 +163,6 @@ getexplainindex(){
                 this.xplainindexData.content[0].children[k].piclink=BASEURLIMG+this.xplainindexData.content[0].children[k].piclink
               }
               this.sortby=this.xplainindexData.content[2].sortby
-              let arrlist = [];
-              let arrlist1 = [];
-              //将课程推荐 分为两个一行
-              let size = Math.ceil((this.xplainindexData.content[2].children.length/2));
-              for (let index = 0; index < size; index++) {
-                  for (let d = 0; d < 2; d++) {
-                    let info = (this.xplainindexData.content[2].children).shift();
-                     arrlist.push(info);
-                  }
-                arrlist1.push(arrlist);
-              } 
-              console.log("分完后查看数据"+JSON.stringify(arrlist1));
               // for (var i = 0; i < this.xplainindexData.content[2].children.length; i++) {
               //   this.xplainindexData.content[2].children[i].icon=BASEURL+this.xplainindexData.content[2].children[i].icon
               // }
