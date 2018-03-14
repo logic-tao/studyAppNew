@@ -191,15 +191,8 @@
                         <p>{{items.created_at}}</p>
                     </ion-col>
                     <ion-col col-3 class="righticon">
-                        <!-- <strong>{{items.score}}/分</strong> -->
-
-                        <div class="ionictop" (click)="pinglun(j,1)">
-                            <img src="assets/icon/zan.png" /> {{items.top}}
-                        </div>
-                        <div class="ionicbotton" (click)="pinglun(j,2)">
-                            <!-- <ion-icon name="arrow-dropdown"></ion-icon> -->
-                            <img src="assets/icon/cai.png" /> {{items.step}}
-                        </div>
+                        <div (click)="pinglun(j,1)"><img src="assets/icon/zan.png" /> {{items.top}}</div>
+                        <div (click)="pinglun(j,2)"><img src="assets/icon/cai.png" /> {{items.step}}</div>
                     </ion-col>
                 </ion-row>
             </ion-list>
