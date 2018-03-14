@@ -36,10 +36,10 @@
             <video #myVideo width="100%" controls>
               <source *ngIf='shipingshuju' src="{{shipingshuju.PlayInfoList.PlayInfo[0].PlayURL}}" type="video/mp4">
             </video>
-            <h2 *ngIf='shipingxiangqing'>{{shipingxiangqing.lession.description}}</h2>
+            <!-- <h2 *ngIf='shipingxiangqing'>{{shipingxiangqing.lession.description}}</h2> -->
              <!--<ion-icon name="star"></ion-icon>-->
             <ion-row >
-                <ion-col col-12>
+                <ion-col col-12 style="text-align: center;">
                   
                   <!-- <ion-icon name="star" class="xinxin" (click)="dafen(1)" [ngClass]="{'xuanzhong': selescore>=1}"></ion-icon>
                   <ion-icon name="star" class="xinxin" (click)="dafen(2)" [ngClass]="{'xuanzhong': selescore>=2}"></ion-icon>

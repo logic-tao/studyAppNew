@@ -42,7 +42,7 @@
     <!-- <div *ngIf="listDetailData.length>0" style="text-align: right;" >
       <span style="color: #3BB5E9;">{{currentIndex+1}}/{{listDetailData.length}}</span> 
     </div> -->
-            <ion-slides #ionSlides autoplay="false"  loop="false" (ionSlideDidChange)="ionSlideDidChange()" pager style="width:100%;    height: 100%;padding: 10px;">
+            <ion-slides #ionSlides autoplay="false"  loop="false" (ionSlideDidChange)="ionSlideDidChange()" pager style="width:100%;padding: 10px;">
               <ion-slide *ngFor="let item of listDetailData;let i=index">
                 <div  *ngIf="item.type==1" >
                   <!--<h1>单选题</h1>
@@ -78,6 +78,7 @@
                 <div  *ngIf="item.type==2" >
                   <!--<h1>填空题</h1>
                                   <br>-->
+                                  <span style="float: left; margin-top: 10px;"> {{currentIndex+1}}、</span>
                                   <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
                    <!--{{listDetailData[i].titleBody}}?-->
                    <br>
@@ -97,6 +98,7 @@
                 <div  *ngIf="item.type==3" >
                   <!--<h1>判断题</h1>
                                   <br>-->
+                                  <span style="float: left; margin-top: 10px;"> {{currentIndex+1}}、</span>
                                   <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
                                   <div style="margin: 10px;">
                                         <div class="selekuang panduan" [ngClass]="{'selectclass':listDetailData[i].useranswer=='1'}"(click)="selectclick(i,'1')">
@@ -123,6 +125,7 @@
                 <div  *ngIf="item.type==4" >
                   <!--<h1>解答题</h1>
                                   <br>-->
+                                  <span style="float: left; margin-top: 10px;"> {{currentIndex+1}}、</span>
                                   <div style="text-align: left;" [innerHTML]="listDetailData[i].titleBody"></div>
                    <!--{{listDetailData[i].titleBody}}?-->
                    <br>
@@ -155,7 +158,7 @@
                 border-top: solid 1px #666;">
                 
                 <div style="display: inline-block;margin: 5px;">
-                  <img src="assets/icon/yuying.png"style="width:40px;height:40px;margin: 10px;" (click)="geiviod()">
+                  <img src="assets/icon/yuying.png"style="width:40px;height:40px;" (click)="geiviod()">
                   <br>
                   <span>语音</span>
                 </div>
