@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <!--<ion-title>{
+    {item.title}}</ion-title>-->
+    <ion-title align="center">练习</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="practice">
+  <img src="assets/icon/huahua.png" height="420" width="700"/><br>
+
+  <ion-icon name="favicon"></ion-icon><br>
+
+<div style="    display: inline-block;    margin: 0px 10px;
+width: 40%;
+text-align: center;
+height: 120px;
+padding-top: 10px;
+line-height: 50px;
+position: relative;
+background-color: #fff;"(click)="openExercise()">
+   <img src="assets/icon/bi.png" style="width: 80px;height: 80px;margin-bottom: -30px;"/>
+   <br>
+<strong>专项练习</strong>
+</div>
+
+<div style="    display: inline-block;    margin: 0px 10px;
+width: 40%;
+text-align: center;
+height: 120px;
+padding-top: 10px;
+line-height: 50px;
+position: relative;
+background-color: #fff;;" (click)="openExam()">
+   <img src="assets/icon/shi.png" style=" width: 80px;height: 80px;margin-bottom: -30px;"/>
+   <br>
+  <strong>综合测试</strong>
+</div>
+
+
+
+
+
+
+
+</ion-content>
+
+
+
+
+
