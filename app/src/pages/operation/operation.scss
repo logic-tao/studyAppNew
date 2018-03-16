@@ -11,6 +11,10 @@ page-operation {
         height: 20px !important;
         margin-left: 20px;
     }
+    .swiper-pagination-bullet-active {
+        background: #4edff6;
+        opacity: 1;
+    }
     .jieda {
         position: fixed;
         top: 0;
