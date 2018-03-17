@@ -1,8 +1,19 @@
 // @import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 page-operation {
-    .selectclass.selekuang {
-        border: solid 1px #31C1FD !important;
-        color: #31C1FD !important;
+    .left_img {
+        height: 65px;
+    }
+    .right_img1 {
+        height: 20px !important;
+        margin-left: 45px;
+    }
+    .right_img2 {
+        height: 20px !important;
+        margin-left: 20px;
+    }
+    .swiper-pagination-bullet-active {
+        background: #4edff6;
+        opacity: 1;
     }
     .jieda {
         position: fixed;
@@ -113,7 +124,7 @@ page-operation {
         text-align: center;
         color: #306ed0;
         font-weight: bold;
-        div{
+        div {
             display: inline-block;
             margin-left: -20px;
             img {

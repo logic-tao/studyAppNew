@@ -24,3 +24,22 @@
         border-radius: 10px;
     }
 }
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('../assets/icon/icon/精讲.png');
+    src: url('../assets/icon/icon/精讲.eot?#iefix') format('embedded-opentype'), url('../assets/icon/icon/精讲.woff') format('woff'), url('../assets/icon/icon/精讲.ttf') format('truetype'), url('../assets/icon/icon/精讲.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.ion-qq:before {
+    content: '\e601'
+}
