@@ -141,11 +141,11 @@
                     <span>{{listDetailData[i].analysis}}</span>
                    </div>
                    
-                   <img *ngIf="base64Image" src="{{base64Image}}">
+                   <img *ngIf="listDetailData[i].base64Image" src="{{listDetailData[i].base64Image}}">
                    
                 </div>
                 <!-- *ngFor="let items of voidlis;let j=index" -->
-                <div  (click)="palay(j)" *ngFor="let items of voidlis;let j=index" style="    background-color: #f8f8f8;
+                <div  (click)="palay(j)" *ngFor="let items of listDetailData[i].voidlis;let j=index" style="    background-color: #f8f8f8;
                 padding: 10px;
                 width: 150px;
                 border-radius: 15px;
