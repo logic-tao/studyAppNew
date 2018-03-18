@@ -40,7 +40,7 @@ export class ContactPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
-    this.http.request('http://47.100.203.126:81/index.php/index/request1/' + this.user)
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/request1/?loginid=' + this.user)
       .subscribe((res: Response) => {
         this.listData = res.json();
 
@@ -60,7 +60,7 @@ export class ContactPage {
   }
   ionViewWillLeave() {
     console.log('ionViewDidLoad RegisterPage');
-    this.http.request('http://47.100.203.126:81/index.php/index/request1/' + this.user)
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/request1/?loginid=' + this.user)
       .subscribe((res: Response) => {
         this.listData = res.json();
         if (this.listData != null) {

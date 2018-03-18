@@ -32,7 +32,7 @@ export class CollectionListPage {
     console.log('ionViewDidLoad ExercisePage');
 
     //进入页面请求知识点
-    this.http.request("http://47.100.203.126:81/index.php/index/request_collect_list/"+this.user+"/" + this.subject)
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/request_collect_list/?id="+this.user+"&kid=" + this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
       });
@@ -48,7 +48,7 @@ export class CollectionListPage {
   //请求不同科目的知识点
   segmentChanged() {
     //console.log(event.value);
-    this.http.request("http://47.100.203.126:81/index.php/index/request_collect_list/"+this.user+"/" + this.subject)
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/request_collect_list/?id="+this.user+"&kid=" + this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
       });

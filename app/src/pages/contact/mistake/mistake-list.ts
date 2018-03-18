@@ -33,7 +33,7 @@ export class MistakeListPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MistakelistPage');
     console.log("科目："+ this.subject);
-    this.http.request("http://47.100.203.126:81/index.php/index/request_record_list/" + this.user + "/" + this.subject)
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/request_record_list/?id=" + this.user + "&cid=" + this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
         console.log(this.listData);

@@ -48,7 +48,7 @@ export class MistakePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MistakePage');
 
-    this.http.request('http://47.100.203.126:81/index.php/index/request_wrong_count/' + this.user)
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/request_wrong_count/?uid=' + this.user)
       .subscribe((res: Response) => {
         for(var i = 0; i < this.subjectindexData.length; i++){
           if(res.json()[this.subjectindexData[i].id]!= undefined) {
