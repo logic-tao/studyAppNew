@@ -81,9 +81,9 @@
             <div class="card-subtitle">{{item.description}}</div>
         </ion-card> -->
         <div style="margin:20px 0 10px 0">
-                <div style="margin:20px 0 10px 0">
-                        <div style=" position: relative;display:inline-block;  width: 40%;margin-left:20px;" (click)="toOperationPage(item.id)" *ngFor="let item of xplainindexData.content[2].children">
-                            <div class="card-subtitle">{{item.description}}</div>
+                <div style="margin:20px 0 10px;text-align: center;">
+                        <div style=" position: relative;display:inline-block;  width: 40%;margin: 8px;" (click)="toOperationPage(item.id)" *ngFor="let item of xplainindexData.content[2].children">
+                            <div class="card-subtitle" style="text-align: center;">{{item.description}}</div>
                             <img src="{{item.icon}}" style="height:100px;    width: 145px;" />
                         </div>
                     </div> 
