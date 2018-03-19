@@ -164,16 +164,11 @@ SlidingDirection(sdfs){
   }
   palay(i){
     // this.appComponent.presentToast(this.voidlis[i].localURL); 
-    const file: MediaObject = this.media.create(this.voidlis[i].localURL);
-    
+    const file: MediaObject = this.media.create(this.listDetailData[this.currentIndex].voidlis[i].localURL);
     // to listen to plugin events:
-    
     file.onStatusUpdate.subscribe(status => console.log(status)); // fires when file status changes
-    
     file.onSuccess.subscribe(() => console.log('Action is successful'));
-    
     file.onError.subscribe(error => console.log('Error!', error));
-    
     // play the file
     file.play();
     }
@@ -222,7 +217,7 @@ SlidingDirection(sdfs){
 var captureSuccess = (mediaFiles)=>{
   console.log('captureSuccess')
   console.log(mediaFiles)
-  this.voidlis=mediaFiles;
+  this.listDetailData[this.currentIndex].voidlis=mediaFiles;
   for (var i = 0; i < this.voidlis.length; i++) {
     console.log('mediaFiles')
     console.log(this.voidlis[i])
@@ -435,10 +430,11 @@ getpagedata(id){
                       this.latenum=this.listDetailData.length-1
                       console.log(this.listDetailData)
                       for (var i = 0; i < this.listDetailData.length; i++) {
-                        // this.listDetailData[i].is_collect='1'
-                        this.listDetailData[i].showanswer=false
-                        this.listDetailData[i].useranswer=''
-                        this.listDetailData[i].jieguo=0//0 未解答 1已解答 2 正确 3 错误 
+                        // this.listDetailData[i].is_collect='1';
+                        this.listDetailData[i].showanswer=false;
+                        this.listDetailData[i].useranswer='';
+                        this.listDetailData[i].jieguo=0;//0 未解答 1已解答 2 正确 3 错误
+                        this.listDetailData[i].voidlis=[]
                       }
 
                        this.cd.detectChanges();//刷新数据
@@ -522,7 +518,7 @@ shuaxing(){
       data.response=JSON.parse(data.response)
       console.log(data)
       if(data.response['code']=200){
-        this.base64Image = data.response['data']['img_url'];
+        this.listDetailData[this.currentIndex].base64Image = data.response['data']['img_url'];
         console.log('base64Image:'+this.base64Image)
         this.cd.detectChanges();
       }

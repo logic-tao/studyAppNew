@@ -32,7 +32,7 @@ export class ApplyClassPage {
   }
 
   join() {
-    this.http.request('http://47.100.203.126:81/index.php/index/request66/' + this.login_id + '/' + this.ban)
+    this.http.request('http://47.100.203.126:81/index.php/demo/index/request66/?stuid=' + this.login_id + '&claid=' + this.ban)
       .subscribe((res: Response) => {
         this.listData = res.json();
 

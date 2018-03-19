@@ -42,7 +42,7 @@ export class MistakeDetailPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MistakeDetailPage');
     console.log(this.cid);
-    this.http.request("http://47.100.203.126:81/index.php/index/request_wrong_test/"+this.user+"/" + this.cid)
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/request_wrong_test/?uid="+this.user+"&skid=" + this.cid)
       .subscribe((res: Response) => {
         this.test = res.json();
         console.log(this.test);

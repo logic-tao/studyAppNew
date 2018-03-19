@@ -40,7 +40,7 @@ export class CollectionTestPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MistakeDetailPage');
-    this.http.request("http://47.100.203.126:81/index.php/index/request_collect_test/"+this.user+"/" + this.cid)
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/request_collect_list/?id="+this.user+"&kid=" + this.cid)
       .subscribe((res: Response) => {
         this.test = res.json();
         console.log(this.test);

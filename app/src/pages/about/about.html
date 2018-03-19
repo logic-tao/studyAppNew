@@ -9,7 +9,7 @@
         </ion-searchbar>
     </ion-navbar> -->
     <div>
-        <ion-searchbar (ionInput)="getItems($event)" placeholder="搜索老师/课程">
+        <ion-searchbar (ionInput)="getItems($event)" [(ngModel)]="inpustring"  placeholder="搜索老师/课程">
         </ion-searchbar>
     </div>
     <ion-list *ngIf="inpustring!=''">
@@ -82,7 +82,8 @@
         </ion-card> -->
         <div style="margin:20px 0 10px 0">
                 <div style="margin:20px 0 10px 0">
-                        <div style=" display:inline-block;  width: 40%;margin-left:20px;" (click)="toOperationPage(item.id)" *ngFor="let item of xplainindexData.content[2].children">
+                        <div style=" position: relative;display:inline-block;  width: 40%;margin-left:20px;" (click)="toOperationPage(item.id)" *ngFor="let item of xplainindexData.content[2].children">
+                            <div class="card-subtitle">{{item.description}}</div>
                             <img src="{{item.icon}}" style="height:100px;    width: 145px;" />
                         </div>
                     </div> 

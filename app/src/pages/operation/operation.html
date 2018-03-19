@@ -172,13 +172,15 @@
                     <ion-list no-border no-lines>
                         <div *ngFor="let items of pinglunAr;let j=index" style="    height: 150px;    background-color: white;
                                 margin-bottom: 5px;">
+                            <div style="display:inline-block">
+                                <img src="assets/icon/gouxiang.png" class="left_img">
+                            </div>
 
-                            <img src="assets/icon/gouxiang.png" class="left_img">
-                            <div style="display:inline-block;margin-top: 10px; margin-left: 15px;">
+                            <div style="display:inline-block;margin-top: 10px; margin-left: 15px;    width: 70%;">
                                 <span>{{items.sname}}</span>
                                 <img src="assets/icon/zan.png" (click)="pinglun(j,1)" class="right_img1" /> {{items.top}}
                                 <img src="assets/icon/cai.png" (click)="pinglun(j,2)" class="right_img2" /> {{items.step}}
-                                <p style="margin: 0 auto;">{{items.created_at}}</p>
+                                <p>{{items.created_at}}</p>
                                 <p>{{items.detail}}</p>
 
                             </div>

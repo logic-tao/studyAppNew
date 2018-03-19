@@ -47,7 +47,7 @@ export class ExercisePage {
     console.log('ionViewDidLoad ExercisePage');
     let part = this;
     //进入页面请求知识点
-    this.http.request("http://47.100.203.126:81/index.php/index/request_record_list/"+this.user+"/" + this.subject)
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/request_record_list/?id="+this.user+"&cid=" + this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
         this.listData.forEach(function (e) {
@@ -68,7 +68,7 @@ export class ExercisePage {
   segmentChanged() {
     //console.log(event.value);
     let part = this;
-    this.http.request("http://47.100.203.126:81/index.php/index/request_record_list/"+this.user+"/" + this.subject)
+    this.http.request("http://47.100.203.126:81/index.php/demo/index/request_record_list/?id="+this.user+"&cid=" + this.subject)
       .subscribe((res: Response) => {
         this.listData = res.json();
         part.listD1 = []

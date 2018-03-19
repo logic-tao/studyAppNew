@@ -62,6 +62,7 @@ gousoucho(){
   search(){
     
     this.app.getRootNav().push('VideolistPage',{inpustring:this.inpustring});
+    this.inpustring=''
   }
   clocse(){
     this.pagecontent=''
@@ -108,7 +109,7 @@ gousoucho(){
         
          //页面离开时停止自动播放  
         
-      ionViewDidLeave(){   
+      ionViewDidLeave(){ 
            this.slides.stopAutoplay();  
        }  
        toOperationPage(num){

@@ -5,11 +5,15 @@ page-operation {
     }
     .right_img1 {
         height: 20px !important;
-        margin-left: 110px;
+        margin-left: 45px;
     }
     .right_img2 {
         height: 20px !important;
         margin-left: 20px;
+    }
+    .swiper-pagination-bullet-active {
+        background: #4edff6;
+        opacity: 1;
     }
     .jieda {
         position: fixed;
