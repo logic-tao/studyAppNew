@@ -4,7 +4,7 @@
       录播课
     </ion-title>
   </ion-navbar>
-    <ion-toolbar no-border-top>
+  <ion-toolbar no-border-top>
     <!-- <ion-segment [(ngModel)]="segmentModel" *ngIf="topData">
       <ion-segment-button value="{{item.id}}" *ngFor="let item of topData;let i=index;" (click)="selecttab(i)">
         {{item.subject_name}}
@@ -33,7 +33,7 @@
     <ion-option value="f">一元二次方程</ion-option>
     <ion-option value="m">三元五次方程</ion-option>
   </ion-select>-->
-  <ion-row style="background-color: #F8F8F8;">
+  <ion-row style="background-color: #F8F8F8;    border-bottom: solid 1px #666;">
     <ion-col col-6>
       <div  *ngIf="vidoaarrData.knowledege">
         <ion-select style="max-width: 100%;" item-right interface="popover" [(ngModel)]="selecNUM" (ngModelChange)="onSelectChange($event)">
@@ -58,7 +58,7 @@
 <ion-content (swipe)="swipeEvent($event)" style="margin-top: 25px;background-color: #F6F5F5; padding: 40px;">
 
   <div *ngIf="vidoaarrData.lessions">
-    <ion-list>
+    <ion-list style="margin-top: 15px;">
       <ion-item (click)="toOperationPage(item.id)" *ngFor="let item of vidoaarrData.lessions;let i=index;" style="border-radius: 5px;">
         <ion-thumbnail item-left>
           <img src="{{item.icon}}">
