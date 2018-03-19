@@ -12,9 +12,9 @@
 
 </ion-header>
 
-<ion-content padding style="width:100%">
+<ion-content padding style="width:100%;    background-color: #F5F4F4;" >
     <div>
-        <ion-segment [(ngModel)]="selectnum" style="width:100%">
+        <ion-segment [(ngModel)]="selectnum" style="width:100%" style="    background-color: #fff;">
             <ion-segment-button value="0">
                 视频学习
             </ion-segment-button>
@@ -75,7 +75,7 @@
             </div>
             <div *ngSwitchCase="'2'">
                 <!-- <p>同步练习:</p> -->
-                <ion-slides #ionSlides *ngIf="shipinglianxi" autoplay="false" loop="false" (ionSlideDidChange)="ionSlideDidChange()" pager style="width:100%;height:auto">
+                <ion-slides #ionSlides *ngIf="shipinglianxi" autoplay="false" loop="false" (ionSlideDidChange)="ionSlideDidChange()" pager style="width:100%;height:auto;    margin-top: 15px;">
                     <ion-slide *ngFor="let item of shipinglianxi;let i=index">
                         <div *ngIf="item.type==1">
                             <!--<h1>单选题</h1>
@@ -167,7 +167,7 @@
                 </ion-slides>
             </div>
             <div *ngSwitchCase="'3'" style="width:100%">
-                <div style="background-color: #b6b6b6">
+                <div style="background-color: #F5F4F4;margin-top: 15px;">
                     <!--此处为用户评论-->
                     <ion-list no-border no-lines>
                         <div *ngFor="let items of pinglunAr;let j=index" style="    height: 150px;    background-color: white;
