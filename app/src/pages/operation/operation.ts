@@ -526,7 +526,7 @@ tapelessionpushcomment(){
          this.appService.tapelessionpushcomment(servedata).then(
            res => {
              // alert('正确')
-             
+             this.pingjianeirong='';
              console.log('tapelessionpushcomment成功')
              if(res.code==200){
               this.appComponent.presentToast('评价成功!');

@@ -38,7 +38,7 @@
                 </div>
           </ion-col>
         </ion-row>
-        <strong *ngIf="img_data.length">页面无数据</strong>
+        <strong *ngIf="img_data.length==0">页面无数据</strong>
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
       <!-- <ion-infinite-scroll-content loadingSpinner="circles" loadingText="正在加载...">
       </ion-infinite-scroll-content> -->
