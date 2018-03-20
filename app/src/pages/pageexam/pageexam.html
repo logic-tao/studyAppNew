@@ -1,41 +1,50 @@
 
 <ion-header>
-  
-    <ion-navbar hideBackButton="true">
-        <ion-icon name="arrow-back" style="font-size: 30px;padding: 5px 15px;float: left;margin-left: 1rem;"(click)="backclck()"></ion-icon> 
-      <ion-title style="text-align: center;">
 
-        <span *ngIf="listDetailData.length>0&&listDetailData[0].subjectKind==1">语文</span>
-        <span *ngIf="listDetailData.length>0&&listDetailData[0].subjectKind==2">数学</span>
-        <span *ngIf="listDetailData.length>0&&listDetailData[0].subjectKind==3">英语</span>
-  
-        <!-- <button (click)="add()"> -->
-          
-          
-          
-        <!-- </button> -->
-        <img *ngIf="!daantanchuang&&listDetailData.length>0&&listDetailData[currentIndex].is_collect=='1'" src="assets/icon/shoucang.png" height="18" width="18" style="float: right;margin-top: 12px;" (click)="cleanadd()">
-        <img *ngIf="!daantanchuang&&listDetailData.length>0&&listDetailData[currentIndex].is_collect=='0'" src="assets/icon/weishoucang.png" height="18" width="18" style="float: right;margin-top: 12px;" (click)="add()">
-      </ion-title>
-    </ion-navbar>
-  
-  
-  </ion-header>
+  <ion-navbar hideBackButton="true">
+    <ion-icon name="arrow-back" style="font-size: 30px;padding: 5px 15px;float: left;margin-left: 1rem;" (click)="backclck()"></ion-icon>
+    <ion-title style="text-align: center;">
+
+      <span>{{navParams.data.subjectstitle}}</span>
+
+      <!-- <button (click)="add()"> -->
+
+
+
+      <!-- </button> -->
+      <img *ngIf="!daantanchuang&&listDetailData.length>0&&listDetailData[currentIndex].is_collect=='1'" src="assets/icon/shoucang.png" height="18" width="18" style="position: absolute;right: 2rem;top: 1rem;" (click)="cleanadd()">
+      <img *ngIf="!daantanchuang&&listDetailData.length>0&&listDetailData[currentIndex].is_collect=='0'" src="assets/icon/weishoucang.png" height="18" width="18" style="position: absolute;right: 2rem;top: 1rem;" (click)="add()">
+    </ion-title>
+  </ion-navbar>
+
+
+</ion-header>
   <ion-content>
                 <ion-row style="background-color: #f8f8f8;height: 50px;line-height: 50px;">
                 <ion-col col-4 style="padding-left: 15px;">
-                  <span *ngIf="navParams.data.type==1" style="float: left;">练习</span>
-                  <span *ngIf="navParams.data.type==2" style="float: left;">真题</span>
+
+
+                  <span *ngIf="navParams.data.type==1" style="float: left;font-size: 20px;
+                    width: 150px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;">专项</span>
+                  <span *ngIf="navParams.data.type==2" style="float: left;font-size: 20px;
+                    width: 150px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;">真题</span>
+
                 </ion-col>
                 <ion-col col-4 style="text-align: center;">
                   <span *ngIf="navParams.data.type==2">剩余：{{m}}：{{s}}</span>
                 </ion-col>
                 <ion-col col-4 style="text-align: right;padding-right: 15px;">
-                   <span style="color: #2373cf;">{{currentIndex+1}}/{{listDetailData.length}}</span>
+                   <span style="color: #3BB5E9;">{{currentIndex+1}}/{{listDetailData.length}}</span>
                 </ion-col>
             </ion-row>
     <!-- <div *ngIf="listDetailData.length>0" style="text-align: right;" >
-      <span style="color: #2373cf;">{{currentIndex+1}}/{{listDetailData.length}}</span> 
+      <span style="color: #2373cf;">{{currentIndex+1}}/{{listDetailData.length}}</span>
     </div> -->
             <ion-slides #ionSlides autoplay="false"  loop="false" (ionSlideDidChange)="ionSlideDidChange()" pager style="width:100%;height:auto;padding: 10px;">
               <ion-slide *ngFor="let item of listDetailData;let i=index">
@@ -44,18 +53,19 @@
                   题目：
                   <br>-->
                   <!--<div style="text-align: center;">-->
+                  <span style="float: left; margin-top: 10px;"> {{currentIndex+1}}、</span>
 
-                      <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
-                       
+                  <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
+
                   <!--</div>-->
-                  
-                   
+
+
                    <br>
                    <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='A'}"(click)="selectclick(i,'A')"><button>A</button><div [innerHTML]="listDetailData[i].A" class="selecdiv"></div></div>
                    <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='B'}"(click)="selectclick(i,'B')"><button>B</button><div [innerHTML]="listDetailData[i].B" class="selecdiv"></div></div>
                    <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='C'}"(click)="selectclick(i,'C')"><button>C</button><div [innerHTML]="listDetailData[i].C" class="selecdiv"></div></div>
                    <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='D'}"(click)="selectclick(i,'D')"><button>D</button><div [innerHTML]="listDetailData[i].D" class="selecdiv"></div></div>
-                   
+
                    <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
                       <span>答案：</span>
                       <br>
@@ -66,13 +76,15 @@
                       <br>
                     <span>{{listDetailData[i].analysis}}</span>
                    </div>
-                   
+
                   <br>
                 </div>
                 <div  *ngIf="item.type==2" >
                   <!--<h1>填空题</h1>
                                   <br>-->
-                                  <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
+                  <!--<div style="text-align: center;">-->
+                  <span style="float: left; margin-top: 10px;"> {{currentIndex+1}}、</span>
+                  <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
                    <!--{{listDetailData[i].titleBody}}?-->
                    <br>
                    <ion-input style="border: solid 1px #aeaeae;height: 35px;border-radius: 10px;" color="danger" placeholder="请输入..." clearOnEdit="true" [(ngModel)]='listDetailData[i].useranswer' (ionInput)="tiankong()"></ion-input>
@@ -86,18 +98,20 @@
                       <br>
                     <span>{{listDetailData[i].analysis}}</span>
                    </div>
-                   
+
                 </div>
                 <div  *ngIf="item.type==3" >
                   <!--<h1>判断题</h1>
                                   <br>-->
-                                  <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
+                  <!--<div style="text-align: center;">-->
+                                 <span style="float: left; margin-top: 10px;"> {{currentIndex+1}}、</span>
+                                 <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
                                   <div style="margin: 10px;">
                                         <div class="selekuang panduan" [ngClass]="{'selectclass':listDetailData[i].useranswer=='1'}"(click)="selectclick(i,'1')">
                                         <ion-icon name="ios-checkmark-circle"></ion-icon>
                                         <span style="margin-left: 20px;">正确</span>
                                       </div>
-                                      <div class="selekuang panduan" [ngClass]="{'selectclass':listDetailData[i].useranswer=='0'}"(click)="selectclick(i,'0')">  
+                                      <div class="selekuang panduan" [ngClass]="{'selectclass':listDetailData[i].useranswer=='0'}"(click)="selectclick(i,'0')">
                                         <ion-icon name="ios-close-circle"></ion-icon>
                                         <span style="margin-left: 20px;">错误</span>
                                       </div>
@@ -112,11 +126,13 @@
                                       <br>
                                     <span>{{listDetailData[i].analysis}}</span>
                                    </div>
-                   
+
                 </div>
                 <div  *ngIf="item.type==4" >
                   <!--<h1>解答题</h1>
                                   <br>-->
+                  <!--<div style="text-align: center;">-->
+                                  <span style="float: left; margin-top: 10px;"> {{currentIndex+1}}、</span>
                                   <div style="text-align: left;" [innerHTML]="listDetailData[i].titleBody"></div>
                    <!--{{listDetailData[i].titleBody}}?-->
                    <br>
@@ -131,9 +147,11 @@
                       <br>
                     <span>{{listDetailData[i].analysis}}</span>
                    </div>
-                   
-                   <img *ngIf="base64Image" src="{{base64Image}}">
-                   
+
+
+
+                  <img *ngIf="base64Image" src="{{base64Image}}">
+
                 </div>
                 <!-- *ngFor="let items of voidlis;let j=index" -->
                 <div  (click)="palay(j)" *ngFor="let items of voidlis;let j=index" style="    background-color: #f8f8f8;
@@ -157,29 +175,29 @@
                   播放
                 </button> -->
                 <div>
-                  <button *ngIf="currentIndex!=0" ion-button (click)="shangSubject(i)">
+                  <button *ngIf="currentIndex!=0" ion-button (click)="shangSubject(i)" style="background-color:#3BB5E9 ">
                     上一题
                   </button>
-                  <button *ngIf="currentIndex!=latenum"  ion-button (click)="nextSubject(i)">
+                  <button *ngIf="currentIndex!=latenum"  ion-button (click)="nextSubject(i)" style="background-color:#3BB5E9 " >
                     下一题
                   </button>
-                  <button *ngIf="currentIndex==latenum&&navParams.data.type==1"  ion-button (click)="fanhui()">
+                  <button *ngIf="currentIndex==latenum&&navParams.data.type==1"  ion-button (click)="fanhui()" style="background-color:#3BB5E9 ">
                   返回列表
                   </button>
-                  <button *ngIf="navParams.data.type==1&&currentIndex==latenum&&nolista"  ion-button (click)="netxtext()">
+                  <button *ngIf="navParams.data.type==1&&currentIndex==latenum&&nolista"  ion-button (click)="netxtext()" style="background-color:#3BB5E9 ">
                     下一轮练习
                   </button>
-                  <button *ngIf="navParams.data.type==2&&!issubitbutton"  ion-button (click)="tijiaoSubject()">
-                    提交 
+                  <button *ngIf="navParams.data.type==2&&!issubitbutton"  ion-button (click)="tijiaoSubject()" style="background-color:#3BB5E9 ">
+                    提 交
                   </button>
-                   <button *ngIf="issubitbutton"  ion-button (click)="jieguoSubject()">
-                    显示结果 
+                   <button *ngIf="issubitbutton"  ion-button (click)="jieguoSubject()" style="background-color:#3BB5E9 ">
+                    显示结果
                   </button>
                 </div>
 
               </ion-slide>
-          
-            
+
+
             </ion-slides>
             <p *ngIf="listDetailData.length==0">无数据</p>
 
@@ -189,37 +207,37 @@
   </ion-content>
   <div class="jieda" *ngIf="daantanchuang">
   <div>
-  <!--  
+  <!--
     <span class="biaoji zhengque">正确</span>,
     <span class="biaoji cuowu">错误</span>
     <br>
     <br>
     已完成：{{yiwanc}} 未完成：{{weiwanc}}-->
       <div style="padding: 0px 25px;font-size: 18px;"><strong>真题</strong><span style="float: right;">总计:{{listDetailData.length}}题</span></div>
-      <div class="Bars" style="border: 1px solid #2373cf;"> 
-        <button class="textbutton" style="border: 1px solid #2373cf;">正确</button>
-          <div style="background:#2373cf;" [ngStyle]="zehgnquesty" > 
-          </div> 
-          <span class="counttext">{{zehgnque}}题</span>
-      </div> 
-          <div class="Bars" style="border: 1px solid #F96067;"> 
-            <button class="textbutton" style="border: 1px solid #F96067;">错误</button>
-          <div style="background:#F96067;" [ngStyle]="cuowusty"> 
-          </div> 
-          <span class="counttext">{{cuowu}}题</span>
-      </div> 
-          <div class="Bars" style="border: 1px solid #2373cf;"> 
-            <button class="textbutton" style="border: 1px solid #2373cf;">未做</button>
-          <div style="background:#2373cf;" [ngStyle]="weiwancsty"> 
-          </div> 
-          <span class="counttext">{{weiwanc}}题</span>
-      </div> 
-          <div class="Bars" style="border: 1px solid #2373cf;"> 
-            <button class="textbutton" style="border: 1px solid #2373cf;">其它</button>
-          <div style="background:#2373cf;" [ngStyle]="qitasty"> 
+      <div class="Bars" style="border: 1px solid #2373cf;">
+        <button class="textbutton" style="border: 1px solid #3BB5E9;">正确</button>
+          <div style="background:#3BB5E9;" [ngStyle]="zehgnquesty" >
           </div>
-          <span class="counttext">{{qita}}题</span> 
-      </div> 
+          <span class="counttext">{{zehgnque}}题</span>
+      </div>
+          <div class="Bars" style="border: 1px solid #F96067;">
+            <button class="textbutton" style="border: 1px solid #F96067;">错误</button>
+          <div style="background:#F96067;" [ngStyle]="cuowusty">
+          </div>
+          <span class="counttext">{{cuowu}}题</span>
+      </div>
+          <div class="Bars" style="border: 1px solid #2373cf;">
+            <button class="textbutton" style="border: 1px solid #C0C0C0 ;">未做</button>
+          <div style="background:#C0C0C0 ;" [ngStyle]="weiwancsty">
+          </div>
+          <span class="counttext">{{weiwanc}}题</span>
+      </div>
+          <div class="Bars" style="border: 1px solid #2373cf;">
+            <button class="textbutton" style="border: 1px solid #2373cf ;">其它</button>
+          <div  style="background:#C0C0C0 ;"  [ngStyle]="qitasty">
+          </div>
+          <span class="counttext">{{qita}}题</span>
+      </div>
           <ion-row>
         <ion-col>
           <ion-icon name="clock"></ion-icon>剩余时间：{{m}}：{{s}}
@@ -230,14 +248,14 @@
       </ion-row>
        <p>得分：{{defeng}}</p>
     <br>
-   
+
     </div>
+
     <div style="width: 100%;height: 100%;background-color: #F9F9F9;overflow: auto;">
     <ion-row>
       <ion-col col-3 *ngFor="let items of listDetailData;let j=index" (click)="tozuotijieshi(j)">
-        <button style="color: #fff;" [ngClass]="{'qitadaan':listDetailData[j].jieguo==4,'weijieda':listDetailData[j].jieguo==0,'yiweijieda':listDetailData[j].jieguo==1,'zhengque':listDetailData[j].jieguo==2,'cuowu':listDetailData[j].jieguo==3}">{{j+1}}</button>        
+        <button style="color: #fff;" [ngClass]="{'qitadaan':listDetailData[j].jieguo==4,'weijieda':listDetailData[j].jieguo==0,'yiweijieda':listDetailData[j].jieguo==1,'zhengque':listDetailData[j].jieguo==2,'cuowu':listDetailData[j].jieguo==3}">{{j+1}}</button>
       </ion-col>
     </ion-row>
     </div>
   </div>
-  
