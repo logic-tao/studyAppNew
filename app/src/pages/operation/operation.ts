@@ -309,8 +309,11 @@ ionSlideDidChange(){
  console.log('Current index is', this.currentIndex);
  
 }
+hidejieda(){
+  this.daantanchuang=false
+}
 getRandom(){
-  let max=5;
+  let max=11;
   let min=0;
   var r = Math.random() * (max - min);
   var re = Math.round(r + min);
@@ -335,7 +338,13 @@ tapelessioncorrectrate(){//统计表数据
             'rgba(255, 206, 86, 0.2)',
             'rgba(75, 192, 192, 0.2)',
             'rgba(153, 102, 255, 0.2)',
-            'rgba(255, 159, 64, 0.2)'
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(155, 99, 132, 0.2)',
+            'rgba(154, 162, 235, 0.2)',
+            'rgba(155, 206, 86, 0.2)',
+            'rgba(175, 192, 192, 0.2)',
+            'rgba(53, 102, 255, 0.2)',
+            'rgba(155, 159, 64, 0.2)'
           ];
           let borderColorArr= [
             'rgba(255,99,132,1)',
@@ -343,7 +352,13 @@ tapelessioncorrectrate(){//统计表数据
             'rgba(255, 206, 86, 1)',
             'rgba(75, 192, 192, 1)',
             'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)'
+            'rgba(255, 159, 64, 1)',
+            'rgba(155,99,132,1)',
+            'rgba(154, 162, 235, 1)',
+            'rgba(155, 206, 86, 1)',
+            'rgba(175, 192, 192, 1)',
+            'rgba(53, 102, 255, 1)',
+            'rgba(155, 159, 64, 1)'
           ];
           let setnum=0;
           let xstring='';

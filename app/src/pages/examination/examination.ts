@@ -25,19 +25,34 @@ pagecontent:any=''
       let servedata={}
       this.appService.indexguide(servedata).then(
       res => {
-        console.log('indexguide')
-        console.log(res)
+
         this.serveData=res.content
         
-                            for (var i = 0; i < this.serveData.length; i++) {
-            this.serveData[i].icon=BASEURLIMG+this.serveData[i].icon
+          for (var i = 0; i < this.serveData.length; i++) {
+            let oldday= new Date(parseInt(this.serveData[i].created_at))
+            let nowTime = new Date();
+            this.serveData[i].icon=BASEURLIMG+this.serveData[i].icon;
+            this.serveData[i].created_at=this.datedifference(oldday,nowTime)
           }
+          console.log('indexguide')
+          console.log(this.serveData)
       },
       error=>{
         // alert('错误')
         console.log(error)
       })
   }
+  datedifference(sDate1, sDate2) {    //sDate1和sDate2是2006-12-18格式
+    var dateSpan,
+        tempDate,
+        iDays;
+    sDate1 = Date.parse(sDate1);
+    sDate2 = Date.parse(sDate2);
+    dateSpan = sDate2 - sDate1;
+    dateSpan = Math.abs(dateSpan);
+    iDays = Math.floor(dateSpan / (24 * 3600 * 1000));
+    return iDays
+};
   clocse(){
     this.pagecontent=''
   }

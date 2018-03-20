@@ -158,7 +158,7 @@
                               <button  ion-button (click)="nextSubject(i)">
                                 下一题
                               </button>-->
-                        <button *ngIf="i==4" ion-button (click)="tijiaoSubject()" style="background-color: #4edff6 !important; width: calc( 100% / 2 );height:25px;">
+                        <button *ngIf="i==4" ion-button (click)="tijiaoSubject()" style="margin-bottom: 15%;;background-color: #4edff6 !important; width: calc( 100% / 2 );height:25px;">
                                 提交 
                               </button>
                         <button *ngIf="subjecjieguo" (click)="showpop()" ion-button>显示</button>
@@ -172,8 +172,8 @@
                     <ion-list no-border no-lines>
                         <div *ngFor="let items of pinglunAr;let j=index" style="    height: 150px;    background-color: white;
                                 margin-bottom: 5px;">
-                            <div style="display:inline-block">
-                                <img src="assets/icon/gouxiang.png" class="left_img">
+                            <!-- <div style="display:inline-block">
+                                
                             </div>
 
                             <div style="display:inline-block;margin-top: 10px; margin-left: 15px;    width: 70%;">
@@ -183,8 +183,21 @@
                                 <p>{{items.created_at}}</p>
                                 <p>{{items.detail}}</p>
 
-                            </div>
-
+                            </div> -->
+                            <ion-row>
+                                <ion-col col-2>
+                                    <img src="assets/icon/gouxiang.png" class="left_img">
+                                </ion-col>
+                                <ion-col col-8>
+                                    <span>{{items.sname}}</span>
+                                    <img src="assets/icon/zan.png" (click)="pinglun(j,1)" class="right_img1" /> {{items.top}}
+                                    <img src="assets/icon/cai.png" (click)="pinglun(j,2)" class="right_img2" /> {{items.step}}
+                                    <p>{{items.created_at}}</p>
+                                    <p style="overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;">{{items.detail}}</p>
+                                </ion-col>
+                              </ion-row>
                             <!-- <strong>{{items.score}}/分</strong> -->
 
                             <!-- <div class="ionictop">
@@ -213,21 +226,28 @@
         </div>-->
 </ion-content>
 <div class="jieda" *ngIf="daantanchuang">
-    <div>
-        <span class="biaoji zhengque">正确</span>,
-        <span class="biaoji cuowu">错误</span>
-        <br>
-        <br> 已完成：{{yiwanc}} 未完成：{{weiwanc}}</div>
-    <!-- <button *ngFor="let items of shipinglianxi;let j=index" (click)="tozuotijieshi(j)" [ngClass]="{'weijieda':shipinglianxi[j].jieguo==0,'yiweijieda':shipinglianxi[j].jieguo==1,'zhengque':shipinglianxi[j].jieguo==2,'cuowu':shipinglianxi[j].jieguo==3}">{{j+1}}</button> -->
-    <ion-row>
-        <ion-col col-3 *ngFor="let items of shipinglianxi;let j=index" (click)="tozuotijieshi(j)">
-            <button [ngClass]="{'weijieda':shipinglianxi[j].jieguo==0,'yiweijieda':shipinglianxi[j].jieguo==1,'zhengque':shipinglianxi[j].jieguo==2,'cuowu':shipinglianxi[j].jieguo==3}">{{j+1}}</button>
-        </ion-col>
-    </ion-row>
-    <div padding-vertical>
-        <canvas #chartBar height="200"></canvas>
+    <div style="padding: 15px;border-bottom: solid 1px #7f7f7f;">
+            <ion-icon name="arrow-back" style="font-size: 30px;padding: 0px 15px;" (click)="hidejieda()"></ion-icon>
+        <strong style="font-size: 30px;">每道题正确率</strong>
     </div>
-    <br/>
+    <div style="padding: 15px;">
+            <div>
+                    <span class="biaoji zhengque">正确</span>,
+                    <span class="biaoji cuowu">错误</span>
+                    <br>
+                    <br> 已完成：{{yiwanc}} 未完成：{{weiwanc}}</div>
+                <!-- <button *ngFor="let items of shipinglianxi;let j=index" (click)="tozuotijieshi(j)" [ngClass]="{'weijieda':shipinglianxi[j].jieguo==0,'yiweijieda':shipinglianxi[j].jieguo==1,'zhengque':shipinglianxi[j].jieguo==2,'cuowu':shipinglianxi[j].jieguo==3}">{{j+1}}</button> -->
+                <ion-row>
+                    <ion-col col-3 *ngFor="let items of shipinglianxi;let j=index" (click)="tozuotijieshi(j)">
+                        <button [ngClass]="{'weijieda':shipinglianxi[j].jieguo==0,'yiweijieda':shipinglianxi[j].jieguo==1,'zhengque':shipinglianxi[j].jieguo==2,'cuowu':shipinglianxi[j].jieguo==3}">{{j+1}}</button>
+                    </ion-col>
+                </ion-row>
+                <div padding-vertical>
+                    <canvas #chartBar height="200"></canvas>
+                </div>
+                <br/>
+    </div>
+
 </div>
 <div class="zuoti" *ngIf="beginzuoti">
     <div class="title">
