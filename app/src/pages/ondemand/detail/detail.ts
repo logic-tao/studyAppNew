@@ -3,10 +3,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-ondemand',
-  templateUrl: 'ondemand.html',
+  selector: 'page-detail',
+  templateUrl: 'detail.html',
 })
-export class OndemandPage {
+export class DetailPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

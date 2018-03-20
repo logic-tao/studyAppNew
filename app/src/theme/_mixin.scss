@@ -1,0 +1,11 @@
+@charset 'UTF-8';
+
+
+@mixin flex($flex-horizontal:flex-start, $flex-vertical:center, $flex-direction:row, $flex-modal:flex, $flex-wrap: nowrap) {
+  // flex
+  display: $flex-modal;
+  justify-content: $flex-horizontal;
+  align-items: $flex-vertical;
+  flex-wrap: $flex-wrap;
+  flex-direction: $flex-direction;
+}

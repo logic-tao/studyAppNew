@@ -3,10 +3,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-ondemand',
-  templateUrl: 'ondemand.html',
+  selector: 'page-watch-live',
+  templateUrl: 'watch-live.html',
 })
-export class OndemandPage {
+export class WatchLivePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

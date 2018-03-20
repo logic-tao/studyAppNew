@@ -1,3 +1,75 @@
 page-ondemand {
+    .header{
+        width: 100%;
+        @include flex(center, center);
+        // position: relative;
+        .select {
+            position: absolute;
+            right: 0;
+            background-color: transparent;
+          .select-text{
+              overflow: auto;
+              min-width: 0;
+          }
+          .item-md{
+            background-color: transparent;
+        }
+        .select-md {
+          padding: 0;
+          padding-right: 10px;
+        } 
+        }
+    }
 
+
+  // 搜索
+  .search{
+      border-bottom: 1px solid #ccc;
+      background:#fff;
+    .search-bar {
+        width: 100%;
+        background: #f3f3f3;
+        border-radius: 15px;
+        padding:0 5px ;
+        @include flex(start, center);
+        input {
+          color: #999;
+          padding: 10px 8px;
+          background: transparent;
+          border: none;
+        } 
+        img{
+            width: 25px;
+            height: 25px;
+        }
+      }
+  }
+
+  .list-md{
+      margin: 0;
+  }
+  .card-md,.card-ios {
+    margin: 0;
+    padding: 0 0 5px 0;
+    width: 100%;
+    p{
+        font-size: 13px;
+        &.bottom{
+            color: #999;
+            margin-top: 10px;
+        }
+    }
+  }
+  .card-title-md,.card-title-ios {
+    font-size: 18px;
+    width: 100%;
+    padding: 8px 0 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .card-content-md,.card-content-ios {
+    padding: 0 10px;
+    
+  }
 }

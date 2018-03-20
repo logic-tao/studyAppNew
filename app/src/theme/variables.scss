@@ -8,6 +8,7 @@ $font-path: "../assets/fonts";
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
 @import "ionic.globals";
+@import "./_mixin";
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override

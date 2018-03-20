@@ -1,0 +1,40 @@
+page-detail {
+    .header{
+
+    }
+    .content{
+        .wrap{
+            margin: 20px 0;
+            background: #fff;
+            .top{
+                padding: 10px;
+                @include flex(space-between, center);
+               .title{
+                @include flex(start, center);
+                font-size: 18px;
+                i{
+                    font-size: 23px;
+                    margin-right: 5px;
+                }
+               } 
+            }
+            .bottom{
+                padding: 10px 30px;
+            }
+        }
+        .intr{
+            background: #fff;
+            .title{
+                text-align: center;
+                border-bottom: 1px solid #ccc;
+                padding: 10px 0;
+                font-size: 18px;
+            }
+            .intr-content{
+                padding: 10px 15px;
+                text-indent: 2em;
+            }
+        }
+
+    }
+}
