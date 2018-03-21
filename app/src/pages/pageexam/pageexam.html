@@ -46,14 +46,14 @@
     <!-- <div *ngIf="listDetailData.length>0" style="text-align: right;" >
       <span style="color: #2373cf;">{{currentIndex+1}}/{{listDetailData.length}}</span>
     </div> -->
-            <ion-slides #ionSlides autoplay="false"  loop="false" (ionSlideDidChange)="ionSlideDidChange()" pager style="width:100%;height:auto;padding: 10px;">
+            <ion-slides #ionSlides autoplay="false"  loop="false" (ionSlideWillChange)="slideWillChange()" (ionSlideDidChange)="ionSlideDidChange()" pager style="width:100%;height:auto;padding: 10px;">
               <ion-slide *ngFor="let item of listDetailData;let i=index">
                 <div  *ngIf="item.type==1" >
                   <!--<h1>单选题</h1>
                   题目：
                   <br>-->
                   <!--<div style="text-align: center;">-->
-                  <span style="float: left; margin-top: 10px;"> {{currentIndex+1}}、</span>
+                  <span style="float: left;"> {{currentIndex+1}}、</span>
 
                   <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
 
@@ -160,17 +160,22 @@
                 width: 150px;
                 border-radius: 15px;
                 display: inline-block;">语音播放</div> -->
-                <div  (click)="palay(j)" *ngFor="let items of listDetailData[i].voidlis;let j=index" style="    background-color: #f8f8f8;
+               <!-- <div  (click)="palay(j)" *ngFor="let items of listDetailData[i].voidlis;let j=index" style="    background-color: #f8f8f8;
                 padding: 10px;
                 width: 150px;
                 border-radius: 15px;
-                display: inline-block;">语音播放</div>
+                display: inline-block;">语音播放</div> -->
+
+                <div style="display: inline-block;margin: 5px;">
+                  <img src="assets/icon/bofang.jpg" style="height: 35px;width: 35px;" (click)="palay(j)" *ngFor="let items of listDetailData[i].voidlis;let j=index">
+                </div>
+
                 <br>
-                <div *ngIf="item.type==4" style="    position: fixed;
+                <div *ngIf="item.type==4" style="
                 width: 100%;
                 bottom: 0;
                 text-align: left;
-                border-top: solid 1px #666;">
+                border-bottom: solid 1px #666;">
 
                 <div style="display: inline-block;margin: 5px;">
                     <img src="assets/icon/yuying.png" style="width:40px;height:40px;" (click)="geiviod()">
@@ -184,7 +189,7 @@
                 </div>
 
                 <!-- <button *ngIf="navParams.data.type==2&&!issubitbutton"  ion-button (click)="tijiaoSubject()" style="float: right;">
-                        提交 
+                        提交
                       </button> -->
             </div>
                 <!-- <button ion-button  *ngIf="item.type==4" (click)="begin()">
@@ -200,12 +205,12 @@
                   播放
                 </button> -->
                 <div>
-                  <button *ngIf="currentIndex!=0" ion-button (click)="shangSubject(i)" style="background-color:#3BB5E9 ">
+                  <!-- <button *ngIf="currentIndex!=0" ion-button (click)="shangSubject(i)" style="background-color:#3BB5E9 ">
                     上一题
                   </button>
                   <button *ngIf="currentIndex!=latenum"  ion-button (click)="nextSubject(i)" style="background-color:#3BB5E9 " >
                     下一题
-                  </button>
+                  </button> -->
                   <button *ngIf="currentIndex==latenum&&navParams.data.type==1"  ion-button (click)="fanhui()" style="background-color:#3BB5E9 ">
                   返回列表
                   </button>
@@ -239,7 +244,7 @@
     <br>
     已完成：{{yiwanc}} 未完成：{{weiwanc}}-->
       <div style="padding: 0px 25px;font-size: 18px;"><strong>真题</strong><span style="float: right;">总计:{{listDetailData.length}}题</span></div>
-      <div class="Bars" style="border: 1px solid #2373cf;">
+      <div class="Bars" style="border: 1px solid #3BB5E9;">
         <button class="textbutton" style="border: 1px solid #3BB5E9;">正确</button>
           <div style="background:#3BB5E9;" [ngStyle]="zehgnquesty" >
           </div>
@@ -251,7 +256,7 @@
           </div>
           <span class="counttext">{{cuowu}}题</span>
       </div>
-          <div class="Bars" style="border: 1px solid #2373cf;">
+          <div class="Bars" style="border: 1px solid #C0C0C0;">
             <button class="textbutton" style="border: 1px solid #C0C0C0 ;">未做</button>
           <div style="background:#C0C0C0 ;" [ngStyle]="weiwancsty">
           </div>
@@ -259,7 +264,7 @@
       </div>
           <div class="Bars" style="border: 1px solid #2373cf;">
             <button class="textbutton" style="border: 1px solid #2373cf ;">其它</button>
-          <div  style="background:#C0C0C0 ;"  [ngStyle]="qitasty">
+          <div  style="background:#2373cf ;"  [ngStyle]="qitasty">
           </div>
           <span class="counttext">{{qita}}题</span>
       </div>

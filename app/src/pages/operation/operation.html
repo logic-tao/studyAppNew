@@ -158,13 +158,20 @@
                               <button  ion-button (click)="nextSubject(i)">
                                 下一题
                               </button>-->
-                        <button *ngIf="i==4" ion-button (click)="tijiaoSubject()" style="margin-bottom: 15%;;background-color: #4edff6 !important; width: calc( 100% / 2 );height:25px;">
+                        <!-- <button *ngIf="i==4" ion-button (click)="tijiaoSubject()" style="margin-bottom: 15%;;background-color: #4edff6 !important; width: calc( 100% / 2 );height:25px;">
                                 提交 
-                              </button>
+                              </button> -->
+                              
                         <button *ngIf="subjecjieguo" (click)="showpop()" ion-button>显示</button>
                     </ion-slide>
 
                 </ion-slides>
+                <button *ngIf="currentIndex==4&&!subjecjieguo" (click)="tijiaoSubject()" ion-button style="    width: 100px;
+                background-color: #3BB5E9;
+                position: fixed;
+                bottom: 15px;
+                left: 50%;
+                margin-left: -50px;">提交</button>
             </div>
             <div *ngSwitchCase="'3'" style="width:100%">
                 <div style="background-color: #F5F4F4;margin-top: 15px;">
@@ -227,15 +234,18 @@
 </ion-content>
 <div class="jieda" *ngIf="daantanchuang">
     <div style="padding: 15px;border-bottom: solid 1px #7f7f7f;">
-            <ion-icon name="arrow-back" style="font-size: 30px;padding: 0px 15px;" (click)="hidejieda()"></ion-icon>
-        <strong style="font-size: 30px;">每道题正确率</strong>
+        
+            <ion-icon name="md-arrow-back" style="font-size: 30px;padding: 0px 15px;" (click)="hidejieda()"></ion-icon>
+        <strong style="font-size: 25px;">每道题正确率</strong>
     </div>
     <div style="padding: 15px;">
-            <div>
-                    <span class="biaoji zhengque">正确</span>,
-                    <span class="biaoji cuowu">错误</span>
-                    <br>
-                    <br> 已完成：{{yiwanc}} 未完成：{{weiwanc}}</div>
+            <div style="    height: 40px;
+            line-height: 40px;">
+                    <div class="biaoji zhengque"></div><strong>正确</strong>
+                    <div class="biaoji cuowu"></div><strong>错误</strong>
+                    <div class="biaoji weijieda"></div><strong>错误</strong>
+                    <!-- <br>
+                    <br> 已完成：{{yiwanc}} 未完成：{{weiwanc}}</div> -->
                 <!-- <button *ngFor="let items of shipinglianxi;let j=index" (click)="tozuotijieshi(j)" [ngClass]="{'weijieda':shipinglianxi[j].jieguo==0,'yiweijieda':shipinglianxi[j].jieguo==1,'zhengque':shipinglianxi[j].jieguo==2,'cuowu':shipinglianxi[j].jieguo==3}">{{j+1}}</button> -->
                 <ion-row>
                     <ion-col col-3 *ngFor="let items of shipinglianxi;let j=index" (click)="tozuotijieshi(j)">

@@ -121,7 +121,16 @@ indextestpaper(cname){
 
 }
 netxtext(){
-  this.jiequ(this.page)
+  let num =this.listDetailData.length-1;
+  if(this.listDetailData[num].useranswer===''){
+this.appComponent.presentToast('请输入答案!'); 
+}else{
+this.cunchushuj(num)
+this.jiequ(this.page)
+// this.listDetailData[i].showanswer=true
+// this.slides.slideNext()
+}
+  
   // this.listDetailData=[]
   // this.currentIndex=0
   // this.getpagetextdata(this.appComponent.pagenextarr.listData[this.appComponent.pagenextarr.num].id)
@@ -320,6 +329,17 @@ this.s=this.alltrime%60
   beforeSubject(){
     // this.navCtrl.pop(PagedetailPage);
   }
+  slideWillChange(){
+    let num =this.slides.getPreviousIndex();
+        if(this.listDetailData[num].useranswer===''){
+  this.appComponent.presentToast('请输入答案!'); 
+    }else{
+      this.cunchushuj(num)
+    // this.listDetailData[i].showanswer=true
+    // this.slides.slideNext()
+    }
+    console.log(num);
+  }
   ionSlideDidChange(){
     let num =this.slides.getActiveIndex();
     if(num<this.listDetailData.length){
@@ -336,13 +356,13 @@ this.s=this.alltrime%60
     this.slides.slidePrev()
   }
   nextSubject(i){
-    if(this.listDetailData[i].useranswer===''){
-  this.appComponent.presentToast('请输入答案!'); 
-    }else{
-      this.cunchushuj(i)
-    // this.listDetailData[i].showanswer=true
-    this.slides.slideNext()
-    }
+  //   if(this.listDetailData[i].useranswer===''){
+  // this.appComponent.presentToast('请输入答案!'); 
+  //   }else{
+  //     this.cunchushuj(i)
+  //   // this.listDetailData[i].showanswer=true
+  //   this.slides.slideNext()
+  //   }
 
    // this.navCtrl.push(Pageexam01Page);
   }
@@ -533,6 +553,20 @@ jieguoSubject(){
   this.daantanchuang=true
 }
   tijiaoSubject(){
+    let num =this.listDetailData.length-1;
+    if(this.listDetailData[num].useranswer===''){
+    this.appComponent.presentToast('请输入答案!'); 
+    return;
+    }else{
+    this.cunchushuj(num);
+    // this.jiequ(this.page)
+    // this.listDetailData[i].showanswer=true
+    // this.slides.slideNext()
+    }
+    
+    
+    
+
     this.issubitbutton=true
     this.yiwanc=0
     this.weiwanc=0

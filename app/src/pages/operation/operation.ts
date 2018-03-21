@@ -201,7 +201,7 @@ let servedata=[]
             servedata.push({id:this.shipinglianxi[i].id,answer:this.shipinglianxi[i].useranswer})
             if(this.shipinglianxi[i].useranswer==''){
               this.weiwanc=this.weiwanc+1
-              servedata[i].answer='A'
+              servedata[i].answer=''
             }else{
 this.yiwanc=this.yiwanc+1
 if(this.shipinglianxi[i].useranswer==this.shipinglianxi[i].answer){
