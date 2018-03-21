@@ -161,8 +161,8 @@ SlidingDirection(sdfs){
 
   }
   palay(i){
-    // this.appComponent.presentToast(this.voidlis[i].localURL); 
-    const file: MediaObject = this.media.create(this.voidlis[i].localURL);
+    // this.appComponent.presentToast(this.listDetailData[this.currentIndex].voidlis[i].localURL); 
+    const file: MediaObject = this.media.create(this.listDetailData[this.currentIndex].voidlis[i].localURL);
     
     // to listen to plugin events:
     
@@ -220,10 +220,10 @@ SlidingDirection(sdfs){
 var captureSuccess = (mediaFiles)=>{
   console.log('captureSuccess')
   console.log(mediaFiles)
-  this.voidlis=mediaFiles;
-  for (var i = 0; i < this.voidlis.length; i++) {
+  this.listDetailData[this.currentIndex].voidlis=mediaFiles;
+  for (var i = 0; i < this.listDetailData[this.currentIndex].voidlis.length; i++) {
     console.log('mediaFiles')
-    console.log(this.voidlis[i])
+    console.log(this.listDetailData[this.currentIndex].voidlis[i])
   }
 };
 
@@ -291,7 +291,7 @@ navigator.device.capture.captureAudio(captureSuccess, captureError, {limit:1});
      console.log('getPicture')
      console.log(imageData)
      this.upload(imageData)
-    //  this.base64Image = 'data:image/jpeg;base64,' + imageData;
+    //  this.listDetailData[this.currentIndex].base64Image = 'data:image/jpeg;base64,' + imageData;
     }, (err) => {
      // Handle error
     });
@@ -436,6 +436,7 @@ getpagedata(id){
                         this.listDetailData[i].showanswer=false
                         this.listDetailData[i].useranswer=''
                         this.listDetailData[i].jieguo=0//0 未解答 1已解答 2 正确 3 错误 
+                        this.listDetailData[i].voidlis=[]
                       }
 
                        this.cd.detectChanges();//刷新数据
@@ -519,8 +520,8 @@ shuaxing(){
       data.response=JSON.parse(data.response)
       console.log(data)
       if(data.response['code']=200){
-        this.base64Image = data.response['data']['img_url'];
-        console.log('base64Image:'+this.base64Image)
+        this.listDetailData[this.currentIndex].base64Image = data.response['data']['img_url'];
+        console.log('base64Image:'+this.listDetailData[this.currentIndex].base64Image)
         this.cd.detectChanges();
       }
     }, (err) => {

@@ -151,17 +151,42 @@
 
 
                   <img *ngIf="base64Image" src="{{base64Image}}">
+                  <img *ngIf="listDetailData[i].base64Image" src="{{listDetailData[i].base64Image}}">
 
                 </div>
                 <!-- *ngFor="let items of voidlis;let j=index" -->
-                <div  (click)="palay(j)" *ngFor="let items of voidlis;let j=index" style="    background-color: #f8f8f8;
+                <!-- <div  (click)="palay(j)" *ngFor="let items of voidlis;let j=index" style="    background-color: #f8f8f8;
+                padding: 10px;
+                width: 150px;
+                border-radius: 15px;
+                display: inline-block;">语音播放</div> -->
+                <div  (click)="palay(j)" *ngFor="let items of listDetailData[i].voidlis;let j=index" style="    background-color: #f8f8f8;
                 padding: 10px;
                 width: 150px;
                 border-radius: 15px;
                 display: inline-block;">语音播放</div>
                 <br>
-                <img src="assets/icon/yuying.png"*ngIf="item.type==4"style="width:40px;height:40px;margin: 10px;" (click)="geiviod()">
-                <img src="assets/icon/tupian.png"*ngIf="item.type==4" style="width:40px;height:40px;margin: 10px;" (click)="getimg()">
+                <div *ngIf="item.type==4" style="    position: fixed;
+                width: 100%;
+                bottom: 0;
+                text-align: left;
+                border-top: solid 1px #666;">
+
+                <div style="display: inline-block;margin: 5px;">
+                    <img src="assets/icon/yuying.png" style="width:40px;height:40px;" (click)="geiviod()">
+                    <br>
+                    <span>语音</span>
+                </div>
+                <div style="display: inline-block;    margin: 5px;">
+                    <img src="assets/icon/tupian.png" style="width:40px;height:40px;" (click)="getimg()">
+                    <br>
+                    <span>图片</span>
+                </div>
+
+                <!-- <button *ngIf="navParams.data.type==2&&!issubitbutton"  ion-button (click)="tijiaoSubject()" style="float: right;">
+                        提交 
+                      </button> -->
+            </div>
                 <!-- <button ion-button  *ngIf="item.type==4" (click)="begin()">
                   开始
                 </button>
@@ -254,7 +279,7 @@
     <div style="width: 100%;height: 100%;background-color: #F9F9F9;overflow: auto;">
     <ion-row style="height: 280px;
     overflow: auto;">
-      <ion-col col-3 *ngFor="let items of listDetailData;let j=index" (click)="tozuotijieshi(j)">
+      <ion-col col-3 *ngFor="let items of listDetailData;let j=index" (click)="tozuotijieshi(j)" style="width: 20%;max-width: 20%;">
         <button style="color: #fff;" [ngClass]="{'qitadaan':listDetailData[j].jieguo==4,'weijieda':listDetailData[j].jieguo==0,'yiweijieda':listDetailData[j].jieguo==1,'zhengque':listDetailData[j].jieguo==2,'cuowu':listDetailData[j].jieguo==3}">{{j+1}}</button>
       </ion-col>
     </ion-row>
