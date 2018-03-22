@@ -6,7 +6,8 @@
 -->
 <ion-header>
 
-    <ion-navbar>
+    <ion-navbar style=" margin-bottom: 10px;-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);">
         <ion-title>视频/做题</ion-title>
     </ion-navbar>
 
@@ -166,7 +167,7 @@
                     </ion-slide>
 
                 </ion-slides>
-                <button *ngIf="currentIndex==4&&!subjecjieguo" (click)="tijiaoSubject()" ion-button style="    width: 100px;
+                <button *ngIf="currentIndex==shipinglianxi.length-1&&!subjecjieguo" (click)="tijiaoSubject()" ion-button style="    width: 100px;
                 background-color: #3BB5E9;
                 position: fixed;
                 bottom: 15px;
@@ -233,17 +234,15 @@
         </div>-->
 </ion-content>
 <div class="jieda" *ngIf="daantanchuang">
-    <div style="padding: 15px;border-bottom: solid 1px #7f7f7f;">
-        
-            <ion-icon name="md-arrow-back" style="font-size: 30px;padding: 0px 15px;" (click)="hidejieda()"></ion-icon>
-        <strong style="font-size: 25px;">每道题正确率</strong>
+    <div style="padding: 15px;    margin-bottom: 10px;-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);">
+            <ion-icon name="md-arrow-back" style="font-size: 1.7rem;padding: 0px 15px;" (click)="hidejieda();selectnum='0'"></ion-icon>
+        <strong style="font-size: 1.7rem;">每道题正确率</strong>
     </div>
     <div style="padding: 15px;">
-            <div style="    height: 40px;
-            line-height: 40px;">
+            <div style="text-align: center;height: 40px;line-height: 40px;">
                     <div class="biaoji zhengque"></div><strong>正确</strong>
                     <div class="biaoji cuowu"></div><strong>错误</strong>
-                    <div class="biaoji weijieda"></div><strong>错误</strong>
+                    <div class="biaoji weijieda"></div><strong>未做</strong>
                     <!-- <br>
                     <br> 已完成：{{yiwanc}} 未完成：{{weiwanc}}</div> -->
                 <!-- <button *ngFor="let items of shipinglianxi;let j=index" (click)="tozuotijieshi(j)" [ngClass]="{'weijieda':shipinglianxi[j].jieguo==0,'yiweijieda':shipinglianxi[j].jieguo==1,'zhengque':shipinglianxi[j].jieguo==2,'cuowu':shipinglianxi[j].jieguo==3}">{{j+1}}</button> -->
@@ -256,8 +255,9 @@
                     <canvas #chartBar height="200"></canvas>
                 </div>
                 <br/>
-    </div>
+            </div>
 
+    </div>
 </div>
 <div class="zuoti" *ngIf="beginzuoti">
     <div class="title">
@@ -304,3 +304,4 @@
         </div>
         <button ion-button (click)="playViod()" *ngIf='pointexamDataendTag==zuotinum'>继续视频</button>
     </div>
+</div>

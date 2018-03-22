@@ -136,11 +136,7 @@ export class OperationPage {
               }
           }
           }]
-        },
-        title: {
-          display: true,
-          text: '每道题准确率统计'
-      }
+        }
       }
     });
   }
@@ -187,7 +183,10 @@ pingmuclick(){
   );
 }
 showpop(){
-  this.daantanchuang=true
+  this.daantanchuang=true;
+  setTimeout(()=>{
+    this.showChart()
+},1000);
 }
 tijiaoSubject(){
   this.subjecjieguo=true
@@ -305,7 +304,11 @@ selectclick(i,answer?:any){
       }
     }
 ionSlideDidChange(){
-  this.currentIndex = this.slides.getActiveIndex();
+  let indtx=this.slides.getActiveIndex();
+  if(indtx<this.shipinglianxi.length){
+    this.currentIndex = indtx;
+  }
+ 
  console.log('Current index is', this.currentIndex);
  
 }
