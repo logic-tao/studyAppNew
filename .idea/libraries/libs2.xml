@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="libs2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/plugins/cordova-plugin-tencent-LiteAV/src/android/__MACOSX/libs/._cos-sdk-android.1.4.3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/plugins/cordova-plugin-tencent-LiteAV/src/android/__MACOSX/libs/._okhttp-3.2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/plugins/cordova-plugin-tencent-LiteAV/src/android/__MACOSX/libs/._txrtmpsdk.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/plugins/cordova-plugin-tencent-LiteAV/src/android/__MACOSX/libs/._sha1utils.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/plugins/cordova-plugin-tencent-LiteAV/src/android/__MACOSX/libs/._ugcupload.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/plugins/cordova-plugin-tencent-LiteAV/src/android/__MACOSX/libs/._okio-1.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

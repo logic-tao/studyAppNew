@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="TXLiteAVSDK_Smart.framework1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/node_modules/cordova-plugin-tencent-LiteAV/src/ios/TXLiteAVSDK_Smart.framework.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

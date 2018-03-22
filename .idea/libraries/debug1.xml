@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="debug1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.4.0_49ee2018fdbb8d067a3bb33d97387d11ab0f938e.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/pre-dexed/debug/ugcupload_b268741c6856918564831234d31a6d1b568ca023.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_afb7c3e7beecd9554ae5804538e7daf31443d61f.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/pre-dexed/debug/cos-sdk-android.1.4.3.6_9604db37468ca06f526b39dbb29a69387eeb1f0b.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/pre-dexed/debug/sha1utils_6414f8db2372b4f012115709fe8bf9528e9a23bc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/pre-dexed/debug/CordovaLib-6.3.0-debug_33c7c155ac4a9c8e0b65f34d34e74c1f9b070f95.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/pre-dexed/debug/gson-2.8.2_289aa89561a1c6e3249764023b826417f6bd45a6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.4.0_1c9ecbd618655b49a1e72292eb0000323ee29018.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/pre-dexed/debug/support-annotations-24.1.1_9f8d123c045a8e773f5773947593688bbda61616.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/pre-dexed/debug/okhttp-3.6.0_21416b255873c7369a4f8aeb2c71fbbe92c57889.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/pre-dexed/debug/internal_impl-24.1.1_85894057285817706ac280206102106e5f17c7de.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/pre-dexed/debug/okio-1.14.0_f254e0805080fb60fd25f1b32ed209f25e4b281e.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/pre-dexed/debug/debug_511641f019d75bc9e206d2f87f9e8723f630a6a0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/pre-dexed/debug/txrtmpsdk_12c50348ff8e8320e733ed9dd7dfbbc73961d24d.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.1.1_580c39681bace64a16af06d8223de86b314a7e0b.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
