@@ -1,5 +1,6 @@
-<ion-header>
-  <ion-navbar no-border-bottom>
+<ion-header style="  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);">
+  <ion-navbar no-border-bottom style="border-bottom: solid 1px #c5c5c5;">
     <ion-title>
       录播课
     </ion-title>
@@ -33,7 +34,7 @@
     <ion-option value="f">一元二次方程</ion-option>
     <ion-option value="m">三元五次方程</ion-option>
   </ion-select>-->
-  <ion-row style="background-color: #F8F8F8;    border-bottom: solid 1px #666;">
+  <ion-row style="background-color: #F8F8F8;    border-bottom: solid 1px #c5c5c5;">
     <ion-col col-6>
       <div  *ngIf="vidoaarrData.knowledege">
         <ion-select style="max-width: 100%;" item-right interface="popover" [(ngModel)]="selecNUM" (ngModelChange)="onSelectChange($event)">

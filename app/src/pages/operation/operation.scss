@@ -5,11 +5,11 @@ page-operation {
     }
     .right_img1 {
         height: 20px !important;
-        margin-left: 45px;
+        margin-left: 25px;
     }
     .right_img2 {
         height: 20px !important;
-        margin-left: 20px;
+        margin-left: 10px;
     }
     .swiper-pagination-bullet-active {
         background: #4edff6;
@@ -23,7 +23,6 @@ page-operation {
         height: 100%;
         z-index: 15;
         background-color: #fff;
-        padding: 15px;
         button {
             margin: 10px;
             width: 50px;
@@ -37,16 +36,21 @@ page-operation {
             background-color: #4edff6;
         }
         .zhengque {
-            background-color: #11E637;
+            background-color: #5A9BD5;
         }
         .cuowu {
             background-color: #f00;
         }
+        .weijieda {
+            background-color: #ddd;
+        }
         .biaoji {
-            width: 25px;
+            width: 35px;
             height: 25px;
-            border-radius: 12px;
+            border-radius: 5px;
             padding: 5px;
+            margin: 5px;
+            display: inline-block;
         }
     }
     .xinxin {
@@ -116,7 +120,7 @@ page-operation {
             border-radius: 15px;
         }
         .selecdiv {
-            display: inline-block;
+            display: inline;
         }
     }
     .righticon {
@@ -152,7 +156,7 @@ page-operation {
         background-color: #4edff6;
     }
     .zhengque {
-        background-color: #11E637;
+        background-color: #5A9BD5;
     }
     .cuowu {
         background-color: #f00;

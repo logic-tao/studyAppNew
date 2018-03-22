@@ -19,7 +19,7 @@
             <ion-thumbnail item-left>
                 <img src="{{item.icon}}">
             </ion-thumbnail>
-            <img src="assets/icon/jiaobiao.png" style="height:30px; width: 30px; position: absolute;bottom:calc(100% - 30px) ;right: 0px;">
+            <img src="assets/icon/jiaobiao.png" *ngIf="item.created_at<10" style="height:30px; width: 30px; position: absolute;bottom:calc(100% - 30px) ;right: 0px;">
             <span>{{item.title}}</span><br>
 
             <!--<span>{{item.description}}</span>-->
