@@ -163,10 +163,16 @@
                                 提交 
                               </button> -->
                               
-                        <button *ngIf="subjecjieguo" (click)="showpop()" ion-button>显示</button>
+                        
                     </ion-slide>
 
                 </ion-slides>
+                <button *ngIf="subjecjieguo" style="width: 100px;
+                background-color: #3BB5E9;
+                position: fixed;
+                bottom: 15px;
+                left: 50%;
+                margin-left: -50px;" (click)="showpop()" ion-button>显示</button>
                 <button *ngIf="currentIndex==shipinglianxi.length-1&&!subjecjieguo" (click)="tijiaoSubject()" ion-button style="    width: 100px;
                 background-color: #3BB5E9;
                 position: fixed;

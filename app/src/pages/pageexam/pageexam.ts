@@ -83,6 +83,10 @@ ionViewWillEnter(){
   }
 }
 backclck(){
+  if(this.daantanchuang){
+    this.daantanchuang=false;
+    return
+  }
   if(this.currentIndex==0){
     this.navCtrl.pop();
   }else{
@@ -332,7 +336,7 @@ this.s=this.alltrime%60
   }
   slideWillChange(){
     let num =this.slides.getPreviousIndex();
-        if(this.listDetailData[num].useranswer===''){
+        if(this.listDetailData[num].useranswer===''&&this.navParams.data.type==1){
   this.appComponent.presentToast('请输入答案!'); 
     }else{
       this.cunchushuj(num)
@@ -556,19 +560,14 @@ jieguoSubject(){
   this.daantanchuang=true
 }
   tijiaoSubject(){
-    let num =this.listDetailData.length-1;
-    if(this.listDetailData[num].useranswer===''){
+
+    if(this.listDetailData[this.currentIndex].useranswer===''){
     this.appComponent.presentToast('请输入答案!'); 
     return;
-    }else{
-    this.cunchushuj(num);
-    // this.jiequ(this.page)
-    // this.listDetailData[i].showanswer=true
-    // this.slides.slideNext()
     }
     
     
-    
+    this.cunchushuj(this.currentIndex);
 
     this.issubitbutton=true
     this.yiwanc=0
