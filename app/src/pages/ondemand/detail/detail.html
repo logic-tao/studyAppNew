@@ -18,7 +18,9 @@
             <div class="time">2017/8/6 19：30-20：30</div>
         </div>
         <div class="bottom">
-            <button ion-button full style="background: darkorange;" >预约直播</button>
+            <!-- (tap)="goToPlayerPage()" -->
+                <!--  -->
+            <button [navPush]="'PlayerPage'" [navParams]="url" ion-button full style="background: darkorange;" >预约直播</button>
         </div>
     </div>
     <div class="intr">

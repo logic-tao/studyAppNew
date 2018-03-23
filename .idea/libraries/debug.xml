@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="debug">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/jniLibs/debug/sha1utils.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/jniLibs/debug/txrtmpsdk.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/jniLibs/debug/cos-sdk-android.1.4.3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/app/platforms/android/build/intermediates/jniLibs/debug/ugcupload.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

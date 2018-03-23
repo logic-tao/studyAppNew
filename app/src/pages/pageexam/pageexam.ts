@@ -59,6 +59,7 @@ lisfil:MediaObject
 countlianxiARR:any=[]
 page:any=0;
 nolista:any=false
+cname:any;
 constructor(private media: Media,private mediaCapture: MediaCapture,private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
   this.voidint()
 }
@@ -448,6 +449,7 @@ getpagedata(id){
                       this.countviodtime()
                       // this.listDetailData = res.json();
                       var obj2=eval("("+res._body+")")
+                      this.cname=obj2.cname
                       this.listDetailData=obj2.data
                       this.latenum=this.listDetailData.length-1
                       console.log(this.listDetailData)
@@ -479,6 +481,7 @@ getpagetextdata(id){
         // this.listDetailData = res.json();
         // this.countlianxiARR=res.json();
         var obj2=eval("("+res._body+")")
+        this.cname=obj2.cname
         this.countlianxiARR=obj2.data
         
         for (var i = 0; i < this.countlianxiARR.length; i++) {
