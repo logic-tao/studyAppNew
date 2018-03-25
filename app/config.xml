@@ -94,6 +94,5 @@
     <plugin name="cordova-plugin-nativestorage" spec="2.2.2" />
     <plugin name="com.synconset.imagepicker" spec="~2.1.8" />
     <plugin name="cordova-plugin-file-transfer" spec="^1.6.3" />
-    <plugin name="cordova-plugin-tencent-LiteAV" spec="https://github.com/Cheney925/cordova-plugin-tencent-LiteAV.git" />
     <engine name="android" spec="6.3.0" />
 </widget>

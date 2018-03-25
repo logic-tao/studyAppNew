@@ -60,6 +60,7 @@ countlianxiARR:any=[]
 page:any=0;
 nolista:any=false
 cname:any;
+tagslid:boolean=false;
 constructor(private media: Media,private mediaCapture: MediaCapture,private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
   this.voidint()
 }
@@ -335,22 +336,30 @@ this.s=this.alltrime%60
     // this.navCtrl.pop(PagedetailPage);
   }
   slideWillChange(){
-    let num =this.slides.getPreviousIndex();
-        if(this.listDetailData[num].useranswer===''&&this.navParams.data.type==1){
-  this.appComponent.presentToast('请输入答案!'); 
+    let shelf=this
+    let num =shelf.slides.getPreviousIndex();
+   if(shelf.listDetailData[num].useranswer===''&&this.navParams.data.type==1){
+          
+          // if(!shelf.tagslid){
+            shelf.tagslid=true;
+            // shelf.appComponent.presentToast('请输入答案!'); 
+            // shelf.slides.slideTo(0,0);
+          // }
     }else{
-      this.cunchushuj(num)
+      shelf.cunchushuj(num)
     // this.listDetailData[i].showanswer=true
     // this.slides.slideNext()
     }
     console.log(num);
   }
   ionSlideDidChange(){
+    let shelf=this;
+    shelf.tagslid=false;
     let num =this.slides.getActiveIndex();
     if(num<this.listDetailData.length){
       this.currentIndex = this.slides.getActiveIndex();
     }
-     
+    // this.tagslid=false;
     console.log('Current index is', this.currentIndex);
     // slideNext(speed, runCallbacks)
     // slidePrev(speed, runCallbacks)
@@ -561,13 +570,13 @@ jieguoSubject(){
 }
   tijiaoSubject(){
 
-    if(this.listDetailData[this.currentIndex].useranswer===''){
-    this.appComponent.presentToast('请输入答案!'); 
-    return;
-    }
+    // if(this.listDetailData[this.currentIndex].useranswer===''){
+    // this.appComponent.presentToast('请输入答案!'); 
+    // return;
+    // }
     
     
-    this.cunchushuj(this.currentIndex);
+    // this.cunchushuj(this.currentIndex);
 
     this.issubitbutton=true
     this.yiwanc=0

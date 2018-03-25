@@ -28,13 +28,13 @@
                     width: 150px;
                     text-overflow: ellipsis;
                     overflow: hidden;
-                    white-space: nowrap;">专项</span>
+                    white-space: nowrap;">专项</span> -->
                   <span *ngIf="navParams.data.type==2" style="float: left;font-size: 20px;
                     width: 150px;
                     text-overflow: ellipsis;
                     overflow: hidden;
-                    white-space: nowrap;">真题</span> -->
-                    <span style="float: left;font-size: 20px;
+                    white-space: nowrap;">真题</span>
+                    <span *ngIf="navParams.data.type==1" style="float: left;font-size: 20px;
                     width: 150px;
                     text-overflow: ellipsis;
                     overflow: hidden;
@@ -136,7 +136,7 @@
                   <!--<h1>解答题</h1>
                                   <br>-->
                   <!--<div style="text-align: center;">-->
-                                  <span style="float: left; margin-top: 10px;"> {{currentIndex+1}}、</span>
+                                  <span style="float: left;    padding: 10px;"> {{currentIndex+1}}、</span>
                                   <div style="text-align: left;" [innerHTML]="listDetailData[i].titleBody"></div>
                    <!--{{listDetailData[i].titleBody}}?-->
                    <br>
@@ -156,7 +156,6 @@
 
                   <img *ngIf="base64Image" src="{{base64Image}}">
                   <img *ngIf="listDetailData[i].base64Image" src="{{listDetailData[i].base64Image}}">
-
                 </div>
                 <!-- *ngFor="let items of voidlis;let j=index" -->
                 <!-- <div  (click)="palay(j)" *ngFor="let items of voidlis;let j=index" style="    background-color: #f8f8f8;
@@ -250,25 +249,25 @@
       <div style="padding: 0px 25px;font-size: 18px;"><strong>真题</strong><span style="float: right;">总计:{{listDetailData.length}}题</span></div>
       <div class="Bars" style="border: 1px solid #3BB5E9;">
         <button class="textbutton" style="border: 1px solid #3BB5E9;">正确</button>
-          <div style="background:#3BB5E9;" [ngStyle]="zehgnquesty" >
+          <div style="background:#3BB5E9;margin-left: 1rem;" [ngStyle]="zehgnquesty">
           </div>
           <span class="counttext">{{zehgnque}}题</span>
       </div>
           <div class="Bars" style="border: 1px solid #F96067;">
             <button class="textbutton" style="border: 1px solid #F96067;">错误</button>
-          <div style="background:#F96067;" [ngStyle]="cuowusty">
+          <div style="background:#F96067;margin-left: 1rem;" [ngStyle]="cuowusty">
           </div>
           <span class="counttext">{{cuowu}}题</span>
       </div>
           <div class="Bars" style="border: 1px solid #C0C0C0;">
             <button class="textbutton" style="border: 1px solid #C0C0C0 ;">未做</button>
-          <div style="background:#C0C0C0 ;" [ngStyle]="weiwancsty">
+          <div style="background:#C0C0C0 ;margin-left: 1rem;" [ngStyle]="weiwancsty">
           </div>
           <span class="counttext">{{weiwanc}}题</span>
       </div>
           <div class="Bars" style="border: 1px solid #2373cf;">
             <button class="textbutton" style="border: 1px solid #2373cf ;">其它</button>
-          <div  style="background:#2373cf ;"  [ngStyle]="qitasty">
+          <div  style="background:#2373cf ;margin-left: 1rem;"  [ngStyle]="qitasty">
           </div>
           <span class="counttext">{{qita}}题</span>
       </div>
