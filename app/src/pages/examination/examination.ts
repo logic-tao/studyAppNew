@@ -29,13 +29,14 @@ pagecontent:any=''
         this.serveData=res.content
         
           for (var i = 0; i < this.serveData.length; i++) {
-            let oldday= new Date(parseInt(this.serveData[i].created_at))
+            let intTime = parseInt(this.serveData[i].created_at)*1000;
+            let oldday= new Date(intTime);
             let nowTime = new Date();
             this.serveData[i].icon=BASEURLIMG+this.serveData[i].icon;
-            this.serveData[i].created_at=this.datedifference(oldday,nowTime)
+            this.serveData[i].created_at=this.datedifference(oldday,nowTime);
           }
-          console.log('indexguide')
-          console.log(this.serveData)
+          console.log('indexguide');
+          console.log(this.serveData);
       },
       error=>{
         // alert('错误')
