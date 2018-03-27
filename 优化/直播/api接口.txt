@@ -1,0 +1,23 @@
+﻿获取课程下拉数据列表
+http://101.132.70.102/api/index.php/subject/index
+
+1.api/index.php/live/index
+/**
+* 直播搜索和直播列表显示
+* @param  lid int 课程ID,非必填 (如计算机课程id为1，高等数学为2)
+* @param code string 搜索关键词 非必填( 如“一元二次方程”)
+* @param num int 每次显示数据条数(默认是20条)
+* @param page int 第几次拉取数据(分页显示和下拉时显示个数)
+*/
+
+2. api/index.php/live/detail
+/**
+*直播课详情
+* @param id int 直播课id
+*/
+3.api/index.php/live/enroll
+/**
+* 报名课程
+* @praram id int 直播课id
+* @return array
+*/
