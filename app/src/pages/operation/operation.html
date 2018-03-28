@@ -70,42 +70,42 @@
             <div *ngSwitchCase="'1'">
                 <!-- <p>知识小结：</p> -->
                 <!-- <p>{{shipingxiangqing.lession.summary}}</p> -->
-                <div [innerHTML]="shipingxiangqing.lession.summary">
+                <div [innerHTML]="assembleHTML(shipingxiangqing.lession.summary)">
 
                 </div>
             </div>
             <div *ngSwitchCase="'2'">
                 <!-- <p>同步练习:</p> -->
-                <ion-slides #ionSlides *ngIf="shipinglianxi" autoplay="false" loop="false" (ionSlideDidChange)="ionSlideDidChange()" pager style="width:100%;height:auto;    margin-top: 15px;">
+                <ion-slides #ionSlides *ngIf="shipinglianxi" autoplay="false" loop="false" (ionSlideDidChange)="ionSlideDidChange()" pager style="width:100%;height:auto;margin-top: 15px">
                     <ion-slide *ngFor="let item of shipinglianxi;let i=index">
                         <div *ngIf="item.type==1">
                             <!--<h1>单选题</h1>
                                 题目：
                                 <br>-->
                             <!--{{shipinglianxi[i].title}}?-->
-                            <div style="text-align: left;    margin-top: 40px;
-                                    margin-bottom: 25px;" [innerHTML]="shipinglianxi[i].title"></div>
+                            <div style="text-align: left;
+                                    margin-bottom: 25px;" [innerHTML]="assembleHTML(shipinglianxi[i].title)"></div>
                             <div class="selekuang" [ngClass]="{'selectclass':shipinglianxi[i].useranswer=='A'}" (click)="selectclick(i,'A')">
 
                                 <button>A</button>
-                                <div [innerHTML]="shipinglianxi[i].content.A" class="selecdiv"></div>
+                                <div [innerHTML]="assembleHTML(shipinglianxi[i].content.A)" class="selecdiv"></div>
                                 <!--<span style="margin-left: 20px;">{{shipinglianxi[i].content.A}}</span>-->
                             </div>
                             <div class="selekuang" [ngClass]="{'selectclass':shipinglianxi[i].useranswer=='B'}" (click)="selectclick(i,'B')">
 
                                 <button>B</button>
-                                <div [innerHTML]="shipinglianxi[i].content.B" class="selecdiv"></div>
+                                <div [innerHTML]="assembleHTML(shipinglianxi[i].content.B)" class="selecdiv"></div>
                                 <!--<span style="margin-left: 20px;">{{shipinglianxi[i].content.B}} </span>-->
                             </div>
                             <div class="selekuang" [ngClass]="{'selectclass':shipinglianxi[i].useranswer=='C'}" (click)="selectclick(i,'C')" *ngIf='shipinglianxi[i].content.C'>
 
                                 <button>C</button>
-                                <div [innerHTML]="shipinglianxi[i].content.C" class="selecdiv"></div>
+                                <div [innerHTML]="assembleHTML(shipinglianxi[i].content.C)" class="selecdiv"></div>
                                 <!--<span style="margin-left: 20px;">{{shipinglianxi[i].content.C}} </span>-->
                             </div>
                             <div class="selekuang" [ngClass]="{'selectclass':shipinglianxi[i].useranswer=='D'}" (click)="selectclick(i,'D')" *ngIf='shipinglianxi[i].content.D'>
                                 <button>D</button>
-                                <div [innerHTML]="shipinglianxi[i].content.D" class="selecdiv"></div>
+                                <div [innerHTML]="assembleHTML(shipinglianxi[i].content.D)" class="selecdiv"></div>
                                 <!--<span style="margin-left: 20px;">{{shipinglianxi[i].content.D}} </span>-->
                             </div>
 
@@ -115,7 +115,7 @@
                                  <div class="selekuang" [ngClass]="{'selectclass':shipinglianxi[i].useranswer=='D'}"(click)="selectclick(i,'D')" ><button>D</button>{{shipinglianxi[i].content.D}}</div>-->
                             <!-- <span *ngIf="shipinglianxi[i].showanswer">答案：{{shipinglianxi[i].answer}}</span> -->
                             <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;">答案:</div>
-                            <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;" [innerHTML]="shipinglianxi[i].answer"></div>
+                            <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;" [innerHTML]="assembleHTML(shipinglianxi[i].answer)"></div>
                             <br>
                         </div>
                         <div *ngIf="item.type==2">
@@ -126,7 +126,7 @@
                             <br>
                             <!-- <span *ngIf="shipinglianxi[i].showanswer">答案：{{shipinglianxi[i].answer}}</span> -->
                             <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;">答案:</div>
-                            <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;" [innerHTML]="shipinglianxi[i].answer"></div>
+                            <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;" [innerHTML]="assembleHTML(shipinglianxi[i].answer)"></div>
                         </div>
                         <div *ngIf="item.type==4">
                             <h1>判断题</h1>
@@ -139,7 +139,7 @@
                             </div>
                             <br>
                             <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;">答案:</div>
-                            <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;" [innerHTML]="shipinglianxi[i].answer"></div>
+                            <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;" [innerHTML]="assembleHTML(shipinglianxi[i].answer)"></div>
                             <!-- <span *ngIf="shipinglianxi[i].showanswer">答案：{{shipinglianxi[i].answer}}</span> -->
                         </div>
                         <div *ngIf="item.type==3">
@@ -151,7 +151,7 @@
                             <br>
                             <!-- <span *ngIf="shipinglianxi[i].showanswer">答案：{{shipinglianxi[i].answer}}</span> -->
                             <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;">答案:</div>
-                            <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;" [innerHTML]="shipinglianxi[i].answer"></div>
+                            <div *ngIf="shipinglianxi[i].showanswer" style="text-align: left;margin-left: 20px;" [innerHTML]="assembleHTML(shipinglianxi[i].answer)"></div>
                         </div>
                         <!--<button ion-button (click)="shangSubject(i)">
                                 上一题
@@ -272,28 +272,28 @@
     </div>
     <div class="content">题目:
         <br>
-        <div [innerHTML]="pointexamData[zuotinum].title"></div>
+        <div [innerHTML]="assembleHTML(pointexamData[zuotinum].title)"></div>
         <!--{{pointexamData[zuotinum].title}}</div>-->
         <div class="answer">
             <ion-row>
                 <ion-col col-6 (click)="daanclick('A')">
                     <button class="yuanquan" [ngClass]="{'selectclass': pointexamData[zuotinum].useranswer=='A'}">A</button>
-                    <div [innerHTML]="pointexamData[zuotinum].content.A"></div>
+                    <div [innerHTML]="assembleHTML(pointexamData[zuotinum].content.A)"></div>
                     <!-- <span>{{pointexamData[zuotinum].content.A}}</span> -->
                 </ion-col>
                 <ion-col col-6 (click)="daanclick('B')">
                     <button class="yuanquan" [ngClass]="{'selectclass': pointexamData[zuotinum].useranswer=='B'}">B</button>
-                    <div [innerHTML]="pointexamData[zuotinum].content.B"></div>
+                    <div [innerHTML]="assembleHTML(pointexamData[zuotinum].content.B)"></div>
                     <!-- <span>{{pointexamData[zuotinum].content.B}}</span> -->
                 </ion-col>
                 <ion-col col-6 (click)="daanclick('C')" *ngIf='pointexamData[zuotinum].content.C'>
                     <button class="yuanquan" [ngClass]="{'selectclass': pointexamData[zuotinum].useranswer=='C'}">C</button>
-                    <div [innerHTML]="pointexamData[zuotinum].content.C"></div>
+                    <div [innerHTML]="assembleHTML(pointexamData[zuotinum].content.C)"></div>
                     <!-- <span>{{pointexamData[zuotinum].content.C}}</span> -->
                 </ion-col>
                 <ion-col col-6 (click)="daanclick('D')" *ngIf='pointexamData[zuotinum].content.D'>
                     <button class="yuanquan" [ngClass]="{'selectclass': pointexamData[zuotinum].useranswer=='D'}">D</button>
-                    <div [innerHTML]="pointexamData[zuotinum].content.D"></div>
+                    <div [innerHTML]="assembleHTML(pointexamData[zuotinum].content.D)"></div>
                     <!-- <span>{{pointexamData[zuotinum].content.D}}</span> -->
                 </ion-col>
             </ion-row>
@@ -303,7 +303,7 @@
             <br/>
             <div style="text-align: left;margin-left: 20px;">问题解析:</div>
 
-            <div style="text-align: left;margin-left: 20px;" [innerHTML]="pointexamData[zuotinum].analysis"></div>
+            <div style="text-align: left;margin-left: 20px;" [innerHTML]="assembleHTML(pointexamData[zuotinum].analysis)"></div>
 
             <br/>
             <button ion-button *ngIf='pointexamDataendTag!=zuotinum' (click)="xiayiti()">下一题</button>
