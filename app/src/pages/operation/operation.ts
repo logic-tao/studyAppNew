@@ -4,6 +4,7 @@ import { MyApp} from '../../app/app.component';
 import { BASEURLIMG} from '../../theme/theme.config';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import Chart from 'chart.js'; // 导入chart.js
+import { DomSanitizer } from '@angular/platform-browser';
 // import { VideoPlayer ,VideoOptions} from '@ionic-native/video-player';
 /**
  * Generated class for the OperationPage page.
@@ -57,7 +58,7 @@ export class OperationPage {
     ]
     zuotinum:number=0
   // videoOpts : VideoOptions ;
-  constructor(private screenOrientation: ScreenOrientation,public appComponent:MyApp,@Inject('appService') private appService,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private sanitizer: DomSanitizer,private screenOrientation: ScreenOrientation,public appComponent:MyApp,@Inject('appService') private appService,public navCtrl: NavController, public navParams: NavParams) {
     let num = navParams.get('num');
     
     // this.selectnum=num;
@@ -112,6 +113,9 @@ export class OperationPage {
   }
   ionViewDidEnter(){
 
+  }
+  assembleHTML(strHTML:any) {
+    return this.sanitizer.bypassSecurityTrustHtml(strHTML);
   }
   showChart(){
     // this.chirData={xdata:xdata,ydata:ydata,backgroundColor:backgroundColor,borderColor:borderColor}

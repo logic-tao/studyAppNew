@@ -3,10 +3,8 @@
   <ion-navbar>
     <div class="header">
         <ion-title>直播课</ion-title>
-        <ion-select style="width:66px;max-width:100%;" class="select" [(ngModel)]="gaming" placeholder="数学" cancelText="取消" okText="确认">
-            <ion-option value="nes">数学</ion-option>
-            <ion-option value="n64">语文</ion-option>
-            <ion-option value="ps">英语</ion-option>
+        <ion-select item-right placeholder="{{this.subjectstitle}}" [(ngModel)]="subject" interface="popover" style="position: absolute;top: 6px;right: 2px;" (ngModelChange)="version=$event; changeVersion()">
+          <ion-option value="{{item.id}}" *ngFor="let item of subjectindexData;let i=index;">{{item.subject_name}}</ion-option>
         </ion-select>
     </div>
   </ion-navbar>
@@ -24,66 +22,18 @@
   </ion-grid>
   <ion-grid>
     <ion-row>
-      <ion-col col-6>
-        <ion-card [navPush]="'DetailPage'">
+      <ion-col col-6 *ngFor="let item of dataSet">
+        <ion-card [navPush]="'DetailPage'" [navParams]="item">
           <img src="assets/icon/background-1.jpg" />
           <ion-card-content>
             <ion-card-title>
-              解析几何立体解析几何立体
+              {{item.title}}
             </ion-card-title>
             <p>
               今天19：30-20：30
             </p>
             <p class="bottom">
-              1898人已预约
-            </p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col col-6>
-        <ion-card>
-          <img src="assets/icon/background-1.jpg" />
-          <ion-card-content>
-            <ion-card-title>
-              解析几何立体解析几何立体
-            </ion-card-title>
-            <p>
-              今天19：30-20：30
-            </p>
-            <p class="bottom">
-              1898人已预约
-            </p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col col-6>
-        <ion-card>
-          <img src="assets/icon/background-1.jpg" />
-          <ion-card-content>
-            <ion-card-title>
-              解析几何立体解析几何立体
-            </ion-card-title>
-            <p>
-              今天19：30-20：30
-            </p>
-            <p class="bottom">
-              1898人已预约
-            </p>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col col-6>
-        <ion-card>
-          <img src="assets/icon/background-1.jpg" />
-          <ion-card-content>
-            <ion-card-title>
-              解析几何立体解析几何立体
-            </ion-card-title>
-            <p>
-              今天19：30-20：30
-            </p>
-            <p class="bottom">
-              1898人已预约
+              {{item.enroll}}人已预约
             </p>
           </ion-card-content>
         </ion-card>
