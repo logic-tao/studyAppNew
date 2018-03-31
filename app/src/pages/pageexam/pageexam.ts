@@ -117,8 +117,8 @@ indextestpaper(cname){
   var obj2=eval("("+res._body+")")
   if(obj2.code==200){
     console.log(res.data);
-    // this.alltrimebgin=obj2.data*60;
-    // this.alltrime=obj2.data*60;
+    this.alltrimebgin=obj2.data*60;
+    this.alltrime=obj2.data*60;
   }
             console.log(res);
             this.getpagedata(this.navParams.data.id)

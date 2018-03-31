@@ -25,7 +25,8 @@ export class ExercisePage {
   D1len:any;
   listD2:any = [];
   // 课程
-  subject: string ="2";
+  subject: string ="1";
+  subjectNum: string="1";
   subjectindexData:any=[]
   // 用户
   user: string = localStorage.getItem("user");
@@ -91,6 +92,7 @@ export class ExercisePage {
       res => {
         if(res.code==200){
           this.subjectindexData=res.content
+          this.Selected(this.subjectindexData[0].id);
           console.log(this.subjectindexData)
         }
 
@@ -136,22 +138,24 @@ export class ExercisePage {
   }
 
 
-  // Selected(subject){
-  //   this.subjectNum = subject;
-  //   this.http.request('http://101.201.238.157/index.php/demo/index/examList?cid='+this.subjectNum+'&type=1')
-  //     .subscribe((res: Response) => {
-  //
-  //       console.log(res.url);
-  //       //console.log(res.json().data);
-  //       this.listData = res.json();
-  //       for (var i = 0; i < this.listData.length; i++) {
-  //         this.listData[i].open=false
-  //         this.listData[i].arr=[3,4,5]
-  //       }
-  //     });
-  //
-  //
-  // }
+  Selected(subject){
+    this.subjectNum = subject;
+    this.subject=subject;
+    // this.subjectNum = subject;
+    // this.http.request('http://101.201.238.157/index.php/demo/index/examList?cid='+this.subjectNum+'&type=1')
+    //   .subscribe((res: Response) => {
+  
+    //     console.log(res.url);
+    //     //console.log(res.json().data);
+    //     this.listData = res.json();
+    //     for (var i = 0; i < this.listData.length; i++) {
+    //       this.listData[i].open=false
+    //       this.listData[i].arr=[3,4,5]
+    //     }
+    //   });
+  
+  
+  }
 
 
 
