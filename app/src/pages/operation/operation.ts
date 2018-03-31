@@ -123,7 +123,7 @@ export class OperationPage {
       data: {
         labels: this.chirData.xdata,//横-题目序号
         datasets: [{
-          label: '练习统计表',
+          label: '练习题',
           data: this.chirData.ydata,//数值
           backgroundColor:this.chirData.backgroundColor,
           borderColor: this.chirData.borderColor,

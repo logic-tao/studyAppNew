@@ -59,7 +59,7 @@
                   <!--<div style="text-align: center;">-->
                   <span style="float: left;padding-top: 10px;"> {{currentIndex+1}}、</span>
 
-                  <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody">{{currentIndex+1}}、</div>
+                  <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
 
                   <!--</div>-->
 
@@ -137,7 +137,7 @@
                                   <br>-->
                   <!--<div style="text-align: center;">-->
                                   <span style="float: left;    padding: 10px;"> {{currentIndex+1}}、</span>
-                                  <div style="text-align: left;" [innerHTML]="listDetailData[i].titleBody"></div>
+                                  <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
                    <!--{{listDetailData[i].titleBody}}?-->
                    <br>
                   <textarea placeholder="输入文本..." style="border-width: 0;height: 200px;border: solid 1px #aeaeae;border-radius: 10px;width: 100%;resize: none;" [(ngModel)]='listDetailData[i].useranswer'></textarea>
@@ -155,7 +155,12 @@
 
 
                   <img *ngIf="base64Image" src="{{base64Image}}">
-                  <img *ngIf="listDetailData[i].base64Image" src="{{listDetailData[i].base64Image}}">
+                  <img *ngIf="listDetailData[i].base64Image" style="    margin-bottom: -8rem;
+                  width: 100px;
+                  height: auto;" src="{{listDetailData[i].base64Image}}">
+                  <!-- <img  style="margin-bottom: -8rem;
+                  width: 100px;
+                  height: auto;" src="assets/icon/tupian.png"> -->
                 </div>
                 <!-- *ngFor="let items of voidlis;let j=index" -->
                 <!-- <div  (click)="palay(j)" *ngFor="let items of voidlis;let j=index" style="    background-color: #f8f8f8;
@@ -169,7 +174,7 @@
                 border-radius: 15px;
                 display: inline-block;">语音播放</div> -->
 
-                <div style="display: inline-block;margin: 5px;">
+                <div  [ngClass]="{'youtu':listDetailData[currentIndex].base64Image,'wutu':!listDetailData[currentIndex].base64Image}" style="width: 35px;">
                   <img src="assets/icon/bofang.jpg" style="height: 35px;width: 35px;" (click)="palay(j)" *ngFor="let items of listDetailData[i].voidlis;let j=index">
                 </div>
 
@@ -178,14 +183,14 @@
                 width: 100%;
                 bottom: 0;
                 text-align: left;
-                border-bottom: solid 1px #666;">
+                border-bottom: solid 1px #666;" >
 
                 <div style="display: inline-block;margin: 5px;">
                     <img src="assets/icon/yuying.png" style="width:40px;height:40px;" (click)="geiviod()">
                     <br>
                     <span>语音</span>
                 </div>
-                <div style="display: inline-block;    margin: 5px;">
+                <div style="display: inline-block;margin: 5px;">
                     <img src="assets/icon/tupian.png" style="width:40px;height:40px;" (click)="getimg()">
                     <br>
                     <span>图片</span>
@@ -271,7 +276,7 @@
           </div>
           <span class="counttext">{{qita}}题</span>
       </div>
-          <ion-row>
+      <ion-row>
         <ion-col>
           <ion-icon name="clock"></ion-icon>剩余时间：{{m}}：{{s}}
         </ion-col>

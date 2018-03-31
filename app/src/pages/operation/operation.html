@@ -75,6 +75,13 @@
                 </div>
             </div>
             <div *ngSwitchCase="'2'">
+                    <button *ngIf="subjecjieguo" style="width: 100px;
+                    background-color: #3BB5E9;
+                    position: fixed;
+                    bottom: 15px;
+                    left: 80%;
+                    margin-left: -50px;z-index: 1000;" (click)="showpop()" ion-button>显示</button>
+                    <button *ngIf="currentIndex==shipinglianxi.length-1&&!subjecjieguo" (click)="tijiaoSubject()" ion-button style="z-index: 1000;width: 100px;background-color: #3BB5E9;position: fixed;bottom: 15px;left: 80%;margin-left: -50px;">提交</button>
                 <!-- <p>同步练习:</p> -->
                 <ion-slides #ionSlides *ngIf="shipinglianxi" autoplay="false" loop="false" (ionSlideDidChange)="ionSlideDidChange()" pager style="width:100%;height:auto;margin-top: 15px">
                     <ion-slide *ngFor="let item of shipinglianxi;let i=index">
@@ -167,18 +174,6 @@
                     </ion-slide>
 
                 </ion-slides>
-                <button *ngIf="subjecjieguo" style="width: 100px;
-                background-color: #3BB5E9;
-                position: fixed;
-                bottom: 15px;
-                left: 50%;
-                margin-left: -50px;" (click)="showpop()" ion-button>显示</button>
-                <button *ngIf="currentIndex==shipinglianxi.length-1&&!subjecjieguo" (click)="tijiaoSubject()" ion-button style="    width: 100px;
-                background-color: #3BB5E9;
-                position: fixed;
-                bottom: 15px;
-                left: 50%;
-                margin-left: -50px;">提交</button>
             </div>
             <div *ngSwitchCase="'3'" style="width:100%">
                 <div style="background-color: #F5F4F4;margin-top: 15px;">

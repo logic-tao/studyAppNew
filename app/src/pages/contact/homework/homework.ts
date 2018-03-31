@@ -36,12 +36,12 @@ export class HomeworkPage {
       res => {
         if(res.code==200){
           this.subjectindexData=res.content
+          this.Selected(this.subjectindexData[0].id);
           console.log(this.subjectindexData)
         }
 
       },
       error=>{
-        // alert('错误')
         console.log(error)
       }
     )
@@ -84,5 +84,8 @@ export class HomeworkPage {
     this.app.getRootNav().push('HomeworkTestPage',{"hid":hid,"subject":name});
   }
 
+  Selected(subject){
+    this.subject=subject;
+  }
 
 }
