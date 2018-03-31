@@ -24,13 +24,14 @@
     <ion-row>
       <ion-col col-6 *ngFor="let item of dataSet">
         <ion-card [navPush]="'DetailPage'" [navParams]="item">
-          <img src="assets/icon/background-1.jpg" />
+          <img [src]="item.image?item.image:'assets/icon/background-1.jpg'" />
           <ion-card-content>
             <ion-card-title>
               {{item.title}}
             </ion-card-title>
             <p>
-              今天19：30-20：30
+              <!-- 今天19：30-20：30 -->
+              {{item.starttime*1000 | date:'y-MM-dd HH:mm' }} - {{ item.endtime*1000 | date:'y-MM-dd HH:mm'}}
             </p>
             <p class="bottom">
               {{item.enroll}}人已预约
