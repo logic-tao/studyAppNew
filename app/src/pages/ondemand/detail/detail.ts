@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, ModalController,NavParams } from 'ionic-angular';
-
+import { Response, Http } from "@angular/http";
 @IonicPage()
 @Component({
   selector: 'page-detail',
@@ -11,19 +11,24 @@ export class DetailPage {
   constructor(
     public navCtrl: NavController,
      public navParams: NavParams,
-     private modal: ModalController
+     private modal: ModalController,
+     public http: Http,
     ) {
+     
   }
 
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OndemandPage');
+  ngOnInit() {
+    this.liveDetail()
   }
-  // 跳转播放
-  // goToPlayerPage() {
-  //   let modal = this.modal.create('player', {
-  //     url: this.url
-  //   });
-  //   modal.present();
-  // }
+  //直播课程列表
+  liveDetail(){
+    const data={
+     id:this.navParams.data.id
+    }
+    this.http.post(`http://101.132.70.102/api/index.php/live/detail`,JSON.stringify(data))
+    .subscribe((res: Response) => {
+      console.log(res )
+    })
+  }
+
 }
