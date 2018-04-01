@@ -7,7 +7,9 @@ import { Response, Http } from "@angular/http";
   templateUrl: 'detail.html',
 })
 export class DetailPage {
-	url: string = 'rtmp://live.hkstv.hk.lxdns.com/live/hks';
+  url: string = 'rtmp://live.hkstv.hk.lxdns.com/live/hks';
+  public _liveDetail:any;
+  public 
   constructor(
     public navCtrl: NavController,
      public navParams: NavParams,
@@ -25,9 +27,9 @@ export class DetailPage {
     const data={
      id:this.navParams.data.id
     }
-    this.http.post(`http://101.132.70.102/api/index.php/live/detail`,JSON.stringify(data))
+    this.http.post(`http://101.132.70.102/api/index.php/live/detail`,data)
     .subscribe((res: Response) => {
-      console.log(res )
+      this._liveDetail = res.json().content;
     })
   }
 

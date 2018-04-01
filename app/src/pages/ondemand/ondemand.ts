@@ -7,7 +7,6 @@ import { Response, Http } from "@angular/http";
   templateUrl: 'ondemand.html',
 })
 export class OndemandPage {
-  // 科目
   public subjectindexData: any = []
   public subject: string = "1";
   public subjectNum: string = "1";
