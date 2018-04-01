@@ -39,7 +39,8 @@ export class VideorecordPage {
     this.appService.subjectindex().then(
       res => {
         if(res.code==200){
-          this.subjectindexData=res.content
+          this.subjectindexData=res.content;
+          this.Selected(this.subjectindexData[0].id);
           console.log(this.subjectindexData)
         }
 
@@ -150,6 +151,10 @@ export class VideorecordPage {
 
   onSelectChange(selectedValue: any) {
     console.log('Selected', selectedValue);
+  }
+  Selected(subject){
+    this.subject=subject;
+
   }
 
 }
