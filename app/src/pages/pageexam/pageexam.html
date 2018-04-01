@@ -59,26 +59,26 @@
                   <!--<div style="text-align: center;">-->
                   <span style="float: left;padding-top: 10px;"> {{currentIndex+1}}、</span>
 
-                  <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
+                  <div style="text-align: left;padding: 10px;" [innerHTML]="assembleHTML(listDetailData[i].titleBody)"></div>
 
                   <!--</div>-->
 
 
                    <br>
-                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='A'}"(click)="selectclick(i,'A')"><button>A</button><div [innerHTML]="listDetailData[i].A" class="selecdiv"></div></div>
-                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='B'}"(click)="selectclick(i,'B')"><button>B</button><div [innerHTML]="listDetailData[i].B" class="selecdiv"></div></div>
-                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='C'}"(click)="selectclick(i,'C')"><button>C</button><div [innerHTML]="listDetailData[i].C" class="selecdiv"></div></div>
-                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='D'}"(click)="selectclick(i,'D')"><button>D</button><div [innerHTML]="listDetailData[i].D" class="selecdiv"></div></div>
+                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='A'}"(click)="selectclick(i,'A')"><button>A</button><div [innerHTML]="assembleHTML(listDetailData[i].A)" class="selecdiv"></div></div>
+                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='B'}"(click)="selectclick(i,'B')"><button>B</button><div [innerHTML]="assembleHTML(listDetailData[i].B)" class="selecdiv"></div></div>
+                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='C'}"(click)="selectclick(i,'C')"><button>C</button><div [innerHTML]="assembleHTML(listDetailData[i].C)" class="selecdiv"></div></div>
+                   <div class="selekuang" [ngClass]="{'selectclass':listDetailData[i].useranswer=='D'}"(click)="selectclick(i,'D')"><button>D</button><div [innerHTML]="assembleHTML(listDetailData[i].D)" class="selecdiv"></div></div>
 
                    <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
                       <span>答案：</span>
                       <br>
-                    <span>{{listDetailData[i].answer}}</span>
+                      <div [innerHTML]="assembleHTML(listDetailData[i].answer)"></div>
                    </div>
                    <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
                       <span>解析：</span>
                       <br>
-                    <span>{{listDetailData[i].analysis}}</span>
+                      <div [innerHTML]="assembleHTML(listDetailData[i].analysis)"></div>
                    </div>
 
                   <br>
@@ -88,19 +88,19 @@
                                   <br>-->
                   <!--<div style="text-align: center;">-->
                   <span style="float: left; margin-top: 10px;"> {{currentIndex+1}}、</span>
-                  <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
+                  <div style="text-align: left;padding: 10px;" [innerHTML]="assembleHTML(listDetailData[i].titleBody)"></div>
                    <!--{{listDetailData[i].titleBody}}?-->
                    <br>
                    <ion-input style="border: solid 1px #aeaeae;height: 35px;border-radius: 10px;" color="danger" placeholder="请输入..." clearOnEdit="true" [(ngModel)]='listDetailData[i].useranswer' (ionInput)="tiankong()"></ion-input>
                    <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
                       <span>答案：</span>
                       <br>
-                    <span>{{listDetailData[i].answer}}</span>
+                      <div [innerHTML]="assembleHTML(listDetailData[i].answer)"></div>
                    </div>
                    <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
                       <span>解析：</span>
                       <br>
-                    <span>{{listDetailData[i].analysis}}</span>
+                      <div [innerHTML]="assembleHTML(listDetailData[i].analysis)"></div>
                    </div>
 
                 </div>
@@ -109,7 +109,7 @@
                                   <br>-->
                   <!--<div style="text-align: center;">-->
                                  <span style="float: left; margin-top: 10px;"> {{currentIndex+1}}、</span>
-                                 <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
+                                 <div style="text-align: left;padding: 10px;" [innerHTML]="assembleHTML(listDetailData[i].titleBody)"></div>
                                   <div style="margin: 10px;">
                                         <div class="selekuang panduan" [ngClass]="{'selectclass':listDetailData[i].useranswer=='1'}"(click)="selectclick(i,'1')">
                                         <ion-icon name="ios-checkmark-circle"></ion-icon>
@@ -123,12 +123,12 @@
                                   <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
                                       <span>答案：</span>
                                       <br>
-                                    <span>{{listDetailData[i].answer}}</span>
+                                      <div [innerHTML]="assembleHTML(listDetailData[i].answer)"></div>
                                    </div>
                                    <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
                                       <span>解析：</span>
                                       <br>
-                                    <span>{{listDetailData[i].analysis}}</span>
+                                      <div [innerHTML]="assembleHTML(listDetailData[i].analysis)"></div>
                                    </div>
 
                 </div>
@@ -137,19 +137,19 @@
                                   <br>-->
                   <!--<div style="text-align: center;">-->
                                   <span style="float: left;    padding: 10px;"> {{currentIndex+1}}、</span>
-                                  <div style="text-align: left;padding: 10px;" [innerHTML]="listDetailData[i].titleBody"></div>
+                                  <div style="text-align: left;padding: 10px;" [innerHTML]="assembleHTML(listDetailData[i].titleBody)"></div>
                    <!--{{listDetailData[i].titleBody}}?-->
                    <br>
                   <textarea placeholder="输入文本..." style="border-width: 0;height: 200px;border: solid 1px #aeaeae;border-radius: 10px;width: 100%;resize: none;" [(ngModel)]='listDetailData[i].useranswer'></textarea>
                   <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
                       <span>答案：</span>
                       <br>
-                    <span>{{listDetailData[i].answer}}</span>
+                      <div [innerHTML]="assembleHTML(listDetailData[i].answer)"></div>
                    </div>
                    <div style="text-align: left;margin-top: 15px;" *ngIf="listDetailData[i].showanswer">
                       <span>解析：</span>
                       <br>
-                    <span>{{listDetailData[i].analysis}}</span>
+                      <div [innerHTML]="assembleHTML(listDetailData[i].analysis)"></div>
                    </div>
 
 

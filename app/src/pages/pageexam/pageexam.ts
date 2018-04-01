@@ -9,6 +9,7 @@ import { File } from '@ionic-native/file';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 import { Media, MediaObject } from '@ionic-native/media';
+import { DomSanitizer } from '@angular/platform-browser';
 // import {ExerciseDetailPage} from "../contact/exercise/exercise-detail";
 // import { Camera, CameraOptions } from '@ionic-native/camera';
 /**
@@ -61,8 +62,11 @@ page:any=0;
 nolista:any=false
 cname:any;
 tagslid:boolean=false;
-constructor(private media: Media,private mediaCapture: MediaCapture,private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
+constructor(private sanitizer: DomSanitizer,private media: Media,private mediaCapture: MediaCapture,private imagePicker: ImagePicker,private transfer: FileTransfer, private file: File,public camera: Camera,public actionSheetCtrl: ActionSheetController,public cd: ChangeDetectorRef,public appComponent:MyApp,public navCtrl: NavController, public navParams: NavParams, private  http: Http) {
   this.voidint()
+}
+assembleHTML(strHTML:any) {
+  return this.sanitizer.bypassSecurityTrustHtml(strHTML);
 }
 ionViewWillEnter(){
   console.log("ionViewWillEnter=页面准备进来时触发=做题");
