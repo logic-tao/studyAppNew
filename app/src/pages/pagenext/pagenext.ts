@@ -132,8 +132,19 @@ itemSelectedchild(event,i,j){
   this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:this.listData[i].children[j].id,subjectstitle:this.subjectstitle});
   console.log(j)
 }
-itemSelectedserach(id){
-this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:id,subjectstitle:this.subjectstitle});
+itemSelectedserach(item){
+  // this.appComponent.pagenextarr={listData:this.listData,num:j,childnum:null}
+  // this.appComponent.pagenextarr={listData:this.listData,num:j,childnum:null}
+  if(item.type=='parent'){
+    this.appComponent.pagenextarr={listData:this.listData,num:item.i,childnum:null};
+    this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:item.id,subjectstitle:this.subjectstitle});
+  }
+  if(item.type=='children'){
+    this.appComponent.pagenextarr.childnum=item.j;
+    this.appComponent.pagenextarr.num=item.i;
+    this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:item.id,subjectstitle:this.subjectstitle});
+  }
+// this.app.getRootNav().push('PageexamPage',{type:this.navParams.data.type,id:item.id,subjectstitle:this.subjectstitle});
 }
 
   itemSelected(j){
@@ -184,9 +195,9 @@ changeVersion(){
          for (var i = 0; i < this.listData.length; i++) {
           this.listData[i].open=false;
           this.listData[i].arr=[3,4,5];
-          this.items.push({cname:this.listData[i].cname,id:this.listData[i].id})
+          this.items.push({cname:this.listData[i].cname,id:this.listData[i].id,i:i,type:'parent'})
           for (var j = 0; j < this.listData[i].children.length; j++) {
-            this.items.push({cname:this.listData[i].children[j].cname,id:this.listData[i].children[j].id})
+            this.items.push({cname:this.listData[i].children[j].cname,id:this.listData[i].children[j].id,i:i,j:j,type:'children'})
           }
         }
         this.copeyitems=this.deepCoyp(this.items)

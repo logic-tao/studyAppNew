@@ -29,15 +29,17 @@ export class PageexamPage {
   @ViewChild('ionSlides') slides;
   // @ViewChild(Slides) slides: Slides;
   listDetailData : any=[];
-mySwiper:any
-timer:any
-issubitbutton:any=false
-alltrimebgin:number=1800
-alltrime:number=1800
-datestr:any='555'
-m:number
-num:any
-s:number
+  showove:boolean=false
+mySwiper:any;
+timer:any;
+playsrc:string='assets/icon/bofang.png';
+issubitbutton:any=false;
+alltrimebgin:number=1800;
+alltrime:number=1800;
+datestr:any='555';
+m:number;
+num:any;
+s:number;
 selectNum:any
 yiwanc:any
 weiwanc:any
@@ -180,19 +182,19 @@ SlidingDirection(sdfs){
 
   }
   palay(i){
-    // this.appComponent.presentToast(this.listDetailData[this.currentIndex].voidlis[i].localURL); 
-    const file: MediaObject = this.media.create(this.listDetailData[this.currentIndex].voidlis[i].localURL);
-    
-    // to listen to plugin events:
-    
-    file.onStatusUpdate.subscribe(status => console.log(status)); // fires when file status changes
-    
-    file.onSuccess.subscribe(() => console.log('Action is successful'));
-    
-    file.onError.subscribe(error => console.log('Error!', error));
-    
-    // play the file
-    file.play();
+      const file: MediaObject = this.media.create(this.listDetailData[this.currentIndex].voidlis[i].localURL);  
+      this.appComponent.presentToast(this.listDetailData[this.currentIndex].voidlis[i].localURL); 
+      file.onStatusUpdate.subscribe(status => console.log(status)); // fires when file status changes
+      file.onSuccess.subscribe(() => console.log('Action is successful'));
+      file.onError.subscribe(error => console.log('Error!', error));
+    if(this.playsrc.indexOf("bofang") > 0 ){
+      file.play();
+      this.playsrc='assets/icon/zanting.png';
+    }else{
+      file.pause();
+      this.playsrc='assets/icon/bofang.png';
+    }
+
     }
     mypaly(){
       const file: MediaObject = this.media.create('my_file.m4a');
@@ -467,7 +469,8 @@ getpagedata(id){
                       // this.listDetailData = res.json();
                       var obj2=eval("("+res._body+")")
                       this.cname=obj2.cname
-                      this.listDetailData=obj2.data
+                      this.listDetailData=obj2.data;
+                      if(this.listDetailData.length==0){this.showove=true}
                       this.latenum=this.listDetailData.length-1
                       console.log(this.listDetailData)
                       for (var i = 0; i < this.listDetailData.length; i++) {
@@ -510,7 +513,8 @@ getpagetextdata(id){
           this.jiequ(this.page)
           // this.nolista=true;
         }else{
-          this.listDetailData=this.countlianxiARR
+          this.listDetailData=this.countlianxiARR;
+          if(this.listDetailData.length==0){this.showove=true}
           this.latenum=this.listDetailData.length-1
           for (var i = 0; i < this.listDetailData.length; i++) {
             // this.listDetailData[i].shoucang=false
@@ -533,6 +537,7 @@ if(slicedat.length<4){
 }else{
   this.page=this.page+1;
   this.listDetailData=slicedat;
+  if(this.listDetailData.length==0){this.showove=true}
   this.latenum=this.listDetailData.length-1
   this.nolista=true;
 }  

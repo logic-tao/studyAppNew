@@ -155,12 +155,12 @@
 
 
                   <img *ngIf="base64Image" src="{{base64Image}}">
-                  <img *ngIf="listDetailData[i].base64Image" style="    margin-bottom: -8rem;
+                  <img *ngIf="listDetailData[i].base64Image && !shoubagebool" style="    margin-bottom: -8rem;
                   width: 100px;
                   height: auto;" src="{{listDetailData[i].base64Image}}">
-                  <!-- <img  style="margin-bottom: -8rem;
+                  <!-- <img *ngIf="!shoubagebool"  style="margin-bottom: -8rem;
                   width: 100px;
-                  height: auto;" src="assets/icon/tupian.png"> -->
+                  height: auto;" src="assets/icon/tupian.png" (click)="shoubagebool=true"> -->
                 </div>
                 <!-- *ngFor="let items of voidlis;let j=index" -->
                 <!-- <div  (click)="palay(j)" *ngFor="let items of voidlis;let j=index" style="    background-color: #f8f8f8;
@@ -175,7 +175,7 @@
                 display: inline-block;">语音播放</div> -->
 
                 <div  [ngClass]="{'youtu':listDetailData[currentIndex].base64Image,'wutu':!listDetailData[currentIndex].base64Image}" style="width: 35px;">
-                  <img src="assets/icon/bofang.jpg" style="height: 35px;width: 35px;" (click)="palay(j)" *ngFor="let items of listDetailData[i].voidlis;let j=index">
+                  <img src="{{playsrc}}" style="height: 35px;width: 35px;" (click)="palay(j)" *ngFor="let items of [listDetailData[i].voidlis];let j=index">
                 </div>
 
                 <br>
@@ -237,7 +237,7 @@
 
 
             </ion-slides>
-            <p *ngIf="listDetailData.length==0">无数据</p>
+            <p *ngIf="showove">无数据</p>
 
             <!-- <button ion-button (cli剩余ck)="shuaxing()">
               沙墟
@@ -297,4 +297,7 @@
       </ion-col>
     </ion-row>
     </div>
+  </div>
+  <div class="shoubagpice" *ngIf="shoubagebool" (click)="shoubagebool=false">
+    <img src="{{listDetailData[i].base64Image}}">
   </div>
