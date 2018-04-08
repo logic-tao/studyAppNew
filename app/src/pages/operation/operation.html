@@ -299,9 +299,9 @@
         <div *ngIf="pointexamData[zuotinum].useranswer!=''">
             正确答案：{{pointexamData[zuotinum].answer}}
             <br/>
-            <div style="text-align: left;margin-left: 20px;">问题解析:</div>
+            <!-- <div style="text-align: left;margin-left: 20px;">问题解析:</div>
 
-            <div style="text-align: left;margin-left: 20px;" [innerHTML]="assembleHTML(pointexamData[zuotinum].analysis)"></div>
+            <div style="text-align: left;margin-left: 20px;" [innerHTML]="assembleHTML(pointexamData[zuotinum].analysis)"></div> -->
 
             <br/>
             <button ion-button *ngIf='pointexamDataendTag!=zuotinum' (click)="xiayiti()">下一题</button>
