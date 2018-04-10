@@ -654,10 +654,11 @@ onwebkitfullscreenerror(){
         if(this.countime!=3){this.countime+=1}
         console.log('=======countviodtime========');
         console.log(this.myVideo.nativeElement.currentTime);
-        console.log(this.shipingxiangqing.points[this.pointsCount].postime)
+        // console.log(this.shipingxiangqing.points[this.pointsCount].postime)
         console.log(this.countime)
         console.log(this.zuotinum)
-        if(parseInt(this.myVideo.nativeElement.currentTime)==this.shipingxiangqing.points[this.pointsCount].postime){
+        var postime = this.shipingxiangqing.points[this.pointsCount]?this.shipingxiangqing.points[this.pointsCount].postime:"";
+        if(parseInt(this.myVideo.nativeElement.currentTime)==postime){
           if(this.countime==3){
             this.stopViod(this.pointsCount)
             clearInterval(this.timer);
