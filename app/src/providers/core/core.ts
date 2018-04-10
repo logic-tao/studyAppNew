@@ -15,5 +15,5 @@ export class CoreProvider {
 
   }
 
-  public baseUrl: string = 'httP://47.100.203.126:81/index.php/demo/index/';
+  public baseUrl: string = 'http://47.100.203.126:81/index.php/demo/index/';
 }
