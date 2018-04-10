@@ -24,7 +24,27 @@
       <span>（选择题)</span><span [innerHtml]="test[test_number - 1].titleBody"></span><br>
       <br>
       <ion-list>
-        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'A') ? 'secondary':
+        <div class="selekuang" style="">
+          <button>A</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].A">
+          </div>
+        </div>
+        <div class="selekuang" style="">
+          <button>B</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].B">
+          </div>
+        </div>
+        <div class="selekuang" style="">
+          <button>C</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].C">
+          </div>
+        </div>
+        <div class="selekuang" style="">
+          <button>D</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].D">
+          </div>
+        </div>
+        <!--<button ion-button round small outline block [color]="(test[test_number - 1].answer == 'A') ? 'secondary':
         (test[test_number - 1].answer_record == 'A') ? 'danger':'light'">
           <span style="color: black">A.</span>
           <div style="color: black" [innerHtml]="test[test_number - 1].A"></div>
@@ -44,7 +64,7 @@
         (test[test_number - 1].answer_record == 'D') ? 'danger':'light'">
           <span style="color: black">D.</span>
           <div style="color: black" [innerHtml]="test[test_number - 1].D"></div>
-        </button>
+        </button>-->
       </ion-list>
     </label>
     <!--填空题-->
@@ -81,7 +101,7 @@
       正确答案: <span [innerHtml]="test[test_number - 1].answer"></span> <span item-right>你的答案:</span> <span item-right [innerHtml]="test[test_number - 1].answer_record"></span>
     </ion-item>
     <ion-item *ngIf="test">
-      解析:<div [innerHtml]="test[test_number - 1].answer"></div>
+      解析:<div [innerHtml]="test[test_number - 1].analysis"></div>
     </ion-item>
     <ion-item>
       <button ion-button item-right (click)="leftSubject()">上一题</button>
