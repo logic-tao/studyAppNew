@@ -273,7 +273,10 @@ indexplayvideourl(){
       res => {
         
         this.shipingshuju=res
-        this.countviodtime()
+        if(this.shipingxiangqing.points.length>0){
+          this.countviodtime()
+        }
+        
         console.log('indexplayvideourl')
         console.log(res)
       },
@@ -688,7 +691,10 @@ onwebkitfullscreenerror(){
             this.tapelessioncorrectrate()
           }
           
-          this.tapelessionpointexam(this.shipingxiangqing.points[0].id)
+          if(this.shipingxiangqing.points.length>0){
+            this.tapelessionpointexam(this.shipingxiangqing.points[0].id)
+          }
+          
         }
         
         console.log('tapelessiondetail')
