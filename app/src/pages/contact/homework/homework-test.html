@@ -14,7 +14,7 @@
 
 <ion-content padding>
 
-  <ion-item style="width: 100%">
+  <ion-item style="width: 100%;background-color: #f4f4f4">
     <label>{{cname}}</label> <label item-right>{{test_number}}/{{count}}</label>
   </ion-item>
 
@@ -25,7 +25,28 @@
       <span>（选择题)</span><span [innerHtml]="test[test_number - 1].titleBody"></span><br>
       <br>
       <ion-list>
-        <button ion-button round small outline block [color]="(localAnswer[test_number -1] == 'A' || selectCoA || toAnswer[test[test_number - 1].titleId] == 'A') ? 'secondary':'light'" (click)="choseanswer('A',test[test_number - 1].titleId)">
+
+        <div class="selekuang" style="">
+          <button>A</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].A">
+          </div>
+        </div>
+        <div class="selekuang" style="">
+          <button>B</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].B">
+          </div>
+        </div>
+        <div class="selekuang" style="">
+          <button>C</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].C">
+          </div>
+        </div>
+        <div class="selekuang" style="">
+          <button>D</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].D">
+          </div>
+        </div>
+        <!--<button ion-button round small outline block [color]="(localAnswer[test_number -1] == 'A' || selectCoA || toAnswer[test[test_number - 1].titleId] == 'A') ? 'secondary':'light'" (click)="choseanswer('A',test[test_number - 1].titleId)">
           <span style="color: black">A.</span>
           <div style="color: black" [innerHtml]="test[test_number - 1].A"></div>
         </button>
@@ -41,7 +62,7 @@
         <button ion-button round small outline block [color]="(localAnswer[test_number -1] == 'D'|| selectCoD || toAnswer[test[test_number - 1].titleId] == 'D') ? 'secondary':'light'" (click)="choseanswer('D',test[test_number - 1].titleId)">
           <span item-left style="color: black">D.</span>
           <span style="color: black" [innerHtml]="test[test_number - 1].D"></span>
-        </button>
+        </button>-->
       </ion-list>
     </label>
     <!--填空题-->

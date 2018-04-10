@@ -7,27 +7,48 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>我的班级 <button item-right (click)="add()"><ion-icon name="add" small></ion-icon></button></ion-title>
+    <ion-title>我的班级
+
+    <button ion-button small (click)="add()"><ion-icon name="add" ></ion-icon></button>
+    </ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<ion-content padding>
-  <div class="content has-header">
+<ion-content >
 
-    <ion-row>
-      <ion-col col-4>
+    <ion-row  style="background-color:  #59B8E7">
+      <ion-col col-4 class="coll2">
         <strong class="col-demo">班级名称</strong>
       </ion-col>
-      <ion-col col-4>
+      <ion-col col-4 class="coll2">
         <strong class="col-demo">班级编号</strong>
       </ion-col>
-      <ion-col col-4>
+      <ion-col col-4 class="coll2">
         <strong class="col-demo">授课教师</strong>
       </ion-col>
     </ion-row>
 
-    <div class="row" *ngFor="let item of listData">
+    <ion-row *ngFor="let item of listData" style="background-color:  #f4f4f4">
+      <ion-col col-4 class="coll">
+          {{item.name}}
+      </ion-col>
+
+      <ion-col col-4 class="coll">
+
+          {{item.cid}}
+
+      </ion-col>
+
+      <ion-col col-4 class="coll">
+
+          {{item.head}}
+
+      </ion-col>
+
+    </ion-row>
+
+    <!--<div class="row" *ngFor="let item of listData">
       <div class="col">
         <div class="col-demo" align="left">
           <li>{{item.name}}</li>
@@ -35,7 +56,7 @@
       </div>
       <div class="col">
         <div class="col-demo" align="left">
-          <li>{{item.id}}</li>
+          <li>{{item.cid}}</li>
         </div>
       </div>
       <div class="col" align="left">
@@ -43,7 +64,6 @@
           <li>{{item.head}}</li>
         </div>
       </div>
-    </div>
+    </div>-->
 
-  </div>
 </ion-content>

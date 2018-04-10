@@ -65,8 +65,8 @@ export class PersonPage {
           }
           if (res.json()[0]['birthday']!=undefined) {
             this.birthday = res.json()[0].birthday;
-            var date = new Date();
-            var year = date.getFullYear();
+            let date = new Date();
+            let year = date.getFullYear();
             this.age = year - parseInt(this.birthday.substring(0, 4));
             if (res.json()[0]['email']!=undefined) {
               this.email = res.json()[0].email;
@@ -81,7 +81,7 @@ export class PersonPage {
             }
           }
           this.mobile = this.appComponent.userinfo.mobile;
-          console.log(this.listData)
+          console.log(this.listData);
         }
       });
   }

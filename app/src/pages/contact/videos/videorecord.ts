@@ -31,8 +31,8 @@ export class VideorecordPage {
   //搜索框输入
   inpustring:any
   constructor(@Inject('appService') private appService,public app: App,public navCtrl: NavController, public navParams: NavParams,public appComponent:MyApp) {
-    this.getpageData()
-    this.subjectindex()
+    this.getpageData();
+    this.subjectindex();
   }
 
   subjectindex(){
@@ -85,38 +85,15 @@ export class VideorecordPage {
     )
   }
   getItems(ev: any) {
-    // Reset items back to all of the items
-    // this.initializeItems();
-    this.inpustring=ev.target.value
-    // this.searchlession(ev.target.value)
 
-    // // set val to the value of the searchbar
-    // let val = ev.target.value;
-    // this.inpustring=val
-    // // if the value is an empty string don't filter the items
-    // if (val && val.trim() != '') {
-    //   this.items = this.items.filter((item) => {
-    //     return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
-    //   })
-    // }
+    this.inpustring=ev.target.value
+
   }
   search(){
 
     this.app.getRootNav().push('VideosPage',{inpustring:this.inpustring,sid:this.subject});
   }
   swipeEvent(event){
-//   //向左滑
-// if(event.direction==2){
-//   if(this.segmentsArray.indexOf(this.segmentModel)<2){
-// this.segmentModel = this.segmentsArray[this.segmentsArray.indexOf(this.segmentModel)+1];
-//   }
-// }
-// //向右滑
-// if(event.direction==4){
-//   if(this.segmentsArray.indexOf(this.segmentModel)>0){
-// this.segmentModel = this.segmentsArray[this.segmentsArray.indexOf(this.segmentModel)-1];
-//   }
-// }
 
   }
   selecttab(i){

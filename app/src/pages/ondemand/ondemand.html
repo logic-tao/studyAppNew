@@ -24,7 +24,7 @@
     <ion-row>
       <ion-col col-6 *ngFor="let item of dataSet">
         <ion-card [navPush]="'DetailPage'" [navParams]="item">
-          <img [src]="item.image?item.image:'assets/icon/background-1.jpg'" />
+          <img  style="width:100%;height: 110px;" [src]="item.image?item.image:'assets/icon/background-1.jpg'" />
           <ion-card-content>
             <ion-card-title>
               {{item.title}}

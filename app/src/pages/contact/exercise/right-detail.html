@@ -24,7 +24,28 @@
       （选择题)<span [innerHtml]="test[test_number - 1].titleBody"></span><br>
       <br>
       <ion-list>
-        <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'A') ? 'secondary':
+        <!--[ngClass]="{'selectclass':listDetailData[i].useranswer=='A'}"-->
+        <div class="selekuang" style="">
+          <button>A</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].A">
+          </div>
+        </div>
+        <div class="selekuang" style="">
+          <button>B</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].B">
+          </div>
+        </div>
+        <div class="selekuang" style="">
+          <button>C</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].C">
+          </div>
+        </div>
+        <div class="selekuang" style="">
+          <button>D</button>
+          <div  class="selecdiv" [innerHtml]="test[test_number - 1].D">
+          </div>
+        </div>
+        <!--<button ion-button round small outline block [color]="(test[test_number - 1].answer == 'A') ? 'secondary':
         (test[test_number - 1].uanswer == 'A') ? 'danger':'light'">
           <span style="color: black">A.</span>
           <div style="color: black" [innerHtml]="test[test_number - 1].A"></div>
@@ -32,7 +53,7 @@
 
         <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'B') ? 'secondary':
         (test[test_number - 1].uanswer == 'B') ? 'danger':'light'">
-          <span style="color: black">.</span>
+          <span style="color: black">B.</span>
           <div style="color: black" [innerHtml]="test[test_number - 1].B"></div>
         </button>
         <button ion-button round small outline block [color]="(test[test_number - 1].answer == 'C') ? 'secondary':
@@ -44,9 +65,12 @@
         (test[test_number - 1].uanswer == 'D') ? 'danger':'light'">
           <span style="color: black">D.</span>
           <div style="color: black" [innerHtml]="test[test_number - 1].D"></div>
-        </button>
+        </button>-->
       </ion-list>
     </label>
+
+
+
     <!--填空题-->
     <label ion-text *ngIf="test[test_number - 1].type == 2">
       （填空题)<div [innerHtml]="test[test_number - 1].titleBody"></div><br>
@@ -75,6 +99,8 @@
   <br>
   <br>
   <br>
+
+
   <!--答案解析-->
   <ion-list no-lines>
     <ion-item *ngIf="test">

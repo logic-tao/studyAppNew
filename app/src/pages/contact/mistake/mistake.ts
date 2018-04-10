@@ -22,7 +22,7 @@ export class MistakePage {
   data:any;
   //错题数
   cuoti:any =0
-  subjectindexData:any=[]
+  subjectindexData:any=[];
 
 
   constructor(@Inject('appService') private appService,public navCtrl: NavController, public navParams: NavParams,public http: Http,public app:App) {
@@ -33,7 +33,7 @@ export class MistakePage {
     this.appService.subjectindex().then(
       res => {
         if(res.code==200){
-          this.subjectindexData=res.content
+          this.subjectindexData=res.content;
           console.log(this.subjectindexData)
         }
 
@@ -50,9 +50,9 @@ export class MistakePage {
 
     this.http.request('http://47.100.203.126:81/index.php/demo/index/request_wrong_count/?uid=' + this.user)
       .subscribe((res: Response) => {
-        for(var i = 0; i < this.subjectindexData.length; i++){
+        for(let i = 0; i < this.subjectindexData.length; i++){
           if(res.json()[this.subjectindexData[i].id]!= undefined) {
-            this.cuoti += res.json()[this.subjectindexData[i].id]
+            this.cuoti += res.json()[this.subjectindexData[i].id];
             this.subjectindexData[i].cuoti = res.json()[this.subjectindexData[i].id]
           }else {
             this.subjectindexData[i].cuoti = 0
